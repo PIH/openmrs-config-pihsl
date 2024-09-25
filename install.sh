@@ -7,10 +7,6 @@ usage () {
     echo -e "Example: ./install.sh mirebalais\n"
 }
 
-mvn_install() {
-  mvn clean install
-}
-
 if [ $# -eq 0 ]; then
     echo -e "Please provide the name of the server to install to as a command line argument.\n"
     usage
@@ -28,4 +24,4 @@ else
   echo "Unable to find PIH-EMR config, skipping building it"
 fi
 
-mvn clean compile -DserverId=$1
+mvn clean install -DserverId=$1
