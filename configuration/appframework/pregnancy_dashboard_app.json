@@ -205,11 +205,30 @@
     }
   },
   {
-    "id": "pregnancy.dashboard.currentEnrollment",
+    "id": "pregnancy.dashboard.patientLocation",
+    "icon": "icon-map-marker",
+    "label": "pihcore.patient.location",
+    "url": null,
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
         "order": 1,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/patientLocation"
+        }
+      }
+    ],
+    "config": null
+  },
+  {
+    "id": "pregnancy.dashboard.currentEnrollment",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
+        "order": 2,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -233,7 +252,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 2,
+        "order": 3,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -260,7 +279,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 3,
+        "order": 4,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -279,7 +298,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 4,
+        "order": 5,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
