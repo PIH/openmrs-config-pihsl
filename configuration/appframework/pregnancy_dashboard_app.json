@@ -291,6 +291,32 @@
     "config": {}
   },
   {
+    "id": "pregnancy.dashboard.riskFactors",
+    "icon": "fas fa-fw fa-exclamation-triangle",
+    "label": "pihcore.riskFactors",
+    "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
+        "order": 5,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/obsByEncounter"
+        }
+      }
+    ],
+    "config": {
+      "concepts": [
+        "${concept.pregnancyRiskFactors.uuid}",
+        "${concept.complicationsAtDelivery.uuid}"
+      ],
+      "visitUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview" ,
+      "duringCurrentEnrollmentInProgram": "${program.pregnancy.uuid}"
+    }
+  },
+  {
     "id": "pregnancy.dashboard.dispensedMeds",
     "icon": "fas fa-fw fa-pills",
     "label": "mirebalais.dispensing.title",
@@ -298,7 +324,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 5,
+        "order": 6,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
