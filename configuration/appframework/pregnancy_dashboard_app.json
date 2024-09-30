@@ -308,6 +308,10 @@
       }
     ],
     "config": {
+      "headers": [
+        "coreapps.date",
+        "pihcore.riskFactors"
+      ],
       "concepts": [
         "${concept.pregnancyRiskFactors.uuid}",
         "${concept.complicationsAtDelivery.uuid}"
