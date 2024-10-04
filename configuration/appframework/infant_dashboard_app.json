@@ -206,6 +206,38 @@
     }
   },
   {
+    "id": "pregnancy.dashboard.temperature",
+    "icon": "fas fa-fw fa-temperature-high",
+    "label": "mirebalais.vitals.temperature.title",
+    "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
+    "extensions": [
+      {
+        "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
+        "order": 6,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/obsByEncounter"
+        }
+      }
+    ],
+    "config": {
+      "headers": [
+        "coreapps.date",
+        "pihcore.temp"
+      ],
+      "concepts": [
+        "${concept.temperature.uuid}" 
+      ],
+      "showTime": true,
+      "minValue": "35.9",
+      "maxValue": "38",
+      "visitUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview" ,
+      "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
+    }
+  },
+  {
     "id": "infant.dashboard.attachments",
     "icon": "fas fa-fw fa-paperclip",
     "label": "pihcore.patientDocuments.label",
@@ -213,7 +245,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
-        "order": 6,
+        "order": 7,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
