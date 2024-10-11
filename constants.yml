@@ -67,6 +67,12 @@ concept:
     uuid: "86a2cf11-1ea5-4b8a-9e4b-08f4cdbe1346"
   freeTextComment:
     uuid: "161011AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  apgarAtOneMinute:
+    uuid: "6032b22c-e416-4c26-9962-ab061dc97ad8"
+  apgarAtFiveMinutes:
+    uuid: "159604AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  apgarAtTenMinutes:
+    uuid: "6e9bbae6-253d-4b9e-ad22-c552ba51f2eb"
 queue:
   triage:
     uuid: "3113f164-68f0-11ee-ab8d-0242ac120002"

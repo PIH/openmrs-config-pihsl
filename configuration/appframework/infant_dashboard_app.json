@@ -72,6 +72,64 @@
     }
   },
   {
+    "id": "infant.dashboard.apgar",
+    "icon": "fas fa-fw fa-child",
+    "label": "pihcore.apgar.scores",
+    "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
+    "extensions": [
+      {
+        "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
+        "order": 4,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/discreteValues",
+          "fragmentConfig": {
+            "fields": [
+              {
+                "label" : "pihcore.apgar.tenMinutes",
+                "concept": "${concept.apgarAtTenMinutes.uuid}",
+                "minValue": "7"
+              },
+              {
+                "label" : "pihcore.apgar.fiveMinutes",
+                "concept": "${concept.apgarAtFiveMinutes.uuid}",
+                "minValue": "7"
+              },
+              {
+                "label" : "pihcore.apgar.oneMinute",
+                "concept": "${concept.apgarAtOneMinute.uuid}",
+                "minValue": "7"
+              }
+            ],
+            "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
+          }
+        }
+      }
+    ],
+    "config": {
+      "fields": [
+        {
+          "label" : "pihcore.apgar.tenMinutes",
+          "concept": "${concept.apgarAtTenMinutes.uuid}",
+          "minValue": "7"
+        },
+        {
+          "label" : "pihcore.apgar.fiveMinutes",
+          "concept": "${concept.apgarAtFiveMinutes.uuid}",
+          "minValue": "7"
+        },
+        {
+          "label" : "pihcore.apgar.oneMinute",
+          "concept": "${concept.apgarAtOneMinute.uuid}",
+          "minValue": "7"
+        }
+      ],
+      "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
+    }
+  },
+  {
     "id": "infant.dashboard.weightGraph",
     "icon": "fas fa-fw fa-chart-bar",
     "label": "WEIGHT",
@@ -79,7 +137,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
-        "order": 4,
+        "order": 5,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
