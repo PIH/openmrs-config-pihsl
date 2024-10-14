@@ -736,7 +736,7 @@
                         <div>
                             <p class="date-one-line">
                                 <label>
-                                    <uimessage code="Birth date/time"/>
+                                    <uimessage code="Date/time of delivery"/>
                                 </label>
                                 <br/>
                                 <obs conceptId="PIH:15080" showTime="true" allowFutureTimes="true"/>
@@ -1021,7 +1021,7 @@
 
             <p class="side-by-side">
                 <label>
-                    <uimessage code="Birth attendant" />
+                    <uimessage code="HCW cadre" />
                 </label>
                 <obs id="birth-attendant" style="radio" conceptId="PIH:20118"
                      answerConceptIds="PIH:9719,PIH:20156,PIH:20157,PIH:20158,PIH:5622"
@@ -1034,14 +1034,14 @@
 
             <div id="other-ba">
                 <label>
-                    <uimessage code="if other, specify type of birth attendant"/>
+                    <uimessage code="if other, specify type of HCW cadre"/>
                 </label>
                 <obs conceptId="PIH:20119" style="text" />
                 <br/>
             </div>
 
             <p class="side-by-side">
-                <label>Perineal Tear</label>
+                <label>Perineal tear</label>
                 <obs conceptId="CIEL:165247" id="perineal tear" style="radio"
                      answerConceptIds="CIEL:165521,CIEL:165522,CIEL:165523,CIEL:165524"
                      answerLabels="1st degree,2nd degree,3rd degree,4th degree"/>
