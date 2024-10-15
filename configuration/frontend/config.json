@@ -359,8 +359,8 @@
     }
   },
   "@openmrs/esm-ward-app": {
-    "wardPatientCards": {
-      "obsElementDefinitions": [
+    "patientCardElements": {
+      "obs": [
         {
           "id": "gravida",
           "conceptUuid": "${concept.gravida.uuid}",
@@ -372,11 +372,18 @@
           "id": "admission-reason",
           "conceptUuid": "${concept.admissionReason.uuid}",
           "onlyWithinCurrentVisit": true,
-          "orderBy": "ascending",
-          "label": "REASON"
+          "orderBy": "descending",
+          "label": "REASON",
+          "limit": 1
         }
       ],
-      "addressElementDefinitions": [
+      "patientIdentifier": [
+        {
+          "id": "patient-identifier",
+          "showIdentifierLabel": false
+        }
+      ],
+      "patientAddress": [
         {
           "id": "patient-address",
           "fields": [
@@ -384,39 +391,45 @@
           ]
         }
       ],
-      "cardDefinitions": [
+      "coloredObsTags": [
         {
-          "id": "default",
-          "headerRowElements": [
-            "patient-age",
-            "patient-address",
-            "patient-identifier",
-            "admission-reason",
-            "time-since-admission"
-          ],
-          "footerRowElements": [
-            "time-on-ward", "gravida"
-          ],
-          "patientAddressElementFields": [
-            "countyDistrict"
-          ],
-          "appliedTo": []
+          "id": "pregnancy-complications",
+          "conceptUuid": "${concept.complicationsAtDelivery.uuid}",
+          "summaryLabel": "Pregnancy Complication(s)",
+          "tags": [
+            {
+              "color": "red",
+              "appliedToConceptSets": ["${concept.complicationsAtDelivery.uuid}"]
+            }
+          ]
+        }
+      ],
+      "admissionRequestNote": [
+        {
+          "id": "admission-request-note",
+          "conceptUuid": "${concept.clinicalImpressionComments.uuid}"
+        }
+      ],
+      "pendingItems": [
+        {
+          "id": "pending-items",
+          "orders": {
+            "orderTypes": [
+              {
+                "label": "Labs", 
+                "uuid": "${order.testOrder.uuid}"
+              }
+            ]
+          },
+          "showPendingItems": true
         }
       ]
-    }
-  },
-  "colored-obs-tags-card-row": {
-    "conceptUuid": "${concept.complicationsAtDelivery.uuid}",
-    "summaryLabel": "Pregancy Complication(s)",
-    "tags": [
+    },
+    "wards": [
       {
-        "color": "red",
-        "appliedToConceptSets": ["${concept.complicationsAtDelivery.uuid}"]
+        "id": "maternal-ward"
       }
     ]
-  },
-  "admission-request-note-card-row": {
-    "conceptUuid": "${concept.freeTextComment.uuid}"
   }
 }
 
