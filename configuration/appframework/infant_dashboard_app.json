@@ -1,10 +1,30 @@
 [
   {
-    "id": "infant.dashboard.visits",
+    "id": "infant.dashboard.indicator",
+    "icon": "fas fa-fw fa-child",
+    "label": "pihcore.newborn.indicators",
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
         "order": 1,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/newbornIndicators",
+          "fragmentConfig": {
+            "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "infant.dashboard.visits",
+    "extensions": [
+      {
+        "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
+        "order": 2,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -25,7 +45,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
-        "order": 2,
+        "order": 3,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -52,7 +72,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
-        "order": 3,
+        "order": 4,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -79,7 +99,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
-        "order": 4,
+        "order": 5,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -107,27 +127,7 @@
           }
         }
       }
-    ],
-    "config": {
-      "fields": [
-        {
-          "label" : "pihcore.apgar.tenMinutes",
-          "concept": "${concept.apgarAtTenMinutes.uuid}",
-          "minValue": "7"
-        },
-        {
-          "label" : "pihcore.apgar.fiveMinutes",
-          "concept": "${concept.apgarAtFiveMinutes.uuid}",
-          "minValue": "7"
-        },
-        {
-          "label" : "pihcore.apgar.oneMinute",
-          "concept": "${concept.apgarAtOneMinute.uuid}",
-          "minValue": "7"
-        }
-      ],
-      "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
-    }
+    ]
   },
   {
     "id": "infant.dashboard.weightGraph",
@@ -137,7 +137,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
-        "order": 5,
+        "order": 6,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {

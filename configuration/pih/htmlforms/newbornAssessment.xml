@@ -511,13 +511,26 @@
                     <obs conceptId="CIEL:161543" style="radio" answerConceptIds="CIEL:1065,CIEL:1066"/>
                 </p>
             </div>
-
-            <p>
-                <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                    <obs conceptId="PIH:DIAGNOSIS" style="checkbox"
-                         answerConceptId="CIEL:115491" answerCode="Twins or multiple"/>
-                </obsgroup>
-            </p>
+            <div class="two-columns">
+                <div>
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                            <obs id="multipleBabies" conceptId="PIH:DIAGNOSIS" style="checkbox"
+                                 answerConceptId="CIEL:115491" answerCode="Twins or multiple">
+                                 <controls>
+                                    <when value="CIEL:115491" thenDisplay="#baby-number"/>
+                                 </controls>
+                            </obs>
+                        </obsgroup>
+                    </p>
+                </div>
+                <div id="baby-number">
+                    <p class="date-one-line">
+                        <label><uimessage code="pihcore.baby.number"/></label>
+                        <span><obs conceptId="CIEL:163460"></obs></span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
