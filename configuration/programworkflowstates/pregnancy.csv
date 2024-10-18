@@ -1,4 +1,5 @@
 Uuid,Void/Retire,Workflow,State concept,Initial,Terminal
 ${programWorkflow.pregnancyProgramTypeOfTreatment.state.antenatal.uuid},,${programWorkflow.pregnancyProgramTypeOfTreatment.uuid},PIH:20487,true,
 ${programWorkflow.pregnancyProgramTypeOfTreatment.state.postpartum.uuid},,${programWorkflow.pregnancyProgramTypeOfTreatment.uuid},PIH:13137,true,
+${programWorkflow.pregnancyProgramTypeOfTreatment.state.miscarried.uuid},,${programWorkflow.pregnancyProgramTypeOfTreatment.uuid},PIH:1852,true,true
 ${programWorkflow.pregnancyProgramTypeOfTreatment.state.prenatalIndividual.uuid},true,${programWorkflow.pregnancyProgramTypeOfTreatment.uuid},PIH:11700,true,
