@@ -417,7 +417,7 @@
             "orderTypes": [
               {
                 "label": "Labs", 
-                "uuid": "${order.testOrder.uuid}"
+                "uuid": "${orderType.testOrder.uuid}"
               }
             ]
           },
