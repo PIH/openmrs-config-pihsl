@@ -118,4 +118,23 @@
                 and (pl.uuid = '0561303b-9868-4a1d-933d-fe52ce1b8c9f' or pl.uuid = '074b2ab0-716a-11eb-8aa6-0242ac110002' or pl.uuid = '067c83ad-6850-11ee-ab8d-0242ac120002');
         </sql>
     </changeSet>
+
+    <changeSet id="20241028-void-mch-patient-program" author="ball">
+        <comment>
+            SL-762 Void MCH program enrollment for KGH and Wellbody
+        </comment>
+        <sql>
+            update program p, patient_program pp
+            set pp.voided = 1, pp.date_voided = now(), pp.voided_by = 1, pp.void_reason ='Voided MCH program'
+            where p.uuid = '41a2715e-8a14-11e8-9a94-a6cf71072f73'
+              and pp.program_id = p.program_id
+              and pp.voided = 0;
+
+            update patient_program pp, patient_state ps
+            set ps.voided = 1, ps.date_voided = now(), ps.voided_by = 1, ps.void_reason ='Voided MCH program'
+            where pp.program_id IN (select p.program_id from program p where p.uuid ='41a2715e-8a14-11e8-9a94-a6cf71072f73')
+              and pp.patient_program_id = ps.patient_program_id;
+              and ps.voided = 0;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
