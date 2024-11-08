@@ -253,6 +253,7 @@ ON t.patient_id=o.person_id
 SET t.most_recent_hba1c_date= o.encounter_date;
 
 SELECT
+if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
 emr_id,
 hiv,
 comorbidities,
