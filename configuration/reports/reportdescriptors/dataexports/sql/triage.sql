@@ -305,6 +305,7 @@ set t.Referral_Destination = concept_name(o.value_coded,@locale);
 
 -- final output of data
 Select
+if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
 wellbody_emr_id,
 kgh_emr_id,
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',encounter_id),encounter_id) "encounter_id",
