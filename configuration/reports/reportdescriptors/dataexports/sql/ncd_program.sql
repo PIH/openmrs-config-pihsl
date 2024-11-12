@@ -1,5 +1,6 @@
 -- Last reviewed MS 8/1/2024
 
+set @partition = '${partitionNum}';
 SELECT program_id  INTO @ncd_program FROM program p WHERE uuid = '515796ec-bf3a-11e7-abc4-cec278b6b50a';
 select program_workflow_id into @ncdWorkflow from program_workflow where uuid = '51579bce-bf3a-11e7-abc4-cec278b6b50a';
 SET @locale='en';
@@ -33,7 +34,8 @@ inner join program p on pp.program_id = p.program_id
 where pp.voided = 0
 AND pp.program_id = @ncd_program;
 
-select emr_id,
+select concat(@partition,"-",patient_id)  patient_id,
+       emr_id,
        program_name,
        date_enrolled,
        date_completed,
