@@ -778,7 +778,7 @@
                                 <div>
                                     <p class="side-by-side">
                                         <label>
-                                            <uimessage code="Birth Weight"/>
+                                            <uimessage code="Birth weight"/>
                                         </label>
                                         <obs conceptId="CIEL:5916" showUnits="true"/>
                                     </p>
