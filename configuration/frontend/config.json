@@ -429,7 +429,8 @@
       {
         "id": "maternal-ward"
       }
-    ]
+    ],
+    "hideWorkspaceVitalsLinks": true
   }
 }
 
