@@ -15,7 +15,7 @@
 <htmlform id="newborn-admission"
           formUuid="9f84aa9d-b6a0-4c2b-be36-1a8f96d8bc79"
           htmlformUuid="8f1431f2-eb71-4518-9d85-8096aca932d4"
-          formName="Newborn Admission"
+          formName="Newborn Initial"
           formEncounterType="093b6ffc-e55a-461a-85cc-c6acf7714a23" formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
