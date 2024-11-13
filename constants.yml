@@ -10,6 +10,8 @@ patientIdentifierType:
     uuid: "eb201574-8abe-4393-9a8a-8d30a48a08ad"
 # Encounter Types
 encounterType:
+  sierraLeoneLaborDeliverySummary:
+    uuid: "fec2cc56-e35f-42e1-8ae3-017142c1ca59"
   sierraLeoneOutpatientInitial:
     uuid: "7d5853d4-67b7-4742-8492-fcf860690ed5"
   sierraLeoneOutpatientFollowup:
