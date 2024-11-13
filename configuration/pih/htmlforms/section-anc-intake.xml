@@ -13,7 +13,7 @@
   -->
 <htmlform id="section-anc-intake"
           formUuid="14eba91c-d7dc-11e8-9f8b-f2801f1b9fd1"
-          formName="Antenatal intake section"
+          formName="ANC First (Initial) section"
           formVersion="1.1">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
