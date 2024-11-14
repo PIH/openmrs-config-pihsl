@@ -2,7 +2,7 @@
   {
     "id": "infant.dashboard.indicator",
     "icon": "fas fa-fw fa-child",
-    "label": "pihcore.newborn.indicators",
+    "label": "pihcore.newbornIndicators.ucase",
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.firstColumnFragments",
@@ -40,7 +40,7 @@
   {
     "id": "infant.dashboard.newbornAssesmentEncounters",
     "icon": "fas fa-fw fa-user-md",
-    "label": "NEWBORN ASSESSMENT FORM",
+    "label": "NEWBORN ASSESSMENT",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
@@ -94,7 +94,7 @@
   {
     "id": "infant.dashboard.apgar",
     "icon": "fas fa-fw fa-child",
-    "label": "pihcore.apgar.scores",
+    "label": "APGAR SCORES",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
@@ -158,7 +158,7 @@
   {
     "id": "infant.dashboard.patientLocation",
     "icon": "icon-map-marker",
-    "label": "pihcore.patient.location",
+    "label": "pihcore.patientLocation.ucase",
     "url": null,
     "extensions": [
       {
@@ -266,7 +266,7 @@
   {
     "id": "pregnancy.dashboard.temperature",
     "icon": "fas fa-fw fa-temperature-high",
-    "label": "mirebalais.vitals.temperature.title",
+    "label": "pihcore.temperature.ucase",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {

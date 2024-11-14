@@ -20,7 +20,7 @@
   {
     "id": "pregnancy.dashboard.ancInitialEncounters",
     "icon": "fas fa-fw fa-user-md",
-    "label": "ANC INITIAL FORM",
+    "label": "ANC FIRST VISIT",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
@@ -47,7 +47,7 @@
   {
     "id": "pregnancy.dashboard.ancFollowupEncounters",
     "icon": "fas fa-fw fa-user-md",
-    "label": "ANC FOLLOWUP FORM",
+    "label": "ANC FOLLOWUP",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
@@ -207,7 +207,7 @@
   {
     "id": "pregnancy.dashboard.patientLocation",
     "icon": "icon-map-marker",
-    "label": "pihcore.patient.location",
+    "label": "pihcore.patientLocation.ucase",
     "url": null,
     "extensions": [
       {
@@ -293,7 +293,7 @@
   {
     "id": "pregnancy.dashboard.riskFactors",
     "icon": "fas fa-fw fa-exclamation-triangle",
-    "label": "pihcore.riskFactors",
+    "label": "pihcore.riskFactors.ucase",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
