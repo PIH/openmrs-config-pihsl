@@ -739,7 +739,7 @@
                                     <uimessage code="Date/time of delivery"/>
                                 </label>
                                 <br/>
-                                <obs conceptId="PIH:15080" showTime="true" allowFutureTimes="true"/>
+                                <obs conceptId="PIH:5599" showTime="true" allowFutureTimes="true"/>
                             </p>
                         </div>
 
