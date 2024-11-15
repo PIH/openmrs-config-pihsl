@@ -221,7 +221,7 @@
                 const laborAndDeliveryEncounterType = 'fec2cc56-e35f-42e1-8ae3-017142c1ca59';
                 const newbornDetailsConceptUuid='<lookup expression="fn.getConcept('CIEL:1585').uuid"/>';
                 const typeOfDeliveryConceptUuid='<lookup expression="fn.getConcept('PIH:11663').uuid"/>';
-                const birthDateTimeConceptUuid='<lookup expression="fn.getConcept('PIH:15080').uuid"/>';
+                const birthDateTimeConceptUuid='<lookup expression="fn.getConcept('PIH:5599').uuid"/>';
                 const cSectionDeliveryConceptUuid='<lookup expression="fn.getConcept('CIEL:155884').uuid"/>';
                 const contextPath = window.location.href.split('/')[3];
                 const apiBaseUrl =  "/" + contextPath + "/ws/rest/v1";
