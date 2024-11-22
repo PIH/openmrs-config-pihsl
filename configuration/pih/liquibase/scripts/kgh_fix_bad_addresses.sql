@@ -1,3 +1,5 @@
+-- This script is a one-time update to be run manually (not part of liquibase) for UHM-8278
+
 update person_address pa set country = 'Sierra Leone',county_district = 'Bombali',state_province = 'Makeni City',address1 = '',city_village = '' where country = 'Sierra Leone|Bombali|Makeni City';
 update person_address pa set country = 'Sierra Leone',county_district = 'Kono',state_province = 'Gbense',address1 = 'Moindekor Section',city_village = 'Koidu' where country = 'Sierra Leone|Kono|Gbense|Moindekor Section|Koidu|';
 update person_address pa set country = 'Sierra Leone',county_district = 'Kono',state_province = 'Nimikoro',address1 = 'Jaiama Section',city_village = 'Boya' where country = 'Sierra Leone|Kono|Nimikoro|Jaiama Section|Boya|';
