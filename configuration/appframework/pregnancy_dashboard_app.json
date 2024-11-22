@@ -1,10 +1,32 @@
 [
   {
-    "id": "pregnancy.dashboard.visits",
+    "id": "pregnancy.dashboard.indicators",
+    "icon": "fas fa-fw fa-female",
+    "label": "pihcore.pregnancyIndicators",
+    "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
         "order": 1,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/pregnancyIndicators"
+        }
+      }
+    ],
+    "config": {
+      "visitUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview" ,
+      "duringCurrentEnrollmentInProgram": "${program.pregnancy.uuid}"
+    }
+  },
+  {
+    "id": "pregnancy.dashboard.visits",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
+        "order": 2,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -25,7 +47,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 2,
+        "order": 3,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": "!some(activeProgramStates, function(s) { return s.stateUuid === '${programWorkflow.pregnancyProgramTypeOfTreatment.state.postpartum.uuid}'; })",
         "extensionParams": {
@@ -52,7 +74,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 3,
+        "order": 4,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": "!some(activeProgramStates, function(s) { return s.stateUuid === '${programWorkflow.pregnancyProgramTypeOfTreatment.state.postpartum.uuid}'; })",
         "extensionParams": {
@@ -79,7 +101,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 4,
+        "order": 5,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -105,7 +127,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 5,
+        "order": 6,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
