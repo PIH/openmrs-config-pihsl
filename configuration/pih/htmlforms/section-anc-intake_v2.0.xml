@@ -12,9 +12,9 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 <htmlform id="section-anc-intake"
-          formUuid="640f90e5-3cf4-4316-9598-00910da0d8fe"
+          formUuid="14eba91c-d7dc-11e8-9f8b-f2801f1b9fd1"
           formName="ANC First (Initial) section"
-          formVersion="3.0">
+          formVersion="2.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
 
@@ -536,6 +536,15 @@
                     </span>
                 </p>
             </div>
+
+            <p>
+                <label>
+                    <uimessage code="pihcore.consult.returnVisitDate" />
+                </label>
+                <span class="small">
+                    <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="true" />
+                </span>
+            </p>
         </div>
     </section>
 
@@ -711,50 +720,42 @@
              headerStyle="title" headerCode="Lab and Treatment">
         <div class="section-container side-button">
 
-            <p class="list-inline">
-                <label>
-                    <uimessage code="pihcore.lab.blood_type"/>
-                </label>
-                <obs id="blood-type" style="radio"
-                     conceptId="PIH:BLOOD TYPING"/>
-            </p>
+            <includeIf velocityTest="$encounter.encounterType.uuid == '00e5e810-90ec-11e8-9eb6-529269fb1459'" >
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="pihcore.lab.blood_type"/>
+                    </label>
+                    <obs id="blood-type" style="radio"
+                         conceptId="PIH:BLOOD TYPING"/>
+                </p>
 
-            <!-- ToDo: If the other format of Blood type is preferred (blood type cell group and Rh
-            <span class="side-by-side">
-                <label for="blood-type-group">
-                    <uimessage code="pihcore.lab.bloodTypeGroup" />:
-                </label>
-                <obs id="blood-type-group" style="radio"
-                     conceptId="CIEL:163126"
-                     answerConceptIds="CIEL:163115,CIEL:163116,CIEL:163117,CIEL:163118"
-                     answerCodes="A,B,AB,O"/>
-            </span>
-            <br/>
+                <!-- ToDo: If the other format of Blood type is preferred (blood type cell group and Rh
+                <span class="side-by-side">
+                    <label for="blood-type-group">
+                        <uimessage code="pihcore.lab.bloodTypeGroup" />:
+                    </label>
+                    <obs id="blood-type-group" style="radio"
+                         conceptId="CIEL:163126"
+                         answerConceptIds="CIEL:163115,CIEL:163116,CIEL:163117,CIEL:163118"
+                         answerCodes="A,B,AB,O"/>
+                </span>
+                <br/>
 
-            <span class="side-by-side">
-                <label for="blood-rh">
-                    <uimessage code="pihcore.lab.bloodRh" />:
-                </label>
-                <obs id="blood-rh" style="radio"
-                     conceptId="CIEL:160232"
-                     answerConceptIds="CIEL:703,CIEL:664" />
-            </span>
-            -->
-
-
-            <p class="list-inline">
-                <label>
-                    <uimessage code="pihcore.lab.malariaRDT"/>
-                </label>
-                <obs id="malariaRDT" style="radio"
-                     conceptId="CIEL:1643"
-                     answerConceptIds="CIEL:703,CIEL:664"/>
-            </p>
+                <span class="side-by-side">
+                    <label for="blood-rh">
+                        <uimessage code="pihcore.lab.bloodRh" />:
+                    </label>
+                    <obs id="blood-rh" style="radio"
+                         conceptId="CIEL:160232"
+                         answerConceptIds="CIEL:703,CIEL:664" />
+                </span>
+                -->
+            </includeIf>
 
             <!-- Urine dipstick -->
             <repeat>
                 <template>
-                    <p class="list-inline">
+                    <p class="side-by-side">
                         <label for="urine-{message}">
                             <uimessage code="Urine {message}"/>
                         </label>
@@ -787,17 +788,39 @@
                      answerCodes="yes,no"/>
             </p>
 
-            <p class="list-inline-wide">
-                <label>
-                    <uimessage code="Nutrition counselling"/>
-                </label>
-                <obs conceptId="CIEL:1380" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="yes,no" />
-            </p>
+            <includeIf velocityTest="$encounter.encounterType.uuid == '00e5e810-90ec-11e8-9eb6-529269fb1459' || $encounter.encounterType.uuid == '00e5e946-90ec-11e8-9eb6-529269fb1459'" >
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Nutrition counselling"/>
+                    </label>
+                    <obs conceptId="CIEL:1380" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no" />
+                </p>
+            </includeIf>
 
             <p>
                 <obs conceptId="PIH:6760" style="textarea" labelText="Other complaints" />
+            </p>
+
+            <!-- HIV test -->
+            <p class="list-inline-wide">
+                <label>
+                    <uimessage code="pihcore.hiv.counselledTested"/>
+                </label>
+                <obs conceptId="CIEL:164401" style="radio"
+                     answerConceptIds="CIEL:1065,CIEL:1066"
+                     answerCodes="yes,no"/>
+            </p>
+
+            <p class="list-inline-wide">
+                <label for="bednet">
+                    <uimessage code="ITN (insecticide-treated bed net)"/>
+                </label>
+                <obs id="bednet" style="radio"
+                     conceptId="CIEL:159855"
+                     answerConceptIds="CIEL:1065,CIEL:1066"
+                     answerCodes="yes,no"/>
             </p>
         </div>
     </section>
@@ -894,199 +917,9 @@
         </div>
     </section>
 
-    <style type="text/css">
-
-        <!-- Hide the label for the drug field in view mode -->
-        .orderwidget-history-section .order-field-label.order-drug {
-        display:none;
-        }
-        <!-- Add a colon after the Dose label in view mode -->
-        .orderwidget-history-section .order-field-label.order-dose:after {
-        content: ": ";
-        white-space: pre;
-        }
-
-        .order-field {
-        display: inline-block;
-        padding: 0px;
-        }
-        .order-field.action {
-        display: block;
-        }
-        .order-field.dateActivated {
-        padding-right: 20px;
-        }
-        .order-field-label {
-        display: inline-block;
-        padding-right: 5px;
-        vertical-align: middle;
-        }
-        .order-field-label:after {
-        content: "";
-        white-space: pre;
-        }
-        .order-field-widget {
-        display: inline-block;
-        }
-
-    </style>
-    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="pihcore.visitNote.orders.medications">
-        <div class="section-container">
-            <drugOrder format="select" selectLabel="pihcore.drugOrder.addAnotherDrug">
-                <orderTemplate>
-                    <orderProperty name="action" label="pihcore.action">
-                        <option value="NEW" label="pihcore.new"/>
-                        <option value="REVISE" label="pihcore.revise"/>
-                        <option value="RENEW" label="pihcore.renew"/>
-                        <option value="DISCONTINUE" label="pihcore.discontinue"/>
-                    </orderProperty>
-
-                    <div style="padding:0px;font-weight:bold;">
-                        <orderProperty name="drug" label="pihcore.visitNote.plan.medication" style="autocomplete"/>
-                    </div>
-
-                    <div style="padding:0px;font-weight:bold;">
-                        <orderProperty name="dose" label="pihcore.visitNote.plan.dose"/>
-                        <orderProperty name="doseUnits" value="1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" label=" "/>
-                        <orderProperty name="frequency" label=" "/>
-                        <orderProperty name="route" value="CIEL:160240" label=" ">
-                            <option value="CIEL:160240" /> <!-- Oral -->
-                            <option value="CIEL:160242" label="IV" /> <!-- IV  -->
-                            <option value="CIEL:160243" label="IM" /> <!-- IM -->
-                            <option value="CIEL:160245" /> <!-- Subcutaneous -->
-                            <option value="CIEL:162797" /> <!-- Topical -->
-                            <option value="CIEL:165519" /> <!-- Sublingual -->
-                            <option value="CIEL:162390" label="Optical" /> <!-- Optical -->
-                            <option value="CIEL:162387" label="Ear(s)" /> <!-- Ear(s)   -->
-                            <option value="CIEL:160241" /> <!-- Inhalation -->
-                            <option value="CIEL:165520" /> <!-- Intra-articular -->
-                            <option value="CIEL:162393" label="Intra-rectal" /> <!-- Rectal -->
-                            <option value="CIEL:162392" label="Intra-vaginal" /> <!-- Vaginal -->
-                        </orderProperty>
-                    </div>
-                    <div style="padding:0px;">
-                        <orderProperty name="dateActivated" label="pihcore.starting"/>
-                        <orderProperty name="duration" label="pihcore.visitNote.for"/>
-                        <orderProperty name="durationUnits" label=" "/>
-                    </div>
-                    <div style="padding:0px;">
-                        <orderProperty name="quantity" label="pihcore.quantity"/>
-                        <orderProperty name="quantityUnits" value="1513AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" label=" "/>
-                        <orderProperty name="numRefills" value="0" label="pihcore.refills"/>
-                    </div>
-                    <div style="display:none;">
-                        <orderProperty name="urgency" value="ROUTINE"/>
-                        <orderProperty name="dosingType" value="org.openmrs.SimpleDosingInstructions"/>
-                        <orderProperty name="previousOrder"/>
-                        <orderProperty name="careSetting" value="OUTPATIENT"/>
-                    </div>
-                    <orderProperty name="discontinueReason" label="pihcore.discontinueReason">
-                        <option value="CIEL:843"/>
-                        <option value="CIEL:102"/>
-                        <option value="CIEL:127750"/>
-                        <option value="CIEL:1754"/>
-                        <option value="CIEL:162853"/>
-                        <option value="CIEL:1434"/>
-                        <option value="CIEL:987"/>
-                        <option value="CIEL:1253"/>
-                        <option value="CIEL:1067"/>
-                        <option value="CIEL:5622"/>
-                    </orderProperty>
-                </orderTemplate>
-            </drugOrder>
-
-            <p>
-                <label>
-                    <b>
-                        <uimessage code="pihcore.remarks"/>
-                    </b>
-                </label>
-                <obs conceptId="PIH:10637" cols="50" rows="5" />
-            </p>
-        </div>
-    </section>
-
-    <section id="prevention" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Prevention Measures">
-        <div class="section-container">
-
-            <repeat>
-                <template>
-                    <p class="list-inline-wide">
-                        <label>
-                            <uimessage code="{words}"/>
-                        </label>
-                        <obs id="{hint}" style="radio"
-                             conceptId="CIEL:{cId}"
-                             answerConceptIds="CIEL:1065,CIEL:1066"
-                             answerCodes="yes,no"/>
-                    </p>
-                </template>
-                <render cId="159855" words="LLIN (Long-lasting insecticide net)" hint="bednet"/>
-                <render cId="159922" words="Albendazole (deworming)" hint="deworm"/>
-                <render cId="1382"   words="Family planning counselling" hint="fp-counsel"/>
-            </repeat>
-
-        </div>
-    </section>
-
-    <section id="counselling" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Counselling">
-        <div class="section-container">
-            <p class="list-inline-wide">
-                <label>
-                    <uimessage code="Counselled for HIV testing"/>
-                </label>
-                <obs conceptId="PIH:11381" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
-                     answerCodes="yes,no,unknown"
-                     answerSeparator=" " />
-            </p>
-
-            <!-- ToDo:  Remove duplicate HIV test and migrate data to PIH:11381
-            <p class="list-inline-wide">
-                <label>
-                    <i>
-                        <uimessage code="pihcore.hiv.counselledTested"/>
-                    </i>
-                </label>
-                <obs conceptId="CIEL:164401" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="yes,no"/>
-            </p>  -->
-
-            <p class="list-inline-wide">
-                <label>
-                    <uimessage code="Counselled for danger signs"/>
-                </label>
-                <obs conceptId="CIEL:161050" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="yes,no"/>
-            </p>
-        </div>
-    </section>
-
-
-    <section id="return" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Return visit">
-        <div class="section-container">
-            <p>
-                <label>
-                    <uimessage code="pihcore.consult.returnVisitDate"/>
-                </label>
-                <span class="small">
-                    <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="true"/>
-                </span>
-            </p>
-        </div>
-    </section>
-
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
-            <!-- ToDo:  Fix to drop into the vaccination section
             <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
-            -->
             <button id="submit" class="submitButton confirm right"><uimessage code="mirebalais.save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
             <button id="cancel" type="button" class="cancel"><uimessage code="emr.cancel"/></button>
         </div>
