@@ -868,7 +868,9 @@
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
-            <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
+            <!-- ToDo:  Fix to drop into the vaccination section
+                <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
+            -->
             <button id="submit" class="submitButton confirm right"><uimessage code="mirebalais.save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
             <button id="cancel" type="button" class="cancel"><uimessage code="emr.cancel"/></button>
         </div>
