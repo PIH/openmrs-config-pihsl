@@ -137,4 +137,97 @@
               and ps.voided = 0;
         </sql>
     </changeSet>
+
+    <changeSet id="20241126-migrate-duplicate-hiv-ct" author="ball">
+        <preConditions onFail="MARK_RAN">
+            <not><sqlCheck expectedResult="0">
+                select count(*)
+                  from obs o
+                 where o.concept_id = concept_from_mapping('CIEL','164401')
+                   and o.voided = 0
+                   and o.encounter_id IN
+                        (select e.encounter_id from encounter e
+                          where e.encounter_type IN
+                                  (select et.encounter_type_id from encounter_type et
+                                    where et.name like 'ANC%'));
+            </sqlCheck></not>
+        </preConditions>
+        <comment>SL-815</comment>
+        <sql>
+            -- drop temp table
+            drop temporary table if exists temp_dupe_hiv_obs;
+
+            -- Create temporary table with obs to void and (possibly) migrate
+			create temporary table temp_dupe_hiv_obs
+            select
+                obs_id as obs_id_164401,
+                encounter_id,
+                value_coded as value_coded_164401,
+                'CIEL:164401' as comment
+            from obs o
+            where o.concept_id = concept_from_mapping('CIEL','164401')
+              and o.voided = 0
+              and o.encounter_id IN
+                  (select e.encounter_id from encounter e
+                   where e.encounter_type IN
+                         (select et.encounter_type_id from encounter_type et
+                          where et.name like 'ANC%'))
+            ;
+
+            -- Check if there are 2 HIV counseling obs for the same encounter
+            -- If there is, ignore the PIH:11381 obs
+            update temp_dupe_hiv_obs
+            set comment = 'ignore'
+            where encounter_id IN
+                  (select o.encounter_id from obs o
+                   where o.concept_id = concept_from_mapping('PIH','11381')
+                     and o.voided = 0);
+
+            -- void duplicate hiv counseling obs
+            update obs o
+                inner join temp_dupe_hiv_obs t on t.obs_id_164401 = o.obs_id
+                set voided = 1,
+                    voided_by = 1,
+                    date_voided = now(),
+                    void_reason = 'duplicate or migrated to PIH:11381';
+
+            -- Delete from temp table if both hiv questions have data
+            delete from temp_dupe_hiv_obs
+             where comment like 'ignore';
+
+            -- insert/migrate CIEL:164401 -> PIH:11381 if it doesn't exist
+            insert into obs
+                (person_id,
+                 concept_id,
+                 value_coded,
+                 encounter_id,
+                 obs_datetime,
+                 location_id,
+                 obs_group_id,
+                 creator,
+                 date_created,
+                 voided,
+                 uuid,
+                 status,
+                 previous_version
+                )
+            select
+                o.person_id,
+                concept_from_mapping('PIH','11381'),
+                t.value_coded_164401,
+                t.encounter_id,
+                o.obs_datetime,
+                o.location_id,
+                o.obs_group_id,
+                o.creator,
+                o.date_created,
+                0,
+                uuid(),
+                o.status,
+                t.obs_id_164401
+            from obs o
+                     inner join temp_hiv_dupe_obs t on t.obs_id_164401 = o.obs_id;
+
+        </sql>
+    </changeSet>
 </databaseChangeLog>
