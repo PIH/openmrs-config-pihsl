@@ -1044,18 +1044,6 @@
                      answerSeparator=" " />
             </p>
 
-            <!-- ToDo:  Remove duplicate HIV test and migrate data to PIH:11381
-            <p class="list-inline-wide">
-                <label>
-                    <i>
-                        <uimessage code="pihcore.hiv.counselledTested"/>
-                    </i>
-                </label>
-                <obs conceptId="CIEL:164401" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="yes,no"/>
-            </p>  -->
-
             <p class="list-inline-wide">
                 <label>
                     <uimessage code="Counselled for danger signs"/>
