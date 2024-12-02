@@ -226,7 +226,7 @@
                 o.status,
                 t.obs_id_164401
             from obs o
-                     inner join temp_hiv_dupe_obs t on t.obs_id_164401 = o.obs_id;
+                     inner join temp_dupe_hiv_obs t on t.obs_id_164401 = o.obs_id;
 
         </sql>
     </changeSet>
