@@ -182,6 +182,14 @@
                 const msgWeeks = '<uimessage code="pihcore.weeks"/>';
                 if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0)) {
                     const lastPeriodDate = new Date(lastLMP);
+                    let yearMonthDay = lastLMP.split('-');
+                    if (yearMonthDay.length == 3) {
+                        lastPeriodDate.setFullYear(yearMonthDay[0]);
+                        lastPeriodDate.setMonth(+yearMonthDay[1] -1); // the month starts from 0 for January
+                        lastPeriodDate.setDate(yearMonthDay[2]);
+                        lastPeriodDate.setHours(0, 0, 0);
+                    }
+
                     const gestAgeText = calculateGestationalDays(lastPeriodDate, currentEncounterDate, msgWeeks);
                     jq("#calculated-gestational-age-value").text(gestAgeText);
                     const edd = calculateExpectedDeliveryDate(lastPeriodDate);
