@@ -4,5 +4,16 @@ set @pregnancyProgramId = mostRecentPatientProgramId(@patientId,@pregnancyProgra
 set @pregnancyProgramStartDate = programStartDate(@pregnancyProgramId);
 set @latestDeliveryEncounterId = latestEnc(@patientId, @deliveryEncounterType, @pregnancyProgramStartDate);
 set @deliveryDateTime = obs_value_datetime(@latestDeliveryEncounterId,'PIH','5599');
+
+select count(*) into @numberBabies 
+from obs o 
+where o.encounter_id = @latestDeliveryEncounterId
+and o.voided = 0
+and o.concept_id = concept_from_mapping('PIH','13561') -- birth outcome
+and o.value_coded = concept_from_mapping('PIH','12897'); -- live birth
+select @numberBabies as numberBabies;
+
 select date(@deliveryDateTime) as deliveryDate,
-	if(@deliveryDateTime is null,0,1) as wereThereDeliveries;
+	time(@deliveryDateTime) as deliveryTime,
+	if(@deliveryDateTime is null,0,1) as wereThereDeliveries,
+	@numberBabies as numberBabies;  
