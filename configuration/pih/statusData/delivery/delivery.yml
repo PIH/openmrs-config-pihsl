@@ -1,0 +1,43 @@
+# These status data definitions are what define the Delivery widget on the Pregnancy Program Dashboard
+
+- id: "deliveryDate"
+  labelCode: "Delivery Date"
+  statusDataQuery: "deliveryDate.sql"
+  valueExpression: "#if($wereThereDeliveries == 0)none#{else}$deliveryDate #end"
+  formatExpression: ""
+
+- id: "deliveryType"
+  labelCode: "Delivery Type"
+  statusDataQuery: "deliveryType.sql"
+  valueExpression: "#if($wereThereDeliveries == 0)none#{else}$deliveryType #end"
+  formatExpression: ""
+
+- id: "numberBabies"
+  labelCode: "Number of Babies"
+  statusDataQuery: "$numberBabies.sql"
+  valueExpression: "$numberBabies"
+  formatExpression: ""
+
+- id: "numberBabies"
+  labelCode: "Number of Babies"
+  statusDataQuery: "$numberBabies.sql"
+  valueExpression: "$numberBabies"
+  formatExpression: ""
+
+- id: "baby1Identifier"
+  labelCode: ""
+  statusDataQuery: "baby1Identifier.sql"
+  valueExpression: "baby1Identifier"
+  formatExpression: ""
+
+- id: "baby2Identifier"
+  labelCode: ""
+  statusDataQuery: "baby2Identifier.sql"
+  valueExpression: "baby2Identifier"
+  formatExpression: ""
+
+- id: "baby2Identifier"
+  labelCode: ""
+  statusDataQuery: "baby2Identifier.sql"
+  valueExpression: "baby2Identifier"
+  formatExpression: ""
