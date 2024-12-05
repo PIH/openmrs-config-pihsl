@@ -1,4 +1,4 @@
-
+/* NOTE THIS FILE IS NOT USED. THE YML CONFIG FILE THAT REFERS TO THIS HAS BEEN REMOVED */
 SELECT encounter_type_id  INTO @mch_reg_enc_type FROM encounter_type et WHERE uuid='9cc89b83-e32f-410a-947d-aeb3bda37571';
 
 DROP TABLE IF EXISTS mch_maternity_delivery_register;
