@@ -1,7 +1,7 @@
-key: "MaternityForm"
+key: "DeliveryForm"
 uuid: "ae788c97-4a5d-4d5e-ac0d-d18f8865de33"
-name: "Maternity Form"
-description: "MaternityForm"
+name: "Delivery Form"
+description: "DeliveryForm"
 parameters:
   - key: "startDate"
     type: "java.util.Date"
@@ -10,9 +10,9 @@ parameters:
     type: "java.util.Date"
     label: "reporting.parameter.endDate"
 datasets:
-  - key: "MaternityForm"
+  - key: "DeliveryForm"
     type: "sql"
-    config: "sql/mch_maternity_form.sql"
+    config: "sql/delivery_form.sql"
 designs:
   - type: "csv"
     properties:
