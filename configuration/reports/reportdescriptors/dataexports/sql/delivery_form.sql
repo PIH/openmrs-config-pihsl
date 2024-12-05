@@ -288,5 +288,5 @@ maternal_disposition,
 hcw_delivery,
 hcw_type
 FROM mch_maternity_form t
-INNER JOIN pac_type_values p
+LEFT OUTER JOIN pac_type_values p
 ON t.encounter_id =p.encounter_id;

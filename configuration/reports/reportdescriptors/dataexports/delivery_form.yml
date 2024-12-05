@@ -1,7 +1,7 @@
-key: "MaternityDeliveryRegister"
-uuid: "35bc3d5a-c6e8-410d-a92c-640dc5a2be3d"
-name: "Maternity Delivery Register"
-description: "MaternityDeliveryRegister"
+key: "DeliveryForm"
+uuid: "ae788c97-4a5d-4d5e-ac0d-d18f8865de33"
+name: "Delivery Form"
+description: "DeliveryForm"
 parameters:
   - key: "startDate"
     type: "java.util.Date"
@@ -10,9 +10,9 @@ parameters:
     type: "java.util.Date"
     label: "reporting.parameter.endDate"
 datasets:
-  - key: "MaternityDeliveryRegister"
+  - key: "DeliveryForm"
     type: "sql"
-    config: "sql/mch_maternity_delivery_register.sql"
+    config: "sql/delivery_form.sql"
 designs:
   - type: "csv"
     properties:
