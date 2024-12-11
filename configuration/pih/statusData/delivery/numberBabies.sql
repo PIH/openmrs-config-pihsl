@@ -10,4 +10,5 @@ where o.encounter_id = @latestDeliveryEncounterId
 and o.voided = 0
 and o.concept_id = concept_from_mapping('PIH','13561') -- birth outcome
 and o.value_coded = concept_from_mapping('PIH','12897'); -- live birth
-select @numberBabies as numberBabies;
+select @numberBabies as numberBabies,
+	if(@numberBabies is null,0,1) as babiesExist;
