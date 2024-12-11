@@ -4,5 +4,4 @@ set @pregnancyProgramId = mostRecentPatientProgramId(@patientId,@pregnancyProgra
 set @pregnancyProgramStartDate = programStartDate(@pregnancyProgramId);
 set @latestDeliveryEncounterId = latestEnc(@patientId, @deliveryEncounterType, @pregnancyProgramStartDate);
 set @deliveryType = obs_value_coded_list(@latestDeliveryEncounterId,'PIH','11663','en');
-select @deliveryType as deliveryType,
-	if(@deliveryType is null,0,1) as wereThereDeliveries; 
+select @deliveryType as deliveryType;
