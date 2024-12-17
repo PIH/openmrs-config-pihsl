@@ -12,7 +12,7 @@ and o.voided = 0
 and o.concept_id = concept_from_mapping('PIH','13561') -- birth outcome
 and o.value_coded = concept_from_mapping('PIH','12897'); -- live birth
 
-select date(@deliveryDateTime) as deliveryDate,
-	time(@deliveryDateTime) as deliveryTime,
+select DATE_FORMAT(date(@deliveryDateTime), '%e %b %Y') as deliveryDate,
+	TIME_FORMAT(time(@deliveryDateTime), '%h:%i %p' ) as deliveryTime,
 	if(@deliveryDateTime is null,0,1) as wereThereDeliveries,
 	@numberBabies as numberBabies;  

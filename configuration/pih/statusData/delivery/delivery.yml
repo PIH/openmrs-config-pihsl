@@ -15,6 +15,7 @@
 - id: "numberBabies"
   labelCode: ""
   statusDataQuery: "numberBabies.sql"
+  conditionExpression: "#if($numberBabies gt 1)true#{else}false#end"
   valueExpression: "#if($numberBabies == 1) $!numberBabies baby#{else}$!numberBabies babies#end"
   formatExpression: ""
   
