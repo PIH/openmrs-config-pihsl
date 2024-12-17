@@ -9,13 +9,14 @@ set @baby3PatientId = (select person_id from person where UUID = @baby3UUID);
 set @baby3Identifier = patient_identifier(@baby3PatientId, 'c09a1d24-7162-11eb-8aa6-0242ac110002');
 
 set @admissionEncounterType = encounterName('260566e1-c909-4d61-a96f-c1019291a09d');
-set @transferEncounterTyoe =  encounterName('436cfe33-6b81-40ef-a455-f134a9f7e580');
+set @transferEncounterType =  encounterName('436cfe33-6b81-40ef-a455-f134a9f7e580');
 set @dischargeEncounterType =  encounterName('b6631959-2105-49dd-b154-e1249e0fbcd7');
-set @latestDischargeEncounterId = latestEnc(@patientId, @dischargeEncounterType, null);
+set @latestDischargeEncounterId = latestEnc(@baby3PatientId, @dischargeEncounterType, null);
 set @latestDischargeDatetime = encounter_date(@latestDischargeEncounterId);
-set @latestAdmitEncounterId = latestEnc(@patientId, CONCAT(@admissionEncId,',',@transferEndId), @latestDischargeDatetime);
+set @latestAdmitEncounterId = latestEnc(@baby3PatientId, CONCAT(@admissionEncounterType,',',@transferEncounterType), @latestDischargeDatetime);
 set @admitLocation = encounter_location_name(@latestAdmitEncounterId);
 
 select @baby3Identifier as baby3Identifier,
        if(@baby3Identifier is null,0,1) as baby3exists,  		
        @admitLocation as admissionLocation; 
+
