@@ -150,13 +150,13 @@
                             <p class="side-by-side">
                                 <obs conceptId="PIH:DIAGNOSIS" style="radio"
                                      answerConceptIds="CIEL:117703,CIEL:126513,CIEL:126512,CIEL:168107,CIEL:117635"
-                                     answerCodes="Sickle-cell disease,Sickle-cell trait (AS),Sickle-cell beta thalassemia (SB),Sickle-cell hemoglobin C disease (SC),Other hemoglobinopathy"
+                                     answerCodes="pihcore.sickleCellDisease,pihcore.sickleCellTrait,pihcore.sickleCellBS,pihcore.sickleCellSC,pihcore.otherHemoglobinopathy"
                                      answerSeparator="&lt;br /&gt;"/>
                             </p>
                         </obsgroup>
 
                         <label>
-                            <uimessage code="If other sickle-cell disease, please specify" />
+                            <uimessage code="pihcore.otherSickleCellSpecify" />
                         </label>
                         <obs conceptId="PIH:14924" />
                     </div>
@@ -164,12 +164,12 @@
                     <div>
                         <p class="side-by-side">
                             <label>
-                                <uimessage code="Confirmation test method"/>
+                                <uimessage code="pihcore.confirmationTest"/>
                             </label>
                             <br/>
                             <obs id="scd-test-method" conceptId="CIEL:168730" style="radio"
                                  answerConceptIds="CIEL:160225,CIEL:168733,CIEL:168732,CIEL:165544,CIEL:161519,CIEL:168731,CIEL:1067,CIEL:5622"
-                                 answerCodes="SickleScan RDT,HemoTypeSC,Gazelle,Hb Electrophoresis,HPLC,IEF,Unknown but tested at central or referral lab,other"
+                                 answerCodes="SickleScan RDT,HemoTypeSC,Gazelle,pihcore.lab.hgElectro,HPLC,IEF,pihcore.unknownButTested,pihcore.other"
                                  answerSeparator="&lt;br /&gt;" />
                         </p>
                     </div>
@@ -177,18 +177,18 @@
             </includeIf>
 
             <h3>
-                <uimessage code="Sickle cell followup indicators"/>
+                <uimessage code="pihcore.followupIndicators"/>
             </h3>
 
             <h5>
-                <uimessage code="Clinical indicators"/>
+                <uimessage code="pihcore.clinicalIndicators"/>
             </h5>
             <!-- Sickle cell signs and symptoms -->
             <p class="side-by-side">
                 <obsgroup groupingConceptId="PIH:14858" showIfEmpty="false">
                     <obs id="sickle-asymptom" style="radio"
                          conceptIds="PIH:SYMPTOM PRESENT,PIH:SYMPTOM ABSENT,PIH:SYMPTOM PRESENCE UNKNOWN"
-                         conceptLabels="yes,no,unknown" answerConceptId="PIH:20010" labelText="Asymptomatic">
+                         conceptLabels="pihcore.yes,pihcore.no,pihcore.unknown" answerConceptId="PIH:20010" labelCode="pihcore.asymptom">
                         <controls>
                             <when value="PIH:SYMPTOM ABSENT" thenDisplay="#sc-not-asymptom"/>
                         </controls>
@@ -203,19 +203,19 @@
                             <obsgroup groupingConceptId="PIH:14858" showIfEmpty="false">
                                 <obs style="radio"
                                      conceptIds="PIH:SYMPTOM PRESENT,PIH:SYMPTOM ABSENT,PIH:SYMPTOM PRESENCE UNKNOWN"
-                                     conceptLabels="yes,no,unknown" answerConceptId="{qId}" labelText="{symptName}"/>
+                                     conceptLabels="pihcore.yes,pihcore.no,pihcore.unknown" answerConceptId="{qId}" labelCode="pihcore.{symptName}"/>
                             </obsgroup>
                         </p>
                     </template>
-                    <render qId="CIEL:114403" symptName="Pain"/>
-                    <render qId="CIEL:140238" symptName="Fever"/>
-                    <render qId="CIEL:136443" symptName="Jaundice"/>
-                    <render qId="CIEL:121629" symptName="Anemia"/>
-                    <render qId="CIEL:148346" symptName="Ascites"/>
-                    <render qId="CIEL:112804" symptName="Spleen palpable"/>
-                    <render qId="CIEL:168290" symptName="Liver palpable" />
-                    <render qId="CIEL:142373" symptName="Difficulty breathing"/>
-                    <render qId="CIEL:120749" symptName="Chest pain"/>
+                    <render qId="CIEL:114403" symptName="pain"/>
+                    <render qId="CIEL:140238" symptName="fever"/>
+                    <render qId="CIEL:136443" symptName="jaundice"/>
+                    <render qId="CIEL:121629" symptName="anemia"/>
+                    <render qId="CIEL:148346" symptName="ascites"/>
+                    <render qId="CIEL:112804" symptName="spleenPalpable"/>
+                    <render qId="CIEL:168290" symptName="liverPalpable" />
+                    <render qId="CIEL:142373" symptName="tbscreen.dyspnea"/>
+                    <render qId="CIEL:120749" symptName="tbscreen.chestPain"/>
                 </repeat>
             </div>
 
@@ -224,11 +224,11 @@
                     <div>
                         <p class="list-inline">
                             <label>
-                                <uimessage code="Complications since last visit"/>
+                                <uimessage code="pihcore.complicationsSinceLastVisit"/>
                             </label>
                             <obs id="scd-comp-q" conceptId="PIH:14867" style="radio"
                                  answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="yes,no,unknown">
+                                 answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
                                 <controls>
                                     <when value="PIH:YES" thenDisplay="#scd-comp-text"/>
                                 </controls>
@@ -239,27 +239,27 @@
                     <div id="scd-comp-text">
                         <p>
                             <label>
-                                <uimessage code="Complications"/>
+                                <uimessage code="pihcore.complications.label"/>
                             </label>
                             <repeat>
                                 <template>
                                     <obs conceptId="PIH:15157" style="checkbox"
-                                         answerConceptId="{diagId}" answerCode="{sickleComplic}"/>
+                                         answerConceptId="{diagId}" answerCode="pihcore.{sickleComplic}"/>
                                 </template>
-                                <render diagId="CIEL:121629" sickleComplic="Anemia" />
-                                <render diagId="CIEL:162044" sickleComplic="Severe anemia" />
-                                <render diagId="CIEL:136586" sickleComplic="Intravascular hemolysis" />
-                                <render diagId="CIEL:117643" sickleComplic="Sickle-cell vaso-occlusive pain crisis" />
-                                <render diagId="CIEL:149871" sickleComplic="Acute chest syndrome" />
-                                <render diagId="CIEL:148074" sickleComplic="Avascular bone necrosis" />
-                                <render diagId="CIEL:111103" sickleComplic="Stroke" />
-                                <render diagId="CIEL:112483" sickleComplic="Systemic infection" />
-                                <render diagId="CIEL:116128" sickleComplic="Malaria" />
+                                <render diagId="CIEL:121629" sickleComplic="anemia" />
+                                <render diagId="CIEL:162044" sickleComplic="severeAnemia" />
+                                <render diagId="CIEL:136586" sickleComplic="intravascularHemolysis" />
+                                <render diagId="CIEL:117643" sickleComplic="sickle-cellVaso-occlusivePainCrisis" />
+                                <render diagId="CIEL:149871" sickleComplic="acuteChestSyndrome" />
+                                <render diagId="CIEL:148074" sickleComplic="avascularBoneNecrosis" />
+                                <render diagId="CIEL:111103" sickleComplic="stroke" />
+                                <render diagId="CIEL:112483" sickleComplic="systemicInfection" />
+                                <render diagId="CIEL:116128" sickleComplic="malaria" />
                             </repeat>
 
                             <obs conceptId="PIH:15157" style="checkbox"
-                                 answerConceptId="CIEL:5622" answerCode="other"
-                                 commentFieldCode="specify other:"/>
+                                 answerConceptId="CIEL:5622" answerCode="pihcore.other"
+                                 commentFieldCode="zl.ifOtherSpecify"/>
                         </p>
                     </div>
                 </div>
@@ -268,11 +268,11 @@
             <obsgroup groupingConceptId="PIH:15162" showIfEmpty="false">
                 <p class="side-by-side">
                     <label>
-                        <uimessage code="Transfusion in past 12 months"/>
+                        <uimessage code="pihcore.transfusionIn12mo"/>
                     </label>
                     <obs id="transfusion-status" conceptId="PIH:7868" style="radio"
                          answerConceptIds="CIEL:1065,CIEL:1066"
-                         answerCodes="yes,no">
+                         answerCodes="pihcore.yes,pihcore.no">
                         <controls>
                             <when value="CIEL:1065" thenDisplay="#transfusion-details"/>
                         </controls>
@@ -281,25 +281,25 @@
 
                 <div id="transfusion-details" class="two-columns">
                     <div>
-                        <obs conceptId="PIH:13748" labelCode="# of transfusions (past 12 months)" />
+                        <obs conceptId="PIH:13748" labelCode="pihcore.numTransfusionIn12mo" />
                     </div>
                     <div>
-                        <obs conceptId="CIEL:163268" labelCode="Date of transfusion" />
+                        <obs conceptId="CIEL:163268" labelCode="pihcore.transfusionDate" />
                     </div>
                 </div>
             </obsgroup>
 
             <h5>
-                <uimessage code="Awareness and treatment"/>
+                <uimessage code="pihcore.awareAndTreat"/>
             </h5>
 
             <label>
-                <uimessage code="On treatment"/>
+                <uimessage code="pihcore.onTreatment"/>
             </label>
             <repeat>
                 <template>
                     <obs conceptId="PIH:14857" style="checkbox"
-                         answerConceptId="{qId}" answerCode="{medName}"/>
+                         answerConceptId="{qId}" />
                 </template>
                 <render qId="CIEL:76613" medName="Folic acid"/>
                 <render qId="CIEL:81724" medName="Penicillin"/>
@@ -313,38 +313,38 @@
                             <template>
                                 <p class="list-inline">
                                     <label>
-                                        <uimessage code="{questionName}"/>
+                                        <uimessage code="pihcore.{questionName}"/>
                                     </label>
                                     <obs id="{tog}" conceptId="{qId}" style="radio"
                                          answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown">
+                                         answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
                                         <controls>
                                             <when value="PIH:YES" thenDisplay="#scd-fui-{tog}-details"/>
                                         </controls>
                                     </obs>
                                 </p>
                             </template>
-                            <render qId="CIEL:159610" questionName="Malaria prophylaxis" tog="malaria"/>
-                            <render qId="CIEL:167914" questionName="Understands treatment" tog="under"/>
-                            <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="tite"/>
-                            <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                            <render qId="CIEL:167819" questionName="Missed doses in past week" tog="miss"/>
-                            <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
-                            <render qId="CIEL:167022" questionName="Family awareness of disease" tog="family"/>
+                            <render qId="CIEL:159610" questionName="malariaProphylaxis" tog="malaria"/>
+                            <render qId="CIEL:167914" questionName="understandsTreatment" tog="under"/>
+                            <render qId="PIH:14741"   questionName="abilityToTitrate" tog="tite"/>
+                            <render qId="CIEL:164075" questionName="overallTreatmentAdherence" tog="adher"/>
+                            <render qId="CIEL:167819" questionName="missingDosesPerWeek" tog="miss"/>
+                            <render qId="CIEL:167021" questionName="awareUnderstandsDisease" tog="aware"/>
+                            <render qId="CIEL:167022" questionName="familyAwarenessDisease" tog="family"/>
                         </repeat>
                     </div>
 
                     <div id="scd-fui-miss-details">
                         <br/><br/><br/><br/>
                         <label>
-                            <uimessage code="# of missed doses in past week"/>
+                            <uimessage code="pihcore.numMissingDosesPerWeek"/>
                         </label>
                         <obs conceptId="CIEL:167918"/>
                     </div>
                 </div>
 
                 <h5>
-                    <uimessage code="Disease control"/>
+                    <uimessage code="pihcore.diseaseCtl"/>
                 </h5>
 
                 <repeat>
@@ -355,23 +355,23 @@
                             </label>
                             <obs id="{tog}" conceptId="{qId}" style="radio"
                                  answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="yes,no,unknown">
+                                 answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
                                 <controls>
                                     <when value="PIH:YES" thenDisplay="#{tog}-details"/>
                                 </controls>
                             </obs>
                         </p>
                     </template>
-                    <render qId="CIEL:1898"   questionName="Patient condition improved" tog="scd-fui-improved"/>
+                    <render qId="CIEL:1898"   questionName="pihcore.patientConditionImproved" tog="scd-fui-improved"/>
                 </repeat>
 
                 <p class="list-inline">
                     <label>
-                        <uimessage code="Sickle cell disease control"/>
+                        <uimessage code="pihcore.sickleCellDiseaseControl"/>
                     </label>
                     <obs id="sickle-control" conceptId="PIH:11506" style="radio"
                          answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="controlled,uncontrolled,complications" >
+                         answerCodes="pihcore.controlled,pihcore.uncontrolled,pihcore.complications" >
                         <controls>
                             <when value="PIH:11508" thenDisplay="#sc-fui-uncontrolled"/>
                         </controls>
@@ -381,17 +381,17 @@
                 <div id="sc-fui-uncontrolled" >
                     <p class="list-inline">
                         <label>
-                            <uimessage code="Send for admission"/>
+                            <uimessage code="pihcore.sendForAdmission"/>
                         </label>
                         <obs conceptId="CIEL:1788" style="radio"
                              answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                             answerCodes="yes,no,unknown" />
+                             answerCodes="pihcore.yes,pihcore.no,pihcore.unknown" />
                     </p>
                 </div>
             </obsgroup>
 
             <label>
-                <uimessage code="Indications for Hydroxyurea"/>
+                <uimessage code="pihcore.indicationsForHydroxyurea"/>
                 <br/>
                 <uimessage code="( &gt; 9 months with confirmed Sickle cell disease -- SS, S/Beta-thalassemia)"/>
             </label>
@@ -399,7 +399,7 @@
                 <p class="list-inline">
                     <obs id="scd-hydroxy-q" conceptId="PIH:14869" style="radio"
                          answerConceptIds="PIH:YES,PIH:NO"
-                         answerCodes="yes,no">
+                         answerCodes="pihcore.yes,pihcore.no">
                         <controls>
                             <when value="PIH:YES" thenDisplay="#scd-hydroxy-details"/>
                         </controls>
@@ -410,10 +410,10 @@
                     <div>
                         <p class="list-inline">
                             <label>
-                                <uimessage code="On hydroxyurea" />
+                                <uimessage code="pihcore.onHydroxyurea" />
                             </label>
                             <obs id="hydroxy-treatment" conceptId="PIH:14870" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO" answerCodes="yes,no" >
+                                 answerConceptIds="PIH:YES,PIH:NO" answerCodes="pihcore.yes,pihcore.no" >
                                 <controls>
                                     <when value="PIH:NO" thenDisplay="#reason-no-hydroxy"/>
                                 </controls>
@@ -421,7 +421,7 @@
 
                             <div id="reason-no-hydroxy">
                                 <label>
-                                    <uimessage code="Reason not on hydroxyurea"/>
+                                    <uimessage code="pihcore.reasonNotHydroxyurea"/>
                                 </label>
                                 <repeat>
                                     <template>
@@ -443,10 +443,10 @@
                     <div>
                         <p class="list-inline-wide">
                             <label>
-                                <uimessage code="Complications with hydroxyurea" />
+                                <uimessage code="pihcore.complicationsWithHydroxyurea" />
                             </label>
                             <obs id="side-effect-hydroxy" conceptId="PIH:14871" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO" answerCodes="yes,no" >
+                                 answerConceptIds="PIH:YES,PIH:NO" answerCodes="pihcore.yes,pihcore.no" >
                                 <controls>
                                     <when value="PIH:YES" thenDisplay="#side-effect-hydroxy-compl-details" />
                                 </controls>
@@ -503,14 +503,14 @@
                         <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
                     </button>
                 </template>
-                <render idName="ncd-plan"      buttonStyle="Dark" label="pihcore.visitNote.plan" />
-                <render idName="diagnosis"     buttonStyle="Dark" label="pihcore.diagnosis.label" />
+                <render idName="ncd-plan"      buttonStyle="Dark" label="Plan" />
+                <render idName="diagnosis"     buttonStyle="Dark" label="Dx" />
                 <render idName="sickle-cell"   buttonStyle="Self" label="Sickle" />
                 <render idName="palliative"    buttonStyle="Light" label="Palliative" />
-                <render idName="liver"         buttonStyle="Light" label="Liver" />
-                <render idName="kidney"        buttonStyle="Light" label="Kidney" />
-                <render idName="lung"          buttonStyle="Light" label="Lung" />
-                <render idName="heart-failure" buttonStyle="Light" label="Heart" />
+                <render idName="liver"         buttonStyle="Light" label="pihcore.liver" />
+                <render idName="kidney"        buttonStyle="Light" label="pihcore.kidney" />
+                <render idName="lung"          buttonStyle="Light" label="pihcore.lung" />
+                <render idName="heart-failure" buttonStyle="Light" label="pihcore.heart" />
                 <render idName="hypertension"  buttonStyle="Light" label="HTN" />
                 <render idName="diabetes"      buttonStyle="Light" label="DM" />
             </repeat>
