@@ -635,7 +635,7 @@
 
                                 <div>
                                     <label>
-                                        <uimessage code="o2Sat"/>
+                                        <uimessage code="mirebalais.vitals.o2sat.title"/>
                                     </label>
                                     <span class="small">
                                         <span id="last_o2_sat" class="obs-field">
