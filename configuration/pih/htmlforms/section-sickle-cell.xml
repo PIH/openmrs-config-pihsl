@@ -140,7 +140,7 @@
         </script>
     </ifMode>
 
-    <section id="sickle-section" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Sickle cell">
+    <section id="sickle-section" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.ncd.sickleCell">
         <div id="sickle" class="section-container">
             <!-- this section is ONLY included for NCD intake encounter -->
             <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
@@ -393,7 +393,7 @@
             <label>
                 <uimessage code="pihcore.indicationsForHydroxyurea"/>
                 <br/>
-                <uimessage code="( &gt; 9 months with confirmed Sickle cell disease -- SS, S/Beta-thalassemia)"/>
+                <uimessage code="pihcore.sickleCellMoreThan9"/>
             </label>
             <obsgroup groupingConceptId="PIH:14872">
                 <p class="list-inline">
