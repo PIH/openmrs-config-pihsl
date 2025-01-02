@@ -428,14 +428,14 @@
                                         <obs conceptId="PIH:15169" style="checkbox"
                                              answerConceptId="{answId}" answerCode="{answerMsg}" />
                                     </template>
-                                    <render answId="CIEL:164377" answerMsg="Side effect" />
-                                    <render answId="CIEL:1754" answerMsg="Stockout" />
-                                    <render answId="PIH:15170" answerMsg="CBC not available" />
-                                    <render answId="PIH:15171" answerMsg="No sickle-cell test confirmation (solubility test only)" />
+                                    <render answId="CIEL:164377" answerMsg="pihcore.medication.side.effects" />
+                                    <render answId="CIEL:1754" answerMsg="pihcore.stockout" />
+                                    <render answId="PIH:15170" answerMsg="pihcore.cbcNotAvailable" />
+                                    <render answId="PIH:15171" answerMsg="pihcore.noSickleTestConfirmation" />
                                 </repeat>
                                 <obs conceptId="PIH:15169" style="checkbox"
-                                     answerConceptId="CIEL:5622" answerCode="Other"
-                                     commentFieldCode="Specify other reason"/>
+                                     answerConceptId="CIEL:5622" answerCode="pihcore.other"
+                                     commentFieldCode="zl.ifOtherSpecify"/>
                             </div>
                         </p>
                     </div>
@@ -459,15 +459,15 @@
                                     <obs conceptId="PIH:20012" style="checkbox"
                                          answerConceptId="{answId}" answerCode="{answerMsg}" />
                                 </template>
-                                <render answId="CIEL:114380" answerMsg="Pancytopenia" />
-                                <render answId="PIH:20013"   answerMsg="Elevated ALT/AST" />
-                                <render answId="PIH:20014"   answerMsg="Elevated creatinine" />
-                                <render answId="CIEL:111721" answerMsg="Mouth ulceration" />
-                                <render answId="CIEL:512"    answerMsg="Rash" />
-                                <render answId="CIEL:5622"    answerMsg="Other" />
+                                <render answId="CIEL:114380" answerMsg="pihcore.pancytopenia" />
+                                <render answId="PIH:20013"   answerMsg="pihcore.elevatedAltAst" />
+                                <render answId="PIH:20014"   answerMsg="pihcore.elevatedCreatinine" />
+                                <render answId="CIEL:111721" answerMsg="pihcore.mouthUlcer" />
+                                <render answId="CIEL:512"    answerMsg="pihcore.rash" />
+                                <render answId="CIEL:5622"   answerMsg="pihcore.other" />
                             </repeat>
 
-                            <obs conceptId="CIEL:164377" style="text" labelCode="If other, specify hydroxyurea complication:" />
+                            <obs conceptId="CIEL:164377" style="text" labelCode="pihcore.hydroxyureaOtherComplications" />
                         </div>
                     </div>
                 </div>
