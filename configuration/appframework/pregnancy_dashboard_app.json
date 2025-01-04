@@ -385,5 +385,32 @@
       "maxDatesToShow": 5,
       "detailsUrl": "pihcore/meds/dispensingSummary.page?patientId={{patient.uuid}}"
     }
+  },
+  {
+    "id": "pregnancy.dashboard.vaccinations",
+    "icon": "fas fa-fw fa-syringe",
+    "label": "mirebalais.vaccinations.title",
+    "url": "/pihcore/patient/vaccinations.page?patientId={{patient.uuid}}",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
+        "order": 7,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/vaccinations",
+          "fragmentConfig": {
+            "vaccinations": [
+              "${concept.bcgVaccination.uuid}",
+              "${concept.covidVaccination.uuid}",
+              "${concept.diptheriaTetanusVaccination.uuid}",
+              "${concept.hepBVaccination.uuid}",
+              "${concept.fluVaccination.uuid}"
+            ]
+          }
+        }
+      }
+    ]
   }
 ]
