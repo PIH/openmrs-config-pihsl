@@ -387,10 +387,10 @@
     }
   },
   {
-    "id": "pregnancy.dashboard.immunizations",
+    "id": "pregnancy.dashboard.vaccinations",
     "icon": "fas fa-fw fa-syringe",
-    "label": "mirebalais.immunizations.title",
-    "url": "/pihcore/patient/immunizations.page?patientId={{patient.uuid}}",
+    "label": "mirebalais.vaccinations.title",
+    "url": "/pihcore/patient/vaccinations.page?patientId={{patient.uuid}}",
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
@@ -399,9 +399,9 @@
         "require": null,
         "extensionParams": {
           "provider": "pihcore",
-          "fragment": "dashboardwidgets/immunizations",
+          "fragment": "dashboardwidgets/vaccinations",
           "fragmentConfig": {
-            "immunizations": [
+            "vaccinations": [
               "${concept.bcgVaccination.uuid}",
               "${concept.covidVaccination.uuid}",
               "${concept.diptheriaTetanusVaccination.uuid}",
