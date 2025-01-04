@@ -264,6 +264,31 @@
     }
   },
   {
+    "id": "infant.dashboard.vaccinations",
+    "icon": "fas fa-fw fa-syringe",
+    "label": "mirebalais.vaccinations.title",
+    "url": "/pihcore/patient/vaccinations.page?patientId={{patient.uuid}}",
+    "extensions": [
+      {
+        "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
+        "order": 6,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/vaccinations",
+          "fragmentConfig": {
+            "vaccinations": [
+              "${concept.bcgVaccination.uuid}",
+              "${concept.polioVaccination.uuid}",
+              "${concept.measlesRubellaVaccination.uuid}"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
     "id": "pregnancy.dashboard.temperature",
     "icon": "fas fa-fw fa-temperature-high",
     "label": "pihcore.temperature.ucase",
@@ -271,7 +296,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
-        "order": 6,
+        "order": 7,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -303,7 +328,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
-        "order": 7,
+        "order": 8,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
