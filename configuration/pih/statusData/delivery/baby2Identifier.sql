@@ -16,6 +16,7 @@ set @latestDischargeDatetime = encounter_date(@latestDischargeEncounterId);
 set @latestAdmitEncounterId = latestEnc(@baby2PatientId, CONCAT(@admissionEncounterType,',',@transferEncounterType), @latestDischargeDatetime);
 set @admitLocation = encounter_location_name(@latestAdmitEncounterId);
 
-select @baby2Identifier as baby2Identifier,
-       if(@baby2Identifier is null,0,1) as baby2exists,  		
-       @admitLocation as admissionLocation; 
+select @baby2UUID as baby2Uuid,
+       @baby2Identifier as baby2Identifier,
+       if(@baby2Identifier is null,0,1) as baby2exists,
+       @admitLocation as admissionLocation;
