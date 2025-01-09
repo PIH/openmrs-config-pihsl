@@ -940,7 +940,7 @@
     </div>
 
     <label>
-        <uimessage code="pihcore.tbscreen.title"/> <ifMode mode="VIEW" include="false"> (If all 4 symptoms are present, patient isolation and urgent review.) <font style="color:red">(required)</font></ifMode>
+        <uimessage code="pihcore.tbscreen.title"/> <ifMode mode="VIEW" include="false"> (If all 4 symptoms are present, patient isolation and urgent review.) </ifMode>
     </label>
     <div class="tbScreen five-columns">
         <div></div>
