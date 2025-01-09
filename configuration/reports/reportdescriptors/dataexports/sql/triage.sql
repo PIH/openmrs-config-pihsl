@@ -291,7 +291,7 @@ inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
 and o.concept_id =@ci
 set t.Clinical_Impression = o.value_text;
 
-set @gv = concept_from_mapping('PIH','SERUM GLUCOSE');
+set @gv = concept_from_mapping('PIH','20660');
 update temp_ED_Triage t
 inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
 and o.concept_id = @gv
