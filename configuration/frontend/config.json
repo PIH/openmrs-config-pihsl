@@ -406,13 +406,15 @@
     "hideWorkspaceVitalsLinks": true,
     "extensionSlots": {
       "action-menu-ward-patient-items-slot": {
+        "remove": [
+          "clinical-forms-workspace-siderail-button"
+        ],
         "order": [
           "ward-patient-action-button",
           "o2-visit-summary-workspace-siderail-button",
           "ward-inpatient-notes-form-action-button",
           "transfer-swap-patient-siderail-button",
-          "patient-discharge-siderail-button",
-          "clinical-forms-workspace-siderail-button"
+          "patient-discharge-siderail-button"
         ]
       }
     }
