@@ -428,7 +428,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Newborn Daily Progress Location"/>
                     </span>
                 </p>
                 <p id="when" class="date-one-line">
@@ -461,7 +461,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Newborn Daily Progress Location"/>
                     </span>
                 </p>
                 <p id="when">
@@ -499,7 +499,7 @@
                             </label>
                             <span>
                                 <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                                   tags="Maternal and Child Location"/>
+                                                   tags="Newborn Daily Progress Location"/>
                             </span>
                         </td>
                         <td>

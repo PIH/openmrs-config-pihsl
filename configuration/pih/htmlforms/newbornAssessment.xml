@@ -190,7 +190,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Newborn Assessment Location"/>
                     </span>
                 </p>
                 <p id="when">
@@ -227,7 +227,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Newborn Assessment Location"/>
                     </span>
                 </p>
                 <p id="when">
@@ -265,7 +265,7 @@
                             </label>
                             <span>
                                 <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                                   tags="Maternal and Child Location"/>
+                                                   tags="Newborn Assessment Location"/>
                             </span>
                         </td>
                         <td>
