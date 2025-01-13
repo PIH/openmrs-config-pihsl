@@ -177,7 +177,111 @@
     <ifMode mode="VIEW" include="false">
 
         <script type="text/javascript">
+            
+            let hasDeliveryTime = function(element, required) {
+                let hasValue = false;
+                let deliveryDate = jq(element).find('.hasDatepicker').first();
+                if ( deliveryDate ) {
+                    let dateVal = deliveryDate.datepicker('getDate');
+                    if ( dateVal ) {
+                      hasValue = true;
+                      jq(deliveryDate).parent().find('.field-error').text('').hide();
+                    } else if ( required ) {
+                      jq(deliveryDate).parent().find('.field-error').text('*Required').show();
+                    }
+                }
+                return hasValue;
+            }
+
+            let hasGender = function(element, required) {
+                let hasValue = false;
+                let genderElem = jq(element).find('.fetusGender').first();
+                if ( genderElem ) {
+                    let genderVal = jq(genderElem).find("input[type='radio']:checked").first().val();
+                    if ( genderVal ) {
+                      hasValue = true;
+                      jq(genderElem).parent().find('.field-error').text('').hide();
+                    } else if ( required ) {
+                      jq(genderElem).parent().find('.field-error').css('display', 'inline-block').text('*Required').show();
+                    }
+                }
+                return hasValue;
+              }
+
+              let hasOutcome = function(element, required) {
+                let hasValue = false;
+                let outcomeElem = jq(element).find('.fetusOutcome').first();
+                if ( outcomeElem ) {
+                    let outcomeVal = jq(outcomeElem).find("input[type='radio']:checked").first().val();
+                    if ( outcomeVal ) {
+                      hasValue = true;
+                      jq(outcomeElem).parent().find('.field-error').text('').hide();
+                    } else if ( required ) {
+                        jq(outcomeElem).parent().find('.field-error').css('display', 'inline-block').text('*Required').show();
+                    }
+                }
+                return hasValue;
+              }
+
+              clearRequiredMessages = function( element, classArray) {
+                classArray.forEach( (className) => {
+                  let item = jq(element).find('.' + className).first();
+                  if ( item ) {
+                    jq(item).parent().find('.field-error').text('').hide();
+                   }
+                });
+              }
+
+                validateFetusEntries = function(element) {
+                    let deliveryTime = hasDeliveryTime(element, true);
+                    let gender = hasGender(element, true);
+                    let outcome = hasOutcome(element, true);
+                    return ( deliveryTime &amp;&amp; gender &amp;&amp; outcome );
+                }
+
+                updateFetusEntries = function(element) {
+                    let fetusElem = jq(element).closest("span.fetus");
+                    if ( fetusElem ) {
+                        if ( hasDeliveryTime(jq(fetusElem)) || hasGender(jq(fetusElem)) || hasOutcome(jq(fetusElem))) {
+                          validateFetusEntries(jq(fetusElem));
+                        } else {
+                            //clear all the '*Required' messages for this fetus
+                            clearRequiredMessages(jq(fetusElem), ['hasDatepicker', 'fetusGender', 'fetusOutcome']);
+                        }
+                    }
+                }
+
+            htmlForm.getBeforeValidation().push(function() {
+              let valid = false;
+              jq('span.fetus').each(function() {
+                  if ( hasDeliveryTime(jq(this)) || hasGender(jq(this)) || hasOutcome(jq(this))) {
+                    valid = validateFetusEntries(jq(this));
+                    if ( !valid ) {
+                      jq(document).scrollTop(jq(this).offset().top -100);
+                      // stop at the first invalid group of entries
+                      return valid;
+                    }
+                  } else {
+                      valid = true;
+                  }
+              });
+              return valid;
+            });
+
             jq(document).ready(function() {
+
+                jq('span.fetusDeliveryTime input.hasDatepicker').change(function() {
+                  updateFetusEntries(jq(this));
+                 });
+
+                jq("span .fetusGender input[type='radio']").change(function() {
+                  updateFetusEntries(jq(this));
+                });
+
+                jq("span .fetusOutcome input[type='radio']").change(function() {
+                  updateFetusEntries(jq(this));
+                });
+
                 // Set up EDD and Gestational Age
                 jq("#calculated-edd-and-gestational").hide();
                 const lastLMP = '<lookup complexExpression="$fn.formatDate($fn.latestObs('CIEL:1427').getValueDatetime(), 'yyyy-MM-dd')"/>';
@@ -739,7 +843,7 @@
                                     <uimessage code="Date/time of delivery"/>
                                 </label>
                                 <br/>
-                                <obs conceptId="PIH:5599" showTime="true" allowFutureTimes="true"/>
+                                <obs conceptId="PIH:5599" showTime="true" allowFutureTimes="true" class="fetusDeliveryTime"/>
                             </p>
                         </div>
 
@@ -751,7 +855,7 @@
                                     </label>
                                     <br/>
                                     <obs id="dead-or-alive-{0}"
-                                         conceptId="CIEL:159917" style="radio"
+                                         conceptId="CIEL:159917" style="radio" class="fetusOutcome"
                                          answerConceptIds="CIEL:151849,CIEL:159916,CIEL:135436"
                                          answerCodes="Alive,FSB,MSB">
                                         <controls>
@@ -766,7 +870,7 @@
                                     <label>
                                         <uimessage code="Sex"/>
                                     </label>
-                                    <obs conceptId="CIEL:1587" style="radio"
+                                    <obs conceptId="CIEL:1587" style="radio" class="fetusGender"
                                          answerConceptIds="CIEL:1534,CIEL:1535"
                                          answerCodes="M,F"/>
                                 </p>
