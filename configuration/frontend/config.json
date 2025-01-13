@@ -304,11 +304,16 @@
           "id": "check-in-date",
           "columnType": "visit-start-time",
           "header": "Check-in date"
+        },
+        {
+          "id": "triage-waiting-queue-actions",
+          "columnType": "extension",
+          "header": "Actions"
         }
       ],
       "tableDefinitions": [
         {
-          "columns": ["patient-name", "emr-id", "patient-age", "check-in-date", "wait-time", "actions"],
+          "columns": ["patient-name", "emr-id", "patient-age", "check-in-date", "wait-time", "triage-waiting-queue-actions"],
           "appliedTo": [
             {
               "queue": "${queue.triage.uuid}",
@@ -317,7 +322,7 @@
           ]
         },
         {
-          "columns": ["patient-name", "emr-id", "patient-age", "in-service-time", "actions"],
+          "columns": ["patient-name", "emr-id", "patient-age", "in-service-time", "triage-waiting-queue-actions"],
           "appliedTo": [
             {
               "queue": "${queue.triage.uuid}",
