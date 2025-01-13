@@ -215,7 +215,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Antenatal Location"/>
                     </span>
                 </p>
                 <p id="when">
@@ -252,7 +252,7 @@
                     </label>
                     <span>
                         <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                           tags="Maternal and Child Location"/>
+                                           tags="Antenatal Location"/>
                     </span>
                 </p>
                 <p id="when">
@@ -290,7 +290,7 @@
                             </label>
                             <span>
                                 <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                                   tags="Maternal and Child Location"/>
+                                                   tags="Antenatal Location"/>
                             </span>
                         </td>
                         <td>
