@@ -371,9 +371,9 @@
                     <repeat>
                         <template>
                             <obs conceptId="CIEL:1887" style="checkbox"
-                                 answerConceptId="{qId}"/>
+                                 answerConceptId="{qId}" answerCode="{symptName}"/>
                         </template>
-                        <render qId="CIEL:142412" symptName="Diarrhea" />
+                        <render qId="CIEL:142412" symptName="Diarrhoea" />
                         <render qId="CIEL:122983" symptName="Vomiting" />
                         <render qId="PIH:7103"    symptName="Uncontrolled pain" />
                     </repeat>

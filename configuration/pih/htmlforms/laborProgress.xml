@@ -470,16 +470,17 @@
         <div class="section-container">
             <repeat>
                 <template>
-                    <obs conceptId="PIH:6644" answerConceptId="{concept}" style="checkbox"/>
+                    <obs conceptId="PIH:6644" style="checkbox"
+                         answerConceptId="{concept}" answerCode="{name}" />
                 </template>
-                <render concept="CIEL:230"    name="Postpartum hemorrhage"/>
-                <render concept="CIEL:113602" name="Prolonged labor"/>
-                <render concept="CIEL:127259" name="Ruptured uterus"/>
+                <render concept="CIEL:230"    name="Postpartum haemorrhage"/>
+                <render concept="CIEL:113602" name="Prolonged labour"/>
+                <render concept="CIEL:127259" name="Rupture of uterus"/>
                 <render concept="CIEL:127592" name="Retained placenta"/>
 
                 <render concept="CIEL:115491" name="Multiple gestation" />
-                <render concept="CIEL:150862" name="Abnormal fetal presentation"/>
-                <render concept="CIEL:118256" name="(signs of) Fetal distress"/>
+                <render concept="CIEL:150862" name="Abnormal foetal presentation"/>
+                <render concept="CIEL:118256" name="Signs of foetal distress"/>
 
                 <render concept="CIEL:5622" name="other"/>
             </repeat>

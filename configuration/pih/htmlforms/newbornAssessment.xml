@@ -289,20 +289,22 @@
         <div class="section-container">
             <repeat>
                 <template>
-                    <obs conceptId="PIH:3334" answerConceptId="{concept}" style="checkbox"/>
+                    <obs conceptId="PIH:3334"
+                         answerConceptId="{concept}" answerCode="{name}"
+                         style="checkbox"/>
                 </template>
 
                 <render concept="CIEL:142474" name="Type 1 Diabetes"/>
                 <render concept="CIEL:142473" name="Type 2 Diabetes"/>
                 <render concept="CIEL:1449"   name="Gestational diabetes"/>
                 <render concept="CIEL:118744" name="Eclampsia"/>
-                <render concept="CIEL:230"    name="Postpartum hemorrhage"/>
+                <render concept="CIEL:230"    name="Postpartum haemorrhage"/>
                 <render concept="CIEL:129251" name="Preeclampsia"/>
                 <render concept="CIEL:165088" name="Victim of GBV (gender-based violence)"/>
                 <render concept="CIEL:115491" name="Multiple gestation" />
-                <render concept="CIEL:118256" name="(signs of) Fetal distress"/>
-                <render concept="CIEL:150862" name="Abnormal fetal presentation"/>
-                <render concept="CIEL:117703" name="Sickle-cell"/>
+                <render concept="CIEL:118256" name="Signs of foetal distress"/>
+                <render concept="CIEL:150862" name="Abnormal foetal presentation"/>
+                <render concept="CIEL:117703" name="Sickle-cell disease"/>
                 <render concept="CIEL:5622" name="other"/>
             </repeat>
 
@@ -667,20 +669,22 @@
                 <repeat>
                     <template>
                         <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                            <obs conceptId="PIH:DIAGNOSIS" style="checkbox" answerConceptId="{dx}"/>
+                            <obs conceptId="PIH:DIAGNOSIS" style="checkbox"
+                                 answerConceptId="{dx}" answerCode="{name}"/>
                         </obsgroup>
                     </template>
 
+                    <!-- ToDo: fetus or fetal -->
                     <render dx="CIEL:142015" name="Placental abnormality"/>
-                    <render dx="CIEL:115939" name="Malpresentation of fetus"/>
+                    <render dx="CIEL:115939" name="Malpresentation of foetus"/>
                     <render dx="CIEL:145935" name="Cephalopelvic disproportion"/>
                     <render dx="CIEL:116222" name="Low birth weight"/>
-                    <render dx="CIEL:113841" name="Premature"/>
-                    <render dx="CIEL:129372" name="Signs of postdates" />
+                    <render dx="CIEL:113841" name="Premature birth"/>
+                    <render dx="CIEL:129372" name="Signs of postdates (post-term infant)" />
                     <render dx="CIEL:127639" name="Respiratory distress"/>
                     <render dx="PIH:7557"    name="Birth asphyxia"/>
-                    <render dx="CIEL:118256" name="Fetal distress"/>
-                    <render dx="CIEL:116642" name="Intra-uterine fetal demise"/>
+                    <render dx="CIEL:118256" name="Foetal distress"/>
+                    <render dx="CIEL:116642" name="Intra-uterine foetal demise"/>
                     <render dx="CIEL:129211" name="Premature rupture of membranes"/>
                     <render dx="CIEL:115866" name="Meconium aspiration" />
                 </repeat>

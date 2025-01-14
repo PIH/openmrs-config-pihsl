@@ -254,7 +254,7 @@
                             </obsgroup>
                         </p>
                     </template>
-                    <render qId="CIEL:460"    symptName="Edema" />
+                    <render qId="CIEL:460"    symptName="Oedema" />
                     <render qId="CIEL:121629" symptName="Anemia" />
                     <render qId="CIEL:117441" symptName="Hyperlipidemia" />
                 </repeat>

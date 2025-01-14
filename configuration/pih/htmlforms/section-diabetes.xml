@@ -475,12 +475,12 @@
                         <repeat>
                             <template>
                                 <obs conceptId="CIEL:167917" style="checkbox"
-                                     answerConceptId="CIEL:{funId}"/>
+                                     answerConceptId="CIEL:{funId}" answerCode="{message}"/>
                             </template>
                             <render funId="142429" message="Diabetic retinopathy"/>
                             <render funId="113271" message="Retinal detachment"/>
                             <render funId="124755" message="Thrombosis of retinal vein"/>
-                            <render funId="142820" message="Deep retinal hemorrhage"/>
+                            <render funId="142820" message="Deep retinal haemorrhage"/>
                             <render funId="143265" message="Cotton wool spots"/>
                             <render funId="119109" message="Optic nerve disease"/>
                         </repeat>

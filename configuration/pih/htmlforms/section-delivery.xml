@@ -335,7 +335,7 @@
         </div>
     </section>
 
-    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labor">
+    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labour">
         <div class="section-container">
             <p class="date-one-line">
                 <label>
@@ -528,20 +528,21 @@
                         <repeat>
                             <template>
                                 <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                                    <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{concept}" style="checkbox"/>
+                                    <obs conceptId="PIH:DIAGNOSIS" style="checkbox"
+                                         answerConceptId="{concept}" answerCode="{name}"/>
                                 </obsgroup>
                             </template>
 
                             <!--Mother-->
-                            <render concept="CIEL:165088" name="gbv"/>
+                            <render concept="CIEL:165088" name="Victim of GBV"/>
                             <render concept="CIEL:145548" name="Chorioamnionitis"/>
-                            <render concept="CIEL:113006" name="severe pre-eclampsia"/>
-                            <render concept="PIH:Eclampsia" name="eclampsia"/>
+                            <render concept="CIEL:113006" name="Severe pre-eclampsia"/>
+                            <render concept="PIH:Eclampsia" name="Eclampsia"/>
                             <render concept="CIEL:113602" name="Prolonged labour"/>
-                            <render concept="CIEL:121856" name="Acute pulmonary edema"/>
-                            <render concept="CIEL:130" name="Puerperal sepsis"/>
-                            <render concept="CIEL:138706" name="herpes"/>
-                            <render concept="CIEL:112493" name="syphilis"/>
+                            <render concept="CIEL:121856" name="Acute pulmonary oedema"/>
+                            <render concept="CIEL:130"    name="Puerperal sepsis"/>
+                            <render concept="CIEL:138706" name="Herpes simplex"/>
+                            <render concept="CIEL:112493" name="Syphilis"/>
                         </repeat>
 
                         <obs conceptId="PIH:6644" answerConceptId="PIH:174"
@@ -584,30 +585,30 @@
                         <repeat>
                             <template>
                                 <!-- problem for newborn -->
-                                <obs conceptId="PIH:12564" answerConceptId="{concept}"
+                                <obs conceptId="PIH:12564" answerConceptId="{concept}" answerCode="{name}"
                                      showIfEmpty="false" style="checkbox"/>
                             </template>
 
                             <!--Baby -->
-                            <render concept="CIEL:130109" name="abnormal placenta"/>
-                            <render concept="CIEL:115939" name="abnormal presentation"/>
-                            <render concept="CIEL:145935" name="cephalopelvic distortion"/>
-                            <render concept="CIEL:162217" name="low birth weight"/>
-                            <render concept="CIEL:162218" name="low birth weight"/>
-                            <render concept="CIEL:162219" name="low birth weight"/>
-                            <render concept="CIEL:162237" name="low birth weight"/>
-                            <render concept="CIEL:162239" name="low birth weight"/>
-                            <render concept="CIEL:111523" name="Premature less than 28 weeks"/>
-                            <render concept="PIH:11789" name="Premature (28-32)"/>
-                            <render concept="PIH:11790" name="Premature (32-36)"/>
+                            <render concept="CIEL:130109" name="Placental abnormality"/>
+                            <render concept="CIEL:115939" name="Malpresentation of foetus"/>
+                            <render concept="CIEL:145935" name="Cephalopelvic disproportion"/>
+                            <render concept="CIEL:162217" name="Low birth weight infant, 1000-1249 gm"/>
+                            <render concept="CIEL:162218" name="low birth weight infant, 1250-1499 gm"/>
+                            <render concept="CIEL:162219" name="low birth weight infant, 1500-1749 gm"/>
+                            <render concept="CIEL:162237" name="low birth weight infant, 1750-1999 gm"/>
+                            <render concept="CIEL:162239" name="low birth weight infant, 2000-2499 gm"/>
+                            <render concept="CIEL:111523" name="Extreme premature (less than 28 weeks"/>
+                            <render concept="PIH:11789"   name="Very premature (28 to 32 weeks)"/>
+                            <render concept="PIH:11790"   name="Moderate premature (32 to 36 weeks)"/>
                             <render concept="CIEL:127639" name="Respiratory distress"/>
-                            <render concept="PIH:Birth Asphyxia" name="birth asphyxia"/>
-                            <render concept="PIH:Fetal distress" name="Fetal distress"/>
-                            <render concept="CIEL:116642" name="Fetal demise"/>
-                            <render concept="CIEL:118245" name="fetal retardation"/>
+                            <render concept="PIH:Birth Asphyxia" name="Birth asphyxia"/>
+                            <render concept="PIH:Fetal distress" name="Foetal distress"/>
+                            <render concept="CIEL:116642" name="Intra-uterine foetal demise"/>
+                            <render concept="CIEL:118245" name="Intra-uterine growth retardation"/>
                             <render concept="CIEL:143849" name="Congenital malformation"/>
-                            <render concept="CIEL:129211" name="rupture membrane"/>
-                            <render concept="CIEL:115866" name="aspiration meconium"/>
+                            <render concept="CIEL:129211" name="Premature rupture of membranes"/>
+                            <render concept="CIEL:115866" name="Meconium aspiration"/>
                         </repeat>
                     </p>
                 </div>

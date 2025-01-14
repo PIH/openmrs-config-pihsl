@@ -332,10 +332,11 @@
                                 </label> -->
                                 <repeat>
                                     <template>
-                                        <obs conceptId="PIH:14921" answerConceptId="{diagId}" style="checkbox"/>
+                                        <obs conceptId="PIH:14921" style="checkbox"
+                                             answerConceptId="{diagId}" answerCode="{diagName}"/>
                                     </template>
                                     <render diagId="CIEL:161644" diagName="Hypertensive urgency/emergency" />
-                                    <render diagId="CIEL:121856" diagName="Acute pulmonary edema" />
+                                    <render diagId="CIEL:121856" diagName="Acute pulmonary oedema" />
                                     <render diagId="CIEL:111103" diagName="Stroke" />
                                     <render diagId="CIEL:116608" diagName="Ischemic heart disease" />
                                     <render diagId="CIEL:116116" diagName="Malignant hypertension" />
@@ -453,14 +454,16 @@
                                 </label> -->
                                 <repeat>
                                     <template>
-                                        <obs conceptId="PIH:14921" answerConceptId="{diagId}" style="checkbox"/>
+                                        <obs conceptId="PIH:14921"
+                                             answerConceptId="{diagId}" answerCode="{diagName}"
+                                             style="checkbox"/>
                                     </template>
                                     <!-- <render diagId="CIEL:115303" diagName="Nephrotic syndrome" /> -->
-                                    <render diagId="PIH:14958"   diagName="Nephrotic syndrome decompensation" />
+                                    <render diagId="PIH:14958"   diagName="Decompensated nephrotic syndrome" />
                                     <render diagId="CIEL:121849" diagName="Acute renal failure" />
-                                    <render diagId="CIEL:154967" diagName="Acute renal failure over chronic renal failure" />
-                                    <render diagId="CIEL:123549" diagName="Uremic encephalopathy" />
-                                    <render diagId="CIEL:162044" diagName="Severe anemia" />
+                                    <render diagId="CIEL:154967" diagName="Acute on chronic renal failure" />
+                                    <render diagId="CIEL:123549" diagName="Uraemic encephalopathy" />
+                                    <render diagId="CIEL:162044" diagName="Severe anaemia" />
                                 </repeat>
                             </td>
                             <td>

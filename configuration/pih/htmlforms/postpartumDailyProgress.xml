@@ -679,7 +679,7 @@
                             </template>
                             <render csState="CIEL:126721" csName="Sepsis"/>
                             <render csState="CIEL:115812" csName="Postpartum mental disorder (blues, depression, psychosis)"/>
-                            <render csState="CIEL:230"    csName="Postpartum hemorrhage"/>
+                            <render csState="CIEL:230"    csName="Postpartum haemorrhage"/>
                             <render csState="CIEL:140238" csName="Fever > 38 degrees"/>
                             <render csState="CIEL:115914" csName="Mastitis"/>
                             <render csState="CIEL:139081" csName="Severe headache"/>

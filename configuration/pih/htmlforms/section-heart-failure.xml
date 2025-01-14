@@ -383,7 +383,7 @@
                                     </p>
                                 </template>
                                 <render qId="CIEL:127640" symptName="Crackles" />
-                                <render qId="CIEL:130166" symptName="Pitting edema" />
+                                <render qId="CIEL:130166" symptName="Pitting oedema" />
                                 <render qId="CIEL:136394" symptName="Jugular distension" />
                             </repeat>
                         </div>

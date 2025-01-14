@@ -215,7 +215,7 @@
     </ifMode>
 
     <h2>
-        <uimessage code="LABOR &amp; DELIVERY"/>
+        <uimessage code="LABOUR &amp; DELIVERY"/>
     </h2>
 
     <section id="intake" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Intake">
@@ -271,7 +271,7 @@
         </div>
     </section>
 
-    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labor">
+    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labour">
         <div class="section-container">
             <p class="date-one-line">
                 <label>

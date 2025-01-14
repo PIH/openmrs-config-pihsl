@@ -815,7 +815,7 @@
             </td>
             <td>
                 <obs class="abnormalObs redObs" conceptId="PIH:20030" style="checkbox"
-                     answerConceptId="CIEL:164348" answerCode="Obstructed labor"/>
+                     answerConceptId="CIEL:164348" answerCode="Obstructed labour"/>
             </td>
         </tr>
 
@@ -864,7 +864,7 @@
                              answerConceptId="{cId}" answerCode="{labelTag}"/>
                     </template>
                     <render cId="CIEL:110548" labelTag="Spotting" />
-                    <render cId="CIEL:162193" labelTag="Labor" />
+                    <render cId="CIEL:162193" labelTag="Labour" />
                     <render cId="PIH:20051" labelTag="SROM &gt;24h" />
                     <render cId="CIEL:151" labelTag="Abdominal pain" />
                 </repeat>
@@ -876,7 +876,7 @@
                              answerConceptId="{cId}" answerCode="{labelTag}"/>
                     </template>
                     <render cId="CIEL:147232" labelTag="Vaginal bleeding" />
-                    <render cId="CIEL:165217" labelTag="Labor with imminent delivery" />
+                    <render cId="CIEL:165217" labelTag="Labour with imminent delivery" />
                     <render cId="CIEL:165271" labelTag="Severe abdominal pain" />
                 </repeat>
             </td>
@@ -884,7 +884,7 @@
 
         <tr class="exam">
             <th>
-                <label>Fetus</label>
+                <label>Foetus</label>
             </th>
             <td>
                 <obs class="normalObs greenObs" conceptId="PIH:20033" style="checkbox"
@@ -927,14 +927,14 @@
             <repeat>
                 <template>
                     <obs conceptId="PIH:12245" style="checkbox"
-                         answerConceptId="{cId}" class="{isolationClass}"/>
+                         answerConceptId="{cId}" class="{isolationClass}" answerCode="{labelTag}"/>
                 </template>
                 <render cId="CIEL:140238" labelTag="Fever" isolationClass="isolation"/>
                 <render cId="CIEL:127777" labelTag="Red eyes" isolationClass="non-isolation"/>
                 <render cId="CIEL:158843" labelTag="Sore throat" isolationClass="non-isolation"/>
                 <render cId="CIEL:512" labelTag="Rash" isolationClass="isolation"/>
-                <render cId="CIEL:147241" labelTag="Unexplained bleeding" isolationClass="isolation"/>
-                <render cId="CIEL:142412" labelTag="Diarrhea" isolationClass="isolation"/>
+                <render cId="CIEL:147241" labelTag="Bleeding" isolationClass="isolation"/>
+                <render cId="CIEL:142412" labelTag="Diarrhoea" isolationClass="isolation"/>
             </repeat>
         </p>
     </div>

@@ -275,7 +275,7 @@
         </div>
     </section>
 
-    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labor">
+    <section id="labor" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="Labour">
         <div class="section-container">
             <p class="date-one-line">
                 <label>
@@ -437,7 +437,7 @@
                             <render concept="CIEL:113006" name="severe pre-eclampsia"/>
                             <render concept="PIH:Eclampsia" name="eclampsia"/>
                             <render concept="CIEL:113602" name="Prolonged labour"/>
-                            <render concept="CIEL:121856" name="Acute pulmonary edema"/>
+                            <render concept="CIEL:121856" name="Acute pulmonary oedema"/> <!-- ToDo: British spelling -->
                             <render concept="CIEL:130" name="Puerperal sepsis"/>
                             <render concept="CIEL:138706" name="herpes"/>
                             <render concept="CIEL:112493" name="syphilis"/>

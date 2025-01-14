@@ -325,28 +325,31 @@
                     <label>
                         <uimessage code="pihcore.mch.dangerSigns"/>
                     </label>
+
                     <repeat>
                         <template>
                             <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                                <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{concept}" style="checkbox" />
+                                <obs conceptId="PIH:DIAGNOSIS"
+                                     answerConceptId="{concept}" answerCode="{name}"
+                                     style="checkbox" />
                             </obsgroup>
                         </template>
 
-                        <render concept="CIEL:165193" name="edema of hands or face"/>
-                        <render concept="PIH:136" name="chest pain"/>
-                        <render concept="CIEL:150802" name="pv bleeding"/>
-                        <render concept="CIEL:140238" name="fever"/>
-                        <render concept="CIEL:139081" name="severe headache"/>
-                        <render concept="CIEL:113054" name="seizure"/>
-                        <render concept="CIEL:118938" name="vision problem"/>
-                        <render concept="CIEL:122983" name="vomiting"/>
-                        <render concept="CIEL:142412" name="diarrhea"/>
-                        <render concept="CIEL:118771" name="painful urination"/>
-                        <render concept="CIEL:122496" name="shortness of breathe"/>
-                        <render concept="CIEL:151"    name="abdominal pain"/>
-                        <render concept="CIEL:153316" name="contractions"/>
-                        <render concept="CIEL:148968" name="amniotic fluid leaking"/>
-                        <render concept="CIEL:113377" name="decreased fetal movement"/>
+                        <render concept="CIEL:165193" name="Oedema of hands or face"/>
+                        <render concept="PIH:136"     name="Chest pain"/>
+                        <render concept="CIEL:150802" name="Abnormal vaginal bleeding"/> <!-- pv bleeding -->
+                        <render concept="CIEL:140238" name="Fever"/>
+                        <render concept="CIEL:139081" name="Severe headache"/>
+                        <render concept="CIEL:113054" name="Seizure"/>
+                        <render concept="CIEL:118938" name="Vision problem"/>
+                        <render concept="CIEL:122983" name="Vomiting"/>
+                        <render concept="CIEL:142412" name="Diarrhoea"/>
+                        <render concept="CIEL:118771" name="Dysuria"/> <!-- painful urination -->
+                        <render concept="CIEL:122496" name="Dyspnoea"/> <!-- shortness of breathe -->
+                        <render concept="CIEL:151"    name="Abdominal pain"/>
+                        <render concept="CIEL:153316" name="Premature uterine contractions"/>
+                        <render concept="CIEL:148968" name="Amniotic fluid leaking"/>
+                        <render concept="CIEL:113377" name="Decreased foetal movements"/>
                     </repeat>
                 </div>
 
@@ -368,8 +371,8 @@
                         <render answerId="CIEL:166426" hint="History of retained placenta" />
                         <render answerId="PIH:Eclampsia" hint="Eclampsia"/>
                         <render answerId="PIH:47" hint="Preeclampsia"/>
-                        <render answerId="PIH:ANTEPARTUM HEMORRHAGE" hint="Antepartum hemorrhage"/>
-                        <render answerId="CIEL:230" hint="Postpartum hemorrhage"/>
+                        <render answerId="PIH:ANTEPARTUM HEMORRHAGE" hint="Antepartum haemorrhage"/>
+                        <render answerId="CIEL:230" hint="Postpartum haemorrhage"/>
                         <render answerId="CIEL:163155" hint="Previous c-section" />
 
                         <render answerId="CIEL:138405" hint="HIV" answerCode="pihcore.lab.hiv.title" />
@@ -379,8 +382,8 @@
                         <render answerId="CIEL:115491" hint="Multiple gestation"/>
                         <render answerId="CIEL:130108" hint="Placental abruption"/>
                         <render answerId="CIEL:114127" hint="Placenta praevia"/>
-                        <render answerId="CIEL:140399" hint="Fetal death"/>
-                        <render answerId="CIEL:115939" hint="Malpresentation of fetus" />
+                        <render answerId="CIEL:140399" hint="Foetal death"/>
+                        <render answerId="CIEL:115939" hint="Malpresentation of foetus" />
                         <render answerId="CIEL:165088" hint="Victim of GBV" />
                         <render answerId="CIEL:112493" hint="Syphilis" />
                     </repeat>
