@@ -161,7 +161,7 @@
                             <uimessage code="emr.locationRequired"/>
                         </label>
                         <span>
-                            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"  tags="NewbornAdmission Note Location"/>
+                            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"  tags="Newborn Admission Note Location"/>
                         </span>
                     </td>
                     <td>
