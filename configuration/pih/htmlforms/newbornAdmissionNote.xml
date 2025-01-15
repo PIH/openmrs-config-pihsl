@@ -105,7 +105,7 @@
 
             <p id="where">
                 <label><uimessage code="mirebalais.admissionNote.admittedTo.label"/></label>
-                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" tags="Admission Location"/>
+                <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" tags="Newborn Admission Note Location"/>
             </p>
 
             <p id="when">
