@@ -12,7 +12,7 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform id="newborn-admission"
+<htmlform id="newborn-initial"
           formUuid="9f84aa9d-b6a0-4c2b-be36-1a8f96d8bc79"
           htmlformUuid="8f1431f2-eb71-4518-9d85-8096aca932d4"
           formName="Newborn Initial"
@@ -375,7 +375,7 @@
     <ifMode mode="VIEW" include="false">
         <h2>
             <label>
-                <uimessage code="pih.task.newbornAdmission"/>
+                <uimessage code="pih.task.newbornInitial"/>
             </label>
         </h2>
 

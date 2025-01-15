@@ -15,7 +15,7 @@
 <htmlform id="newborn-assessment"
           formUuid="17e93a76-32d1-4435-a5e3-3068e305c2d7"
           htmlformUuid="f6eb28e3-66d1-4f99-b46f-0ff6e05c672c"
-          formName="Newborn Initial"
+          formName="Newborn Assessment"
           formEncounterType="6444b8d4-407d-444d-aa15-d6dff204ed83" formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction"/>
