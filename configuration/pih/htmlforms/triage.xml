@@ -552,9 +552,9 @@
                 }
 
                 beforeSubmit.push(function() {
-                    setPriority(normalPriority);
-                    let globalPriority = calculatePriority();
-                    setPriority(globalPriority.queuePriority);
+                    // setPriority(normalPriority);
+                    // let globalPriority = calculatePriority();
+                    // setPriority(globalPriority.queuePriority);
                     return true;
                 });
 
@@ -562,7 +562,7 @@
                 sticky_relocate();
                 jq(".vitals-values").find('input').attr('autocomplete', 'off');
                 jq(".vitals-values").find('input').trigger("blur");
-                calculatePriority();
+                // calculatePriority();
                 evaluateIsolationStatus();
             });
         </script>
@@ -962,31 +962,15 @@
         Patient needs isolation and urgent review by infectious disease team.
     </div>
     <div class="boundary"></div>
-    <div class="referralService">
-        <p class="list-inline">
-            <label>
-               Admission location:
-            </label>
-            <obsgroup groupingConceptId="PIH:HUM Disposition construct" hiddenConceptId="PIH:HUM Disposition categories" hiddenAnswerConceptId="PIH:ADMIT TO HOSPITAL">
-                <obs conceptId="PIH:Admission location in hospital"
-                     style="location_radio"
-                     class="emergencyQueue"
-                     answerLocationTags="Maternal Admission Location"
-                     restrictToCurrentVisitLocation="true"
-                />
-            </obsgroup>
-        </p>
-    </div>
-    <div class="hidden">
-        <label>Priority</label>
-        <obs conceptId="PIH:12842"
-             style="radio"
-             id="priority"
-             answerConceptIds="CIEL:1115,PIH:Emergency"
-             answerCodes="Normal,Emergency"
-             answerSeparator=" "/>
-    </div>
+        <div class="section-container">
+            <div class="two-columns">
+                <div id="disposition">
+                    <encounterDisposition required="true"/>
+                </div>
+            </div>
+        </div>
     <div class="boundary"></div>
+
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
