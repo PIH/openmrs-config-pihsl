@@ -523,46 +523,11 @@
                     calculatePriority();
                 });
 
-                jq('.normalQueue').change(function(event) {
-                    let normalQueue = jq(this).children("input[type='radio']:checked").val();
-                    if (normalQueue) {
-                        let parentDiv = jq(this).closest(".referralService");
-                        if (parentDiv) {
-                            jq(parentDiv).find(".emergencyQueue").children("input[type='radio']").prop('checked', false);
-                        }
-                    }
-                });
-                jq('.emergencyQueue').change(function(event) {
-                    let emergencyQueue = jq(this).children("input[type='radio']:checked").val();
-                    if (emergencyQueue) {
-                        let parentDiv = jq(this).closest(".referralService");
-                        if (parentDiv) {
-                            jq(parentDiv).find(".normalQueue").children("input[type='radio']").prop('checked', false);
-                        }
-                    }
-                });
-
-                function setPriority(priority) {
-                    jq("#priority").children("input").each(function() {
-                        let attrVal = jq(this).attr("value");
-                        if ( attrVal == priority ) {
-                            jq(this).prop("checked", true);
-                        }
-                    });
-                }
-
-                beforeSubmit.push(function() {
-                    // setPriority(normalPriority);
-                    // let globalPriority = calculatePriority();
-                    // setPriority(globalPriority.queuePriority);
-                    return true;
-                });
-
                 jq(window).scroll(sticky_relocate);
                 sticky_relocate();
                 jq(".vitals-values").find('input').attr('autocomplete', 'off');
                 jq(".vitals-values").find('input').trigger("blur");
-                // calculatePriority();
+                calculatePriority();
                 evaluateIsolationStatus();
             });
         </script>
