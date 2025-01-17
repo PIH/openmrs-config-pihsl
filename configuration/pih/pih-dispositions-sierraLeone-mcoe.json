@@ -154,6 +154,23 @@
     ]
   },
   {
+    "uuid": "transferToOutpatientFromMaternalTriage",
+    "name": "disposition.emrapi.transferToOutpatient",
+    "conceptCode": "PIH: 20680",
+    "encounterTypes": ["41911448-71a1-43d7-bba8-dc86339850da"],
+    "additionalObs": [
+      {
+        "label": "disposition.emrapi.transferToOutpatient.location",
+        "conceptCode": "PIH: 14973",
+        "params": {
+          "id": "transferOutpatientLocation",
+          "answerConceptIds": "PIH: ANTENATAL CLINIC",
+          "answerCodes": "disposition.emrapi.transferTo.MCH"
+        }
+      }
+    ]
+  },
+  {
     "uuid": "transferOutOfHospitalFromMaternalTriage",
     "name": "disposition.emrapi.transferOutOfHospital",
     "conceptCode": "PIH:Transfer out of hospital",
