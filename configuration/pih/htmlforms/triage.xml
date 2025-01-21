@@ -563,7 +563,7 @@
                 <div style="width: 30%">
                     <p id="where" class="side-by-side">
                         <label><uimessage code="emr.locationRequired"/></label>
-                        <encounterLocation required="true" default="$mcoeTriageLocation" tags="MCH Triage Location"/>
+                        <encounterLocation required="true" default="SessionAttribute:emrContext.sessionLocationId" tags="MCH Triage Location"/>
                     </p>
                 </div>
                 <div style="width: 15%">
