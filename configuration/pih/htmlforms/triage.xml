@@ -116,13 +116,14 @@
             display: inline-flex;
         }
 
-        #disposition > p, span, label {
+        #disposition > p {
             margin-left: 10px;
         }
 
         .in-the-same-line {
             display: inline-flex;
         }
+
         .side-by-side label {
             display: inline-block;
         }
