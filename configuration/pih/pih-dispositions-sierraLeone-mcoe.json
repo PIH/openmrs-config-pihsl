@@ -49,7 +49,9 @@
           "id": "admissionLocation",
           "style": "location",
           "answerLocationTags": "Maternal Admission Location",
-          "restrictToCurrentVisitLocation": "true"
+          "restrictToCurrentVisitLocation": "true",
+          "required": "true",
+          "class": "in-the-same-line"
         }
       }
     ]
@@ -164,8 +166,10 @@
         "conceptCode": "PIH: 14973",
         "params": {
           "id": "transferOutpatientLocation",
-          "answerConceptIds": "PIH: ANTENATAL CLINIC",
-          "answerCodes": "disposition.emrapi.transferTo.MCH"
+          "answerConceptIds": "PIH: ANTENATAL CLINIC,PIH: OTHER",
+          "answerCodes": "disposition.emrapi.transferTo.MCH,pihcore.other",
+          "required": "true",
+          "class": "in-the-same-line"
         }
       }
     ]
@@ -181,7 +185,9 @@
         "conceptCode": "PIH: 14424",
         "params": {
           "id": "transferExternalLocation",
-          "answerConceptIds": "PIH: 12366"
+          "answerConceptIds": "PIH: 12366,PIH: OTHER",
+          "required": "true",
+          "class": "in-the-same-line"
         }
       }
     ]

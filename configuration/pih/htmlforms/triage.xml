@@ -112,6 +112,17 @@
             white-space: pre-line;
         }
 
+        #disposition > span {
+            display: inline-flex;
+        }
+
+        #disposition > p, span, label {
+            margin-left: 10px;
+        }
+
+        .in-the-same-line {
+            display: inline-flex;
+        }
         .side-by-side label {
             display: inline-block;
         }
