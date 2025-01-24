@@ -116,8 +116,8 @@
             display: inline-flex;
         }
 
-        #disposition > p {
-            margin-left: 10px;
+        #disposition span {
+            padding-left: 15px;
         }
 
         .in-the-same-line {
@@ -229,6 +229,30 @@
 
     <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
+            var validateForm = function () {
+
+                let needsDisposition = true;
+                let hasDisposition = jq('#disposition select:first').val() != '';
+                let isValid = false;
+
+                if (hasDisposition || needsDisposition) {
+                    // make sure disposition and all related field have been filled out
+                    isValid = !jq('#disposition select:visible').is(function() {
+                        return jq(this).val() == '';
+                      })  &amp;&amp;
+                    !jq('#disposition input:visible').is(function() {
+                        return jq(this).val() == '';
+                    })
+                }
+
+                if (isValid) {
+                  htmlForm.enableSubmitButton();
+                }
+                else {
+                  htmlForm.disableSubmitButton();
+                }
+
+            }
             jq(document).ready(function() {
 
                 const normalPriority = '<lookup expression="fn.getConcept('CIEL:1115').id"/>';
@@ -541,6 +565,11 @@
                 jq(".vitals-values").find('input').trigger("blur");
                 calculatePriority();
                 evaluateIsolationStatus();
+
+                // validate the selection of the disposition and location
+                jq(document).change(validateForm);
+                jq(document).click(validateForm);
+                validateForm();
             });
         </script>
     </ifMode>
