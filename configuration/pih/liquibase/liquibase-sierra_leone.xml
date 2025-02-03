@@ -230,4 +230,15 @@
 
         </sql>
     </changeSet>
+    <changeSet id="20250203-migrate-ed-triage-glucose-obs-to-correct-concept" author="mgoodrich">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from obs where void_reason = 'SL-844: Migrate Glucose data on Triage Form from Old Concept to New Concept';
+            </sqlCheck>
+        </preConditions>
+        <comment>
+            SL-844: Migrate Glucose data on Triage Form from Old Concept to New Concept
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/migrate_ed_triage_glucose_obs_to_correct_concept.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
 </databaseChangeLog>
