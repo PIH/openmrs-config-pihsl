@@ -43,7 +43,7 @@ insert into temp_glucose_obs_to_update (obs_id, person_id, concept_id, encounter
     select o.obs_id, o.person_id, o.concept_id, o.encounter_id, o.order_id, o.obs_datetime, o.location_id, o.obs_group_id,
            o.accession_number, o.value_group_id, o.value_coded, o.value_coded_name_id, o.value_drug, o.value_datetime,
            o.value_numeric, o.value_modifier, o.value_text, o.value_complex, o.comments, o.previous_version, o.form_namespace_and_path,
-           o.status, o.interpretation from obs o, encounter e where concept_id=@oldConceptId and o.voided=0 and o.encounter_id = e.encounter_id
+           o.status, o.interpretation from obs o, encounter e where o.concept_id=@oldConceptId and o.voided=0 and o.encounter_id = e.encounter_id
                                                                 and e.encounter_type = @emergencyTriageId;
 
 
