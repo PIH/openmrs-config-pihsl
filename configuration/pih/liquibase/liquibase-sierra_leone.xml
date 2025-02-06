@@ -231,6 +231,8 @@
         </sql>
     </changeSet>
     <changeSet id="20250203-migrate-ed-triage-glucose-obs-to-correct-concept" author="mgoodrich">
+        <validCheckSum>9:51613054870b57bc7d989019473a504b</validCheckSum>
+        <validCheckSum>8:a59e73b3de288ab47842cb3175b3c05a</validCheckSum>
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 select count(*) from obs where void_reason = 'SL-844: Migrate Glucose data on Triage Form from Old Concept to New Concept';
