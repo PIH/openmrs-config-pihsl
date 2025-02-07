@@ -18,12 +18,6 @@
         <value>8fcd0b0c-f977-4a66-a1b5-ad7ce68e6770</value>
     </globalProperty>
 
-    <globalProperty>
-        <property>drugOrder.requireOutpatientQuantity</property>
-        <!-- This disallows entering drug orders without having to specify the amount to dispense at the time of order -->
-        <value>true</value>
-    </globalProperty>
-
     <!-- Core Apps Global Properties -->
     <globalProperty>
         <property>coreapps.defaultPatientIdentifierLocation</property>
