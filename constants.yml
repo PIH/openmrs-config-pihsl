@@ -82,3 +82,6 @@ concept:
 queue:
   triage:
     uuid: "3113f164-68f0-11ee-ab8d-0242ac120002"
+location:
+  kgh:
+    uuid: "074b2ab0-716a-11eb-8aa6-0242ac110002"
