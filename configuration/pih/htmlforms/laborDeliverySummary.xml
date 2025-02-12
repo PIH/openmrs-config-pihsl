@@ -837,6 +837,11 @@
                 <span id="fetus-{0}" class="fetus">
                     <obsgroup groupingConceptId="PIH:13555" showIfEmpty="false">
                         <h6>------- Infant {0} -------</h6>
+                        <!-- Birth order                         -->
+                        <span class="small hidden">
+                            <obs id="birth-order-{0}" conceptId="CIEL:163460" defaultValue="{0}" controlId="nb{0}"/>
+                        </span>
+
                         <div>
                             <p class="date-one-line">
                                 <label>
