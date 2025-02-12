@@ -780,13 +780,13 @@
                             <span class="append-to-value"><uimessage code="emr.units.centimeters"/></span>
                         </span>
                     </p>
-		   </ifMode>
+		        </ifMode>
 
                 <!-- add cm field for conversion if in edit mode -->
                 <ifMode mode="VIEW" include="false">
                      <p class='left'>
                         <span class='obs-field'>
-                            <input type="text" id="muac_cm" size="5" min="5" max="30" class="number numeric-range cm"/>
+                            <input type="text" id="muac_cm" size="5" min="5" max="55" class="number numeric-range cm"/>
                             <span class="append-to-value"><uimessage code="emr.units.centimeters"/></span>
                             <span class="error field-error" style="display: none"></span>
                         </span>
