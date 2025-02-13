@@ -738,7 +738,8 @@
                 <ifMode mode="VIEW" include="false">
                     <p class='left'>
                         <span class='obs-field'>
-                            <input type="text" id="muac_cm" size="5" min="5" max="55" class="number numeric-range cm"/>
+                            <!-- ToDo: UHM-861 Fix for children/women -->
+                            <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
                             <span class="append-to-value">
                                 <uimessage code="emr.units.centimeters"/>
                             </span>
