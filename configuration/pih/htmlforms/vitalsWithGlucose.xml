@@ -586,7 +586,6 @@
 
         <!-- only show BMI if patient is more than 5 years old (on the encounterDate) -->
         <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime()) > 5">
-
             <fieldset>
                 <legend>
                     <uimessage code="mirebalais.vitals.bmi.title"/>
@@ -610,8 +609,24 @@
                     <uimessage code="mirebalais.vitals.calculatedField.continue"/>
                 </p>
             </fieldset>
-
         </includeIf>
+
+        <ifMode mode="VIEW" include="false">
+            <fieldset>
+                <legend>
+                    <uimessage code="mirebalais.vitals.consciousness.title"/>
+                </legend>
+                <h3>
+                    <uimessage code="mirebalais.vitals.LevelOfConsciousness.title"/>
+                </h3>
+                <p class="multilines-display">
+                    <obs conceptId="PIH:10674" id="consciousness_level" style="radio"
+                         answerSeparator="&lt;br&gt;"
+                         answerConceptIds="CIEL:160282,CIEL:120345,CIEL:162645,CIEL:162644,PIH:6784"
+                         answerLabels="Alert,Confusion,Responds to voice,Responds to pain,Unresponsive" />
+                </p>
+            </fieldset>
+        </ifMode>
 
         <fieldset field-separator=" ">
             <legend>
@@ -625,7 +640,6 @@
                 <obs conceptId="PIH:TEMPERATURE (C)" id="temperature_c" showUnits="emr.units.degreesCelsius"
                      unitsCssClass="append-to-value"/>
             </p>
-
         </fieldset>
 
         <fieldset>
