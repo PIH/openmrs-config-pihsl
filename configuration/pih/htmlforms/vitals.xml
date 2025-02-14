@@ -785,18 +785,15 @@
                 <ifMode mode="VIEW" include="false">
                      <p class='left'>
                         <span class='obs-field'>
-                            <!-- Everyone -->
-                            <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
-
-                            <!-- ToDo: SL-861 Allow different max values depending on age and gender -->
-                            <!-- Children (under 13 years old)
+                            <!-- Show the right max value for MUAC:  Children (under 13 years old) -->
                             <includeIf velocityTest="13 > $patient.getAge($encounter.getEncounterDatetime())">
                                 <input type="text" id="muac_cm" size="5" min="5" max="27" class="number numeric-range cm"/>
-                            </includeIf> -->
-                            <!-- Women
-                            <includeIf velocityTest="$patient.getAge($encounter.getEncounterDatetime())) &gt; 13">
+                            </includeIf>
+                            <!-- Show the right max value for MUAC:  Women (13+ yo -->
+                            <includeIf velocityTest="12 &lt; $patient.getAge($encounter.getEncounterDatetime())">
                                 <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
-                            </includeIf> -->
+                            </includeIf>
+
                             <span class="append-to-value"><uimessage code="emr.units.centimeters"/></span>
                             <span class="error field-error" style="display: none"></span>
                         </span>
