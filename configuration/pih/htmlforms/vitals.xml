@@ -789,7 +789,7 @@
                             <includeIf velocityTest="13 > $patient.getAge($encounter.getEncounterDatetime())">
                                 <input type="text" id="muac_cm" size="5" min="5" max="27" class="number numeric-range cm"/>
                             </includeIf>
-                            <!-- Show the right max value for MUAC:  Women (13+ yo -->
+                            <!-- Show the right max value for MUAC:  Women (13+ yo) -->
                             <includeIf velocityTest="12 &lt; $patient.getAge($encounter.getEncounterDatetime())">
                                 <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
                             </includeIf>

@@ -738,8 +738,15 @@
                 <ifMode mode="VIEW" include="false">
                     <p class='left'>
                         <span class='obs-field'>
-                            <!-- ToDo: UHM-861 Fix for children/women -->
-                            <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
+                            <!-- Show the right max value for MUAC:  Children (under 13 years old) -->
+                            <includeIf velocityTest="13 > $patient.getAge($encounter.getEncounterDatetime())">
+                                <input type="text" id="muac_cm" size="5" min="5" max="27" class="number numeric-range cm"/>
+                            </includeIf>
+                            <!-- Show the right max value for MUAC:  Women (13+ yo) -->
+                            <includeIf velocityTest="12 &lt; $patient.getAge($encounter.getEncounterDatetime())">
+                                <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
+                            </includeIf>
+                            
                             <span class="append-to-value">
                                 <uimessage code="emr.units.centimeters"/>
                             </span>
