@@ -835,13 +835,8 @@
 
             <repeat with="['1'],['2'],['3']">
                 <span id="fetus-{0}" class="fetus">
-                    <obsgroup groupingConceptId="PIH:13555" showIfEmpty="false">
+                    <obsgroup groupingConceptId="PIH:13555" showIfEmpty="false" hiddenConceptId="CIEL:163460" hiddenAnswer="{0}">  <!-- hidden obs to keep track of birth order -->
                         <h6>------- Infant {0} -------</h6>
-                        <!-- Birth order                         -->
-                        <span class="small hidden">
-                            <obs id="birth-order-{0}" conceptId="CIEL:163460" defaultValue="{0}" controlId="nb{0}"/>
-                        </span>
-
                         <div>
                             <p class="date-one-line">
                                 <label>
@@ -862,7 +857,7 @@
                                     <obs id="dead-or-alive-{0}"
                                          conceptId="CIEL:159917" style="radio" class="fetusOutcome"
                                          answerConceptIds="CIEL:151849,CIEL:159916,CIEL:135436"
-                                         answerCodes="Alive,FSB,MSB">
+                                         answerCodes="Alive,FSB,MSB" controlId="fetus-outcome-{0}">  <!-- control ID to retain order on the form -->
                                         <controls>
                                             <when value="CIEL:151849" thenDisplay="#alive-details-{0}"/>
                                         </controls>
