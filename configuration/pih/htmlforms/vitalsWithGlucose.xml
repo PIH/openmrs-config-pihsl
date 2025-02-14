@@ -523,7 +523,7 @@
                     <span>
                         <field>
                             <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
-                                               tags="NCD Consult Location"/>
+                                               tags="Vitals Glucose Location"/>
                         </field>
                     </span>
                     <br/>
@@ -746,7 +746,7 @@
                             <includeIf velocityTest="12 &lt; $patient.getAge($encounter.getEncounterDatetime())">
                                 <input type="text" id="muac_cm" size="5" min="5" max="56" class="number numeric-range cm"/>
                             </includeIf>
-                            
+
                             <span class="append-to-value">
                                 <uimessage code="emr.units.centimeters"/>
                             </span>
