@@ -17,6 +17,7 @@
           formVersion="3.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
 
     <style type="text/css">
 
@@ -348,17 +349,30 @@
                     </label>
                     <obs conceptId="PIH:11661" style="radio" answerSeparator=""
                          answerConceptIds="CIEL:1721,CIEL:1722,CIEL:1723"/>
-                    <!-- ToDo: Ask team if they want the time range for trimester
-                         answerCodes="pihcore.mch.firstTri,pihcore.mch.secondTri,pihcore.mch.thirdTri"
-                    -->
-                </div>
-                <div>
+                    <br/>
+
                     <!-- Number of ANC visits -->
                     <p>
                         <label>
                             <uimessage code="sl.anc.number.of.visits"/>
                         </label>
                         <obs conceptId="CIEL:1590" />
+                    </p>
+                </div>
+                <div>
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="pihcore.referredBy"/>
+                        </label>
+                        <br/>
+                        <obs conceptId="PIH:Type of referring service" style="radio"
+                             answerConceptIds="PIH:12368,CIEL:1555,CIEL:1575,CIEL:978,CIEL:5622"
+                             answerCodes="Peripheral Health Unit (PHU),CHW,Traditional birth attendant (TBA),Self-refer,other"
+                             answerSeparator="&lt;br /&gt;"/>
+                    </p>
+
+                    <p>
+                        <obs conceptId="CIEL:164359" labelText="Reason for referral" />
                     </p>
                 </div>
             </div>
@@ -386,11 +400,18 @@
                         <!-- for the mother, next of kin -->
                         <label>
                             <uimessage code="pihcore.mch.nextofkin"/>
+                            (<uimessage code="name"/>)
                         </label>
                         <obs conceptId="CIEL:162729"/>
+
+                        <label>
+                            <uimessage code="pihcore.mch.nextofkin"/>
+                            (<uimessage code="phone number"/>)
+                        </label>
+                        <obs conceptId="PIH:6194"/>
                     </p>
 
-                    <br/><br/><br/><br/><br/><br/>
+                    <br/><br/><br/>
 
                     <p>
                         <!-- for the Mother, Count of babies delivered who died as neonatal -->
@@ -417,8 +438,12 @@
 
                         <repeat>
                             <template>
-                                <obs conceptId="CIEL:160079" style="checkbox"
-                                     answerConceptId="{answerId}" answerCode="{hint}"/>
+                                <obs id="risk-{answerId}" conceptId="CIEL:160079" style="checkbox"
+                                     answerConceptId="{answerId}" answerCode="{hint}">
+                                    <controls>
+                                        <when value="CIEL:163155" thenDisplay="#c-section-details"/>
+                                    </controls>
+                                </obs>
                             </template>
                             <render answerId="CIEL:156650" hint="History of spontaneous abortion" />
                             <render answerId="CIEL:166426" hint="History of retained placenta" />
@@ -443,6 +468,18 @@
                         <obs conceptId="CIEL:160079" answerConceptId="PIH:OTHER"
                              commentFieldLabel="  " />
                     </p>
+
+                    <div id="c-section-details">
+                        <label>
+                            <uimessage code="pihcore.mch.numPreviousCSection" />
+                        </label>
+                        <obs conceptId="CIEL:160081" />
+
+                        <label>
+                            <uimessage code="pihcore.mch.yearsSinceCSection" />
+                        </label>
+                        <obs conceptId="PIH:20723" />
+                    </div>
                 </div>
             </div>
 
@@ -1058,15 +1095,22 @@
 
     <section id="return" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Return visit">
-        <div class="section-container">
-            <p>
-                <label>
-                    <uimessage code="pihcore.consult.returnVisitDate"/>
-                </label>
-                <span class="small">
-                    <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="true"/>
-                </span>
-            </p>
+        <div class="section-container two-columns">
+            <div id="disposition">
+                <encounterDisposition />
+            </div>
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="pihcore.consult.returnVisitDate"/>
+                    </label>
+                    <span class="small">
+                        <obs id="apptDate" required="true"
+                             conceptId="PIH:RETURN VISIT DATE"
+                             allowFutureDates="true" allowPastDates="false" />
+                    </span>
+                </p>
+            </div>
         </div>
     </section>
 
@@ -1075,8 +1119,13 @@
             <!-- ToDo:  Fix to drop into the vaccination section
             <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
             -->
-            <button id="submit" class="submitButton confirm right"><uimessage code="mirebalais.save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
-            <button id="cancel" type="button" class="cancel"><uimessage code="emr.cancel"/></button>
+            <button id="submit" class="submitButton confirm right">
+                <uimessage code="mirebalais.save"/>
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button>
+            <button id="cancel" type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
         </div>
     </ifMode>
 
