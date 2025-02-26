@@ -748,6 +748,7 @@
              headerStyle="title" headerCode="Lab and Treatment">
         <div class="section-container side-button">
 
+            <h3>Lab results</h3>
             <p class="list-inline">
                 <label>
                     <uimessage code="pihcore.lab.blood_type"/>
@@ -778,14 +779,40 @@
             </span>
             -->
 
-
             <p class="list-inline">
                 <label>
                     <uimessage code="pihcore.lab.malariaRDT"/>
                 </label>
                 <obs id="malariaRDT" style="radio"
                      conceptId="CIEL:1643"
-                     answerConceptIds="CIEL:703,CIEL:664"/>
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="Hepatitis B (HbsAb)"/>
+                </label>
+                <obs id="HBsAg" style="radio"
+                     conceptId="CIEL:159430"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="HIV rapid test"/>
+                </label>
+                <obs id="hiv-rapid" style="radio"
+                     conceptId="CIEL:163722"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="pihcore.lab.Sickling.exam"/>
+                </label>
+                <obs id="sickling" style="radio"
+                     conceptId="CIEL:160225"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
             </p>
 
             <!-- Urine dipstick -->
@@ -802,7 +829,11 @@
                 </template>
                 <render concept="159734" message="glucose" answers="CIEL:1365,CIEL:1364,CIEL:1363,CIEL:1362,CIEL:664" />
                 <render concept="1875"   message="protein" answers="CIEL:1365,CIEL:1364,CIEL:1363,CIEL:1362,CIEL:159416,CIEL:664" />
+                <render concept="45"     message="hCG" answers="CIEL:703,CIEL:664,CIEL:1138" />
             </repeat>
+            <br/>
+
+            <h3>Treatment</h3>
 
             <p class="list-inline-wide">
                 <label for="fefol">
@@ -836,6 +867,47 @@
             <p>
                 <obs conceptId="PIH:6760" style="textarea" labelText="Other complaints" />
             </p>
+        </div>
+    </section>
+
+    <section id="radiology" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Imaging">
+        <div class="section-container">
+            <strong>
+                <uimessage code="Abdominal ultrasound"/>
+            </strong>
+
+            <obsgroup groupingConceptId="PIH:Radiology report construct"
+                      hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:845">
+            <div class="two-columns">
+                <div>
+                    <obs conceptId="PIH:12847" labelCode="Date"/>
+                    <br/>
+
+                    <obs conceptId="PIH:8596" labelText="Comments" rows="2"/>
+                </div>
+                <div>
+                    <repeat with="['1118','Not done'],
+                                  ['1115','Normal'],
+                                  ['1116','Abnormal']">
+                        <obs id="uss-{0}" conceptId="CIEL:845" style="checkbox"
+                             answerConceptId="CIEL:{0}" answerLabel="{1}" >
+                        </obs>
+                    </repeat>
+
+                    <!--
+                            <controls>
+                                <when value="CIEL:5622" thenDisplay="#other-uss-result" />
+                            </controls>
+                    <div id="other-uss-result">
+                        <label>if other, specify:</label>
+                        <obs conceptId="PIH:8596" style="text"/>
+                    </div>
+                    -->
+                </div>
+            </div>
+            </obsgroup>
+
         </div>
     </section>
 

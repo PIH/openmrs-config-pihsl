@@ -5,6 +5,7 @@
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
 
     <style type="text/css">
 
@@ -13,35 +14,35 @@
         }
 
         #encounterDate input {
-        min-width: 15%
+            min-width: 15%
         }
 
         textarea {
-        overflow-y: hidden; /* fixes scrollbar flash - kudos to @brettjonesdev */
-        padding-top: 1.1em; /* fixes text jump on Enter keypress */
+            overflow-y: hidden; /* fixes scrollbar flash - kudos to @brettjonesdev */
+            padding-top: 1.1em; /* fixes text jump on Enter keypress */
         }
 
         @media print {
-        .print-form-datestamps { display: block !important }
-        button.cancel, button.submit { display: none }
-        label { font-weight: bold }
-        label[for] { font-weight: normal } /* refers to the radio set label */
+            .print-form-datestamps { display: block !important }
+            button.cancel, button.submit { display: none }
+            label { font-weight: bold }
+            label[for] { font-weight: normal } /* refers to the radio set label */
         }
 
         .section-container {
-        background: #F2F2F2;
-        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-        padding: 10px 5px 10px 15px;
-        line-height: 1.5em; /*add this for vertical spacing between elements*/
+            background: #F2F2F2;
+            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+            padding: 10px 5px 10px 15px;
+            line-height: 1.5em; /*add this for vertical spacing between elements*/
         }
 
         .section-container input[type="checkbox"] {
-        margin: 0px 5px; /*changed values to vertical, horizontal*/
-        top:5px; /*added to offset the checkbox position to line up*/
+            margin: 0px 5px; /*changed values to vertical, horizontal*/
+            top:5px; /*added to offset the checkbox position to line up*/
         }
 
         .section-container label { /*new definition to override labels inside section-containers*/
-        margin: 0px;
+            margin: 0px;
         }
 
        - .section {
@@ -616,7 +617,34 @@
                 </label>
                 <obs id="malariaRDT" style="radio"
                      conceptId="CIEL:1643"
-                     answerConceptIds="CIEL:703,CIEL:664"/>
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="Hepatitis B (HbsAb)"/>
+                </label>
+                <obs id="HBsAg" style="radio"
+                     conceptId="CIEL:159430"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="HIV rapid test"/>
+                </label>
+                <obs id="hiv-rapid" style="radio"
+                     conceptId="CIEL:163722"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+            </p>
+
+            <p class="list-inline">
+                <label>
+                    <uimessage code="pihcore.lab.Sickling.exam"/>
+                </label>
+                <obs id="sickling" style="radio"
+                     conceptId="CIEL:160225"
+                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
             </p>
 
             <!-- Urine dipstick -->
@@ -633,7 +661,11 @@
                 </template>
                 <render concept="159734" message="glucose" answers="CIEL:1365,CIEL:1364,CIEL:1363,CIEL:1362,CIEL:664" />
                 <render concept="1875"   message="protein" answers="CIEL:1365,CIEL:1364,CIEL:1363,CIEL:1362,CIEL:159416,CIEL:664" />
+                <render concept="45"     message="hCG" answers="CIEL:703,CIEL:664,CIEL:1138" />
             </repeat>
+            <br/>
+
+            <h3>Treatment</h3>
 
             <p class="list-inline-wide">
                 <label for="fefol">
@@ -667,6 +699,37 @@
             <p>
                 <obs conceptId="PIH:6760" style="textarea" labelText="Other complaints" />
             </p>
+        </div>
+    </section>
+
+    <section id="radiology" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Imaging">
+        <div class="section-container">
+            <strong>
+                <uimessage code="Abdominal ultrasound"/>
+            </strong>
+
+            <obsgroup groupingConceptId="PIH:Radiology report construct"
+                      hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:845">
+                <div class="two-columns">
+                    <div>
+                        <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
+
+                        <obs conceptId="PIH:8596" labelText="Comments" rows="2"/>
+                    </div>
+                    <div>
+                        <repeat with="['1118','Not done'],
+                                      ['1115','Normal'],
+                                      ['1116','Abnormal']">
+                            <obs id="uss-{0}" conceptId="CIEL:845" style="checkbox"
+                                 answerConceptId="CIEL:{0}" answerLabel="{1}" >
+                            </obs>
+                        </repeat>
+                    </div>
+                </div>
+            </obsgroup>
+
         </div>
     </section>
 
@@ -864,15 +927,22 @@
 
     <section id="return" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Return visit">
-        <div class="section-container">
-            <p>
-                <label>
-                    <uimessage code="pihcore.consult.returnVisitDate"/>
-                </label>
-                <span class="small">
-                    <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate"/>
-                </span>
-            </p>
+        <div class="section-container two-columns">
+            <div id="disposition">
+                <encounterDisposition />
+            </div>
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="pihcore.consult.returnVisitDate"/>
+                    </label>
+                    <span class="small">
+                        <obs id="apptDate" required="true"
+                             conceptId="PIH:RETURN VISIT DATE"
+                             allowFutureDates="true" allowPastDates="false" />
+                    </span>
+                </p>
+            </div>
         </div>
     </section>
 
