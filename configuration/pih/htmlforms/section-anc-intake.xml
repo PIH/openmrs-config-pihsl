@@ -138,6 +138,15 @@
             display: inline-block;
             float: none;
         }
+
+        .indented {
+            padding-left: 20pt;
+            padding-right: 20pt;
+        }
+        .bigIndent {
+            padding-left: 40pt;
+            padding-right: 10pt;
+        }
     </style>
 
     <style type="text/css">
@@ -440,9 +449,6 @@
                             <template>
                                 <obs id="risk-{answerId}" conceptId="CIEL:160079" style="checkbox"
                                      answerConceptId="{answerId}" answerCode="{hint}">
-                                    <controls>
-                                        <when value="CIEL:163155" thenDisplay="#c-section-details"/>
-                                    </controls>
                                 </obs>
                             </template>
                             <render answerId="CIEL:156650" hint="History of spontaneous abortion" />
@@ -452,7 +458,26 @@
                             <render answerId="PIH:ANTEPARTUM HEMORRHAGE" hint="Antepartum haemorrhage"/>
                             <render answerId="CIEL:230" hint="Postpartum haemorrhage"/>
                             <render answerId="CIEL:163155" hint="Previous c-section" />
+                        </repeat>
 
+                        <div id="c-section-details" class="indented">
+                            <label>
+                                <uimessage code="pihcore.mch.numPreviousCSection" />
+                            </label>
+                            <obs conceptId="CIEL:160081" />
+
+                            <label>
+                                <uimessage code="pihcore.mch.yearsSinceCSection" />
+                            </label>
+                            <obs conceptId="PIH:20723" />
+                            <br/>
+                        </div>
+
+                        <repeat>
+                            <template>
+                                <obs id="risk-{answerId}" conceptId="CIEL:160079" style="checkbox"
+                                     answerConceptId="{answerId}" answerCode="{hint}"/>
+                            </template>
                             <render answerId="CIEL:138405" hint="HIV" answerCode="pihcore.lab.hiv.title" />
                             <render answerId="PIH:HEART DISEASE" hint="Heart disease"/>
                             <render answerId="PIH:DIABETES" hint="Diabetes"/>
@@ -468,18 +493,6 @@
                         <obs conceptId="CIEL:160079" answerConceptId="PIH:OTHER"
                              commentFieldLabel="  " />
                     </p>
-
-                    <div id="c-section-details">
-                        <label>
-                            <uimessage code="pihcore.mch.numPreviousCSection" />
-                        </label>
-                        <obs conceptId="CIEL:160081" />
-
-                        <label>
-                            <uimessage code="pihcore.mch.yearsSinceCSection" />
-                        </label>
-                        <obs conceptId="PIH:20723" />
-                    </div>
                 </div>
             </div>
 
@@ -833,6 +846,14 @@
             </repeat>
             <br/>
 
+            <h3>
+                <uimessage code="Radiology"/>
+            </h3>
+            <p>
+                <obs conceptId="PIH:9350" style="checkbox" answerConceptId="PIH:Ultrasound" />
+            </p>
+            <br/>
+
             <h3>Treatment</h3>
 
             <p class="list-inline-wide">
@@ -867,47 +888,6 @@
             <p>
                 <obs conceptId="PIH:6760" style="textarea" labelText="Other complaints" />
             </p>
-        </div>
-    </section>
-
-    <section id="radiology" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Imaging">
-        <div class="section-container">
-            <strong>
-                <uimessage code="Abdominal ultrasound"/>
-            </strong>
-
-            <obsgroup groupingConceptId="PIH:Radiology report construct"
-                      hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:845">
-            <div class="two-columns">
-                <div>
-                    <obs conceptId="PIH:12847" labelCode="Date"/>
-                    <br/>
-
-                    <obs conceptId="PIH:8596" labelText="Comments" rows="2"/>
-                </div>
-                <div>
-                    <repeat with="['1118','Not done'],
-                                  ['1115','Normal'],
-                                  ['1116','Abnormal']">
-                        <obs id="uss-{0}" conceptId="CIEL:845" style="checkbox"
-                             answerConceptId="CIEL:{0}" answerLabel="{1}" >
-                        </obs>
-                    </repeat>
-
-                    <!--
-                            <controls>
-                                <when value="CIEL:5622" thenDisplay="#other-uss-result" />
-                            </controls>
-                    <div id="other-uss-result">
-                        <label>if other, specify:</label>
-                        <obs conceptId="PIH:8596" style="text"/>
-                    </div>
-                    -->
-                </div>
-            </div>
-            </obsgroup>
-
         </div>
     </section>
 
