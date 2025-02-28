@@ -8,6 +8,7 @@
   },
 
   "registrationConfig": {
+    "allowManualEntryOfPrimaryIdentifier": true,
     "allowUnknownPatients": true,
     "afterCreatedActions": [
       "bean:registerBaby"
