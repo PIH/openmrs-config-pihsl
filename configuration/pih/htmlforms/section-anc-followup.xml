@@ -665,6 +665,14 @@
             </repeat>
             <br/>
 
+            <h3>
+                <uimessage code="Radiology"/>
+            </h3>
+            <p>
+                <obs conceptId="PIH:9350" style="checkbox" answerConceptId="PIH:Ultrasound" />
+            </p>
+            <br/>
+
             <h3>Treatment</h3>
 
             <p class="list-inline-wide">
@@ -699,37 +707,6 @@
             <p>
                 <obs conceptId="PIH:6760" style="textarea" labelText="Other complaints" />
             </p>
-        </div>
-    </section>
-
-    <section id="radiology" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Imaging">
-        <div class="section-container">
-            <strong>
-                <uimessage code="Abdominal ultrasound"/>
-            </strong>
-
-            <obsgroup groupingConceptId="PIH:Radiology report construct"
-                      hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:845">
-                <div class="two-columns">
-                    <div>
-                        <obs conceptId="PIH:12847" labelCode="Date"/>
-                        <br/>
-
-                        <obs conceptId="PIH:8596" labelText="Comments" rows="2"/>
-                    </div>
-                    <div>
-                        <repeat with="['1118','Not done'],
-                                      ['1115','Normal'],
-                                      ['1116','Abnormal']">
-                            <obs id="uss-{0}" conceptId="CIEL:845" style="checkbox"
-                                 answerConceptId="CIEL:{0}" answerLabel="{1}" >
-                            </obs>
-                        </repeat>
-                    </div>
-                </div>
-            </obsgroup>
-
         </div>
     </section>
 
