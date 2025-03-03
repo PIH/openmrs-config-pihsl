@@ -1,0 +1,17 @@
+key: "allpatients"
+uuid: "48617a3c-d5df-469c-b67e-026e7421d7dd"
+name: "All Patients Export"
+description: "All Patients Export"
+datasets:
+  - key: "allpatients"
+    type: "sql"
+    config: "sql/allpatients.sql"
+designs:
+  - type: "csv"
+    properties:
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"
+config:
+  category: "dataExport"
+  order: 101
