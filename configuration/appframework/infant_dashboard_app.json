@@ -84,7 +84,7 @@
     "config": {
       "encounterTypes": [
         {
-          "encounterType": "${encounterType.sierraLeoneNewbornDailyProgress.uuid}",
+          "encounterType": "${encounterType.NEWBORN_DAILY_PROGRESS.uuid}",
           "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview"
         }
       ],

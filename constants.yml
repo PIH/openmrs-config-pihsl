@@ -20,8 +20,6 @@ encounterType:
     uuid: "9cc89b83-e32f-410a-947d-aeb3bda37571"
   sierraLeoneMchNewbornRegister:
     uuid: "3790ecc6-bc63-48f8-9104-f81dc90ee21c"
-  sierraLeoneNewbornDailyProgress:
-    uuid: "7e42e652-89e7-4559-80fd-41f42826c98c"
   sierraLeoneNewbornObs:
     uuid: "78d02c05-5b41-4cb6-8c7c-f2e64773489f"
   sierraLeoneNewbornReferral:
