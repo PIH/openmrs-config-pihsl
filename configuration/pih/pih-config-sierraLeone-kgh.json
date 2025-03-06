@@ -86,5 +86,7 @@
       "label": "ui.i18n.PatientIdentifierType.name.1a2acce0-7426-11e5-a837-0800200c9a66",
       "width": "80px"
     }
-  ]
+  ],
+
+  "dispositionConfig": "file:configuration/pih/pih-dispositions-sierraLeone-mcoe.json"
 }
