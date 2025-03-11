@@ -1112,7 +1112,7 @@
                              answerCodes="yes,no"/>
                     </p>
                 </template>
-                <render cId="159855" words="LLIN (Long-lasting insecticide net)" hint="bednet"/>
+                <render cId="159855" words="Received LLIN (Long-lasting insecticide net)" hint="bednet"/>
                 <render cId="159922" words="Albendazole (deworming)" hint="deworm"/>
                 <render cId="1382"   words="Family planning counselling" hint="fp-counsel"/>
             </repeat>
