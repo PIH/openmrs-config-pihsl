@@ -860,7 +860,7 @@
                                          answerConceptIds="CIEL:151849,CIEL:159916,CIEL:135436"
                                          answerCodes="Alive,FSB,MSB" controlId="fetus-outcome-{0}">  <!-- control ID to retain order on the form -->
                                         <controls>
-                                            <when value="CIEL:151849" thenDisplay="#alive-details-{0}"/>
+                                            <when value="CIEL:151849" thenDisplay=".alive-details-{0}"/>
                                         </controls>
                                     </obs>
                                 </p>
@@ -878,7 +878,7 @@
                             </div>
                         </div>
 
-                        <div id="alive-details-{0}">
+                        <div>
                             <div class="three-columns">
                                 <div>
                                     <p class="side-by-side">
@@ -889,7 +889,7 @@
                                     </p>
                                 </div>
                                 <div>
-                                    <p class="side-by-side">
+                                    <p class="side-by-side alive-details-{0}">
                                         <label>
                                             <uimessage code="Birth length"/>
                                         </label>
@@ -897,7 +897,7 @@
                                     </p>
                                 </div>
                                 <div>
-                                    <p class="side-by-side">
+                                    <p class="side-by-side alive-details-{0}">
                                         <label>
                                             <uimessage code="Head circumference"/>
                                         </label>
