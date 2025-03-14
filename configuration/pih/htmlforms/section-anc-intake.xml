@@ -440,16 +440,14 @@
 
                 <div>
                 <!-- Risk factors for mother -->
-                    <p>
+                    <div>
                         <label>
                             <uimessage code="pihcore.mch.riskFactors"/>
                         </label>
 
                         <repeat>
                             <template>
-                                <obs id="risk-{answerId}" conceptId="CIEL:160079" style="checkbox"
-                                     answerConceptId="{answerId}" answerCode="{hint}">
-                                </obs>
+                                <obs id="risk-{answerId}" conceptId="CIEL:160079" style="checkbox" answerConceptId="{answerId}" answerCode="{hint}"/>
                             </template>
                             <render answerId="CIEL:156650" hint="History of spontaneous abortion" />
                             <render answerId="CIEL:166426" hint="History of retained placenta" />
@@ -457,8 +455,13 @@
                             <render answerId="PIH:47" hint="Preeclampsia"/>
                             <render answerId="PIH:ANTEPARTUM HEMORRHAGE" hint="Antepartum haemorrhage"/>
                             <render answerId="CIEL:230" hint="Postpartum haemorrhage"/>
-                            <render answerId="CIEL:163155" hint="Previous c-section" />
                         </repeat>
+
+                        <obs id="risk-CIEL:163155" conceptId="CIEL:160079" style="checkbox" answerConceptId="CIEL:163155" answerCode="Previous c-section">
+                            <controls>
+                                <when value="CIEL:163155" thenDisplay="#c-section-details" />
+                            </controls>
+                        </obs>
 
                         <div id="c-section-details" class="indented">
                             <label>
@@ -492,7 +495,7 @@
                         </repeat>
                         <obs conceptId="CIEL:160079" answerConceptId="PIH:OTHER"
                              commentFieldLabel="  " />
-                    </p>
+                    </div>
                 </div>
             </div>
 
