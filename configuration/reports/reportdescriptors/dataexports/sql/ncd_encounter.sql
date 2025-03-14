@@ -20,11 +20,20 @@ create temporary table temp_ncd
  encounter_location_id                   int(11),         
  encounter_location                      varchar(255),    
  encounter_type_id                       int(11),         
- encounter_type                          varchar(255),    
+ encounter_type                          varchar(255), 
+ reason_for_visit                        varchar(255),
+ care_household                          bit,
+ vulnerable                              varchar(255),
+ education_level                         varchar(255),
+ literacy_level                          varchar(255),
+ employment_status                       varchar(255),
  social_support                          bit,             
- social_support_type                     varchar(255),    
+ social_support_type                     varchar(255),  
+ other_social_support                    text, 
  missed_school                           bit,             
- days_lost_schooling                     double,          
+ days_lost_schooling                     double,    
+ referred_from                           text,
+ other_referral                          text,
  hiv                                     varchar(255),    
  risk_factors                            text,            
  comorbidities                           varchar(255),    
@@ -227,11 +236,51 @@ set disposition =
 		ELSE obs_value_coded_list_from_temp(encounter_id, 'PIH','8620',@locale)
 	END;
 
+
+-- patient details section
+/*
+ reason_for_visit                        varchar(255),
+ care_household                          bit,
+ vulnerable                              varchar(255),
+ education_level                         varchar(255),
+ literacy_level                          varchar(255),
+ employment_status                       varchar(255),
+ referred_from                           text,
+ other_referral                          text,
+ */
+
+update temp_ncd t
+set reason_for_visit = obs_value_coded_list_from_temp(encounter_id, 'PIH','6189',@locale);
+
+update temp_ncd t
+set care_household = value_coded_as_boolean(obs_id_from_temp(encounter_id, 'PIH','10642',0));
+
+update temp_ncd t
+set vulnerable = obs_value_coded_list_from_temp(encounter_id, 'PIH','11959',@locale);
+
+update temp_ncd t
+set education_level = obs_value_coded_list_from_temp(encounter_id, 'PIH','1688',@locale);
+
+update temp_ncd t
+set literacy_level = obs_value_coded_list_from_temp(encounter_id, 'PIH','13736',@locale);
+
+update temp_ncd t
+set employment_status = obs_value_coded_list_from_temp(encounter_id, 'PIH','3395',@locale);
+
+update temp_ncd t
+set referred_from = obs_value_coded_list_from_temp(encounter_id, 'PIH','7454',@locale);
+
+update temp_ncd t
+set other_referral = obs_comments_from_temp(encounter_id, 'PIH','7454', 'PIH','5622');
+
 update temp_ncd t
 set social_support = value_coded_as_boolean(obs_id_from_temp(encounter_id, 'PIH','14443',0));
 
 update temp_ncd t
 set social_support_type = obs_value_coded_list_from_temp(encounter_id, 'PIH','2156',@locale);
+
+update temp_ncd t
+set other_social_support = obs_comments_from_temp(encounter_id, 'PIH','2156', 'PIH','5622');
 
 update temp_ncd t
 set missed_school = value_coded_as_boolean(obs_id_from_temp(encounter_id, 'PIH','5629',0));
@@ -709,8 +758,17 @@ provider,
 creator,
 encounter_location,
 encounter_type,
+reason_for_visit,                  
+care_household,                    
+vulnerable,                          
+education_level,                
+literacy_level,             
+employment_status,              
+referred_from,                   
+other_referral,                   
 social_support,
 social_support_type,
+other_social_support,
 missed_school,
 days_lost_schooling,
 hiv,
