@@ -161,11 +161,9 @@
                             let nextRegisterBaby = jq(parentDiv).find("span[id^='register-baby-']");
                             if (nextRegisterBaby) {
                                 let obsValue = jq(this).prop('value');
-                                let isRegisteredInEMR = jq(nextRegisterBaby).find("input[type='radio'][value='" + noConceptId + "']");
-                                if (isRegisteredInEMR) {
-                                    if ( obsValue === aliveConceptId) {
-                                        jq(isRegisteredInEMR).prop("checked", true);
-                                    }
+                                let isNotRegisteredInEMR = jq(nextRegisterBaby).find("input[type='radio'][value='" + noConceptId + "']");
+                                if (isNotRegisteredInEMR) {
+                                    jq(isNotRegisteredInEMR).prop("checked", (obsValue === aliveConceptId));
                                 }
                             }
                         }
