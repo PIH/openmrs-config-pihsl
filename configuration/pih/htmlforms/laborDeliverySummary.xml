@@ -150,7 +150,10 @@
         <script type="text/javascript">
             jq(document).ready(function() {
                 const aliveConceptId = '<lookup expression="fn.getConcept('CIEL:151849').id"/>';
+                const fsbConceptId = '<lookup expression="fn.getConcept('CIEL:159916').id"/>';
+                const msbConceptId = '<lookup expression="fn.getConcept('CIEL:135436').id"/>';
                 const noConceptId = '<lookup expression="fn.getConcept('CIEL:1066').id"/>';
+                const doNotRegisterConceptId = '<lookup expression="fn.getConcept('CIEL:1175').id"/>';
 
                 jq("span[id^='dead-or-alive-']").find("input[type='radio']").change(function(event) {
                     if (this.checked) {
@@ -161,10 +164,17 @@
                             let nextRegisterBaby = jq(parentDiv).find("span[id^='register-baby-']");
                             if (nextRegisterBaby) {
                                 let obsValue = jq(this).prop('value');
-                                let isNotRegisteredInEMR = jq(nextRegisterBaby).find("input[type='radio'][value='" + noConceptId + "']");
-                                if (isNotRegisteredInEMR) {
-                                    jq(isNotRegisteredInEMR).prop("checked", (obsValue === aliveConceptId));
-                                }
+                                if ( obsValue === aliveConceptId ) {
+                                    let isNotRegisteredInEMR = jq(nextRegisterBaby).find("input[type='radio'][value='" + noConceptId + "']");
+                                    if (isNotRegisteredInEMR) {
+                                      jq(isNotRegisteredInEMR).prop("checked", true);
+                                    }
+                               } else if ( obsValue === fsbConceptId || obsValue === msbConceptId) {
+                                    let doNotRegisterInEMR = jq(nextRegisterBaby).find("input[type='radio'][value='" + doNotRegisterConceptId + "']");
+                                    if (doNotRegisterInEMR) {
+                                      jq(doNotRegisterInEMR).prop("checked", true);
+                                    }
+                               }
                             }
                         }
                     }
