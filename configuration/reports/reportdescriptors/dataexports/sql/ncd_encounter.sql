@@ -1,5 +1,7 @@
 select encounter_type_id INTO @NCDInitial FROM encounter_type where uuid = 'ae06d311-1866-455b-8a64-126a9bd74171'; 
 select encounter_type_id INTO @NCDFollowup FROM encounter_type where uuid = '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c'; 
+set @ncdProgramId = program('NCD'); 
+
 set @locale = global_property_value('default_locale', 'en');
 set @partition = '${partitionNum}';
 
@@ -13,7 +15,8 @@ create temporary table temp_ncd
  encounter_id                            int(11),         
  encounter_datetime                      datetime,        
  date_created                            datetime,        
- visit_id                                int(11),         
+ visit_id                                int(11),  
+ ncd_program_id                          int(11),
  provider                                varchar(255),    
  creator_user_id                         int(11),         
  creator                                 varchar(255),    
@@ -163,6 +166,9 @@ and (DATE(encounter_datetime) <=  date(@endDate) or @endDate is null)
 ;	
 
 create index ncd_encounter_ei on temp_ncd(encounter_id);
+
+update temp_ncd
+set ncd_program_id = patient_program_id_from_encounter(patient_id, @ncdProgramId, encounter_id);
 
 -- encounter level columns
 update temp_ncd
@@ -754,6 +760,7 @@ if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',encounter_id),encounte
 encounter_datetime,
 date_created,
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',visit_id),visit_id) "visit_id",
+if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',ncd_program_id),ncd_program_id) "ncd_program_id",
 provider,
 creator,
 encounter_location,
