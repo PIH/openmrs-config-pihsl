@@ -815,11 +815,12 @@
 
             <p class="list-inline">
                 <label>
-                    <uimessage code="HIV rapid test"/>
+                    <uimessage code="HIV/syphilis rapid test"/>
                 </label>
-                <obs id="hiv-rapid" style="radio"
-                     conceptId="CIEL:163722"
-                     answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+                <obs id="hiv-syph-rapid" style="radio"
+                     conceptId="CIEL:169624"
+                     answerConceptIds="CIEL:138571,CIEL:136014,CIEL:169623,CIEL:664,CIEL:163611"
+                     answerCodes="HIV,Syphilis,Both (HIV/Syphilis),Negative,Invalid"/>
             </p>
 
             <p class="list-inline">
