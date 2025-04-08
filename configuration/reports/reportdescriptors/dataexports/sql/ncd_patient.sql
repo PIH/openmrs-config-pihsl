@@ -10,8 +10,8 @@ SELECT concept_id INTO @collection_date_estimated FROM concept WHERE UUID = '87f
 
 SET @partition = '${partitionNum}';
 
-DROP TABLE IF EXISTS ncd_patient;
-CREATE TABLE ncd_patient (
+DROP TEMPORARY TABLE IF EXISTS ncd_patient;
+CREATE TEMPORARY TABLE ncd_patient (
 patient_id int, 
 emr_id varchar(50),
 hiv varchar(255),
@@ -54,8 +54,9 @@ most_recent_hba1c_date date,
 most_recent_echocardiogram_date date
 );
 
-DROP TABLE IF EXISTS temp_encounter;
-CREATE TABLE temp_encounter (
+
+DROP TEMPORARY TABLE IF EXISTS temp_encounter;
+CREATE TEMPORARY TABLE temp_encounter (
 patient_id int,
 encounter_id int, 
 encounter_type varchar(100) ,
@@ -64,6 +65,7 @@ date_created date,
 echocardiogram_obs_group_id int, 
 echocardiogram_date	date
 );
+
 INSERT INTO temp_encounter
 SELECT patient_id,encounter_id, encounter_type ,encounter_datetime, date_created, NULL AS echocardiogram_obs_group_id,
 NULL AS echocardiogram_date
@@ -72,19 +74,20 @@ WHERE e.encounter_type IN (@ncd_init, @ncd_followup)
 AND e.voided = 0;
 
 
-DROP TABLE IF EXISTS recent_encounter;
-CREATE TABLE recent_encounter
+DROP TEMPORARY TABLE IF EXISTS recent_encounter;
+CREATE TEMPORARY TABLE recent_encounter
 SELECT max(encounter_datetime) encounter_datetime, patient_id
 FROM temp_encounter
 GROUP BY patient_id;
 
-DROP TABLE IF EXISTS first_encounter;
-CREATE TABLE first_encounter
+DROP TEMPORARY TABLE IF EXISTS first_encounter;
+CREATE TEMPORARY TABLE first_encounter
 SELECT min(encounter_datetime) encounter_datetime, patient_id
 FROM temp_encounter
 GROUP BY patient_id;
 
 create index temp_encounter_ci1 on temp_encounter(encounter_id);
+create index temp_encounter_eoi on temp_encounter(echocardiogram_obs_group_id);
 
 DROP TEMPORARY TABLE if exists temp_obs;
 CREATE TEMPORARY TABLE temp_obs
@@ -94,13 +97,19 @@ CASE WHEN concept_id=concept_from_mapping('PIH','3064') AND value_coded=concept_
 from obs o inner join temp_encounter t on o.encounter_id = t.encounter_id
 where o.voided = 0;
 
+create index temp_obs_ei on temp_obs(encounter_id);
+create index temp_obs_c1 on temp_obs(obs_group_id, concept_id);
+create index temp_obs_c2 on temp_obs(encounter_id, concept_id);
+create index temp_obs_c3 on temp_obs(person_id, concept_id);
+create index temp_obs_c4 on temp_obs(person_id, concept_id, value_coded);
+
 UPDATE temp_encounter t
 set echocardiogram_obs_group_id = obs_group_id_of_value_coded_from_temp(encounter_id,'PIH','8614','PIH','3763');
 
 UPDATE temp_encounter t
 SET echocardiogram_date= obs_from_group_id_value_datetime_from_temp(t.echocardiogram_obs_group_id,'PIH','12847');
 
-DROP TABLE IF EXISTS last_echocardiogram;
+DROP TEMPORARY TABLE IF EXISTS last_echocardiogram;
 CREATE TEMPORARY TABLE last_echocardiogram
 SELECT patient_id, max(echocardiogram_date) AS echocardiogram_date
 FROM temp_encounter te
@@ -126,6 +135,7 @@ death_date(patient_id),
 birthdate(patient_id)
 FROM temp_encounter;
 
+create index ncd_patient_i1 on ncd_patient(patient_id); 
 
 UPDATE ncd_patient tgt 
 INNER JOIN last_echocardiogram lc ON tgt.patient_id = lc.patient_id
