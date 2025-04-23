@@ -21,7 +21,7 @@ ED_Visit_Start_Datetime  datetime,
 encounter_datetime       datetime,       
 encounter_location       text,       
 date_entered             date,
-created_by               varchar(255),
+user_entered               varchar(255),
 provider                 varchar(255), 
 Triage_queue_status      varchar(255), 
 Triage_Color             varchar(255), 
@@ -32,8 +32,8 @@ Mobility                 text,
 Respiratory_Rate         double,       
 Blood_Oxygen_Saturation  double,       
 Pulse                    double,       
-Systolic_Blood_Pressure  double,       
-Diastolic_Blood_Pressure double,       
+bp_systolic  double,       
+bp_diastolic double,       
 Temperature_C            double, 
 Response                 varchar(255),         
 Trauma_Present           varchar(255),    
@@ -54,7 +54,7 @@ Glucose_Value            double,
 Referral_Destination     varchar(255)
 );
 
-insert into temp_ED_Triage (patient_id, encounter_id, visit_id, encounter_datetime, date_entered, created_by)
+insert into temp_ED_Triage (patient_id, encounter_id, visit_id, encounter_datetime, date_entered, user_entered)
 select e.patient_id, e.encounter_id, e.visit_id,e.encounter_datetime, e.date_created , person_name_of_user(e.creator) 
 from encounter e
 where e.encounter_type = @EDTriageEnc and e.voided = 0
@@ -172,13 +172,13 @@ set @sbp = concept_from_mapping('PIH','SYSTOLIC BLOOD PRESSURE');
 update temp_ED_Triage t
 inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
 and o.concept_id = @sbp
-set t.Systolic_Blood_Pressure = o.value_numeric;
+set t.bp_systolic = o.value_numeric;
 
 set @dbp = concept_from_mapping('PIH','DIASTOLIC BLOOD PRESSURE');
 update temp_ED_Triage t
 inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
 and o.concept_id =@dbp
-set t.Diastolic_Blood_Pressure = o.value_numeric;
+set t.bp_diastolic = o.value_numeric;
 
 set @temp = concept_from_mapping('PIH','TEMPERATURE (C)');
 update temp_ED_Triage t
@@ -319,7 +319,7 @@ encounter_datetime,
 encounter_location,
 provider,
 date_entered,
-created_by,
+user_entered,
 Triage_queue_status,
 Triage_Color,
 Triage_Score,
@@ -330,8 +330,8 @@ Mobility,
 Respiratory_Rate,
 Blood_Oxygen_Saturation,
 Pulse,
-Systolic_Blood_Pressure,
-Diastolic_Blood_Pressure,
+bp_systolic,
+bp_diastolic,
 Temperature_C,
 Response,
 Trauma_Present,
