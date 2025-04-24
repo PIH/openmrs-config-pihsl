@@ -39,8 +39,8 @@ dead boolean,
 date_of_death date,
 name varchar(50), 
 family_name varchar(50),
-dob date,
-dob_estimated boolean,
+birthdate date,
+birthdate_estimated boolean,
 current_age int, 
 gender varchar(10),
 other_ncd_type text,
@@ -123,7 +123,7 @@ GROUP BY person_id;
 
 INSERT INTO ncd_patient(patient_id, emr_id, 
 name, family_name, 
-current_age, gender, dead, date_of_death, dob)
+current_age, gender, dead, date_of_death, birthdate)
 SELECT DISTINCT patient_id,
 patient_identifier(patient_id, metadata_uuid('org.openmrs.module.emrapi', 'emr.primaryIdentifierType')) AS emr_id,
 person_given_name(patient_id),
@@ -144,7 +144,7 @@ SET tgt.most_recent_echocardiogram_date= lc.echocardiogram_date;
 UPDATE ncd_patient tgt 
 INNER JOIN person p ON tgt.patient_id = p.person_id
 AND p.voided=0
-SET tgt.dob_estimated= p.birthdate_estimated;
+SET tgt.birthdate_estimated= p.birthdate_estimated;
 
 UPDATE ncd_patient
 SET diabetes = answerEverExists_from_temp(patient_id, 'PIH', '10529','PIH', '3720', NULL);
@@ -289,8 +289,8 @@ dead,
 cast(date_of_death as date) as date_of_death,
 name,
 family_name,
-cast(dob as date) as dob,
-dob_estimated,
+cast(birthdate as date) as birthdate,
+birthdate_estimated,
 current_age,
 gender,
 other_ncd_type,
