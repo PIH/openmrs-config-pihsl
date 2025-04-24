@@ -14,12 +14,12 @@ create temporary table temp_ncd
  emr_id                                  varchar(50),     
  encounter_id                            int(11),         
  encounter_datetime                      datetime,        
- date_created                            datetime,        
+ datetime_entered                        datetime,        
  visit_id                                int(11),  
  ncd_program_id                          int(11),
  provider                                varchar(255),    
  creator_user_id                         int(11),         
- creator                                 varchar(255),    
+ user_entered                            varchar(255),    
  encounter_location_id                   int(11),         
  encounter_location                      varchar(255),    
  encounter_type_id                       int(11),         
@@ -80,8 +80,9 @@ create temporary table temp_ncd
  diabetes_indicators_obs_group           int(11),         
  diabetes_control                        varchar(255),    
  diabetes_on_insulin                     bit,             
- diabetes_home_glucometer                bit,          --  
- lab_order_hba1c                         boolean,      --  
+ diabetes_home_glucometer                bit,
+ diabetes_complications                  text,
+ lab_order_hba1c                         boolean,        
  hypertension_type                       varchar(255),    
  hypertension_stage                      varchar(255),    
  hypertension_indicators_obs_group       int(11),         
@@ -144,7 +145,7 @@ insert into temp_ncd
 	(patient_id,
 	encounter_id,
 	encounter_datetime,
-	date_created,
+	datetime_entered,
 	visit_id,
 	creator_user_id,
 	encounter_location_id,
@@ -153,7 +154,7 @@ select
 	patient_id,
 	encounter_id,
 	e.encounter_datetime ,
-	e.date_created ,
+	e.date_created,
 	e.visit_id ,
 	e.creator ,
 	e.location_id ,
@@ -172,7 +173,7 @@ set ncd_program_id = patient_program_id_from_encounter(patient_id, @ncdProgramId
 
 -- encounter level columns
 update temp_ncd
-set creator = person_name_of_user(creator_user_id);
+set user_entered = person_name_of_user(creator_user_id);
 
 update temp_ncd
 set encounter_location = location_name(encounter_location_id);
@@ -204,7 +205,7 @@ set t.emr_id = p.emr_id;
 -- obs level columns
 DROP TEMPORARY TABLE IF EXISTS temp_obs;
 create temporary table temp_obs 
-select o.obs_id, o.voided ,o.obs_group_id , o.encounter_id, o.person_id, o.concept_id, o.value_coded, o.value_numeric, o.value_text,o.value_datetime, o.comments, o.date_created  
+select o.obs_id, o.voided ,o.obs_group_id , o.encounter_id, o.person_id, o.concept_id, o.value_coded, o.value_numeric, o.value_text,o.value_datetime, o.comments, o.date_created 
 ,o.obs_datetime
 from obs o
 inner join temp_ncd t on t.encounter_id = o.encounter_id
@@ -469,6 +470,9 @@ set diabetes_home_glucometer = value_coded_as_boolean(obs_id_from_temp(encounter
 
 update temp_ncd t
 set diabetes_on_insulin = value_coded_as_boolean(obs_id_from_temp(encounter_id, 'PIH','6756',0));
+
+update temp_ncd t
+set diabetes_complications = obs_value_coded_list_from_temp(encounter_id, 'PIH','14485',@locale);
 
 set @dx = concept_from_mapping('PIH','3064');
 set @type_1_dm = concept_from_mapping('PIH','6691');
@@ -758,11 +762,11 @@ if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id
 emr_id,
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',encounter_id),encounter_id) "encounter_id",
 encounter_datetime,
-date_created,
+datetime_entered,
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',visit_id),visit_id) "visit_id",
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',ncd_program_id),ncd_program_id) "ncd_program_id",
 provider,
-creator,
+user_entered,
 encounter_location,
 encounter_type,
 reason_for_visit,                  
@@ -821,6 +825,7 @@ diabetes_type,
 diabetes_control,
 diabetes_on_insulin,
 diabetes_home_glucometer,
+diabetes_complications,
 lab_order_hba1c,
 hypertension_type,
 hypertension_stage,
