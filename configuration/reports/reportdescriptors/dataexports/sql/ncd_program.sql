@@ -16,10 +16,10 @@ CREATE TEMPORARY TABLE ncd_program
     date_completed       date,
     final_program_status varchar(100),
     clinical_status      varchar(50),
-    created_by           varchar(50)
+    user_entered           varchar(50)
 );
 
-insert into ncd_program(patient_id, patient_program_id, emr_id, program_name, date_enrolled, date_completed, final_program_status, clinical_status, created_by)
+insert into ncd_program(patient_id, patient_program_id, emr_id, program_name, date_enrolled, date_completed, final_program_status, clinical_status, user_entered)
 select  pp.patient_id,
         pp.patient_program_id,
         patient_identifier(pp.patient_id, metadata_uuid('org.openmrs.module.emrapi', 'emr.primaryIdentifierType')),
@@ -41,5 +41,5 @@ select if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),pat
        date_completed,
        final_program_status,
        clinical_status,
-       created_by
+       user_entered
 from ncd_program;
