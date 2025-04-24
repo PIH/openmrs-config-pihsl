@@ -15,6 +15,10 @@ CREATE TEMPORARY TABLE ncd_patient (
 patient_id int, 
 emr_id varchar(50),
 hiv varchar(255),
+education_level varchar(255),
+read_and_write bit,
+referred_from text,
+sickle_cell_confirmatory_test varchar(255),
 comorbidities varchar(255),
 diabetes boolean,
 hypertension  boolean,
@@ -136,6 +140,19 @@ birthdate(patient_id)
 FROM temp_encounter;
 
 create index ncd_patient_i1 on ncd_patient(patient_id); 
+
+-- Patient details columns
+UPDATE ncd_patient
+SET education_level = last_value_coded_list_from_temp(patient_id, 'PIH', '1688','en');
+
+UPDATE ncd_patient
+SET read_and_write = value_coded_as_boolean(latest_obs_from_temp(patient_id, 'PIH','13736'));
+
+UPDATE ncd_patient
+SET referred_from = last_value_coded_list_from_temp(patient_id, 'PIH', '7454','en');
+
+UPDATE ncd_patient
+SET sickle_cell_confirmatory_test = last_value_coded_list_from_temp(patient_id, 'PIH', '15143','en');
 
 UPDATE ncd_patient tgt 
 INNER JOIN last_echocardiogram lc ON tgt.patient_id = lc.patient_id
@@ -266,6 +283,9 @@ SELECT
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
 emr_id,
 hiv,
+education_level,
+read_and_write,
+referred_from,
 comorbidities,
 diabetes,
 hypertension,
@@ -284,6 +304,7 @@ nyha_classification,
 lung_disease_type,
 ckd_stage,
 sickle_cell_type,
+sickle_cell_confirmatory_test,
 cast(next_appointment_date as date) as next_appointment_date,
 dead,
 cast(date_of_death as date) as date_of_death,
