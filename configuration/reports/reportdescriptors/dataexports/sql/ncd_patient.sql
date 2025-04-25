@@ -151,6 +151,12 @@ SET read_and_write = value_coded_as_boolean(latest_obs_from_temp(patient_id, 'PI
 UPDATE ncd_patient
 SET referred_from = last_value_coded_list_from_temp(patient_id, 'PIH', '7454','en');
 
+-- update referred from to match form
+UPDATE ncd_patient
+set referred_from = replace(referred_from,'Hospitalized','Inpatient Ward');
+UPDATE ncd_patient
+set referred_from =  replace(referred_from,'Primary care clinic','OPD');
+
 UPDATE ncd_patient
 SET sickle_cell_confirmatory_test = last_value_coded_list_from_temp(patient_id, 'PIH', '15143','en');
 
