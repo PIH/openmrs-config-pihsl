@@ -24,7 +24,7 @@ create temporary table temp_ncd
  encounter_location                      varchar(255),    
  encounter_type_id                       int(11),         
  encounter_type                          varchar(255), 
- reason_for_visit                        varchar(255),
+ visit_type                        varchar(255),
  care_household                          bit,
  vulnerable                              varchar(255),
  education_level                         varchar(255),
@@ -246,7 +246,7 @@ set disposition =
 
 -- patient details section
 /*
- reason_for_visit                        varchar(255),
+ visit_type                        varchar(255),
  care_household                          bit,
  vulnerable                              varchar(255),
  education_level                         varchar(255),
@@ -257,7 +257,7 @@ set disposition =
  */
 
 update temp_ncd t
-set reason_for_visit = obs_value_coded_list_from_temp(encounter_id, 'PIH','6189',@locale);
+set visit_type = obs_value_coded_list_from_temp(encounter_id, 'PIH','6189',@locale);
 
 update temp_ncd t
 set care_household = value_coded_as_boolean(obs_id_from_temp(encounter_id, 'PIH','10642',0));
@@ -769,7 +769,7 @@ provider,
 user_entered,
 encounter_location,
 encounter_type,
-reason_for_visit,                  
+visit_type,                  
 care_household,                    
 vulnerable,                          
 education_level,                
