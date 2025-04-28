@@ -77,6 +77,8 @@ concept:
     uuid: "1590AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
   apgarAtTenMinutes:
     uuid: "6e9bbae6-253d-4b9e-ad22-c552ba51f2eb"
+  gestationalAgeInWeeks:
+      uuid: "3cd9446e-26fe-102b-80cb-0017a47871b2"
 queue:
   triage:
     uuid: "3113f164-68f0-11ee-ab8d-0242ac120002"
