@@ -473,6 +473,8 @@ set diabetes_on_insulin = value_coded_as_boolean(obs_id_from_temp(encounter_id, 
 
 update temp_ncd t
 set diabetes_complications = obs_value_coded_list_from_temp(encounter_id, 'PIH','14485',@locale);
+update temp_ncd t
+set diabetes_complications = replace(diabetes_complications, 'Cerebrovascular accident', 'Stroke'); -- update to match form verbiage
 
 set @dx = concept_from_mapping('PIH','3064');
 set @type_1_dm = concept_from_mapping('PIH','6691');
