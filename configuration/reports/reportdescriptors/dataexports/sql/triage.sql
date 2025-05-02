@@ -10,7 +10,8 @@ create temporary table temp_ED_Triage
 (
 patient_id               int(11),        
 encounter_id             int(11),      
-visit_id                 int(11),      
+visit_id                 int(11),
+emr_id                   varchar(50),
 wellbody_emr_id          varchar(50),
 kgh_emr_id               varchar(50), 
 loc_registered           varchar(255),   
@@ -66,7 +67,8 @@ AND ((date(e.encounter_datetime) <=@endDate) or (@endDate is null))
 DROP TEMPORARY TABLE IF EXISTS temp_ed_patient;
 CREATE TEMPORARY TABLE temp_ed_patient
 (
-patient_id      int(11),      
+patient_id      int(11), 
+emr_id          varchar(50),
 wellbody_emr_id varchar(50),
 kgh_emr_id      varchar(50),  
 loc_registered  varchar(255),  
@@ -82,6 +84,8 @@ create index temp_ed_patient_pi on temp_ed_patient(patient_id);
 -- identifiers
 UPDATE temp_ed_patient SET wellbody_emr_id = patient_identifier(patient_id,'1a2acce0-7426-11e5-a837-0800200c9a66');
 UPDATE temp_ed_patient SET kgh_emr_id = patient_identifier(patient_id,'c09a1d24-7162-11eb-8aa6-0242ac110002');
+set @primary_emr_uuid = metadata_uuid('org.openmrs.module.emrapi', 'emr.primaryIdentifierType');
+UPDATE temp_ed_patient SET emr_id=patient_identifier(patient_id,@primary_emr_uuid );
 
 -- unknown patient
 UPDATE temp_ed_patient SET unknown_patient = unknown_patient(patient_id);
@@ -93,9 +97,9 @@ update temp_ED_Triage t
 inner join temp_ed_patient p on p.patient_id = t.patient_id
 set	t.wellbody_emr_id = p.wellbody_emr_id,
     t.kgh_emr_id = p.kgh_emr_id,
+    t.emr_id = p.emr_id,
 	t.unknown_patient = p.unknown_patient,
 	t.gender = p.gender;
-
 
 -- age
 UPDATE temp_ED_Triage SET age_at_encounter = age_at_enc(patient_id, encounter_id);
@@ -114,198 +118,173 @@ UPDATE temp_ED_Triage t
 inner join visit v on t.visit_id = v.visit_id
 set t.ED_Visit_Start_Datetime = v.date_started;
 
+DROP TEMPORARY TABLE if exists temp_obs;
+CREATE TEMPORARY TABLE temp_obs
+select o.obs_id, o.voided, o.obs_group_id, o.encounter_id, o.person_id, o.concept_id, o.value_coded, o.value_numeric, o.value_text, o.value_datetime, o.value_drug, o.comments, o.date_created, o.obs_datetime
+from obs o inner join temp_ED_Triage t on o.encounter_id = t.encounter_id
+where o.voided = 0;
+
+create index temp_obs_ei on temp_obs(encounter_id);
+create index temp_obs_c1 on temp_obs(encounter_id, concept_id);
+create index temp_obs_c2 on temp_obs(encounter_id, concept_id, value_coded);
+
 set @queue_status = concept_from_mapping('PIH','Triage queue status');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@queue_status
-set t.Triage_queue_status = concept_name(o.value_coded,@locale);
-
 set @triage_color = concept_from_mapping('PIH','Triage color classification');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@triage_color
-set t.Triage_Color = concept_name(o.value_coded,@locale);
-
 set @triage_score = concept_from_mapping('PIH','Triage score');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@triage_score
-set t.Triage_Score = o.value_numeric;
-
 set @chief_complaint = concept_from_mapping('CIEL','160531');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@chief_complaint
-set t.Chief_Complaint = o.value_text;
-
 set @weight = concept_from_mapping('PIH','WEIGHT (KG)');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@weight
-set t.Weight_KG = o.value_numeric;
-
 set @mobility = concept_from_mapping('PIH','Mobility');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@mobility
-set t.Mobility = concept_name(o.value_coded,@locale);
-
 set @rr = concept_from_mapping('PIH','RESPIRATORY RATE');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id = @rr
-set t.Respiratory_Rate = o.value_numeric;
-
 set @o2 = concept_from_mapping('PIH','BLOOD OXYGEN SATURATION');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@o2
-set t.Blood_Oxygen_Saturation = o.value_numeric;
-
 set @pulse = concept_from_mapping('PIH','PULSE');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@pulse
-set t.Pulse = o.value_numeric;
-
 set @sbp = concept_from_mapping('PIH','SYSTOLIC BLOOD PRESSURE');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id = @sbp
-set t.bp_systolic = o.value_numeric;
-
 set @dbp = concept_from_mapping('PIH','DIASTOLIC BLOOD PRESSURE');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@dbp
-set t.bp_diastolic = o.value_numeric;
-
 set @temp = concept_from_mapping('PIH','TEMPERATURE (C)');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =concept_from_mapping('PIH','TEMPERATURE (C)')
-set t.Temperature_C = o.value_numeric;
-
 set @triage_diagnosis =concept_from_mapping('PIH','Triage diagnosis');
 set @response = concept_from_mapping('PIH','Response triage symptom');
+set @trauma = concept_from_mapping('PIH','Traumatic Injury');
+set @emergencySigns = concept_from_mapping('PIH','Emergency signs');
+set @shock = concept_from_mapping('PIH','14701');
+set @dehydration = concept_from_mapping('PIH','14702');
+set @neuro = concept_from_mapping('PIH','Neurological triage symptom');
+set @burn = concept_from_mapping('PIH','Burn triage symptom');
+set @glucose = concept_from_mapping('PIH','Glucose triage symptom');
+set @tt = concept_from_mapping('PIH','Trauma triage symptom');
+set @digestive = concept_from_mapping('PIH','Digestive triage symptom');
+set @pregancy = concept_from_mapping('PIH','10721');
+set @respiratory = concept_from_mapping('PIH','Respiratory triage symptom');
+set @pain = concept_from_mapping('PIH','Pain triage symptom');
+set @other = concept_from_mapping('PIH','Other triage symptom');
+set @ci = concept_from_mapping('PIH','CLINICAL IMPRESSION COMMENTS');
+set @gv = concept_from_mapping('PIH','20660');
+set @destination = concept_from_mapping('PIH','14818');
+
+drop temporary table if exists temp_obs_collated;
+create temporary table temp_obs_collated 
+select 
+encounter_id,
+max(case when concept_id = @queue_status then concept_name(value_coded, @locale) end) "Triage_queue_status",
+max(case when concept_id = @triage_color then concept_name(value_coded, @locale) end) "Triage_Color",
+max(case when concept_id = @triage_score then value_numeric end) "Triage_Score",
+max(case when concept_id = @chief_complaint then value_text end) "Chief_Complaint",
+max(case when concept_id = @weight then value_numeric end) "Weight_KG",
+max(case when concept_id = @mobility then concept_name(value_coded, @locale) end) "Mobility",
+max(case when concept_id = @rr then value_numeric end) "Respiratory_Rate",
+max(case when concept_id = @o2 then value_numeric end) "Blood_Oxygen_Saturation",
+max(case when concept_id = @pulse then value_numeric end) "Pulse",
+max(case when concept_id = @sbp then value_numeric end) "bp_systolic",
+max(case when concept_id = @dbp then value_numeric end) "bp_diastolic",
+max(case when concept_id = @temp then value_numeric end) "Temperature_C",
+max(case when concept_id = @triage_diagnosis and value_coded = @trauma then concept_name(value_coded, @locale) end) "Trauma_Present",
+max(case when concept_id = @ci then value_text end) "Clinical_Impression",
+max(case when concept_id = @gv then value_numeric end) "Glucose_Value",
+max(case when concept_id = @destination then concept_name(value_coded, @locale) end) "Referral_Destination"
+from temp_obs t
+group by encounter_id;
+ 
+create index temp_obs_collated_ei on temp_obs_collated(encounter_id);
+
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs_collated o on o.encounter_id = t.encounter_id
+SET t.Triage_queue_status = o.Triage_queue_status,
+	t.Triage_Color = o.Triage_Color,
+	t.Triage_Score = o.Triage_Score,
+	t.Chief_Complaint = o.Chief_Complaint,
+	t.Weight_KG = o.Weight_KG,
+	t.Mobility = o.Mobility,
+	t.Respiratory_Rate = o.Respiratory_Rate,
+	t.Blood_Oxygen_Saturation = o.Blood_Oxygen_Saturation,
+	t.Pulse = o.Pulse,
+	t.bp_systolic = o.bp_systolic,
+	t.bp_diastolic = o.bp_diastolic,
+	t.Temperature_C = o.Temperature_C,
+	t.Trauma_Present = o.Trauma_Present,
+	t.Clinical_Impression = o.Clinical_Impression,
+	t.Glucose_Value = o.Glucose_Value,
+	t.Referral_Destination = o.Referral_Destination;
+
+update temp_ED_Triage t
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @response
 set t.Response = concept_name(o.value_coded,@locale);
 
-set @trauma = concept_from_mapping('PIH','Traumatic Injury');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-  and o.concept_id =concept_from_mapping('PIH','Triage diagnosis')
-  and o.value_coded = @trauma
-set t.Trauma_Present = concept_name(o.value_coded,@locale);
-
-set @emergencySigns = concept_from_mapping('PIH','Emergency signs');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @emergencySigns
 set t.Emergency_signs = concept_name(o.value_coded,@locale);
 
-set @shock = concept_from_mapping('PIH','14701');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @shock
 set t.signs_of_shock = concept_name(o.value_coded,@locale);
 
-set @dehydration = concept_from_mapping('PIH','14702');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @dehydration
 set t.dehydration = concept_name(o.value_coded,@locale);
 
-set @neuro = concept_from_mapping('PIH','Neurological triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @neuro
 set t.Neurological = concept_name(o.value_coded,@locale);
 
-set @burn = concept_from_mapping('PIH','Burn triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @burn
 set t.Burn = concept_name(o.value_coded,@locale);
 
-set @glucose = concept_from_mapping('PIH','Glucose triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @glucose
 set t.Glucose = concept_name(o.value_coded,@locale);
 
-set @tt =  concept_from_mapping('PIH','Trauma triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @tt
 set t.Trauma_type = concept_name(o.value_coded,@locale);
 
-set @digestive = concept_from_mapping('PIH','Digestive triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @digestive
 set t.Digestive = concept_name(o.value_coded,@locale);
 
-set @pregancy = concept_from_mapping('PIH','10721');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @pregancy
 set t.Pregnancy = concept_name(o.value_coded,@locale);
 
-set @respiratory =  concept_from_mapping('PIH','Respiratory triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id = @triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set =@respiratory 
 set t.Respiratory = concept_name(o.value_coded,@locale);
 
-set @pain = concept_from_mapping('PIH','Pain triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @pain
 set t.Pain = concept_name(o.value_coded,@locale);
 
-set @other = concept_from_mapping('PIH','Other triage symptom');
 update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
+inner join temp_obs o on o.encounter_id = t.encounter_id and o.voided =0
   and o.concept_id =@triage_diagnosis
 inner join concept_set cs on cs.concept_id = o.value_coded and cs.concept_set = @other
 set t.Other_Symptom = concept_name(o.value_coded,@locale);
 
-set @ci = concept_from_mapping('PIH','CLINICAL IMPRESSION COMMENTS');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@ci
-set t.Clinical_Impression = o.value_text;
-
-set @gv = concept_from_mapping('PIH','20660');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id = @gv
-set t.Glucose_Value = o.value_numeric;
-
-set @destination = concept_from_mapping('PIH','14818');
-update temp_ED_Triage t
-inner join obs o on o.encounter_id = t.encounter_id and o.voided =0
-and o.concept_id =@destination
-set t.Referral_Destination = concept_name(o.value_coded,@locale);
-
 -- final output of data
 Select
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
+emr_id,
 wellbody_emr_id,
 kgh_emr_id,
 if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',encounter_id),encounter_id) "encounter_id",
