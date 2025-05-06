@@ -243,4 +243,15 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate_ed_triage_glucose_obs_to_correct_concept.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
+    <changeSet id="20250506-migrate-vitals-fbg-to-ciel-1458" author="cioan">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from obs where void_reason = 'SL-913: Migrate FBG obs to use CIEL:1458(mmol/L)';
+            </sqlCheck>
+        </preConditions>
+        <comment>
+            SL-913: Migrate Glucose(FBG) data on Vitals form to use CIEL:1458 (mmol/L) concept
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/migrate_vitals_fbg_obs.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
 </databaseChangeLog>
