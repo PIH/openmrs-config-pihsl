@@ -863,7 +863,7 @@
                 <label>
                     <uimessage code="Fasting blood glucose (FBG)"/>
                 </label>
-                <obs conceptId="CIEL:160912" showUnits="true"/>
+                <obs conceptId="CIEL:1458" showUnits="true"/>
             </div>
 
             <div id="rbg">
