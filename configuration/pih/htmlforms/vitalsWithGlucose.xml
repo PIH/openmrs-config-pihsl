@@ -863,14 +863,14 @@
                 <label>
                     <uimessage code="Fasting blood glucose (FBG)"/>
                 </label>
-                <obs conceptId="CIEL:1458" showUnits="true"/>
+                <obs conceptId="CIEL:169672" showUnits="true"/>
             </div>
 
             <div id="rbg">
                 <label>
                     <uimessage code="Random blood glucose (RBG)"/>
                 </label>
-                <obs conceptId="CIEL:887" showUnits="true"/>
+                <obs conceptId="CIEL:1458" showUnits="true"/>
             </div>
 
         </fieldset>
