@@ -1,8 +1,8 @@
 
 -- CIEL: 160912, units: mg/dL
 set @oldConceptId = (select concept_id from concept where uuid = '160912AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA');
--- CIEL: 1458, units: mmol/L
-set @newConceptId = (select concept_id from concept where uuid = '0e9d36ab-ccfe-4716-9060-ad5f330a28af');
+-- CIEL: 169672, 	Fasting blood glucose (mmol/L), units: mmol/L
+set @newConceptId = (select concept_id from concept where uuid = '6e291dc0-9dd6-4ccf-bce4-5339c52667a9');
 -- we only want to update obs that are part of the SL Vitals encounter
 set @vitalsEncId= (select encounter_type_id from encounter_type where uuid = '2fd151a2-fbef-43e3-b82d-c3f70f1d7333');
 -- to use as the creator and voided_by user
@@ -63,6 +63,6 @@ select person_id, concept_id, encounter_id, order_id, obs_datetime, location_id,
 
 
 -- now void the old obs
-update obs o, temp_fbs_obs_to_update t set o.voided=1, o.date_voided=NOW(), o.voided_by=@daemonUser, o.void_reason='SL-913: Migrate FBG obs to use CIEL:1458(mmol/L)'
+update obs o, temp_fbs_obs_to_update t set o.voided=1, o.date_voided=NOW(), o.voided_by=@daemonUser, o.void_reason='SL-913: Migrate FBG obs to use CIEL:169672(mmol/L)'
 where o.obs_id=t.obs_id;
 
