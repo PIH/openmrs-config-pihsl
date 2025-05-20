@@ -465,6 +465,30 @@
         </script>
     </ifMode>
 
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+            jq(function () {
+                jq("#fasting input[type='radio']").change(function () {
+                    let fastingMode = jq("#fasting input[type='radio']:checked").val();
+                    if (fastingMode) {
+                        jq("#fasting input[type='radio']").attr('data-display-value', '');
+                        jq(this).attr('data-display-value', jq(this).next("label").text());
+
+                    } else {
+                        jq("#fasting input[type='radio']").attr('data-display-value', '');
+                    }
+                });
+
+                jq(".glucose_value input").change(function () {
+                    let glucoseValue = jq(this).val();
+                    if ( glucoseValue ) {
+                        jq("#fasting input[type='radio']").attr('data-display-value', jq(this).closest("div").children("label").text().trim() + ', ' + glucoseValue +  ' ' + jq(this).next("span.units").text());
+                    }
+                });
+            });
+        </script>
+    </ifMode>
+
     <span id="most-recent-encounter-title" style="display:none"><!--The Most Recent Encounter app in Core Apps replaces this with the "most recent" label--></span>
 
     <!-- don't allow editing provider, location, or date if an active visit -->
@@ -857,21 +881,22 @@
                         <when value="CIEL:1066" thenDisplay="#rbg"/>
                     </controls>
                 </obs>
+                <div id="fbg">
+                    <label>
+                        <uimessage code="Fasting blood glucose (FBG)"/>
+                    </label>
+                    <obs class="glucose_value" conceptId="CIEL:169672" showUnits="true"/>
+                </div>
+
+                <div id="rbg">
+                    <label>
+                        <uimessage code="Random blood glucose (RBG)"/>
+                    </label>
+                    <obs class="glucose_value" conceptId="CIEL:1458" showUnits="true"/>
+                </div>
             </p>
 
-            <div id="fbg">
-                <label>
-                    <uimessage code="Fasting blood glucose (FBG)"/>
-                </label>
-                <obs conceptId="CIEL:169672" showUnits="true"/>
-            </div>
 
-            <div id="rbg">
-                <label>
-                    <uimessage code="Random blood glucose (RBG)"/>
-                </label>
-                <obs conceptId="CIEL:1458" showUnits="true"/>
-            </div>
 
         </fieldset>
 
