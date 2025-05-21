@@ -138,7 +138,6 @@
         </repository>
     </repositories>
 
-
     <pluginRepositories>
         <pluginRepository>
             <id>openmrs-repo</id>
