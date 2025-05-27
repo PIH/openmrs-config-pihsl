@@ -52,7 +52,9 @@ Pain                     varchar(255),
 Other_Symptom            varchar(255),         
 Clinical_Impression      text,         
 Glucose_Value            double,
-Referral_Destination     varchar(255)
+Referral_Destination     varchar(255),
+index_asc                int,
+index_desc               int
 );
 
 insert into temp_ED_Triage (patient_id, encounter_id, visit_id, encounter_datetime, date_entered, user_entered)
@@ -327,5 +329,7 @@ Pain,
 Other_Symptom,
 Clinical_Impression,
 Glucose_Value,
-Referral_Destination
+Referral_Destination,
+index_asc,
+index_desc
 from temp_ED_Triage;
