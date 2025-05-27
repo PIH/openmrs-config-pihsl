@@ -16,7 +16,9 @@ CREATE TEMPORARY TABLE ncd_program
     date_completed       date,
     final_program_status varchar(100),
     clinical_status      varchar(50),
-    user_entered           varchar(50)
+    user_entered         varchar(50),
+    index_asc            int,
+    index_desc           int
 );
 
 insert into ncd_program(patient_id, patient_program_id, emr_id, program_name, date_enrolled, date_completed, final_program_status, clinical_status, user_entered)
@@ -41,5 +43,7 @@ select if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),pat
        date_completed,
        final_program_status,
        clinical_status,
-       user_entered
+       user_entered,
+       index_asc,
+       index_desc
 from ncd_program;
