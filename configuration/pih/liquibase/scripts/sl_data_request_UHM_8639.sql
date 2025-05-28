@@ -35,6 +35,16 @@ CREATE TABLE cohort_staging (
  dead                      BIT,           
  death_date                DATE,          
  cause_of_death            VARCHAR(100), 
+ height             FLOAT, 
+ weight             FLOAT, 
+ temperature        FLOAT, 
+ heart_rate         FLOAT, 
+ respiratory_rate   FLOAT,  
+ bp_systolic        FLOAT,
+ bp_diastolic       FLOAT,
+ o2_saturation      FLOAT, 
+ muac_mm            FLOAT,
+ chief_complaint    TEXT,
  diagnosis_1               VARCHAR(255), 
  diagnosis_2               VARCHAR(255), 
  diagnosis_3               VARCHAR(255),  
@@ -429,6 +439,65 @@ UPDATE v SET v.test_44 = l.test, v.result_44 = l.result FROM cohort_staging v IN
 UPDATE v SET v.test_45 = l.test, v.result_45 = l.result FROM cohort_staging v INNER JOIN #temp_labs l ON l.visit_id = v.visit_id AND l.index_asc = 45;
 UPDATE v SET v.test_46 = l.test, v.result_46 = l.result FROM cohort_staging v INNER JOIN #temp_labs l ON l.visit_id = v.visit_id AND l.index_asc = 46;
 UPDATE v SET v.test_47 = l.test, v.result_47 = l.result FROM cohort_staging v INNER JOIN #temp_labs l ON l.visit_id = v.visit_id AND l.index_asc = 47;
+
+-- latest vitals
+drop table if exists #temp_vitals;
+create table #temp_vitals
+(    visit_id          varchar(50),  
+	 height             FLOAT, 
+	 weight             FLOAT, 
+	 temperature        FLOAT, 
+	 heart_rate         FLOAT, 
+	 respiratory_rate   FLOAT,  
+	 bp_systolic        FLOAT,
+	 bp_diastolic       FLOAT,
+	 o2_saturation      FLOAT, 
+	 muac_mm            FLOAT,
+	 chief_complaint    TEXT,
+	 index_desc         INT
+);
+
+insert into #temp_vitals
+	(visit_id,
+	 height, 
+	 weight, 
+	 temperature, 
+	 heart_rate, 
+	 respiratory_rate,  
+	 bp_systolic,
+	 bp_diastolic,
+	 o2_saturation, 
+	 muac_mm,
+	 chief_complaint,
+     index_desc)
+select 
+	v.visit_id,
+	v.height, 
+	v.weight, 
+	v.temperature, 
+	v.heart_rate, 
+	v.respiratory_rate,  
+	v.bp_systolic,
+	v.bp_diastolic,
+	v.o2_saturation, 
+	v.muac_mm,
+	v.chief_complaint,
+	ROW_NUMBER() over (PARTITION by v.visit_id order by v.encounter_datetime desc)
+from all_vitals v
+inner join cohort_staging t on t.visit_id = v.visit_id;
+
+create index temp_vitals_c1 on #temp_vitals(visit_id, index_desc);
+
+update t set t.height = v.height from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.weight = v.weight from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.temperature = v.temperature from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.heart_rate = v.heart_rate from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.respiratory_rate = v.respiratory_rate from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.bp_systolic = v.bp_systolic from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.bp_diastolic = v.bp_diastolic from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.o2_saturation = v.o2_saturation from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.muac_mm = v.muac_mm from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
+update t set t.chief_complaint = v.chief_complaint from cohort_staging t inner join #temp_vitals v on t.visit_id = v.visit_id and v.index_desc = 1;
 
 DROP TABLE IF EXISTS cohort_2020_to_2024;
 EXEC sp_rename 'cohort_staging', 'cohort_2020_to_2024';
