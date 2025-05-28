@@ -36,7 +36,9 @@ inner join program p on pp.program_id = p.program_id
 where pp.voided = 0
 AND pp.program_id = @ncd_program;
 
-select if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
+select 
+	if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_program_id),patient_program_id) "patient_program_id",
+	if(@partition REGEXP '^[0-9]+$' = 1,concat(@partition,'-',patient_id),patient_id) "patient_id",
        emr_id,
        program_name,
        date_enrolled,
