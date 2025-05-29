@@ -4,7 +4,7 @@
     "name": "disposition.mirebalais.edObservation",
     "conceptCode": "PIH:ED Observation",
     "excludedEncounterTypes": ["a8584ab8-cc2a-11e5-9956-625662870761","9d701a81-bb83-40ea-9efc-af50f05575f2"],
-    "keepsVisitOpen": "true",
+    "keepsVisitOpen": "false",
     "actions": [],
     "additionalObs": []
   },
