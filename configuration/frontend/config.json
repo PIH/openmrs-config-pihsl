@@ -412,7 +412,8 @@
     "extensionSlots": {
       "action-menu-ward-patient-items-slot": {
         "remove": [
-          "clinical-forms-workspace-siderail-button"
+          "clinical-forms-workspace-siderail-button",
+          "order-basket-action-menu"
         ],
         "order": [
           "ward-patient-action-button",
