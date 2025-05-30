@@ -5,34 +5,49 @@
   "site": "KGH",
 
   "locationTags": {
-    "Login Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy"],
+    "Login Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "MCOE Triage", "NICU", "Obstetric Post-Op", "Obstetric Surgery", "Postnatal Ward", "Loss Ward"],
+    "Check-In Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "NICU", "Obstetric Post-Op", "Obstetric Surgery", "Postnatal Ward", "Loss Ward"],
+    "Check-In Maternal Location": ["MCOE Triage"],
     "Visit Location":  ["KGH"],
-    "Program Location":  ["KGH"]
+    "Program Location": ["KGH"]
   },
 
   "components": [
     "activeVisits",
+    "adtO3",
     "allergies",
+    "appointments",
+    "ayfsProgram",
+    "bedAdministration",
     "checkIn",
+    "checkInHomepageApp",
+    "children",
     "clinicianDashboard",
     "dataExports",
     "edTriage",
     "edTriageQueue",
+    "familyPlanningProgram",
+    "growthChart",
+    "gynecologyProgram",
     "idcardPrinting",
     "infantProgram",
     "labResults",
     "labs",
     "managePrinters",
     "markPatientDead",
-    "medicationDispensing",
     "mchForms",
+    "mcoeForms",
+    "mchTriage",
+    "medicationDispensing",
     "mentalHealth",
     "myAccount",
     "ncd",
     "overviewReports",
     "patientDocuments",
     "patientRegistration",
+    "pmtctProgram",
     "pregnancyProgram",
+    "pregnancyMentalHealthProgram",
     "primaryCare",
     "programs",
     "relationships",
@@ -40,12 +55,17 @@
     "visitManagement",
     "visitNote",
     "vitals",
-    "vitalsHomepageApp"
+    "vitalsHomepageApp",
+    "wristbands"
   ],
   "idCardLabel": "KGH",
 
   "registrationConfig": {
-    "allowUnknownPatients": true
+    "allowManualEntryOfPrimaryIdentifier": true,
+    "allowUnknownPatients": true,
+    "afterCreatedActions": [
+      "bean:registerBaby"
+    ]
   },
 
   "extraIdentifierTypes": [
