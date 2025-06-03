@@ -424,6 +424,11 @@
         ]
       }
     }
+  },
+  "@openmrs/esm-patient-tests-app": {
+    "orders": {
+      "labOrderableConcepts": "880468f0-eec0-4d70-861a-fe12d4ba5099"
+    }
   }
 }
 
