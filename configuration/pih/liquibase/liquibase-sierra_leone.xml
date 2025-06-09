@@ -244,9 +244,9 @@
         <sqlFile endDelimiter=";" path="sql/migrate_ed_triage_glucose_obs_to_correct_concept.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
     <changeSet id="20250515-migrate-vitals-fbg-to-ciel-169672" author="cioan">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*) from obs where void_reason = 'SL-913: Migrate FBG obs to use CIEL:169672(mmol/L)';
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept where uuid = '6e291dc0-9dd6-4ccf-bce4-5339c52667a9';
             </sqlCheck>
         </preConditions>
         <comment>
@@ -255,9 +255,9 @@
         <sqlFile endDelimiter=";" path="sql/migrate_vitals_fbg_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
     <changeSet id="20250515-migrate-vitals-rbg-to-ciel-1458" author="cioan">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*) from obs where void_reason = 'SL-913: Migrate RBG obs to use CIEL:1458(mmol/L)';
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept where uuid = '0e9d36ab-ccfe-4716-9060-ad5f330a28af';
             </sqlCheck>
         </preConditions>
         <comment>
