@@ -180,6 +180,7 @@
                 jq("#calculated-edd-and-gestational").hide();
                 const lastLMP = '<lookup complexExpression="$fn.formatDate($fn.latestObs('CIEL:1427').getValueDatetime(), 'yyyy-MM-dd')"/>';
                 const currentEncounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
+                validateEstimatedDeliveryDate("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
                 const msgWeeks = '<uimessage code="pihcore.weeks"/>';
                 if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0)) {
                     const lastPeriodDate = new Date(lastLMP);
