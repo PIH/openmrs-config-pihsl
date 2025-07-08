@@ -189,7 +189,7 @@
                     }
                 }
                 setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
-                validateEstimatedDeliveryDate("estimatedDeliveryDate", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
+                validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
 
                 // return appointment date can never be before encounter date
                 var setMinReturnVisitDate = function () {
