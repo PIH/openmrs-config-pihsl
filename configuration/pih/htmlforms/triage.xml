@@ -617,6 +617,28 @@
     </ifMode>
 
     <div id="refer-from" >
+        <h4><uimessage code="Referral"/></h4>
+
+        <div class="two-columns">
+            <div>
+                <p>
+                    <obs conceptId="PIH:20858" id="referral-received" style="checkbox"
+                         answerConceptId="CIEL:1065" answerCode="Referral form received">
+                        <controls>
+                            <when value="CIEL:1065" thenDisplay="#refForm" />
+                        </controls>
+                    </obs>
+                </p>
+            </div>
+            <div id="refForm">
+                <label style="color:red">
+                    <i>
+                        Please upload a photo of the referral form to the EMR
+                    </i>
+                </label>
+            </div>
+        </div>
+
         <div>
             <p class="side-by-side">
                 <label>
