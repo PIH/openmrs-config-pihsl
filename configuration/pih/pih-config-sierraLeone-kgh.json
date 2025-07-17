@@ -5,8 +5,8 @@
   "site": "KGH",
 
   "locationTags": {
-    "Login Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "MCOE Triage", "NICU", "Obstetric Post-Op", "Obstetric Surgery", "Postnatal Ward", "Loss Ward"],
-    "Check-In Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "NICU", "Obstetric Post-Op", "Obstetric Surgery", "Postnatal Ward", "Loss Ward"],
+    "Login Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "MCOE Triage", "NICU", "MCOE PACU", "MCOE Pre-Op", "Postnatal Ward", "Quiet Ward"],
+    "Check-In Location": ["KGH Triage", "KGH MCH", "KGH NCD", "KGH Mental Health", "KGH Laboratory", "KGH Pharmacy", "Antenatal Ward", "Labour and Delivery", "MCCU", "NICU", "MCOE PACU", "MCOE Pre-Op", "Postnatal Ward", "Quiet Ward"],
     "Check-In Maternal Location": ["MCOE Triage"],
     "Visit Location":  ["KGH"],
     "Program Location": ["KGH"]
