@@ -454,8 +454,8 @@
                         <br/>
                         <obs style="radio"
                              conceptId="PIH:14892"
-                             answerConceptIds="CIEL:1775,CIEL:162677,PIH:2416"
-                             answerCodes="complete (undetectable VL),partial (decrease but persistent),no response" />
+                             answerConceptIds="CIEL:1775,CIEL:162677,PIH:2416,CIEL:1118"
+                             answerCodes="complete (undetectable VL),partial (decrease but persistent),no response,lab not done" />
                     </p>
                 </div>
             </obsgroup>

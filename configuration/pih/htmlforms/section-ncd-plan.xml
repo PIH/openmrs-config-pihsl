@@ -241,10 +241,12 @@
                                     ['CIEL:1115',  'Normal'],
                                     ['PIH:14915',  'Heterogeneous without signs of cirrhosis'],
                                     ['CIEL:135721','Hepatocarcinoma (HCC)'],
-                                    ['PIH:14916','Cirrhosis with portal hypertension'],
-                                    ['PIH:14917','Cirrhosis without portal hypertension'],
-                                    ['PIH:14918','Periportal fibrosis'],
-                                    ['CIEL:5622','Other']">
+                                    ['PIH:14916',  'Cirrhosis with portal hypertension'],
+                                    ['PIH:14917',  'Cirrhosis without portal hypertension'],
+                                    ['PIH:14918',  'Periportal fibrosis'],
+                                    ['CIEL:145438','Chronic kidney disease (CKD)'],
+                                    ['CIEL:5009',  'Splenomegaly'],
+                                    ['CIEL:5622',  'Other']">
 
                             <obs conceptId="CIEL:845"
                                  answerConceptId="{0}"

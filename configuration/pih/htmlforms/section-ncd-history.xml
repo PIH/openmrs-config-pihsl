@@ -371,19 +371,45 @@
                 <label>
                     <uimessage code="Education level" />
                 </label>
-                <obs conceptId="CIEL:1712" style="radio"
+                <obs id="school" conceptId="CIEL:1712" style="radio"
                      answerConceptIds="CIEL:1713,CIEL:1714,PIH:1701,CIEL:1107"
                      answerCodes="Primary school,Secondary school,Tertiary school,No education"/>
             </p>
 
-            <p class="side-by-side">
-                <label>
-                    <uimessage code="Literacy level" />
-                </label>
-                <obs conceptId="CIEL:166855" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="Able to read and write,Cannot read and write"/>
-            </p>
+            <div class="two-columns">
+                <div>
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="Literacy level" />
+                        </label>
+                        <br/>
+                        <obs conceptId="CIEL:166855" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="Able to read and write,Cannot read and write"/>
+                    </p>
+                </div>
+                <div id="school-days-a">
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="Missed school" />
+                        </label>
+                        <obs id="missed-school-a" conceptId="PIH:5629" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066">
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#days-missed-a"/>
+                            </controls>
+                        </obs>
+
+                        <div id="days-missed-a" style="margin-left: 30px">
+                            <label>
+                                <uimessage code="Days of lost schooling (related diseases)" />
+                            </label>
+                            <obs conceptId="PIH:14446" />
+                        </div>
+                    </p>
+                </div>
+
+            </div>
 
             <p class="side-by-side">
                 <label>
@@ -391,6 +417,34 @@
                 </label>
                 <obs conceptId="PIH:3395" style="radio"
                      answerConceptIds="PIH:14833,CIEL:161382,PIH:UNEMPLOYED,CIEL:166624" />
+            </p>
+
+             <div class="three-columns">
+
+                <obsgroup groupingConceptId="PIH:12736" showIfEmpty="false" >
+                    <div>
+                        <obs conceptId="PIH:20862" labelText="Distance to clinic" showUnits="miles" />
+                    </div>
+                    <div>
+                        <obs conceptId="CIEL:159471" labelText="Average travel time" showUnits="minutes"/>
+                        <span class="small hidden">
+                            <obs id="travel-time-duration" conceptId="CIEL:1732" defaultValue="CIEL:1733" />
+                        </span>
+                    </div>
+
+                </obsgroup>
+
+                <div>
+                    <obsgroup groupingConceptId="PIH:TRANSPORTATION CONSTRUCT" showIfEmpty="false" >
+                        <obs conceptId="CIEL:159470" labelText="Average cost of transport" showUnits="Leones"/>
+                    </obsgroup>
+                </div>
+            </div>
+
+            <p class="side-by-side">
+                <br/>
+                <obs conceptId="CIEL:119533" labelText="Food insecurity" style="radio"
+                    answerConceptIds="CIEL:1065,CIEL:1066" />
             </p>
 
             <div class="two-columns">
@@ -405,36 +459,17 @@
                                 <when value="CIEL:1065" thenDisplay="#specify-support"/>
                             </controls>
                         </obs>
-
-                        <div id="specify-support" style="margin-left: 30px">
-                            <label>if yes, specify support:</label>
-                            <obs conceptId="PIH:2156" answerConceptId="PIH:990"   answerCode="Transport" />
-                            <obs conceptId="PIH:2156" answerConceptId="PIH:1400"  answerCode="Food" />
-                            <obs conceptId="PIH:2156" answerConceptId="PIH:2863"  answerCode="School" />
-                            <obs conceptId="PIH:2156" answerConceptId="CIEL:5622" answerCode="Other" commentFieldCode="specify other support"/>
-                        </div>
                     </p>
                 </div>
-                <div>
-                    <p class="side-by-side">
-                        <label>
-                            <uimessage code="Missed school" />
-                        </label>
-                        <obs id="missed-school" conceptId="PIH:5629" style="radio"
-                             answerConceptIds="CIEL:1065,CIEL:1066">
-                            <controls>
-                                <when value="CIEL:1065" thenDisplay="#days-missed"/>
-                            </controls>
-                        </obs>
 
-                        <div id="days-missed" style="margin-left: 30px">
-                            <label>
-                                <uimessage code="Days of lost schooling (related diseases)" />
-                            </label>
-                            <obs conceptId="PIH:14446" />
-                        </div>
-                    </p>
+                <div id="specify-support" style="margin-left: 30px">
+                    <label>if yes, specify support:</label>
+                    <obs conceptId="PIH:2156" answerConceptId="PIH:990"   answerCode="Transport" />
+                    <obs conceptId="PIH:2156" answerConceptId="PIH:1400"  answerCode="Food" />
+                    <obs conceptId="PIH:2156" answerConceptId="PIH:2863"  answerCode="School" />
+                    <obs conceptId="PIH:2156" answerConceptId="CIEL:5622" answerCode="Other" commentFieldCode="specify other support"/>
                 </div>
+
             </div>
 
             <p>
