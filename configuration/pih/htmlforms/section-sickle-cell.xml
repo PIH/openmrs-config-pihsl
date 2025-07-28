@@ -176,9 +176,12 @@
                 </div>
             </includeIf>
 
-            <h3>
-                <uimessage code="pihcore.followupIndicators"/>
-            </h3>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h3>
+                    <uimessage code="pihcore.followupIndicators"/>
+                </h3>
+            </includeIf>
 
             <h5>
                 <uimessage code="pihcore.clinicalIndicators"/>
@@ -219,176 +222,179 @@
                 </repeat>
             </div>
 
-            <obsgroup groupingConceptId="PIH:14872">
-                <div class="two-columns">
-                    <div>
-                        <p class="list-inline">
-                            <label>
-                                <uimessage code="pihcore.complicationsSinceLastVisit"/>
-                            </label>
-                            <obs id="scd-comp-q" conceptId="PIH:14867" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#scd-comp-text"/>
-                                </controls>
-                            </obs>
-                        </p>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <obsgroup groupingConceptId="PIH:14872">
+                    <div class="two-columns">
+                        <div>
+                            <p class="list-inline">
+                                <label>
+                                    <uimessage code="pihcore.complicationsSinceLastVisit"/>
+                                </label>
+                                <obs id="scd-comp-q" conceptId="PIH:14867" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                     answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#scd-comp-text"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </div>
+
+                        <div id="scd-comp-text">
+                            <p>
+                                <label>
+                                    <uimessage code="pihcore.complications.label"/>
+                                </label>
+                                <repeat>
+                                    <template>
+                                        <obs conceptId="PIH:15157" style="checkbox"
+                                             answerConceptId="{diagId}" answerCode="pihcore.{sickleComplic}"/>
+                                    </template>
+                                    <render diagId="CIEL:121629" sickleComplic="anemia" />
+                                    <render diagId="CIEL:162044" sickleComplic="severeAnemia" />
+                                    <render diagId="CIEL:136586" sickleComplic="intravascularHemolysis" />
+                                    <render diagId="CIEL:117643" sickleComplic="sickle-cellVaso-occlusivePainCrisis" />
+                                    <render diagId="CIEL:149871" sickleComplic="acuteChestSyndrome" />
+                                    <render diagId="CIEL:148074" sickleComplic="avascularBoneNecrosis" />
+                                    <render diagId="CIEL:111103" sickleComplic="stroke" />
+                                    <render diagId="CIEL:112483" sickleComplic="systemicInfection" />
+                                    <render diagId="CIEL:116128" sickleComplic="malaria" />
+                                </repeat>
+
+                                <obs conceptId="PIH:15157" style="checkbox"
+                                     answerConceptId="CIEL:5622" answerCode="pihcore.other"
+                                     commentFieldCode="zl.ifOtherSpecify"/>
+                            </p>
+                        </div>
                     </div>
+                </obsgroup>
 
-                    <div id="scd-comp-text">
-                        <p>
-                            <label>
-                                <uimessage code="pihcore.complications.label"/>
-                            </label>
-                            <repeat>
-                                <template>
-                                    <obs conceptId="PIH:15157" style="checkbox"
-                                         answerConceptId="{diagId}" answerCode="pihcore.{sickleComplic}"/>
-                                </template>
-                                <render diagId="CIEL:121629" sickleComplic="anemia" />
-                                <render diagId="CIEL:162044" sickleComplic="severeAnemia" />
-                                <render diagId="CIEL:136586" sickleComplic="intravascularHemolysis" />
-                                <render diagId="CIEL:117643" sickleComplic="sickle-cellVaso-occlusivePainCrisis" />
-                                <render diagId="CIEL:149871" sickleComplic="acuteChestSyndrome" />
-                                <render diagId="CIEL:148074" sickleComplic="avascularBoneNecrosis" />
-                                <render diagId="CIEL:111103" sickleComplic="stroke" />
-                                <render diagId="CIEL:112483" sickleComplic="systemicInfection" />
-                                <render diagId="CIEL:116128" sickleComplic="malaria" />
-                            </repeat>
-
-                            <obs conceptId="PIH:15157" style="checkbox"
-                                 answerConceptId="CIEL:5622" answerCode="pihcore.other"
-                                 commentFieldCode="zl.ifOtherSpecify"/>
-                        </p>
-                    </div>
-                </div>
-            </obsgroup>
-
-            <obsgroup groupingConceptId="PIH:15162" showIfEmpty="false">
-                <p class="side-by-side">
-                    <label>
-                        <uimessage code="pihcore.transfusionIn12mo"/>
-                    </label>
-                    <obs id="transfusion-status" conceptId="PIH:7868" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066"
-                         answerCodes="pihcore.yes,pihcore.no">
-                        <controls>
-                            <when value="CIEL:1065" thenDisplay="#transfusion-details"/>
-                        </controls>
-                    </obs>
-                </p>
-
-                <div id="transfusion-details" class="two-columns">
-                    <div>
-                        <obs conceptId="PIH:13748" labelCode="pihcore.numTransfusionIn12mo" />
-                    </div>
-                    <div>
-                        <obs conceptId="CIEL:163268" labelCode="pihcore.transfusionDate" />
-                    </div>
-                </div>
-            </obsgroup>
-
-            <h5>
-                <uimessage code="pihcore.awareAndTreat"/>
-            </h5>
-
-            <label>
-                <uimessage code="pihcore.onTreatment"/>
-            </label>
-            <repeat>
-                <template>
-                    <obs conceptId="PIH:14857" style="checkbox"
-                         answerConceptId="{qId}" />
-                </template>
-                <render qId="CIEL:76613" medName="Folic acid"/>
-                <render qId="CIEL:81724" medName="Penicillin"/>
-            </repeat>
-            <br/>
-
-            <obsgroup groupingConceptId="PIH:14826">
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <label>
-                                        <uimessage code="pihcore.{questionName}"/>
-                                    </label>
-                                    <obs id="{tog}" conceptId="{qId}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#scd-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render qId="CIEL:159610" questionName="malariaProphylaxis" tog="malaria"/>
-                            <render qId="CIEL:167914" questionName="understandsTreatment" tog="under"/>
-                            <render qId="PIH:14741"   questionName="abilityToTitrate" tog="tite"/>
-                            <render qId="CIEL:164075" questionName="overallTreatmentAdherence" tog="adher"/>
-                            <render qId="CIEL:167819" questionName="missingDosesPerWeek" tog="miss"/>
-                            <render qId="CIEL:167021" questionName="awareUnderstandsDisease" tog="aware"/>
-                            <render qId="CIEL:167022" questionName="familyAwarenessDisease" tog="family"/>
-                        </repeat>
-                    </div>
-
-                    <div id="scd-fui-miss-details">
-                        <br/><br/><br/><br/>
+                <obsgroup groupingConceptId="PIH:15162" showIfEmpty="false">
+                    <p class="side-by-side">
                         <label>
-                            <uimessage code="pihcore.numMissingDosesPerWeek"/>
+                            <uimessage code="pihcore.transfusionIn12mo"/>
                         </label>
-                        <obs conceptId="CIEL:167918"/>
+                        <obs id="transfusion-status" conceptId="PIH:7868" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="pihcore.yes,pihcore.no">
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#transfusion-details"/>
+                            </controls>
+                        </obs>
+                    </p>
+
+                    <div id="transfusion-details" class="two-columns">
+                        <div>
+                            <obs conceptId="PIH:13748" labelCode="pihcore.numTransfusionIn12mo" />
+                        </div>
+                        <div>
+                            <obs conceptId="CIEL:163268" labelCode="pihcore.transfusionDate" />
+                        </div>
                     </div>
-                </div>
+                </obsgroup>
 
                 <h5>
-                    <uimessage code="pihcore.diseaseCtl"/>
+                    <uimessage code="pihcore.awareAndTreat"/>
                 </h5>
 
+                <label>
+                    <uimessage code="pihcore.onTreatment"/>
+                </label>
                 <repeat>
                     <template>
-                        <p class="list-inline">
-                            <label>
-                                <uimessage code="{questionName}"/>
-                            </label>
-                            <obs id="{tog}" conceptId="{qId}" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#{tog}-details"/>
-                                </controls>
-                            </obs>
-                        </p>
+                        <obs conceptId="PIH:14857" style="checkbox"
+                             answerConceptId="{qId}" />
                     </template>
-                    <render qId="CIEL:1898"   questionName="pihcore.patientConditionImproved" tog="scd-fui-improved"/>
+                    <render qId="CIEL:76613" medName="Folic acid"/>
+                    <render qId="CIEL:81724" medName="Penicillin"/>
                 </repeat>
+                <br/>
 
-                <p class="list-inline">
-                    <label>
-                        <uimessage code="pihcore.sickleCellDiseaseControl"/>
-                    </label>
-                    <obs id="sickle-control" conceptId="PIH:11506" style="radio"
-                         answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="pihcore.controlled,pihcore.uncontrolled,pihcore.complications" >
-                        <controls>
-                            <when value="PIH:11508" thenDisplay="#sc-fui-uncontrolled"/>
-                        </controls>
-                    </obs>
-                </p>
+                <obsgroup groupingConceptId="PIH:14826">
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="pihcore.{questionName}"/>
+                                        </label>
+                                        <obs id="{tog}" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#scd-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:159610" questionName="malariaProphylaxis" tog="malaria"/>
+                                <render qId="CIEL:167914" questionName="understandsTreatment" tog="under"/>
+                                <render qId="PIH:14741"   questionName="abilityToTitrate" tog="tite"/>
+                                <render qId="CIEL:164075" questionName="overallTreatmentAdherence" tog="adher"/>
+                                <render qId="CIEL:167819" questionName="missingDosesPerWeek" tog="miss"/>
+                                <render qId="CIEL:167021" questionName="awareUnderstandsDisease" tog="aware"/>
+                                <render qId="CIEL:167022" questionName="familyAwarenessDisease" tog="family"/>
+                            </repeat>
+                        </div>
 
-                <div id="sc-fui-uncontrolled" >
+                        <div id="scd-fui-miss-details">
+                            <br/><br/><br/><br/>
+                            <label>
+                                <uimessage code="pihcore.numMissingDosesPerWeek"/>
+                            </label>
+                            <obs conceptId="CIEL:167918"/>
+                        </div>
+                    </div>
+
+                    <h5>
+                        <uimessage code="pihcore.diseaseCtl"/>
+                    </h5>
+
+                    <repeat>
+                        <template>
+                            <p class="list-inline">
+                                <label>
+                                    <uimessage code="{questionName}"/>
+                                </label>
+                                <obs id="{tog}" conceptId="{qId}" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                     answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#{tog}-details"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </template>
+                        <render qId="CIEL:1898"   questionName="pihcore.patientConditionImproved" tog="scd-fui-improved"/>
+                    </repeat>
+
                     <p class="list-inline">
                         <label>
-                            <uimessage code="pihcore.sendForAdmission"/>
+                            <uimessage code="pihcore.sickleCellDiseaseControl"/>
                         </label>
-                        <obs conceptId="CIEL:1788" style="radio"
-                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                             answerCodes="pihcore.yes,pihcore.no,pihcore.unknown" />
+                        <obs id="sickle-control" conceptId="PIH:11506" style="radio"
+                             answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
+                             answerCodes="pihcore.controlled,pihcore.uncontrolled,pihcore.complications" >
+                            <controls>
+                                <when value="PIH:11508" thenDisplay="#sc-fui-uncontrolled"/>
+                            </controls>
+                        </obs>
                     </p>
-                </div>
-            </obsgroup>
+
+                    <div id="sc-fui-uncontrolled" >
+                        <p class="list-inline">
+                            <label>
+                                <uimessage code="pihcore.sendForAdmission"/>
+                            </label>
+                            <obs conceptId="CIEL:1788" style="radio"
+                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                 answerCodes="pihcore.yes,pihcore.no,pihcore.unknown" />
+                        </p>
+                    </div>
+                </obsgroup>
+            </includeIf>
 
             <label>
                 <uimessage code="pihcore.indicationsForHydroxyurea"/>

@@ -236,9 +236,12 @@
                 </div>
             </div>
 
-            <h3>
-                <uimessage code="CKD and Nephrotic Syndrome followup indicators"/>
-            </h3>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h3>
+                    <uimessage code="CKD and Nephrotic Syndrome followup indicators"/>
+                </h3>
+            </includeIf>
 
             <h5>
                 <uimessage code="Clinical indicators"/>
@@ -280,115 +283,118 @@
                         <render qId="PIH:14716" questionName="Hypertension controlled" tog="control"/>
                     </repeat>
                 </div>
+            </obsgroup>
 
-                <h5>
-                    <uimessage code="Awareness and treatment"/>
-                </h5>
+                <!-- Not for intake.  For followup only -->
+                <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                    <h5>
+                        <uimessage code="Awareness and treatment"/>
+                    </h5>
 
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <label>
-                                        <uimessage code="{questionName}"/>
-                                    </label>
-                                    <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
-                                         answerCodes="yes,no,unknown" >
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render qId="CIEL:167914" questionName="Understands treatment" tog="understands"/>
-                            <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate"/>
-                            <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                            <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
-                            <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
-                        </repeat>
-                    </div>
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
+                                             answerCodes="yes,no,unknown" >
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:167914" questionName="Understands treatment" tog="understands"/>
+                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
+                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
+                            </repeat>
+                        </div>
 
-                    <div id="ckd-fui-missed-details">
-                        <br/><br/><br/><br/>
-                        <label>
-                            <uimessage code="# of missed doses in past week"/>
-                        </label>
-                        <obs conceptId="CIEL:167918"  />
-
-                    </div>
-                </div>
-
-                <h5>
-                    <uimessage code="Disease control"/>
-                </h5>
-
-                <repeat>
-                    <template>
-                        <p class="list-inline-extra-wide">
+                        <div id="ckd-fui-missed-details">
+                            <br/><br/><br/><br/>
                             <label>
-                                <uimessage code="{questionName}"/>
+                                <uimessage code="# of missed doses in past week"/>
                             </label>
-                            <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
-                                 answerCodes="yes,no,unknown" >
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
-                                </controls>
-                            </obs>
-                        </p>
-                    </template>
-                    <render qId="PIH:14718"   questionName="Stable creatinine level" tog="creatinine" />
-                    <render qId="CIEL:128340" questionName="Proteinuria" tog="pu"/>
-                    <render qId="CIEL:1898"   questionName="Patient condition improved" tog="improved"/>
-                </repeat>
+                            <obs conceptId="CIEL:167918"  />
 
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="CKD/nephrotic syndrome control"/>
-                    </label>
-                    <obs id="ckd-controlled" conceptId="PIH:11506" style="radio"
-                         answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="controlled,uncontrolled,complications" >
-                        <controls>
-                            <when value="PIH:11508" thenDisplay="#ckd-fui-uncontrolled"/>
-                        </controls>
-                    </obs>
-                </p>
+                        </div>
+                    </div>
 
+                    <h5>
+                        <uimessage code="Disease control"/>
+                    </h5>
 
-                <div id="ckd-fui-uncontrolled" >
+                    <repeat>
+                        <template>
+                            <p class="list-inline-extra-wide">
+                                <label>
+                                    <uimessage code="{questionName}"/>
+                                </label>
+                                <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
+                                     answerCodes="yes,no,unknown" >
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </template>
+                        <render qId="PIH:14718"   questionName="Stable creatinine level" tog="creatinine" />
+                        <render qId="CIEL:128340" questionName="Proteinuria" tog="pu"/>
+                        <render qId="CIEL:1898"   questionName="Patient condition improved" tog="improved"/>
+                    </repeat>
+
                     <p class="list-inline-wide">
                         <label>
-                            <uimessage code="Send for admission"/>
+                            <uimessage code="CKD/nephrotic syndrome control"/>
                         </label>
-                        <obs conceptId="CIEL:1788" style="radio"
-                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                             answerCodes="yes,no,unknown" />
+                        <obs id="ckd-controlled" conceptId="PIH:11506" style="radio"
+                             answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
+                             answerCodes="controlled,uncontrolled,complications" >
+                            <controls>
+                                <when value="PIH:11508" thenDisplay="#ckd-fui-uncontrolled"/>
+                            </controls>
+                        </obs>
                     </p>
-                </div>
 
-                <repeat>
-                    <template>
-                        <p class="list-inline-extra-wide">
+
+                    <div id="ckd-fui-uncontrolled" >
+                        <p class="list-inline-wide">
                             <label>
-                                <uimessage code="{questionName}"/>
+                                <uimessage code="Send for admission"/>
                             </label>
-                            <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
-                                 answerCodes="yes,no,unknown" >
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
-                                </controls>
-                            </obs>
+                            <obs conceptId="CIEL:1788" style="radio"
+                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                 answerCodes="yes,no,unknown" />
                         </p>
-                    </template>
-                    <render qId="PIH:14721"   questionName="Glomerulonephritis/nephrotic syndrome relapse" tog="glomer" />
-                    <render qId="PIH:14719"   questionName="Dialysis referral" tog="dialysis"/>
-                    <render qId="PIH:14720"   questionName="On dialysis" tog="onDial"/>
-                </repeat>
-            </obsgroup>
+                    </div>
+
+                    <repeat>
+                        <template>
+                            <p class="list-inline-extra-wide">
+                                <label>
+                                    <uimessage code="{questionName}"/>
+                                </label>
+                                <obs id="ckd-fui-{tog}" conceptId="{qId}" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
+                                     answerCodes="yes,no,unknown" >
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#ckd-fui-{tog}-details"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </template>
+                        <render qId="PIH:14721"   questionName="Glomerulonephritis/nephrotic syndrome relapse" tog="glomer" />
+                        <render qId="PIH:14719"   questionName="Dialysis referral" tog="dialysis"/>
+                        <render qId="PIH:14720"   questionName="On dialysis" tog="onDial"/>
+                    </repeat>
+                </includeIf>
 
             <p>
                 <label>

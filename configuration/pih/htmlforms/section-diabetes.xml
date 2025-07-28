@@ -260,187 +260,190 @@
 
             <br/>
 
-            <h4>
-                <uimessage code="Diabetes followup indicators"/>
-            </h4>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h4>
+                    <uimessage code="Diabetes followup indicators"/>
+                </h4>
 
-            <h5>
-                <uimessage code="Treatment indicators"/>
-            </h5>
+                <h5>
+                    <uimessage code="Treatment indicators"/>
+                </h5>
 
-            <obsgroup groupingConceptId="PIH:14469" showIfEmpty="false">
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p class="list-inline-wide">
-                                    <label>
-                                        <uimessage code="{questionName}"/>
-                                    </label>
-                                    <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO"
-                                         answerCodes="yes,no">
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#dm-{q}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render qId="CIEL:1898" questionName="Patient condition improved" q="improved"/>
-                            <render qId="PIH:6756"  questionName="On insulin" q="insulin"/>
-                            <render qId="CIEL:167957" questionName="Severe hypoglycemia in last month" q="severe"/>
-                            <render qId="CIEL:164075" questionName="Overall treatment adherence" q="adher"/>
-                            <render qId="CIEL:167819" questionName="Missed doses in past week" q="missed"/>
-                        </repeat>
-                    </div>
+                <obsgroup groupingConceptId="PIH:14469" showIfEmpty="false">
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline-wide">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO"
+                                             answerCodes="yes,no">
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#dm-{q}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:1898" questionName="Patient condition improved" q="improved"/>
+                                <render qId="PIH:6756"  questionName="On insulin" q="insulin"/>
+                                <render qId="CIEL:167957" questionName="Severe hypoglycemia in last month" q="severe"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" q="adher"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" q="missed"/>
+                            </repeat>
+                        </div>
 
-                    <div>
-                        <label>
-                            <uimessage code="# of hypoglycemic episodes in past 30 days"/>
-                        </label>
-                        <p class="narrow">
-                            <obs conceptId="PIH:14708"/>
-                        </p>
-
-                        <div id="dm-missed-details">
-                            <br/><br/>
+                        <div>
                             <label>
-                                <uimessage code="# of missed doses in past week"/>
+                                <uimessage code="# of hypoglycemic episodes in past 30 days"/>
                             </label>
-                            <obs conceptId="CIEL:167918"/>
+                            <p class="narrow">
+                                <obs conceptId="PIH:14708"/>
+                            </p>
 
+                            <div id="dm-missed-details">
+                                <br/><br/>
+                                <label>
+                                    <uimessage code="# of missed doses in past week"/>
+                                </label>
+                                <obs conceptId="CIEL:167918"/>
+
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="two-columns">
-                    <div>
-                        <p class="list-inline-wide">
-                            <label>
-                                <uimessage code="Indications for ACE inhibitors"/>
-                                <br/>
-                                <uimessage code="(proteinuria present; BP &gt;= 135/75)"/>
-                            </label>
-                            <obs id="dm-indications-ace"
-                                 conceptId="CIEL:168000" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO"
-                                 answerCodes="yes,no">
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#dm-on-ace-details"/>
-                                </controls>
-                            </obs>
-                        </p>
-
-                        <div id="dm-on-ace-details">
+                    <div class="two-columns">
+                        <div>
                             <p class="list-inline-wide">
                                 <label>
-                                    <uimessage code="On ACE inhibitors"/>
+                                    <uimessage code="Indications for ACE inhibitors"/>
+                                    <br/>
+                                    <uimessage code="(proteinuria present; BP &gt;= 135/75)"/>
                                 </label>
-                                <obs id="dm-ace" conceptId="CIEL:167998" style="radio"
+                                <obs id="dm-indications-ace"
+                                     conceptId="CIEL:168000" style="radio"
                                      answerConceptIds="PIH:YES,PIH:NO"
                                      answerCodes="yes,no">
                                     <controls>
-                                        <when value="PIH:NO" thenDisplay="#dm-not-ace-details"/>
+                                        <when value="PIH:YES" thenDisplay="#dm-on-ace-details"/>
                                     </controls>
                                 </obs>
                             </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div id="dm-not-ace-details">
-                            <label>
-                                <uimessage code="Reason not on ACE inhibitors"/>
-                            </label>
-                            <obs conceptId="PIH:20002" style="text"/>
-                        </div>
-                    </div>
-                </div>
 
-                <h5>
-                    <uimessage code="Self management and awareness"/>
-                </h5>
-
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
+                            <div id="dm-on-ace-details">
                                 <p class="list-inline-wide">
                                     <label>
-                                        <uimessage code="{xId}"/>
+                                        <uimessage code="On ACE inhibitors"/>
                                     </label>
-                                    <obs id="dm-fui-{tog}" conceptId="{message}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown" >
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#dm-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
-                            <render message="CIEL:167914" xId="Understands treatment" tog="understands"/>
-                            <render message="PIH:14741"   xId="Ability to titrate insulin" tog="titrate"/>
-                        </repeat>
-
-                        <repeat>
-                            <template>
-                                <p class="list-inline-wide">
-                                    <label>
-                                        <uimessage code="{questionName}"/>
-                                    </label>
-                                    <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
+                                    <obs id="dm-ace" conceptId="CIEL:167998" style="radio"
                                          answerConceptIds="PIH:YES,PIH:NO"
-                                         answerCodes="yes,no" >
+                                         answerCodes="yes,no">
                                         <controls>
-                                            <when value="PIH:YES" thenDisplay="#dm-{q}-details" />
+                                            <when value="PIH:NO" thenDisplay="#dm-not-ace-details"/>
                                         </controls>
                                     </obs>
                                 </p>
-                            </template>
-                            <render qId="CIEL:167956" questionName="Glycometer (home)" q="home"/>
-                            <render qId="CIEL:167919" questionName="Ability to read and manage glycometer" q="abiity" />
-                            <render qId="PIH:14709"   questionName="Patient adjusted insulin based on glucometer" q="adjust"/>
-                        </repeat>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="dm-not-ace-details">
+                                <label>
+                                    <uimessage code="Reason not on ACE inhibitors"/>
+                                </label>
+                                <obs conceptId="PIH:20002" style="text"/>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <h5>
-                    <uimessage code="Disease control"/>
-                </h5>
-                <ifMode mode="VIEW" include="false">
-                    <table align="left" style="font-size:small">
-                        <tr>
-                            <th colspan="2">
-                                Definition of disease control
-                            </th>
-                            <td>
-                                HBA1c &lt; 7% (53 mmol/m)
-                                <i>(if available, the best measurement)</i><br/>
-                                Preprandial glucose: 80 - 130 mg/dL (4.4 - 7.2 mmol/L)<br/>
-                                Postprandial glucose:  &lt; 180 mg/dL (10 mmol/L)
-                            </td>
-                        </tr>
-                    </table>
-                </ifMode>
+                    <h5>
+                        <uimessage code="Self management and awareness"/>
+                    </h5>
 
-                <p class="list-inline-wide">
-                    <label>
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline-wide">
+                                        <label>
+                                            <uimessage code="{xId}"/>
+                                        </label>
+                                        <obs id="dm-fui-{tog}" conceptId="{message}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="yes,no,unknown" >
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#dm-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
+                                <render message="CIEL:167914" xId="Understands treatment" tog="understands"/>
+                                <render message="PIH:14741"   xId="Ability to titrate insulin" tog="titrate"/>
+                            </repeat>
+
+                            <repeat>
+                                <template>
+                                    <p class="list-inline-wide">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO"
+                                             answerCodes="yes,no" >
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#dm-{q}-details" />
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:167956" questionName="Glycometer (home)" q="home"/>
+                                <render qId="CIEL:167919" questionName="Ability to read and manage glycometer" q="abiity" />
+                                <render qId="PIH:14709"   questionName="Patient adjusted insulin based on glucometer" q="adjust"/>
+                            </repeat>
+                        </div>
+                    </div>
+
+                    <h5>
                         <uimessage code="Disease control"/>
-                    </label>
-                    <obs conceptId="PIH:11506" style="radio"
-                         answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="controlled,uncontrolled,complications" />
-                </p>
+                    </h5>
+                    <ifMode mode="VIEW" include="false">
+                        <table align="left" style="font-size:small">
+                            <tr>
+                                <th colspan="2">
+                                    Definition of disease control
+                                </th>
+                                <td>
+                                    HBA1c &lt; 7% (53 mmol/m)
+                                    <i>(if available, the best measurement)</i><br/>
+                                    Preprandial glucose: 80 - 130 mg/dL (4.4 - 7.2 mmol/L)<br/>
+                                    Postprandial glucose:  &lt; 180 mg/dL (10 mmol/L)
+                                </td>
+                            </tr>
+                        </table>
+                    </ifMode>
 
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="DKA indicates hospitalization"/>
-                    </label>
-                    <obs conceptId="PIH:20001" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
-                         answerCodes="yes,no,unknown" />
-                </p>
-            </obsgroup>
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="Disease control"/>
+                        </label>
+                        <obs conceptId="PIH:11506" style="radio"
+                             answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
+                             answerCodes="controlled,uncontrolled,complications" />
+                    </p>
+
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="DKA indicates hospitalization"/>
+                        </label>
+                        <obs conceptId="PIH:20001" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
+                             answerCodes="yes,no,unknown" />
+                    </p>
+                </obsgroup>
+            </includeIf>
 
             <strong>
                 <uimessage code="Fundoscopy"/>

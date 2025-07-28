@@ -348,9 +348,13 @@
             </includeIf>
 
             <div>
-                <h4>
-                    <uimessage code="Heart failure followup indicators"/>
-                </h4>
+                <!-- Not for intake.  For followup only -->
+                <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                    <h4>
+                        <uimessage code="Heart failure followup indicators"/>
+                    </h4>
+                </includeIf>
+
                 <div>
                     <h5>
                         <uimessage code="Clinical indicators"/>
@@ -401,105 +405,105 @@
                              answerConceptIds="CIEL:159575,CIEL:117315,CIEL:138099" />
                     </p>
 
-                    <h5>
-                        <uimessage code="Awareness and treatment indicators"/>
-                    </h5>
-
-                    <div class="two-columns">
-                        <div>
-                            <repeat>
-                                <template>
-                                    <p class="list-inline">
-                                        <label>
-                                            <uimessage code="{questionName}"/>
-                                        </label>
-                                        <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
-                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                             answerCodes="yes,no,unknown" >
-                                            <controls>
-                                                <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
-                                            </controls>
-                                        </obs>
-                                    </p>
-                                </template>
-                                <render qId="CIEL:167914" questionName="Understands treatment" tog="understand"/>
-                                <render qId="CIEL:168115" questionName="Low salt adherence diet" tog="salt" />
-                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate"/>
-                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
-                            </repeat>
-                        </div>
-                        <div id="hf-fui-missed-details">
-                            <br/><br/><br/><br/>
-                            <label>
-                                <uimessage code="# of missed doses in past week"/>
-                            </label>
-                            <obs conceptId="CIEL:167918"  />
-                        </div>
-                    </div>
-
-                    <label>
-                        <uimessage code="If systolic function is depressed, treatment class:"/>
-                    </label>
-                    <div class="three-columns">
-                        <repeat>
-                            <template>
-                                <div>
-                                    <p class="side-by-side">
-                                        <label>
-                                            <uimessage code="{messg}" />
-                                        </label>
-
-                                        <obs conceptId="{cid}" style="radio"
-                                             answerConceptIds="CIEL:1065,CIEL:1066"
-                                             answerCodes="yes,no"/>
-                                    </p>
-                                </div>
-                            </template>
-                            <render cid="PIH:14531" short="ACE" messg="On ACE inhibitors" />
-                            <render cid="PIH:14723" short="BBs" messg="On beta-blockers" />
-                            <render cid="PIH:14811" short="Spirono" messg="On spironolactone" />
-                        </repeat>
-                    </div>
-
-                    <repeat>
-                        <template>
-                            <p class="list-inline-wide">
-                                <label>
-                                    <uimessage code="{questionName}"/>
-                                </label>
-                                <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
-                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN,PIH:NOT INDICATED"
-                                     answerCodes="yes,no,unknown,not indicated" >
-                                    <controls>
-                                        <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
-                                    </controls>
-                                </obs>
-                            </p>
-                        </template>
-                        <render qId="PIH:14739"   questionName="Endocarditis prevention therapy" tog="endocard"/>
-                    </repeat>
-
-                    <repeat>
-                        <template>
-                            <p class="list-inline-wide">
-                                <label>
-                                    <uimessage code="{questionName}"/>
-                                </label>
-                                <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
-                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                     answerCodes="yes,no,unknown" >
-                                    <controls>
-                                        <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
-                                    </controls>
-                                </obs>
-                            </p>
-                        </template>
-                        <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
-                    </repeat>
-
                     <!-- Not for intake.  For followup only -->
                     <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                        <h5>
+                            <uimessage code="Awareness and treatment indicators"/>
+                        </h5>
+
+                        <div class="two-columns">
+                            <div>
+                                <repeat>
+                                    <template>
+                                        <p class="list-inline">
+                                            <label>
+                                                <uimessage code="{questionName}"/>
+                                            </label>
+                                            <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
+                                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                                 answerCodes="yes,no,unknown" >
+                                                <controls>
+                                                    <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
+                                                </controls>
+                                            </obs>
+                                        </p>
+                                    </template>
+                                    <render qId="CIEL:167914" questionName="Understands treatment" tog="understand"/>
+                                    <render qId="CIEL:168115" questionName="Low salt adherence diet" tog="salt" />
+                                    <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
+                                    <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate"/>
+                                    <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
+                                </repeat>
+                            </div>
+                            <div id="hf-fui-missed-details">
+                                <br/><br/><br/><br/>
+                                <label>
+                                    <uimessage code="# of missed doses in past week"/>
+                                </label>
+                                <obs conceptId="CIEL:167918"  />
+                            </div>
+                        </div>
+
+                        <label>
+                            <uimessage code="If systolic function is depressed, treatment class:"/>
+                        </label>
+                        <div class="three-columns">
+                            <repeat>
+                                <template>
+                                    <div>
+                                        <p class="side-by-side">
+                                            <label>
+                                                <uimessage code="{messg}" />
+                                            </label>
+
+                                            <obs conceptId="{cid}" style="radio"
+                                                 answerConceptIds="CIEL:1065,CIEL:1066"
+                                                 answerCodes="yes,no"/>
+                                        </p>
+                                    </div>
+                                </template>
+                                <render cid="PIH:14531" short="ACE" messg="On ACE inhibitors" />
+                                <render cid="PIH:14723" short="BBs" messg="On beta-blockers" />
+                                <render cid="PIH:14811" short="Spirono" messg="On spironolactone" />
+                            </repeat>
+                        </div>
+
+                        <repeat>
+                            <template>
+                                <p class="list-inline-wide">
+                                    <label>
+                                        <uimessage code="{questionName}"/>
+                                    </label>
+                                    <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
+                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN,PIH:NOT INDICATED"
+                                         answerCodes="yes,no,unknown,not indicated" >
+                                        <controls>
+                                            <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
+                                        </controls>
+                                    </obs>
+                                </p>
+                            </template>
+                            <render qId="PIH:14739"   questionName="Endocarditis prevention therapy" tog="endocard"/>
+                        </repeat>
+
+                        <repeat>
+                            <template>
+                                <p class="list-inline-wide">
+                                    <label>
+                                        <uimessage code="{questionName}"/>
+                                    </label>
+                                    <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
+                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                         answerCodes="yes,no,unknown" >
+                                        <controls>
+                                            <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
+                                        </controls>
+                                    </obs>
+                                </p>
+                            </template>
+                            <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
+                        </repeat>
+
                         <h5>
                             <uimessage code="Disease control"/>
                         </h5>

@@ -193,124 +193,127 @@
                 </div>
             </includeIf>
 
-            <h3>
-                <uimessage code="Palliative followup indicators"/>
-            </h3>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h3>
+                    <uimessage code="Palliative followup indicators"/>
+                </h3>
 
-            <p class="list-inline-wide">
-                <label>
-                    <uimessage code="Counselling done" />
-                </label>
-                <obs conceptId="CIEL:165310" style="radio"
-                     answerConceptIds="CIEL:1267,CIEL:1118"
-                     answerCodes="yes,no"/>
-            </p>
-
-            <h5>
-                <uimessage code="Awareness and treatment"/>
-            </h5>
-            <obsgroup groupingConceptId="PIH:14817" showIfEmpty="false">
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p>
-                                    <p class="list-inline">
-                                        <label>
-                                            <uimessage code="{xId}"/>
-                                        </label>
-                                        <obs id="pall-fui-{tog}" conceptId="{message}" style="radio"
-                                             answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
-                                             answerCodes="yes,no,unknown">
-                                            <controls>
-                                                <when value="PIH:YES" thenDisplay="#pall-fui-{tog}-details"/>
-                                            </controls>
-                                        </obs>
-                                    </p>
-                                </p>
-                            </template>
-                            <render message="CIEL:167914" xId="Understands treatment" tog="understand"/>
-                            <render message="PIH:14741"   xId="Ability to titrate opioids" tog="titrate"/>
-                            <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher"/>
-                            <render message="CIEL:167819" xId="Missed doses in past week" tog="missed"/>
-                            <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
-                         </repeat>
-                    </div>
-                    <div id="pall-fui-missed-details">
-                        <br/><br/><br/><br/>
-                        <label>
-                            <uimessage code="# of missed doses in past week"/>
-                        </label>
-                        <obs conceptId="CIEL:167918"  />
-
-                    </div>
-                </div>
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Counselling done" />
+                    </label>
+                    <obs conceptId="CIEL:165310" style="radio"
+                         answerConceptIds="CIEL:1267,CIEL:1118"
+                         answerCodes="yes,no"/>
+                </p>
 
                 <h5>
-                    <uimessage code="Disease control"/>
+                    <uimessage code="Awareness and treatment"/>
                 </h5>
-                <repeat>
-                    <template>
-                        <p>
-                            <p class="list-inline">
-                                <label>
-                                    <uimessage code="{xId}"/>
-                                </label>
-                                <obs id="pall-fui-{tog}" conceptId="{message}" style="radio"
-                                     answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
-                                     answerCodes="yes,no,unknown">
-                                    <controls>
-                                        <when value="PIH:YES" thenDisplay="#pall-fui-{tog}-details"/>
-                                    </controls>
-                                </obs>
+                <obsgroup groupingConceptId="PIH:14817" showIfEmpty="false">
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p>
+                                        <p class="list-inline">
+                                            <label>
+                                                <uimessage code="{xId}"/>
+                                            </label>
+                                            <obs id="pall-fui-{tog}" conceptId="{message}" style="radio"
+                                                 answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
+                                                 answerCodes="yes,no,unknown">
+                                                <controls>
+                                                    <when value="PIH:YES" thenDisplay="#pall-fui-{tog}-details"/>
+                                                </controls>
+                                            </obs>
+                                        </p>
+                                    </p>
+                                </template>
+                                <render message="CIEL:167914" xId="Understands treatment" tog="understand"/>
+                                <render message="PIH:14741"   xId="Ability to titrate opioids" tog="titrate"/>
+                                <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher"/>
+                                <render message="CIEL:167819" xId="Missed doses in past week" tog="missed"/>
+                                <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
+                             </repeat>
+                        </div>
+                        <div id="pall-fui-missed-details">
+                            <br/><br/><br/><br/>
+                            <label>
+                                <uimessage code="# of missed doses in past week"/>
+                            </label>
+                            <obs conceptId="CIEL:167918"  />
+
+                        </div>
+                    </div>
+
+                    <h5>
+                        <uimessage code="Disease control"/>
+                    </h5>
+                    <repeat>
+                        <template>
+                            <p>
+                                <p class="list-inline">
+                                    <label>
+                                        <uimessage code="{xId}"/>
+                                    </label>
+                                    <obs id="pall-fui-{tog}" conceptId="{message}" style="radio"
+                                         answerConceptIds="PIH:YES,PIH:NO,CIEL:1067"
+                                         answerCodes="yes,no,unknown">
+                                        <controls>
+                                            <when value="PIH:YES" thenDisplay="#pall-fui-{tog}-details"/>
+                                        </controls>
+                                    </obs>
+                                </p>
                             </p>
-                        </p>
-                    </template>
-                    <render message="CIEL:1898"   xId="Patient condition improved" tog="improved"/>
-                </repeat>
-            </obsgroup>
+                        </template>
+                        <render message="CIEL:1898"   xId="Patient condition improved" tog="improved"/>
+                    </repeat>
+                </obsgroup>
 
-            <table>
-                <repeat>
-                    <template>
-                        <obsgroup groupingConceptId="PIH:14859" showIfEmpty="false">
-                            <tr>
-                                <td id="{symptName}-symp" colspan="3">
-                                    <obs conceptId="CIEL:1728" style="checkbox"
-                                         answerConceptId="{qId}"
-                                         toggle="{id: '{symptName}-details', style: 'hidden'}" class="symptom-checkbox"/>
-                                </td>
-                            </tr>
-                            <tr id="{symptName}-details" >
-                                <td></td>
-                                <td>
-                                    <p class="list-inline">
-                                        <obs conceptId="CIEL:162676" style="radio"
-                                             answerConceptIds="CIEL:1107,CIEL:162677,CIEL:162678,CIEL:162679"
-                                             answerCodes="no,better,worse,same" />
-                                    </p>
-                                </td>
-                                <td>
-                                    <p class="list-inline">
-                                        <obs conceptId="PIH:14768" style="radio"
-                                             answerConceptIds="PIH:11507,PIH:11508"
-                                             answerCodes="controlled,uncontrolled"/>
-                                    </p>
-                                </td>
-                            </tr>
+                <table>
+                    <repeat>
+                        <template>
+                            <obsgroup groupingConceptId="PIH:14859" showIfEmpty="false">
+                                <tr>
+                                    <td id="{symptName}-symp" colspan="3">
+                                        <obs conceptId="CIEL:1728" style="checkbox"
+                                             answerConceptId="{qId}"
+                                             toggle="{id: '{symptName}-details', style: 'hidden'}" class="symptom-checkbox"/>
+                                    </td>
+                                </tr>
+                                <tr id="{symptName}-details" >
+                                    <td></td>
+                                    <td>
+                                        <p class="list-inline">
+                                            <obs conceptId="CIEL:162676" style="radio"
+                                                 answerConceptIds="CIEL:1107,CIEL:162677,CIEL:162678,CIEL:162679"
+                                                 answerCodes="no,better,worse,same" />
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="list-inline">
+                                            <obs conceptId="PIH:14768" style="radio"
+                                                 answerConceptIds="PIH:11507,PIH:11508"
+                                                 answerCodes="controlled,uncontrolled"/>
+                                        </p>
+                                    </td>
+                                </tr>
 
-                        </obsgroup>
-                    </template>
-                    <render qId="CIEL:114403" symptName="Pain" />
-                    <render qId="CIEL:5978"   symptName="Nausea" />
-                    <render qId="CIEL:996"    symptName="Constipation" />
-                    <render qId="CIEL:116743" symptName="Insomnia" />
-                    <render qId="CIEL:5226"   symptName="Weakness" />
-                    <render qId="CIEL:136443" symptName="Jaundice" />
-                    <render qId="CIEL:122496" symptName="Dyspnea" />
-                </repeat>
-            </table>
-            <br/><br/>
+                            </obsgroup>
+                        </template>
+                        <render qId="CIEL:114403" symptName="Pain" />
+                        <render qId="CIEL:5978"   symptName="Nausea" />
+                        <render qId="CIEL:996"    symptName="Constipation" />
+                        <render qId="CIEL:116743" symptName="Insomnia" />
+                        <render qId="CIEL:5226"   symptName="Weakness" />
+                        <render qId="CIEL:136443" symptName="Jaundice" />
+                        <render qId="CIEL:122496" symptName="Dyspnea" />
+                    </repeat>
+                </table>
+                <br/><br/>
+            </includeIf>
 
             <p class="list-inline">
                 <strong>

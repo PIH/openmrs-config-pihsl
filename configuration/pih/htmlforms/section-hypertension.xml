@@ -255,100 +255,103 @@
             </div>
 
             <br/>
-            <h3>
-                <uimessage code="Hypertension followup indicators" />
-            </h3>
-
-            <h5>
-                <uimessage code="Self management and awareness"/>
-            </h5>
-            <obsgroup groupingConceptId="PIH:14462" showIfEmpty="false">
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <label>
-                                        <uimessage code="{xId}"/>
-                                    </label>
-                                    <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown">
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
-                            <render message="CIEL:167914" xId="Understands treatment" tog="understand"/>
-                            <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher"/>
-                            <render message="CIEL:167819" xId="Missed doses in past week" tog="missed"/>
-                        </repeat>
-                    </div>
-                    <div id="htn-fui-missed-details">
-                        <br/><br/><br/>
-                        <label>
-                            <uimessage code="# of missed doses in past week"/>
-                        </label>
-                        <obs conceptId="CIEL:167918"  />
-
-                    </div>
-                </div>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h3>
+                    <uimessage code="Hypertension followup indicators" />
+                </h3>
 
                 <h5>
-                    <uimessage code="Disease control"/>
+                    <uimessage code="Self management and awareness"/>
                 </h5>
-
-                <repeat>
-                    <template>
-                        <p class="list-inline">
+                <obsgroup groupingConceptId="PIH:14462" showIfEmpty="false">
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="{xId}"/>
+                                        </label>
+                                        <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="yes,no,unknown">
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
+                                <render message="CIEL:167914" xId="Understands treatment" tog="understand"/>
+                                <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher"/>
+                                <render message="CIEL:167819" xId="Missed doses in past week" tog="missed"/>
+                            </repeat>
+                        </div>
+                        <div id="htn-fui-missed-details">
+                            <br/><br/><br/>
                             <label>
-                                <uimessage code="{xId}"/>
+                                <uimessage code="# of missed doses in past week"/>
                             </label>
-                            <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="yes,no,unknown">
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
-                                </controls>
-                            </obs>
-                        </p>
-                    </template>
-                    <render message="CIEL:1898"   xId="Patient condition improved" tog="improved"/>
-                </repeat>
+                            <obs conceptId="CIEL:167918"  />
 
-                <ifMode mode="VIEW" include="false">
-                    <table align="left" style="font-size:small">
-                        <tr>
-                            <th colspan="2">
-                                Definition of disease control
-                            </th>
-                            <td>
-                                Blood pressure less than or equal to 150/80
-                            </td>
-                        </tr>
-                    </table>
-                </ifMode>
+                        </div>
+                    </div>
 
-                <p class="list-inline-wide">
-                    <label>
+                    <h5>
                         <uimessage code="Disease control"/>
-                    </label>
-                    <obs conceptId="PIH:11506" style="radio"
-                         answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="controlled,uncontrolled,complications"/>
-                </p>
+                    </h5>
 
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="Dangerous BP indicates hospitalization"/>
-                    </label>
-                    <obs conceptId="PIH:20003" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
-                         answerCodes="yes,no,unknown" />
-                </p>
-            </obsgroup>
+                    <repeat>
+                        <template>
+                            <p class="list-inline">
+                                <label>
+                                    <uimessage code="{xId}"/>
+                                </label>
+                                <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                     answerCodes="yes,no,unknown">
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </template>
+                        <render message="CIEL:1898"   xId="Patient condition improved" tog="improved"/>
+                    </repeat>
+
+                    <ifMode mode="VIEW" include="false">
+                        <table align="left" style="font-size:small">
+                            <tr>
+                                <th colspan="2">
+                                    Definition of disease control
+                                </th>
+                                <td>
+                                    Blood pressure less than or equal to 150/80
+                                </td>
+                            </tr>
+                        </table>
+                    </ifMode>
+
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="Disease control"/>
+                        </label>
+                        <obs conceptId="PIH:11506" style="radio"
+                             answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
+                             answerCodes="controlled,uncontrolled,complications"/>
+                    </p>
+
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="Dangerous BP indicates hospitalization"/>
+                        </label>
+                        <obs conceptId="PIH:20003" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
+                             answerCodes="yes,no,unknown" />
+                    </p>
+                </obsgroup>
+            </includeIf>
         </div>
     </section>
 

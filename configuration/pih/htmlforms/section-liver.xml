@@ -212,9 +212,12 @@
             </includeIf>
 
             <br/>
-            <h3>
-                <uimessage code="Liver followup indicators"/>
-            </h3>
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <h3>
+                    <uimessage code="Liver followup indicators"/>
+                </h3>
+            </includeIf>
 
             <h5>
                 <uimessage code="Clinical indicators"/>
@@ -274,91 +277,94 @@
             </div>
 
             <obsgroup groupingConceptId="PIH:14827" showIfEmpty="false">
+                <!-- Not for intake.  For followup only -->
+                <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
 
-                <h5>
-                    <uimessage code="Awareness and treatment"/>
-                </h5>
+                    <h5>
+                        <uimessage code="Awareness and treatment"/>
+                    </h5>
 
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <label>
-                                        <uimessage code="{questionName}"/>
-                                    </label>
-                                    <obs id="liver-{tog}" conceptId="{qId}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown">
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#liver-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-                            <render qId="CIEL:167914" questionName="Understands treatment" tog="fui-under"/>
-                            <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="fui-tite"/>
-                            <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="fui-adher"/>
-                            <render qId="CIEL:167819" questionName="Missed doses in past week" tog="fui-miss"/>
-                            <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="fui-aware"/>
-                        </repeat>
-                    </div>
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="liver-{tog}" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="yes,no,unknown">
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#liver-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:167914" questionName="Understands treatment" tog="fui-under"/>
+                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="fui-tite"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="fui-adher"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="fui-miss"/>
+                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="fui-aware"/>
+                            </repeat>
+                        </div>
 
-                    <div id="liver-fui-miss-details">
-                        <br/><br/><br/><br/>
-                        <label>
-                            <uimessage code="# of missed doses in past week"/>
-                        </label>
-                        <obs conceptId="CIEL:167918"/>
-                    </div>
-                </div>
-
-                <h5>
-                    <uimessage code="Disease control"/>
-                </h5>
-
-                <repeat>
-                    <template>
-                        <p class="list-inline">
+                        <div id="liver-fui-miss-details">
+                            <br/><br/><br/><br/>
                             <label>
-                                <uimessage code="{questionName}"/>
+                                <uimessage code="# of missed doses in past week"/>
                             </label>
-                            <obs id="liver-{tog}" conceptId="{qId}" style="radio"
-                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                 answerCodes="yes,no,unknown">
-                                <controls>
-                                    <when value="PIH:YES" thenDisplay="#liver-{tog}-details"/>
-                                </controls>
-                            </obs>
-                        </p>
-                    </template>
-                    <render qId="CIEL:1898"   questionName="Patient condition improved" tog="fui-improved"/>
-                    <render qId="PIH:15164"   questionName="On prophylaxis for esophageal varices" tog="eso-var"/>
-                </repeat>
+                            <obs conceptId="CIEL:167918"/>
+                        </div>
+                    </div>
 
-                <p class="list-inline">
-                    <label>
-                        <uimessage code="Liver disease control"/>
-                    </label>
-                    <obs id="liver-control" conceptId="PIH:11506" style="radio"
-                         answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                         answerCodes="controlled,uncontrolled,complications" >
-                        <controls>
-                            <when value="PIH:11508" thenDisplay="#liver-fui-uncontrolled"/>
-                        </controls>
-                    </obs>
-                </p>
+                    <h5>
+                        <uimessage code="Disease control"/>
+                    </h5>
 
-                <div id="liver-fui-uncontrolled" >
+                    <repeat>
+                        <template>
+                            <p class="list-inline">
+                                <label>
+                                    <uimessage code="{questionName}"/>
+                                </label>
+                                <obs id="liver-{tog}" conceptId="{qId}" style="radio"
+                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                     answerCodes="yes,no,unknown">
+                                    <controls>
+                                        <when value="PIH:YES" thenDisplay="#liver-{tog}-details"/>
+                                    </controls>
+                                </obs>
+                            </p>
+                        </template>
+                        <render qId="CIEL:1898"   questionName="Patient condition improved" tog="fui-improved"/>
+                        <render qId="PIH:15164"   questionName="On prophylaxis for esophageal varices" tog="eso-var"/>
+                    </repeat>
+
                     <p class="list-inline">
                         <label>
-                            <uimessage code="Send for admission"/>
+                            <uimessage code="Liver disease control"/>
                         </label>
-                        <obs conceptId="CIEL:1788" style="radio"
-                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                             answerCodes="yes,no,unknown" />
+                        <obs id="liver-control" conceptId="PIH:11506" style="radio"
+                             answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
+                             answerCodes="controlled,uncontrolled,complications" >
+                            <controls>
+                                <when value="PIH:11508" thenDisplay="#liver-fui-uncontrolled"/>
+                            </controls>
+                        </obs>
                     </p>
-                </div>
+
+                    <div id="liver-fui-uncontrolled" >
+                        <p class="list-inline">
+                            <label>
+                                <uimessage code="Send for admission"/>
+                            </label>
+                            <obs conceptId="CIEL:1788" style="radio"
+                                 answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                 answerCodes="yes,no,unknown" />
+                        </p>
+                    </div>
+                </includeIf>
 
                 <h3>
                     <uimessage code="Hepatitis B treatment"/>

@@ -353,7 +353,7 @@
             <strong>
                 <uimessage code="COPD evaluation" />
             </strong>
-            <obsgroup groupingConceptId="PIH:14620">
+            <obsgroup groupingConceptId="PIH:14620" showIfEmpty="false">
                 <repeat>
                     <template>
                         <p class="list-inline-wide">
@@ -458,7 +458,7 @@
                         <uimessage code="GINA assessment asthma control " />
                     </strong>
                     <i>(In the past 4 weeks)</i>
-                    <obsgroup groupingConceptId="PIH:14587">
+                    <obsgroup groupingConceptId="PIH:14587" showIfEmpty="false">
                         <repeat>
                             <template>
                                 <p class="side-by-side">
@@ -520,90 +520,94 @@
                 </div>
             </div>
 
-            <h3>
-                Chronic lung disease followup indicators
-            </h3>
-            <obsgroup groupingConceptId="PIH:14812">
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
 
-                <h5>
-                    <uimessage code="Awareness and treatment"/>
-                </h5>
+                <h4>
+                    Chronic lung disease followup indicators
+                </h4>
+                <obsgroup groupingConceptId="PIH:14812" showIfEmpty="false">
 
-                <div class="two-columns">
-                    <div>
-                        <repeat>
-                            <template>
+                    <h5>
+                        <uimessage code="Awareness and treatment"/>
+                    </h5>
+
+                    <div class="two-columns">
+                        <div>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="lung-fui-{tog}" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="yes,no,unknown" >
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#lung-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+                                <render qId="CIEL:167914" questionName="Understands treatment" tog="understands"/>
+                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate" />
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
+                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
+                            </repeat>
+
+                            <h5>
+                                <uimessage code="Disease control"/>
+                            </h5>
+                            <repeat>
+                                <template>
+                                    <p class="list-inline">
+                                        <label>
+                                            <uimessage code="{questionName}"/>
+                                        </label>
+                                        <obs id="lung-dc-fui-{tog}" conceptId="{qId}" style="radio"
+                                             answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
+                                             answerCodes="yes,no,unknown" >
+                                            <controls>
+                                                <when value="PIH:YES" thenDisplay="#lung-dc-fui-{tog}-details"/>
+                                            </controls>
+                                        </obs>
+                                    </p>
+                                </template>
+
+                                <render qId="CIEL:1898" questionName="Patient condition improved" tog="improved"/>
+                                <render qId="PIH:20008" questionName="Lung decompensation"  tog="lungDecomp"/>
+                            </repeat>
+
+                            <div id="lung-dc-fui-lungDecomp-details" >
                                 <p class="list-inline">
                                     <label>
-                                        <uimessage code="{questionName}"/>
+                                        <uimessage code="Send for admission"/>
                                     </label>
-                                    <obs id="lung-fui-{tog}" conceptId="{qId}" style="radio"
+                                    <obs conceptId="CIEL:1788" style="radio"
                                          answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown" >
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#lung-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
+                                         answerCodes="yes,no,unknown" />
                                 </p>
-                            </template>
-                            <render qId="CIEL:167914" questionName="Understands treatment" tog="understands"/>
-                            <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate" />
-                            <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                            <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
-                            <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
-                        </repeat>
+                            </div>
+                        </div>
 
-                        <h5>
-                            <uimessage code="Disease control"/>
-                        </h5>
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <label>
-                                        <uimessage code="{questionName}"/>
-                                    </label>
-                                    <obs id="lung-dc-fui-{tog}" conceptId="{qId}" style="radio"
-                                         answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                         answerCodes="yes,no,unknown" >
-                                        <controls>
-                                            <when value="PIH:YES" thenDisplay="#lung-dc-fui-{tog}-details"/>
-                                        </controls>
-                                    </obs>
-                                </p>
-                            </template>
-
-                            <render qId="CIEL:1898" questionName="Patient condition improved" tog="improved"/>
-                            <render qId="PIH:20008" questionName="Lung decompensation"  tog="lungDecomp"/>
-                        </repeat>
-
-                        <div id="lung-dc-fui-lungDecomp-details" >
-                            <p class="list-inline">
-                                <label>
-                                    <uimessage code="Send for admission"/>
-                                </label>
-                                <obs conceptId="CIEL:1788" style="radio"
-                                     answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                     answerCodes="yes,no,unknown" />
-                            </p>
+                        <div id="lung-fui-missed-details">
+                            <br/><br/><br/><br/>
+                            <label>
+                                <uimessage code="# of missed doses in past week"/>
+                            </label>
+                            <obs conceptId="CIEL:167918"  />
                         </div>
                     </div>
 
-                    <div id="lung-fui-missed-details">
-                        <br/><br/><br/><br/>
-                        <label>
-                            <uimessage code="# of missed doses in past week"/>
-                        </label>
-                        <obs conceptId="CIEL:167918"  />
-                    </div>
-                </div>
-
-            </obsgroup>
+                </obsgroup>
+            </includeIf>
 
             <h3>
                 <uimessage code="Spirometry" />
             </h3>
 
-            <obsgroup groupingConceptId="PIH:14610">
+            <obsgroup groupingConceptId="PIH:14610" showIfEmpty="false">
                 <div class="two-columns">
                     <div>
                         <obs conceptId="CIEL:163724" labelText="Date" allowTime="false"/>
