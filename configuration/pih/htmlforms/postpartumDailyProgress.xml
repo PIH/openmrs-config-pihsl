@@ -674,22 +674,52 @@
 
                         <repeat>
                             <template>
-                                <obs conceptId="CIEL:163208" style="checkbox"
-                                     answerConceptId="{csState}" answerCode="{csName}"/>
+                                <obs id="cs-{csState}" conceptId="CIEL:163208" style="checkbox"
+                                     answerConceptId="CIEL:{csState}" answerCode="{csName}">
+                                    <controls>
+                                        <when value="CIEL:230" thenDisplay="#postpart-treatments"/>
+                                        <when value="CIEL:5622" thenDisplay="#otherPostpartComp"/>
+                                    </controls>
+                                </obs>
                             </template>
-                            <render csState="CIEL:126721" csName="Sepsis"/>
-                            <render csState="CIEL:115812" csName="Postpartum mental disorder (blues, depression, psychosis)"/>
-                            <render csState="CIEL:230"    csName="Postpartum haemorrhage"/>
-                            <render csState="CIEL:140238" csName="Fever > 38 degrees"/>
-                            <render csState="CIEL:115914" csName="Mastitis"/>
-                            <render csState="CIEL:139081" csName="Severe headache"/>
-                            <render csState="CIEL:141540" csName="Postpartum eclampsia" />
-                            <render csState="CIEL:134592" csName="Malaria" />
-                            <render csState="CIEL:5622"   csName="other" />
-
+                            <render csState="126721" csName="Sepsis"/>
+                            <render csState="115812" csName="Postpartum mental disorder (blues, depression, psychosis)"/>
+                            <render csState="230"    csName="Postpartum haemorrhage"/>
+                            <render csState="140238" csName="Fever > 38 degrees"/>
+                            <render csState="115914" csName="Mastitis"/>
+                            <render csState="139081" csName="Severe headache"/>
+                            <render csState="141540" csName="Postpartum eclampsia" />
+                            <render csState="134592" csName="Malaria" />
                         </repeat>
+                        <obs id="cs-other" conceptId="CIEL:163208" style="checkbox"
+                             answerConceptId="CIEL:5622" >
+                            <controls>
+                                <when value="CIEL:5622" thenDisplay="#otherPostpartComp"/>
+                            </controls>
+                        </obs>
+                        
+                        <div id="otherPostpartComp">
+                            <obs conceptId="PIH:13094" style="text" labelText="if other complication, specify:" />
+                            <br/>
+                        </div>
 
-                        <obs conceptId="PIH:13094" style="text" labelText="if other, please specify:" />
+                        <div id="postpart-treatments">
+                            <label>
+                                <uimessage code="Postpartum haemorrhage treatment" />
+                            </label>
+                            <repeat>
+                                <template>
+                                    <obs conceptId="PIH:20865" style="checkbox"
+                                         answerConceptId="CIEL:{pphTreat}" ttanswerCode="{tName}"/>
+                                </template>
+                                <render pphTreat="81369"  tName="Oxytocin"/>
+                                <render pphTreat="79984"  tName="Misoprostol"/>
+                                <render pphTreat="169674" tName="Bimanual compression"/>
+                                <render pphTreat="169675" tName="Aortic compression"/>
+                                <render pphTreat="164162" tName="Uterine balloon tamponade"/>
+                                <render pphTreat="85286"  tName="Tranexamic acid"/>
+                            </repeat>
+                        </div>
                     </p>
 
                     <p id="csWoundStatus" class="exam hidden">
