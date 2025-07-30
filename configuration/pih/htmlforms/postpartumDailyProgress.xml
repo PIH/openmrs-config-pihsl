@@ -676,10 +676,6 @@
                             <template>
                                 <obs id="cs-{csState}" conceptId="CIEL:163208" style="checkbox"
                                      answerConceptId="CIEL:{csState}" answerCode="{csName}">
-                                    <controls>
-                                        <when value="CIEL:230" thenDisplay="#postpart-treatments"/>
-                                        <when value="CIEL:5622" thenDisplay="#otherPostpartComp"/>
-                                    </controls>
                                 </obs>
                             </template>
                             <render csState="126721" csName="Sepsis"/>
@@ -690,14 +686,9 @@
                             <render csState="139081" csName="Severe headache"/>
                             <render csState="141540" csName="Postpartum eclampsia" />
                             <render csState="134592" csName="Malaria" />
+                            <render csState="5622"   csName="Other" />
                         </repeat>
-                        <obs id="cs-other" conceptId="CIEL:163208" style="checkbox"
-                             answerConceptId="CIEL:5622" >
-                            <controls>
-                                <when value="CIEL:5622" thenDisplay="#otherPostpartComp"/>
-                            </controls>
-                        </obs>
-                        
+
                         <div id="otherPostpartComp">
                             <obs conceptId="PIH:13094" style="text" labelText="if other complication, specify:" />
                             <br/>
