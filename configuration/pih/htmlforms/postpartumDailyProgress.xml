@@ -680,14 +680,26 @@
                             </template>
                             <render csState="126721" csName="Sepsis"/>
                             <render csState="115812" csName="Postpartum mental disorder (blues, depression, psychosis)"/>
-                            <render csState="230"    csName="Postpartum haemorrhage"/>
                             <render csState="140238" csName="Fever > 38 degrees"/>
                             <render csState="115914" csName="Mastitis"/>
                             <render csState="139081" csName="Severe headache"/>
-                            <render csState="141540" csName="Postpartum eclampsia" />
                             <render csState="134592" csName="Malaria" />
-                            <render csState="5622"   csName="Other" />
+                            <render csState="141540" csName="Postpartum eclampsia" />
                         </repeat>
+
+                        <obs id="compl-230" conceptId="CIEL:163208" style="checkbox"
+                             answerConceptId="CIEL:230" answerCode="Postpartum haemorrhage">
+                            <controls>
+                                <when value="CIEL:230" thenDisplay="#postpart-treatments"/>
+                            </controls>
+                        </obs>
+
+                        <obs id="compl-other" conceptId="CIEL:163208" style="checkbox"
+                             answerConceptId="CIEL:5622" answerCode="Other">
+                            <controls>
+                                <when value="CIEL:5622" thenDisplay="#otherPostpartComp"/>
+                            </controls>
+                        </obs>
 
                         <div id="otherPostpartComp">
                             <obs conceptId="PIH:13094" style="text" labelText="if other complication, specify:" />
