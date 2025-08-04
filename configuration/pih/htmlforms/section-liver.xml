@@ -409,62 +409,65 @@
                 </p>
             </obsgroup>
 
-            <obsgroup groupingConceptId="PIH:14890" showIfEmpty="false">
-                <p class="side-by-side">
-                    <obs id="hepB-q" conceptId="PIH:14889" style="radio"
-                         labelCode="On treatment"
-                         answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
-                         answerCodes="yes,no,not applicable">
-                        <controls>
-                            <when value="CIEL:1065" thenDisplay="#hepB-details" />
-                        </controls>
-                    </obs>
-                </p>
-
-                <div id="hepB-details" style="margin-left: 30px">
+            <!-- Not for intake.  For followup only -->
+            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <obsgroup groupingConceptId="PIH:14890" showIfEmpty="false">
                     <p class="side-by-side">
-                        <repeat>
-                            <template>
-                                <obs conceptId="PIH:14888" style="checkbox"
-                                     answerConceptId="{medId}" answerCode="{name}"/>
-                                <br/>
-                            </template>
-                            <render medId="CIEL:84795" name="Tenofovir" />
-                            <render medId="CIEL:75694" name="Entecavir" />
-                        </repeat>
+                        <obs id="hepB-q" conceptId="PIH:14889" style="radio"
+                             labelCode="On treatment"
+                             answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
+                             answerCodes="yes,no,not applicable">
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#hepB-details" />
+                            </controls>
+                        </obs>
                     </p>
 
-                    <p class="list-inline-wide">
-                        <label>
-                            <uimessage code="Secondary effects"/>
-                        </label>
-                        <obs style="radio"
-                             conceptId="CIEL:162871"
-                             answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
-                             answerCodes="yes,no,not applicable" />
-                    </p>
-                    <p class="list-inline-wide">
-                        <label>
-                            <uimessage code="Missed doses in the last week"/>
-                        </label>
-                        <obs style="radio"
-                             conceptId="CIEL:167819"
-                             answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
-                             answerCodes="yes,no,not applicable" />
+                    <div id="hepB-details" style="margin-left: 30px">
+                        <p class="side-by-side">
+                            <repeat>
+                                <template>
+                                    <obs conceptId="PIH:14888" style="checkbox"
+                                         answerConceptId="{medId}" answerCode="{name}"/>
+                                    <br/>
+                                </template>
+                                <render medId="CIEL:84795" name="Tenofovir" />
+                                <render medId="CIEL:75694" name="Entecavir" />
+                            </repeat>
+                        </p>
 
-                    </p>
-                    <p class="list-inline-wide">
-                        <label>
-                            <uimessage code="Response to treatment (after 1 year)"/>
-                        </label>
-                        <br/>
-                        <obs style="radio"
-                             conceptId="PIH:14892"
-                             answerConceptIds="CIEL:1775,CIEL:162677,PIH:2416,CIEL:1118"
-                             answerCodes="complete (undetectable VL),partial (decrease but persistent),no response,lab not done" />
-                    </p>
-                </div>
-            </obsgroup>
+                        <p class="list-inline-wide">
+                            <label>
+                                <uimessage code="Secondary effects"/>
+                            </label>
+                            <obs style="radio"
+                                 conceptId="CIEL:162871"
+                                 answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
+                                 answerCodes="yes,no,not applicable" />
+                        </p>
+                        <p class="list-inline-wide">
+                            <label>
+                                <uimessage code="Missed doses in the last week"/>
+                            </label>
+                            <obs style="radio"
+                                 conceptId="CIEL:167819"
+                                 answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
+                                 answerCodes="yes,no,not applicable" />
+
+                        </p>
+                        <p class="list-inline-wide">
+                            <label>
+                                <uimessage code="Response to treatment (after 1 year)"/>
+                            </label>
+                            <br/>
+                            <obs style="radio"
+                                 conceptId="PIH:14892"
+                                 answerConceptIds="CIEL:1775,CIEL:162677,PIH:2416,CIEL:1118"
+                                 answerCodes="complete (undetectable VL),partial (decrease but persistent),no response,lab not done" />
+                        </p>
+                    </div>
+                </obsgroup>
+            </includeIf>
         </div>
     </section>
 
