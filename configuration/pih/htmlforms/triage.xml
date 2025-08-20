@@ -842,7 +842,7 @@
             </td>
             <td>
                 <obs class="abnormalObs redObs" conceptId="PIH:20030" style="checkbox"
-                     answerConceptId="CIEL:164348" answerCode="Obstructed labour"/>
+                     answerConceptId="CIEL:164348" answerCode="Obstructed"/>
             </td>
         </tr>
 
@@ -904,6 +904,7 @@
                     </template>
                     <render cId="CIEL:147232" labelTag="Vaginal bleeding" />
                     <render cId="CIEL:165217" labelTag="Labour with imminent delivery" />
+                    <render cId="CIEL:131518" labelTag="Obstructed labour" />
                     <render cId="CIEL:165271" labelTag="Severe abdominal pain" />
                 </repeat>
             </td>
