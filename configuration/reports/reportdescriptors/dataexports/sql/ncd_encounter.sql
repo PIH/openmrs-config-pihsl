@@ -134,9 +134,17 @@ create temporary table temp_ncd
  on_esophageal_varices_prophylaxis       varchar(255),
  echocardiogram_obs_group_id             int,             
  echocardiogram_date                     date,            
- diabetic_coma                          boolean,         
- diabetic_without_coma                  boolean,    
- lab_tests_ordered                       text,            
+ diabetic_coma                           boolean,         
+ diabetic_without_coma                   boolean,    
+ lab_tests_ordered                       text,   
+ diabetes_section_populated              boolean,
+ heart_failure_section_populated         boolean,
+ hypertension_section_populated          boolean,
+ kidney_section_populated                boolean,
+ liver_section_populated                 boolean,
+ lung_section_populated                  boolean,
+ palliative_care_section_populated       boolean,
+ sickle_cell_section_populated           boolean,
  index_asc                               int,             
  index_desc                              int              
 );
@@ -706,6 +714,268 @@ set lab_tests_ordered =
 	and o.order_type_id = @testOrder
 	group by encounter_id);
 
+-- check if sections are populated
+update temp_ncd t 
+set diabetes_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+	concept_from_mapping('CIEL','1127'),
+	concept_from_mapping('CIEL','113271'),
+	concept_from_mapping('CIEL','119109'),
+	concept_from_mapping('CIEL','124755'),
+	concept_from_mapping('CIEL','137300'),
+	concept_from_mapping('CIEL','142429'),
+	concept_from_mapping('CIEL','142820'),
+	concept_from_mapping('CIEL','143265'),
+	concept_from_mapping('CIEL','156567'),
+	concept_from_mapping('CIEL','165471'),
+	concept_from_mapping('CIEL','167916'),
+	concept_from_mapping('CIEL','167917'),
+	concept_from_mapping('CIEL','5622'),
+	concept_from_mapping('PIH','11974'),
+	concept_from_mapping('PIH','14485'),
+	concept_from_mapping('PIH','14705'),
+	concept_from_mapping('PIH','14706'),
+	concept_from_mapping('PIH','14711'),
+	concept_from_mapping('PIH','14778'),
+	concept_from_mapping('PIH','14779'),
+	concept_from_mapping('PIH','14781'),
+	concept_from_mapping('PIH','14782'),
+	concept_from_mapping('PIH','14469')));
+
+
+update temp_ncd t 
+set heart_failure_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+	concept_from_mapping('PIH', '14725'),
+	concept_from_mapping('CIEL', '160714'),
+	concept_from_mapping('PIH', '6329'),
+	concept_from_mapping('PIH', '14733'),
+	concept_from_mapping('CIEL', '122496'),
+	concept_from_mapping('CIEL', '127640'),
+	concept_from_mapping('CIEL', '130166'),
+	concept_from_mapping('CIEL', '130783'),
+	concept_from_mapping('CIEL', '131689'),
+	concept_from_mapping('CIEL', '136394'),
+	concept_from_mapping('PIH', '14724'),
+	concept_from_mapping('PIH', '14742'),
+	concept_from_mapping('PIH', '14752'),
+	concept_from_mapping('PIH', '14752'),
+	concept_from_mapping('PIH', '14754'),
+	concept_from_mapping('PIH', '14754'),
+	concept_from_mapping('PIH', '14756'),
+	concept_from_mapping('PIH', '20164'),
+	concept_from_mapping('PIH', 'NYHA CLASS')));
+
+update temp_ncd t 
+set heart_failure_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.value_coded in (
+concept_from_mapping('CIEL', '5016'),
+concept_from_mapping('CIEL', '168116'),
+concept_from_mapping('CIEL', '117386'),
+concept_from_mapping('CIEL', '113227'),
+concept_from_mapping('PIH', '14836'),
+concept_from_mapping('CIEL', '127376'),
+concept_from_mapping('CIEL', '119092'),
+concept_from_mapping('CIEL', '120148'),
+concept_from_mapping('CIEL', '124800'),
+concept_from_mapping('CIEL', '119956'),
+concept_from_mapping('PIH', '12231'),
+concept_from_mapping('PIH', '20004'),
+concept_from_mapping('CIEL', '139529'),
+concept_from_mapping('CIEL', '142317'),
+concept_from_mapping('CIEL', '113918'),
+concept_from_mapping('CIEL', '113096'),
+concept_from_mapping('CIEL', '163712'),
+concept_from_mapping('CIEL', '168128'),
+concept_from_mapping('CIEL', '168182'),
+concept_from_mapping('CIEL', '169981'),
+concept_from_mapping('PIH', '14753'),
+concept_from_mapping('CIEL', '127437'),
+concept_from_mapping('CIEL', '127438'),
+concept_from_mapping('CIEL', '127436'),
+concept_from_mapping('PIH', '20166'),
+concept_from_mapping('PIH', '14750'),
+concept_from_mapping('PIH', '20167'),
+concept_from_mapping('PIH', '20168'),
+concept_from_mapping('CIEL', '134082'),
+concept_from_mapping('CIEL', '115735'),
+concept_from_mapping('CIEL', '121532'),
+concept_from_mapping('CIEL', '148546'),
+concept_from_mapping('CIEL', '134088'),
+concept_from_mapping('PIH', 'COR PULMONALE'),
+concept_from_mapping('CIEL', '117152'),
+concept_from_mapping('CIEL', '124033'),
+concept_from_mapping('CIEL', '168127'),
+concept_from_mapping('CIEL', '159343'),
+concept_from_mapping('CIEL', '148203'),
+concept_from_mapping('CIEL', '148202'),
+concept_from_mapping('CIEL', '113504'),
+concept_from_mapping('CIEL', '119624'),
+concept_from_mapping('CIEL', '148196'),
+concept_from_mapping('CIEL', '123240'),
+concept_from_mapping('CIEL', '130715'),
+concept_from_mapping('CIEL', '144674'),
+concept_from_mapping('CIEL', '124944'),
+concept_from_mapping('PIH', '20165'),
+concept_from_mapping('PIH', '20164'),
+concept_from_mapping('PIH', '11973')));
+
+update temp_ncd t 
+set hypertension_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('PIH', '11940'),
+concept_from_mapping('CIEL', '165583'),
+concept_from_mapping('PIH', '11971'),
+concept_from_mapping('PIH', '14456'),
+concept_from_mapping('PIH', '14457'),
+concept_from_mapping('PIH', '14462')));
+
+
+update temp_ncd t 
+set kidney_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('PIH', '14732'),
+concept_from_mapping('PIH', '14717'),
+concept_from_mapping('PIH', '14765'),
+concept_from_mapping('PIH', '14815'),
+concept_from_mapping('PIH', '3597'),
+concept_from_mapping('PIH', '14766'),
+concept_from_mapping('CIEL', '165570')));
+
+update temp_ncd t 
+set liver_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('PIH', '14875'),
+concept_from_mapping('PIH', '14827'),
+concept_from_mapping('PIH', '14890')));
+
+update temp_ncd t 
+set liver_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.value_coded in (
+concept_from_mapping('CIEL', '121812'),
+concept_from_mapping('CIEL', '120557'),
+concept_from_mapping('CIEL', '145347'),
+concept_from_mapping('CIEL', '168297'),
+concept_from_mapping('CIEL', '168298'),
+concept_from_mapping('PIH', '14911'),
+concept_from_mapping('CIEL', '168300'),
+concept_from_mapping('CIEL', '168301'),
+concept_from_mapping('CIEL', '149157'),
+concept_from_mapping('PIH', '15156'),
+concept_from_mapping('PIH', '14910'),
+concept_from_mapping('CIEL', '146184'),
+concept_from_mapping('CIEL', '143118')));
+
+update temp_ncd t 
+set lung_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('PIH', '11972'),
+concept_from_mapping('PIH', '14587'),
+concept_from_mapping('PIH', '14610'),
+concept_from_mapping('PIH', '14617'),
+concept_from_mapping('PIH', '14620'),
+concept_from_mapping('PIH', '14812'),
+concept_from_mapping('PIH', '7397'),
+concept_from_mapping('PIH', '7399'),
+concept_from_mapping('PIH', '7405'),
+concept_from_mapping('PIH', 'COPD group classification')));
+
+
+update temp_ncd t 
+set lung_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.value_coded in (
+concept_from_mapping('CIEL', '116711'),
+concept_from_mapping('PIH', '14601'),
+concept_from_mapping('CIEL', '132486'),
+concept_from_mapping('CIEL', '127611'),
+concept_from_mapping('CIEL', '1295'),
+concept_from_mapping('CIEL', '121375'),
+concept_from_mapping('CIEL', '121011'),
+concept_from_mapping('CIEL', '143381')));
+
+update temp_ncd t 
+set palliative_care_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('CIEL', '165310'),
+concept_from_mapping('PIH', '14817'),
+concept_from_mapping('PIH', '14859'),
+concept_from_mapping('CIEL', '160379'),
+concept_from_mapping('CIEL', '1788'),
+concept_from_mapping('CIEL', '1887'),
+concept_from_mapping('PIH', '14816')));
+
+update temp_ncd t 
+set palliative_care_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.value_coded in (
+concept_from_mapping('PIH', '14772'),
+concept_from_mapping('CIEL', '155569'),
+concept_from_mapping('CIEL', '145438'),
+concept_from_mapping('CIEL', '116066'),
+concept_from_mapping('CIEL', '134788'),
+concept_from_mapping('CIEL', '116026'),
+concept_from_mapping('CIEL', '133328'),
+concept_from_mapping('PIH', '14771'),
+concept_from_mapping('CIEL', '5622')));
+
+update temp_ncd t 
+set sickle_cell_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.concept_id in (
+concept_from_mapping('PIH', '14924'),
+concept_from_mapping('CIEL', '168730'),
+concept_from_mapping('PIH', '14858'),
+concept_from_mapping('PIH', '14872'),
+concept_from_mapping('PIH', '15162'),
+concept_from_mapping('PIH', '14826')));
+
+update temp_ncd t 
+set sickle_cell_section_populated = 1 
+where exists
+(select 1 from temp_obs o 
+where o.encounter_id = t.encounter_id 
+and o.value_coded in (
+concept_from_mapping('CIEL', '117703'),
+concept_from_mapping('CIEL', '126513'),
+concept_from_mapping('CIEL', '126512'),
+concept_from_mapping('CIEL', '168107'),
+concept_from_mapping('CIEL', '117635'),
+concept_from_mapping('CIEL', '76613'),
+concept_from_mapping('CIEL', '81724')));
 
 -- The ascending/descending indexes are calculated ordering on the encounter date
 -- new temp tables are used to build them and then joined into the main temp table.
@@ -869,6 +1139,14 @@ asthma_control_GINA,
 on_esophageal_varices_prophylaxis,
 echocardiogram_date,
 lab_tests_ordered,
+diabetes_section_populated,
+heart_failure_section_populated,
+hypertension_section_populated,
+kidney_section_populated,
+liver_section_populated,
+lung_section_populated,
+palliative_care_section_populated,
+sickle_cell_section_populated,
 index_asc,
 index_desc
 from temp_ncd 
