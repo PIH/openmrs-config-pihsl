@@ -1,0 +1,37 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Diagnosis,Coded,sickleCellDisease|sickleCellTrait|sickleCellBS|sickleCellSC|otherHemoglobinopathy,radio,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:117703|CIEL:126513|CIEL:126512|CIEL:168107|CIEL:117635,Diagnosis,PIH:Visit Diagnoses
+Other Sickle Cell Specify,Text,,text,,Only for NCD intake encounter,PIH:14924,,Diagnosis,PIH:Visit Diagnoses
+Confirmation test,Coded,SickleScan RDT|HemoTypeSC|Gazelle|hgElectro|HPLC|IEF|unknownButTested|other,radio,,Only for NCD intake encounter,CIEL:168730,CIEL:160225|CIEL:168733|CIEL:168732|CIEL:165544|CIEL:161519|CIEL:168731|CIEL:1067|CIEL:5622,,
+Asymptomatic,Coded,yes|no|unknown,radio,,,PIH:20010,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Pain,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:114403,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Fever,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:140238,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Jaundice,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:136443,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Anemia,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:121629,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Ascites,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:148346,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Spleen palpable,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:112804,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Liver palpable,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:168290,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Dyspnea,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:142373,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Chest pain,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:120749,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Signs and symptoms,PIH:14858
+Complications since last visit,Coded,yes|no|unknown,radio,,Followup only,PIH:14867,PIH:YES|PIH:NO|PIH:UNKNOWN,Complications,PIH:14872
+Complications,Coded,anemia|severeAnemia|intravascularHemolysis|vaso-occlusivePainCrisis|acuteChestSyndrome|avascularBoneNecrosis|stroke|systemicInfection|malaria|other,checkbox,,Show if Complications since last visit is yes,PIH:15157,CIEL:121629|CIEL:162044|CIEL:136586|CIEL:117643|CIEL:149871|CIEL:148074|CIEL:111103|CIEL:112483|CIEL:116128|CIEL:5622,Complications,PIH:14872
+Transfusion in last 12 months,Coded,yes|no,radio,,Followup only,PIH:7868,CIEL:1065|CIEL:1066,Transfusion,PIH:15162
+Number of transfusions in last 12 months,Numeric,,number,,Show if Transfusion in last 12 months is yes,PIH:13748,,Transfusion,PIH:15162
+Date of last transfusion,Date,,date,,Show if Transfusion in last 12 months is yes,CIEL:163268,,Transfusion,PIH:15162
+On treatment with,Coded,Folic acid|Penicillin,checkbox,,Followup only,PIH:14857,CIEL:76613|CIEL:81724,On treatment,
+Malaria prophylaxis,Coded,yes|no|unknown,radio,,Followup only,CIEL:159610,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Understands treatment,Coded,yes|no|unknown,radio,,Followup only,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Ability to titrate,Coded,yes|no|unknown,radio,,Followup only,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Followup only,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Missing doses per week,Coded,yes|no|unknown,radio,,Followup only,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Aware and understands disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Family awareness of disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167022,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14826
+Number of missed doses per week,Numeric,,number,,Show if Missing doses per week is yes,CIEL:167918,,Awareness and treatment,PIH:14826
+Patient condition improved,Coded,yes|no|unknown,radio,,Followup only,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14826
+Sickle cell disease control,Coded,controlled|uncontrolled|complications,radio,,Followup only,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Disease control,PIH:14826
+Send for admission,Coded,yes|no|unknown,radio,,Show if Sickle cell disease control is uncontrolled,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14826
+Indication for hydroxyurea,Coded,yes|no,radio,,,PIH:14869,PIH:YES|PIH:NO,Hydroxyurea,PIH:14872
+On hydroxyurea,Coded,yes|no,radio,,Show if Indication for hydroxyurea is yes,PIH:14870,PIH:YES|PIH:NO,Hydroxyurea,PIH:14872
+Reason not on hydroxyurea,Coded,medicationSideEffects|stockout|cbcNotAvailable|noSickleTestConfirmation|other,checkbox,,Show if On hydroxyurea is no,PIH:15169,CIEL:164377|CIEL:1754|PIH:15170|PIH:15171|CIEL:5622,Hydroxyurea,PIH:14872
+Complications with hydroxyurea,Coded,yes|no,radio,,Show if On hydroxyurea is yes,PIH:14871,PIH:YES|PIH:NO,Hydroxyurea,PIH:14872
+Side effects of hydroxyurea,Coded,pancytopenia|elevatedAltAst|elevatedCreatinine|mouthUlcer|rash|other,checkbox,,Show if Complications with hydroxyurea is yes,PIH:20012,CIEL:114380|PIH:20013|PIH:20014|CIEL:111721|CIEL:512|CIEL:5622,Hydroxyurea,PIH:14872
+Other complications of hydroxyurea,Text,,text,,Show if Complications with hydroxyurea is yes,CIEL:164377,,Hydroxyurea,PIH:14872

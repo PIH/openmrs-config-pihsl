@@ -1,0 +1,24 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Non-tumoral diseases,Coded,Refractory heart disease|CLD|CKD,checkbox,,Only for NCD intake encounter,PIH:14773,PIH:14772|CIEL:155569|CIEL:145438,Non-tumoral diseases,
+Tumoral diseases,Coded,Hepatocarcinoma|Prostate cancer|Breast cancer|Lung cancer|Hematology cancer|Other,checkbox,,Only for NCD intake encounter,PIH:14773,CIEL:116066|CIEL:134788|CIEL:116026|CIEL:133328|PIH:14771|CIEL:5622,Tumoral diseases,
+Counselling done,Coded,yes|no,radio,,Followup only,CIEL:165310,CIEL:1267|CIEL:1118,,
+Understands treatment,Coded,yes|no|unknown,radio,,Followup only,CIEL:167914,PIH:YES|PIH:NO|CIEL:1067,Awareness and treatment,PIH:14817
+Ability to titrate opioids,Coded,yes|no|unknown,radio,,Followup only,PIH:14741,PIH:YES|PIH:NO|CIEL:1067,Awareness and treatment,PIH:14817
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Followup only,CIEL:164075,PIH:YES|PIH:NO|CIEL:1067,Awareness and treatment,PIH:14817
+Missed doses in past week,Coded,yes|no|unknown,radio,,Followup only,CIEL:167819,PIH:YES|PIH:NO|CIEL:1067,Awareness and treatment,PIH:14817
+Aware and understands the disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167021,PIH:YES|PIH:NO|CIEL:1067,Awareness and treatment,PIH:14817
+# of missed doses in past week,Numeric,,number,,Show if Missed doses in past week is yes,CIEL:167918,,Awareness and treatment,PIH:14817
+Patient condition improved,Coded,yes|no|unknown,radio,,Followup only,CIEL:1898,PIH:YES|PIH:NO|CIEL:1067,Disease control,PIH:14817
+Pain,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:114403,Symptoms,PIH:14859
+Nausea,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:5978,Symptoms,PIH:14859
+Constipation,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:996,Symptoms,PIH:14859
+Insomnia,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:116743,Symptoms,PIH:14859
+Weakness,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:5226,Symptoms,PIH:14859
+Jaundice,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:136443,Symptoms,PIH:14859
+Dyspnea,Coded,yes,checkbox,,Followup only,CIEL:1728,CIEL:122496,Symptoms,PIH:14859
+Symptom change,Coded,no|better|worse|same,radio,,Shown for each symptom,CIEL:162676,CIEL:1107|CIEL:162677|CIEL:162678|CIEL:162679,Symptoms,PIH:14859
+Symptom control,Coded,controlled|uncontrolled,radio,,Shown for each symptom,PIH:14768,PIH:11507|PIH:11508,Symptoms,PIH:14859
+ECOG performance status,Coded,0|1|2|3|4|5,radio,,,CIEL:160379,0|1|2|3|4|5,,
+Hospitalization required,Coded,yes|no,radio,,,CIEL:1788,CIEL:1065|CIEL:1066,,
+Reasons for hospitalization,Coded,Diarrhoea|Vomiting|Uncontrolled pain|Other,checkbox,,Show if Hospitalization required is yes,CIEL:1887,CIEL:142412|CIEL:122983|PIH:7103|CIEL:5622,,
+Additional comments,Text,,text,,,PIH:14816,,,

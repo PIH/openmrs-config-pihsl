@@ -1,0 +1,37 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Acute Hepatitis B,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:121812,Diagnosis,PIH:Visit Diagnoses
+Chronic Hepatitis B,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:120557,Diagnosis,PIH:Visit Diagnoses
+Chronic Hepatitis C,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:145347,Diagnosis,PIH:Visit Diagnoses
+Hepatocarcinoma due to Hepatitis B,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:168297,Hepatocarcinoma secondary,PIH:Visit Diagnoses
+Hepatocarcinoma due to Hepatitis C,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:168298,Hepatocarcinoma secondary,PIH:Visit Diagnoses
+Hepatocarcinoma due to unknown cause,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,PIH:14911,Hepatocarcinoma secondary,PIH:Visit Diagnoses
+Cirrhosis due to Hepatitis B,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:168300,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Cirrhosis due to Hepatitis C,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:168301,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Alcoholic cirrhosis,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:149157,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Fibrosis secondary to Schistosoma,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,PIH:15156,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Non-alcoholic steatohepatitis,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,PIH:14910,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Cardiac cirrhosis,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:146184,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Cryptogenic cirrhosis,Coded,yes,checkbox,,Only for NCD Intake encounter,PIH:DIAGNOSIS,CIEL:143118,Liver cirrhosis secondary,PIH:Visit Diagnoses
+Asymptomatic,Coded,yes|no|unknown,radio,,,CIEL:168289,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Ascites Oedema Anasarca,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:460,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Gastrointestinal bleeding,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:139582,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Confusion,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:120345,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Pruritus,Coded,yes|no|unknown,radio,,Show if Asymptomatic is no,CIEL:879,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Alcohol use,Coded,yes|no|unknown,radio,,,CIEL:159449,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14875
+Understands treatment,Coded,yes|no|unknown,radio,,Followup only,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+Ability to titrate treatment,Coded,yes|no|unknown,radio,,Followup only,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Followup only,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+Missed doses in past week,Coded,yes|no|unknown,radio,,Followup only,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+Aware and understands the disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+# of missed doses in past week,Numeric,,number,,Show if Missed doses in past week is yes,CIEL:167918,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14827
+Patient condition improved,Coded,yes|no|unknown,radio,,Followup only,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14827
+On prophylaxis for esophageal varices,Coded,yes|no|unknown,radio,,Followup only,PIH:15164,PIH:11507|PIH:11508|PIH:11509,Disease control,PIH:14827
+Liver disease control,Coded,controlled|uncontrolled|complications,radio,,Followup only,PIH:11506,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14827
+Send for admission,Coded,yes|no|unknown,radio,,Show if Liver disease control is uncontrolled,CIEL:1788,PIH:YES|PIH:NO,Disease control,PIH:14827
+Indication for Hepatitis B treatment,Coded,yes|no,radio,,,PIH:14889,PIH:20018|CIEL:168583|PIH:20019|PIH:20020|PIH:20016,Awareness and treatment,PIH:14827
+Reason for Hepatitis B treatment,Coded,APRI score ≥ 1.5 or US Cirrhosis|Co-infection with HCV and or HIV|Hep B DNA (VL) ≥ 2000 and ALT ≥ 1.5 x upper limit|VL ≥ 2000 or HbeAg+ during pregnancy|VL not available during pregnancy,checkbox,,Show if Indication for Hepatitis B treatment is yes,PIH:14914,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14827
+On treatment for Hepatitis B,Coded,yes|no|not applicable,radio,,Followup only,PIH:14889,CIEL:84795|CIEL:75694,Hepatitis B followup,PIH:14890
+Hepatitis B medications,Coded,Tenofovir|Entecavir,checkbox,,Show if On treatment for Hepatitis B is yes,PIH:14888,CIEL:1065|CIEL:1066|CIEL:1175,Hepatitis B followup,PIH:14890
+Secondary effects,Coded,yes|no|not applicable,radio,,Show if On treatment for Hepatitis B is yes,CIEL:162871,CIEL:1065|CIEL:1066|CIEL:1175,Hepatitis B followup,PIH:14890
+Missed doses in the last week (Hep B),Coded,yes|no|not applicable,radio,,Show if On treatment for Hepatitis B is yes,CIEL:167819,CIEL:1775|CIEL:162677|PIH:2416|CIEL:1118,Hepatitis B followup,PIH:14890
+Response to treatment after 1 year,Coded,complete (undetectable VL)|partial (decrease but persistent)|no response|lab not done,radio,,Show if On treatment for Hepatitis B is yes,PIH:14892,,Hepatitis B followup,PIH:14890

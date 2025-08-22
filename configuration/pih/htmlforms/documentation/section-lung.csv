@@ -1,0 +1,49 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Interstitial lung disease,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:116711,Restrictive lung diseases,PIH:Visit Diagnoses
+Post infection Tuberculosis,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,PIH:14601,Restrictive lung diseases,PIH:Visit Diagnoses
+Occupational lung disease,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:132486,Restrictive lung diseases,PIH:Visit Diagnoses
+Other restrictive lung disease,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:127611,Restrictive lung diseases,PIH:Visit Diagnoses
+COPD,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:1295,Obstructive lung diseases,PIH:Visit Diagnoses
+Asthma,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:121375,Obstructive lung diseases,PIH:Visit Diagnoses
+Bronchiectasis,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:121011,Obstructive lung diseases,PIH:Visit Diagnoses
+Cor pulmonale,Coded,yes,checkbox,,Only for NCD intake encounter,PIH:DIAGNOSIS,CIEL:143381,Obstructive lung diseases,PIH:Visit Diagnoses
+On medication with,Coded,SABA Short-acting beta-agonist|SAMA Short-acting muscarinic antagonist|LABA Long-acting beta-agonist|LAMA Long acting muscarinic antagonist|Oral steroids|Inhaled steroids|Other,radio,,,PIH:14603,PIH:14604|PIH:14605|PIH:14606|PIH:14607|PIH:14608|PIH:14609|PIH:15163,,
+COPD group classification,Coded,gradeA|gradeB|gradeC|gradeD,radio,,,PIH:COPD group classification,CIEL:165441|CIEL:165442|CIEL:165443|CIEL:165444,,
+Smoking cessation,Coded,yes|no|unknown,radio,,,CIEL:158939,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+Dyspnea,Coded,yes|no|unknown,radio,,,CIEL:122496,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,COPD evaluation,PIH:14620
+Chest tightness,Coded,yes|no|unknown,radio,,,CIEL:124665,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,COPD evaluation,PIH:14620
+Wheezing,Coded,yes|no|unknown,radio,,,CIEL:5209,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,COPD evaluation,PIH:14620
+Cough,Coded,yes|no|unknown,radio,,,CIEL:143264,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,COPD evaluation,PIH:14620
+Productive cough,Coded,yes|no|unknown,radio,,,CIEL:5957,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,COPD evaluation,PIH:14620
+Increased inhaler use,Coded,yes|no|unknown,radio,,,PIH:14622,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+Wheeze during exam,Coded,yes|no|unknown,radio,,,PIH:14623,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+Activity limitation,Coded,yes|no|unknown,radio,,,PIH:11925,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+Night waking due to dyspnea,Coded,yes|no|unknown,radio,,,PIH:14626,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+COPD exacerbation,Coded,yes|no|unknown,radio,,Show details if yes,CIEL:166093,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+Number of COPD exacerbations since last visit,Numeric,,number,,Show if COPD exacerbation is yes,CIEL:167821,,COPD evaluation,PIH:14620
+If exacerbation hospitalization needed,Coded,yes|no|unknown,radio,,Show if COPD exacerbation is yes,PIH:14626,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+GINA Exacerbations more than or equal to 1,Coded,yes|no,radio,,,PIH:14618,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+GINA Datetime symptoms more than twice a week,Coded,yes|no,radio,,,PIH:11803,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+GINA Inhaler for symptoms more than twice a week,Coded,yes|no,radio,,,PIH:11991,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+GINA Activity limitations due to asthma,Coded,yes|no,radio,,,PIH:11925,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+GINA Night waking due to asthma,Coded,yes|no,radio,,,PIH:11731,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+GINA Triggers cause exacerbation of asthma,Coded,yes|no,radio,,,PIH:14619,PIH:YES|PIH:NO,GINA assessment,PIH:14587
+Asthma severity,Coded,,radio,,,PIH:7405,CIEL:1498|CIEL:1499|CIEL:1500,,
+Inhaler education,Coded,yes|no|unknown,radio,,,PIH:7399,PIH:YES|PIH:NO|CIEL:1067,,
+Good inhaler technique,Coded,yes|no|unknown,radio,,,PIH:7397,PIH:YES|PIH:NO|CIEL:1067,,
+Understands treatment,Coded,yes|no|unknown,radio,,Followup only,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14812
+Ability to titrate treatment,Coded,yes|no|unknown,radio,,Followup only,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14812
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Followup only,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14812
+Missed doses in past week,Coded,yes|no|unknown,radio,,Followup only,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14812
+Aware and understands the disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,Awareness and treatment,PIH:14812
+Patient condition improved,Coded,yes|no|unknown,radio,,Followup only,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14812
+Lung decompensation,Coded,yes|no|unknown,radio,,Followup only,PIH:20008,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14812
+Send for admission (after lung decompensation),Coded,yes|no|unknown,radio,,Show if Lung decompensation is yes,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14812
+# of missed doses in past week,Numeric,,number,,Show if Missed doses in past week is yes,CIEL:167918,,Awareness and treatment,PIH:14812
+Spirometry date,Date,,date,,,CIEL:163724,,,PIH:14610
+FEV1,Numeric,,number,,,PIH:14611,,,PIH:14610
+FVC,Numeric,,number,,,PIH:14612,,,PIH:14610
+FEV1 FVC,Coded,obstructive|normal|restrictive,radio,,,PIH:14613,CIEL:1115|CIEL:164471|CIEL:164470,,PIH:14610
+Post-bronchodilator,Coded,positive|negative,radio,,,PIH:14614,CIEL:703|CIEL:664,,PIH:14610
+Spirometry progress,Coded,partial improvement|no improvement|complete improvement,radio,,,PIH:14617,CIEL:162677|CIEL:162678|CIEL:162679,,
+Remarks,Text,,text,,,PIH:11972,,,

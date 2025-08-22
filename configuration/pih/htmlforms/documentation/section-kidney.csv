@@ -1,0 +1,25 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Chronic renal failure secondary to,Coded,Hypertension|Diabetes|Unknown|NSAID|Acute tubular necrosis|Glomerulonephritis|Other,checkbox,,Only for NCD Intake encounter,PIH:14765,CIEL:117399|CIEL:119481|CIEL:1067|CIEL:155008|CIEL:149486|CIEL:117780|CIEL:5622,,
+Biopsy performed,Coded,yes|no,radio,,Only for NCD Intake encounter,PIH:14815,CIEL:1065|CIEL:1066,,
+Biopsy results,Text,,text,,Show if Biopsy performed is yes,PIH:3597,,,
+Nephrotic syndrome likely related with,Coded,Minimal change glomerulonephritis|Membraneous glomerulonephritis|Other,checkbox,,Only for NCD Intake encounter,PIH:14766,CIEL:115745|PIH:14767|CIEL:5622,,
+CKD Stage,Coded,Stage 1|Stage 2|Stage 3|Stage 4|Stage 5,radio,,,CIEL:165570,CIEL:120575|CIEL:120574|CIEL:120579|CIEL:120578|CIEL:120577,,
+Oedema,Coded,yes|no|unknown,radio,,,CIEL:460,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14732
+Anemia,Coded,yes|no|unknown,radio,,,CIEL:121629,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14732
+Hyperlipidemia,Coded,yes|no|unknown,radio,,,CIEL:117441,PIH:SYMPTOM PRESENT|PIH:SYMPTOM ABSENT|PIH:SYMPTOM PRESENCE UNKNOWN,Clinical indicators,PIH:14732
+Hypertension controlled,Coded,yes|no|unknown,radio,,,PIH:14716,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Understands treatment,Coded,yes|no|unknown,radio,,Followup only,CIEL:167914,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Ability to titrate treatment,Coded,yes|no|unknown,radio,,Followup only,PIH:14741,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Followup only,CIEL:164075,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Missed doses in past week,Coded,yes|no|unknown,radio,,Followup only,CIEL:167819,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Aware and understands the disease,Coded,yes|no|unknown,radio,,Followup only,CIEL:167021,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+# of missed doses in past week,Numeric,,number,,Show if Missed doses in past week is yes,CIEL:167918,,,PIH:14717
+Stable creatinine level,Coded,yes|no|unknown,radio,,Followup only,PIH:14718,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Proteinuria,Coded,yes|no|unknown,radio,,Followup only,CIEL:128340,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Patient condition improved,Coded,yes|no|unknown,radio,,Followup only,CIEL:1898,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+CKD nephrotic syndrome control,Coded,controlled|uncontrolled|complications,radio,,Followup only,PIH:11506,PIH:11507|PIH:11508|PIH:11509,,PIH:14717
+Send for admission,Coded,yes|no|unknown,radio,,Show if CKD nephrotic syndrome control is uncontrolled,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14717
+Glomerulonephritis nephrotic syndrome relapse,Coded,yes|no|unknown,radio,,Followup only,PIH:14721,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Dialysis referral,Coded,yes|no|unknown,radio,,Followup only,PIH:14719,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+On dialysis,Coded,yes|no|unknown,radio,,Followup only,PIH:14720,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Remarks,Text,,text,,,PIH:14813,,,

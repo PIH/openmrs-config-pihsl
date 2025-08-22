@@ -1,0 +1,14 @@
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
+Type of hypertension,Coded,Essential|Secondary,radio,,Only for NCD Intake encounter,PIH:11940,CIEL:140987|CIEL:113087,,
+Stage,Coded,Pre-HTN|1 (Mild)|2 (Moderate),radio,,,CIEL:165583,CIEL:165206|CIEL:165203|CIEL:165204,,
+Hypertension summary,Text,,text,,,PIH:11971,,,,
+Complications related to hypertension,Coded,Stroke|Chronic kidney disease (CKD)|Heart failure|Other,checkbox,,,PIH:14456,CIEL:111103|CIEL:145438|CIEL:139069|CIEL:5622,,
+If other specify,Text,,text,,,PIH:14457,,,,
+Aware and understands the disease,Coded,yes|no|unknown,radio,,Display details if 'yes',CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,Self management and awareness,PIH:14462
+Understands treatment,Coded,yes|no|unknown,radio,,Display details if 'yes',CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,Self management and awareness,PIH:14462
+Overall treatment adherence,Coded,yes|no|unknown,radio,,Display details if 'yes',CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,Self management and awareness,PIH:14462
+Missed doses in past week,Coded,yes|no|unknown,radio,,Display details if 'yes',CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,Self management and awareness,PIH:14462
+# of missed doses in past week,Numeric,,number,,,CIEL:167918,,,Self management and awareness,PIH:14462
+Patient condition improved,Coded,yes|no|unknown,radio,,Display details if 'yes',CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,Disease control,PIH:14462
+Disease control (radio),Coded,controlled|uncontrolled|complications,radio,,,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Disease control,PIH:14462
+Dangerous BP indicates hospitalization,Coded,yes|no|unknown,radio,,,PIH:20003,CIEL:1065|CIEL:1066|CIEL:1067,Disease control,PIH:14462
