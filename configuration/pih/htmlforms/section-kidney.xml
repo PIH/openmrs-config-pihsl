@@ -283,7 +283,6 @@
                         <render qId="PIH:14716" questionName="Hypertension controlled" tog="control"/>
                     </repeat>
                 </div>
-            </obsgroup>
 
                 <!-- Not for intake.  For followup only -->
                 <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
@@ -395,6 +394,7 @@
                         <render qId="PIH:14720"   questionName="On dialysis" tog="onDial"/>
                     </repeat>
                 </includeIf>
+            </obsgroup>
 
             <p>
                 <label>
