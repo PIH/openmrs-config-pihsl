@@ -792,7 +792,7 @@
     <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="pihcore.visitNote.orders.medications">
         <div class="section-container">
-            <drugOrder format="select" selectLabel="pihcore.drugOrder.addAnotherDrug" onLoadFunction="initializeOrderWidgetAndSetupDrugOrderQuantityCalculations">
+            <drugOrder format="select" selectLabel="pihcore.drugOrder.addAnotherDrug">
                 <orderTemplate>
                     <orderProperty name="action" label="pihcore.action">
                         <option value="NEW" label="pihcore.new"/>
