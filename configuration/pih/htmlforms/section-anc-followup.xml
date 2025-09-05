@@ -789,10 +789,9 @@
         }
     </style>
 
-    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="pihcore.visitNote.orders.medications">
+    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
         <div class="section-container">
-            <drugOrder format="select" selectLabel="pihcore.drugOrder.addAnotherDrug">
+            <drugOrder format="select" selectLabel="pihcore.drugOrder.addAnotherDrug" onLoadFunction="initializeOrderWidgetAndSetupDrugOrderQuantityCalculations">
                 <orderTemplate>
                     <orderProperty name="action" label="pihcore.action">
                         <option value="NEW" label="pihcore.new"/>
@@ -828,6 +827,10 @@
                         <orderProperty name="dateActivated" label="pihcore.starting"/>
                         <orderProperty name="duration" label="pihcore.visitNote.for"/>
                         <orderProperty name="durationUnits" value="3cd706b8-26fe-102b-80cb-0017a47871b2" label=" "/>
+                        <span class="calculated-quantity-section" style="padding-left:10px;">
+                            <input type="hidden" class="calculated-quantity-value" />
+                            <button class="calculated-quantity-button">Calculate Quantity</button>
+                        </span>
                     </div>
                     <div style="padding:0px;">
                         <orderProperty name="quantity" label="pihcore.quantity"/>
