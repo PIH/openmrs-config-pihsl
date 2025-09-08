@@ -472,6 +472,19 @@
                 </label>
                 <obs conceptId="CIEL:162749" style="textarea" rows="8"/>
             </p>
+
+            <p>
+                <obs conceptId="PIH:10528" style="checkbox"
+                     answerConceptId="CIEL:1065"
+                     answerCode="Medication prescribed"/>
+
+                <obs conceptId="PIH:11778" style="checkbox"
+                     answerConceptId="PIH:2224"
+                     answerCode="Waiting for lab results"/>
+
+            </p>
+
+
         </div>
     </section>
 
