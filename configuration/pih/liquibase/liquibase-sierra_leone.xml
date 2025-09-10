@@ -265,4 +265,53 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate_vitals_rbg_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
+    <changeSet id="20250910-void-obs-removed-from-Intake" author="cioan">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+					select count(*) from obs o
+					inner join encounter e on e.encounter_id = o.encounter_id
+						and e.encounter_type = encounter_type('NCD Initial Consult')
+					where o.concept_id in (
+						concept_from_mapping('CIEL','1898'),
+						concept_from_mapping('CIEL','167021'),
+						concept_from_mapping('CIEL','167022'),
+						concept_from_mapping('CIEL','167914'),
+						concept_from_mapping('CIEL','164075'),
+						concept_from_mapping('CIEL','167819'),
+						concept_from_mapping('CIEL','167918'),
+						concept_from_mapping('CIEL','167956'),
+						concept_from_mapping('CIEL','167919'),
+						concept_from_mapping('CIEL','167957'),
+						concept_from_mapping('CIEL','168115'),
+						concept_from_mapping('CIEL','159610'),
+						concept_from_mapping('PIH','14741'));
+            </sqlCheck>
+        </preConditions>
+        <comment>
+            SL-1034 Void obs for questions removed from NCD Intake
+        </comment>
+        <sql>
+			update obs o
+			inner join encounter e on e.encounter_id = o.encounter_id
+				and e.encounter_type = encounter_type('NCD Initial Consult')
+			set o.voided = 1,
+			    o.voided_by = 1, 
+			    o.date_voided = now(),
+			    o.void_reason = 'removed from NCD Intake (SL-1034)'	
+			where o.concept_id in (
+				concept_from_mapping('CIEL','1898'),
+				concept_from_mapping('CIEL','167021'),
+				concept_from_mapping('CIEL','167022'),
+				concept_from_mapping('CIEL','167914'),
+				concept_from_mapping('CIEL','164075'),
+				concept_from_mapping('CIEL','167819'),
+				concept_from_mapping('CIEL','167918'),
+				concept_from_mapping('CIEL','167956'),
+				concept_from_mapping('CIEL','167919'),
+				concept_from_mapping('CIEL','167957'),
+				concept_from_mapping('CIEL','168115'),
+				concept_from_mapping('CIEL','159610'),
+				concept_from_mapping('PIH','14741'));
+        </sql>
+    </changeSet>    
 </databaseChangeLog>
