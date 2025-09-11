@@ -267,7 +267,7 @@
     </changeSet>
     <changeSet id="20250910-void-obs-removed-from-Intake" author="ddesimone">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
+            <not><sqlCheck expectedResult="0">
 					select count(*) from obs o
 					inner join encounter e on e.encounter_id = o.encounter_id
 						and e.encounter_type = encounter_type('NCD Initial Consult')
@@ -318,7 +318,7 @@
 						concept_from_mapping('PIH','14857'),
 						concept_from_mapping('PIH','14826'),
 						concept_from_mapping('PIH','11506')));
-            </sqlCheck>
+            </sqlCheck></not>
         </preConditions>
         <comment>
             SL-1034 Void obs for questions removed from NCD Intake
