@@ -317,7 +317,7 @@
 						concept_from_mapping('PIH','13748'),
 						concept_from_mapping('PIH','14857'),
 						concept_from_mapping('PIH','14826'),
-						concept_from_mapping('PIH','11506')));
+						concept_from_mapping('PIH','11506'));
             </sqlCheck></not>
         </preConditions>
         <comment>
