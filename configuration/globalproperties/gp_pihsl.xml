@@ -65,5 +65,12 @@
             <property>edtriageapp.config</property>
             <value>sierraleone</value>
         </globalProperty>
+
+        <globalProperty>
+            <property>orderentryowa.orderReasonsMap</property>
+            <!-- maps viral load panel to the reason for test -->
+            <value>162202AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=164126AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</value>
+        </globalProperty>
+
     </globalProperties>
 </config>
