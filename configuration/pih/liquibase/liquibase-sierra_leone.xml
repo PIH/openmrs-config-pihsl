@@ -265,4 +265,120 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate_vitals_rbg_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
+    <changeSet id="20250910-void-obs-removed-from-Intake" author="ddesimone">
+        <preConditions onFail="MARK_RAN">
+            <not><sqlCheck expectedResult="0">
+					select count(*) from obs o
+					inner join encounter e on e.encounter_id = o.encounter_id
+						and e.encounter_type = encounter_type('NCD Initial Consult')
+					where o.concept_id in (
+						concept_from_mapping('CIEL','1898'),
+						concept_from_mapping('CIEL','167021'),
+						concept_from_mapping('CIEL','167022'),
+						concept_from_mapping('CIEL','167914'),
+						concept_from_mapping('CIEL','164075'),
+						concept_from_mapping('CIEL','167819'),
+						concept_from_mapping('CIEL','167918'),
+						concept_from_mapping('CIEL','167956'),
+						concept_from_mapping('CIEL','167919'),
+						concept_from_mapping('CIEL','167957'),
+						concept_from_mapping('CIEL','168115'),
+						concept_from_mapping('CIEL','159610'),
+						concept_from_mapping('CIEL','1788'),
+						concept_from_mapping('PIH','14741'),
+						concept_from_mapping('PIH','6756'),
+						concept_from_mapping('PIH','14708'),
+						concept_from_mapping('PIH','20002'),
+						concept_from_mapping('PIH','11506'),
+						concept_from_mapping('PIH','11507'),
+						concept_from_mapping('PIH','11508'),
+						concept_from_mapping('PIH','11509'),
+						concept_from_mapping('PIH','20001'),
+						concept_from_mapping('PIH','14469'),
+						concept_from_mapping('PIH','14531'),
+						concept_from_mapping('PIH','14723'),
+						concept_from_mapping('PIH','14811'),
+						concept_from_mapping('PIH','14739'),
+						concept_from_mapping('PIH','14462'),
+						concept_from_mapping('PIH','20003'),
+						concept_from_mapping('PIH','14716'),
+						concept_from_mapping('PIH','14718'),
+						concept_from_mapping('PIH','14719'),
+						concept_from_mapping('PIH','14720'),
+						concept_from_mapping('PIH','14827'),
+						concept_from_mapping('PIH','15164'),
+						concept_from_mapping('PIH','14812'),
+						concept_from_mapping('PIH','20008'),
+						concept_from_mapping('PIH','14817'),
+						concept_from_mapping('PIH','14859'),
+						concept_from_mapping('PIH','14768'),
+						concept_from_mapping('PIH','14867'),
+						concept_from_mapping('PIH','7868'),
+						concept_from_mapping('PIH','13748'),
+						concept_from_mapping('PIH','14857'),
+						concept_from_mapping('PIH','14826'),
+						concept_from_mapping('PIH','11506'))
+					and o.voided = 0;
+            </sqlCheck></not>
+        </preConditions>
+        <comment>
+            SL-1034 Void obs for questions removed from NCD Intake
+        </comment>
+        <sql>
+			update obs o
+			inner join encounter e on e.encounter_id = o.encounter_id
+				and e.encounter_type = encounter_type('NCD Initial Consult')
+			set o.voided = 1,
+			    o.voided_by = 1, 
+			    o.date_voided = now(),
+			    o.void_reason = 'removed from NCD Intake (SL-1034)'	
+			where o.concept_id in (
+					concept_from_mapping('CIEL','1898'),
+					concept_from_mapping('CIEL','167021'),
+					concept_from_mapping('CIEL','167022'),
+					concept_from_mapping('CIEL','167914'),
+					concept_from_mapping('CIEL','164075'),
+					concept_from_mapping('CIEL','167819'),
+					concept_from_mapping('CIEL','167918'),
+					concept_from_mapping('CIEL','167956'),
+					concept_from_mapping('CIEL','167919'),
+					concept_from_mapping('CIEL','167957'),
+					concept_from_mapping('CIEL','168115'),
+					concept_from_mapping('CIEL','159610'),
+					concept_from_mapping('CIEL','1788'),
+					concept_from_mapping('PIH','14741'),
+					concept_from_mapping('PIH','6756'),
+					concept_from_mapping('PIH','14708'),
+					concept_from_mapping('PIH','20002'),
+					concept_from_mapping('PIH','11506'),
+					concept_from_mapping('PIH','11507'),
+					concept_from_mapping('PIH','11508'),
+					concept_from_mapping('PIH','11509'),
+					concept_from_mapping('PIH','20001'),
+					concept_from_mapping('PIH','14469'),
+					concept_from_mapping('PIH','14531'),
+					concept_from_mapping('PIH','14723'),
+					concept_from_mapping('PIH','14811'),
+					concept_from_mapping('PIH','14739'),
+					concept_from_mapping('PIH','14462'),
+					concept_from_mapping('PIH','20003'),
+					concept_from_mapping('PIH','14716'),
+					concept_from_mapping('PIH','14718'),
+					concept_from_mapping('PIH','14719'),
+					concept_from_mapping('PIH','14720'),
+					concept_from_mapping('PIH','14827'),
+					concept_from_mapping('PIH','15164'),
+					concept_from_mapping('PIH','14812'),
+					concept_from_mapping('PIH','20008'),
+					concept_from_mapping('PIH','14817'),
+					concept_from_mapping('PIH','14859'),
+					concept_from_mapping('PIH','14768'),
+					concept_from_mapping('PIH','14867'),
+					concept_from_mapping('PIH','7868'),
+					concept_from_mapping('PIH','13748'),
+					concept_from_mapping('PIH','14857'),
+					concept_from_mapping('PIH','14826'),
+					concept_from_mapping('PIH','11506'));
+        </sql>
+    </changeSet>    
 </databaseChangeLog>
