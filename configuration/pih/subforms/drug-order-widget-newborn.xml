@@ -1,5 +1,5 @@
 <!--
-    This overrides the drug section of the default drug order widget to limit to specific Mental Health drugs
+    This overrides the drug section of the default drug order widget to limit to specific routes appropriate for newborns
 -->
 <subform path="configuration/pih/subforms/drug-order-widget.xml">
     <orderProperty name="route" value="CIEL:160240" label=" " subform-parameter="drug-order-route-selector">
