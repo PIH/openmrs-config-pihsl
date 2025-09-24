@@ -46,6 +46,15 @@ encounterType:
     name: "Vital Signs"
   sierraLeoneVitalsNCD:
     uuid: "2fd151a2-fbef-43e3-b82d-c3f70f1d7333"
+  sierraLeoneNCDinit1:
+    uuid: "48c413c4-e7f6-491a-8431-900451fe8a32"
+  sierraLeoneNCDinit2:
+    uuid: "43423212-6f70-4df8-a9f7-2aef88df1ee2"
+  sierraLeoneNCDfollowup1:
+    uuid: "e02a8c32-4f14-4ff7-a4e9-2f087d9a1cf7"
+  sierraLeoneNCDfollowup2:
+    uuid: "6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2"
+
 concept:
   normal:
     uuid: "3cd750a0-26fe-102b-80cb-0017a47871b2"
