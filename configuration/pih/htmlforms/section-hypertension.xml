@@ -256,7 +256,7 @@
 
             <br/>
             <!-- Not for intake.  For followup only -->
-            <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+            <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == '6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2' ">
                 <h3>
                     <uimessage code="Hypertension followup indicators" />
                 </h3>

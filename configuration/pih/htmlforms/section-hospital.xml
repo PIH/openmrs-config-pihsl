@@ -144,7 +144,7 @@
             <obsgroup groupingConceptId="PIH:HOSPITALIZATION CONSTRUCT" showIfEmpty="false">
 
                 <!-- ONLY included for NCD intake encounter -->
-                <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '48c413c4-e7f6-491a-8431-900451fe8a32'">
                     <p class="side-by-side">
                         <label>
                             <uimessage code="Hospitalization in previous 12 months"/>
@@ -159,7 +159,7 @@
                 </includeIf>
 
                 <!-- ONLY included for NCD followup encounter -->
-                <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c'">
+                <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == 'e02a8c32-4f14-4ff7-a4e9-2f087d9a1cf7' ">
                     <p class="side-by-side">
                         <label>
                             <uimessage code="Hospitalization since last visit"/>
@@ -177,7 +177,7 @@
                     <div class="two-columns">
                         <div>
                             <!-- ONLY included for NCD intake encounter -->
-                            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '48c413c4-e7f6-491a-8431-900451fe8a32'">
                                 <p class="side-by-side">
                                     <label>
                                         <uimessage code="Number of hospitalizations in previous 12 months"/>
@@ -187,7 +187,7 @@
                             </includeIf>
 
                             <!-- ONLY included for NCD followup encounter -->
-                            <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c'">
+                            <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == 'e02a8c32-4f14-4ff7-a4e9-2f087d9a1cf7' ">
                                 <p class="side-by-side">
                                     <label>
                                         <uimessage code="Number of hospitalizations since last visit"/>
@@ -258,7 +258,7 @@
 
                             <!-- this section is ONLY included for NCD intake encounter -->
                             <!-- ToDo:  Is this only for intake???  Ask Marta -->
-                            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '48c413c4-e7f6-491a-8431-900451fe8a32'">
                                 <br/><br/><br/><br/><br/>
                                 <p>
                                     <label>
@@ -624,6 +624,7 @@
     <!-- For NCD complete forms only -->
     <ifMode mode="VIEW" include="false">
         <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c'">
+
 
             <style type="text/css">
                 .ncdButtonDark.confirm, ncdButtonDark.confirm {
