@@ -144,8 +144,8 @@
              headerCode="pihcore.ncd.htn">
         <div id="htn" class="section-container">
 
-            <!-- this section is ONLY included for NCD intake encounter -->
-            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+            <!-- this section is ONLY included for NCD intake encounters -->
+            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '43423212-6f70-4df8-a9f7-2aef88df1ee2' ">
                 <p class="side-by-side">
                     <label>
                         <uimessage code="Type of hypertension" />
