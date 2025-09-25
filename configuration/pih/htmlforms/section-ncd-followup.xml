@@ -225,7 +225,7 @@
 
 
     <!-- For NCD followup only -->
-    <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c'" >
+    <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == 'e02a8c32-4f14-4ff7-a4e9-2f087d9a1cf7'">
         <section id="visit-details" sectionTag="fieldset" headerTag="legend" headerStyle="title"
                  headerCode="Patient Details">
             <div class="section-container">
@@ -307,7 +307,7 @@
                             </div>
                             <div>
                                 <!-- onset date is ONLY included for NCD intake encounter -->
-                                <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                                <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '48c413c4-e7f6-491a-8431-900451fe8a32' ">
                                     <div id="{nickname}-onset-date">
                                         <obs conceptId="CIEL:159948" labelCode="Onset date of {code}" />
                                     </div>
