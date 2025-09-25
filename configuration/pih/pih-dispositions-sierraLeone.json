@@ -30,6 +30,15 @@
     "additionalObs": []
   },
   {
+    "uuid": "outpatientFollowup",
+    "name": "pihcore.disposition.outpatientFollowup",
+    "conceptCode": "PIH:20680",
+    "encounterTypes": ["ae06d311-1866-455b-8a64-126a9bd74171","5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c",
+      "43423212-6f70-4df8-a9f7-2aef88df1ee2","6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2"
+    ],
+    "additionalObs": []
+  },
+  {
     "uuid": "transferWithinHospital",
     "type": "TRANSFER",
     "name": "disposition.emrapi.transferInHospital",
