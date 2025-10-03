@@ -142,8 +142,8 @@
     <section id="heart_failure-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="pihcore.ncd.heart_failure">
         <div id="heart_failure" class="section-container">
-            <!-- this section is ONLY included for NCD intake encounter -->
-            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
+            <!-- this section is ONLY included for NCD intake encounter(s) -->
+            <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '43423212-6f70-4df8-a9f7-2aef88df1ee2' ">
                 <div class="two-columns">
                     <div>
                         <p class="side-by-side">
@@ -349,7 +349,7 @@
 
             <div>
                 <!-- Not for intake.  For followup only -->
-                <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == '6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2' ">
                     <h4>
                         <uimessage code="Heart failure followup indicators"/>
                     </h4>
@@ -406,7 +406,7 @@
                     </p>
 
                     <!-- Not for intake.  For followup only -->
-                    <includeIf velocityTest="$encounter.encounterType.uuid != 'ae06d311-1866-455b-8a64-126a9bd74171'">
+                    <includeIf velocityTest="$encounter.encounterType.uuid == '5cbfd6a2-92d9-4ad0-b526-9d29bfe1d10c' || $encounter.encounterType.uuid == '6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2' ">
                         <h5>
                             <uimessage code="Awareness and treatment indicators"/>
                         </h5>
