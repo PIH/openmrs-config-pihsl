@@ -54,6 +54,7 @@ cardiomyopathy                  boolean,
 most_recent_hba1c_value         int,          
 most_recent_hba1c_date          date,         
 most_recent_echocardiogram_date date,
+date_enrolled                   date,
 outcome_date                    date,
 outcome                         varchar(255),
 calculated_reporting_outcome    varchar(255)
@@ -285,7 +286,8 @@ SET t.most_recent_hba1c_date= o.encounter_date;
 
 UPDATE ncd_patient n
 inner join patient_program pp on pp.patient_program_id = recent_program_id
-set n.outcome_date = date_completed,
+set n.date_enrolled = pp.date_enrolled,
+    n.outcome_date = date_completed,
 	n.outcome = concept_name(outcome_concept_id, @locale);
 
 UPDATE ncd_patient n 
@@ -293,7 +295,8 @@ set calculated_reporting_outcome = outcome;
 
 UPDATE ncd_patient n 
 set calculated_reporting_outcome = 'Lost to followup'  
-where DATEDIFF(now(),most_recent_visit_date) > 90
+where DATEDIFF(now(), COALESCE(most_recent_visit_date, date_enrolled)) > 90
+	or DATEDIFF(now(),next_appointment_date) > 180
 and outcome_date is null;
 
 SELECT
