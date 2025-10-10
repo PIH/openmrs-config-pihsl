@@ -289,6 +289,9 @@ set n.outcome_date = date_completed,
 	n.outcome = concept_name(outcome_concept_id, @locale);
 
 UPDATE ncd_patient n 
+set calculated_reporting_outcome = outcome;
+
+UPDATE ncd_patient n 
 set calculated_reporting_outcome = 'Lost to followup'  
 where DATEDIFF(now(),most_recent_visit_date) > 90
 and outcome_date is null;
