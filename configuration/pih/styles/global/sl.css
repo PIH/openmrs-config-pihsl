@@ -142,10 +142,6 @@ header a:link {
     color: #EEEEEE;
 }
 
-.navbar {
-        height: 4.2em;
-}
-
 header .user-options li.change-location {
     border: 1px solid #FF9800;
 }
