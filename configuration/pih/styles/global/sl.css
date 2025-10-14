@@ -240,3 +240,7 @@ username input[type="text"],
 }
 
 
+/* SL-specific config to make sure that the header navbar is tall enough to include the custom SL logo */
+.navbar {
+    min-height: 4.2em;
+}
