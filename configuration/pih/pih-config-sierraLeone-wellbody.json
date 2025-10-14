@@ -5,13 +5,6 @@
 
   "site": "WELLBODY",
 
-  "locationTags": {
-    "Login Location": ["Wellbody Clinic", "Wellbody MCH", "Wellbody NCD", "Wellbody Mental Health", "Wellbody Laboratory", "Wellbody Pharmacy"],
-    "Check-In Location": ["Wellbody Clinic", "Wellbody MCH", "Wellbody NCD", "Wellbody Mental Health", "Wellbody Laboratory", "Wellbody Pharmacy"],
-    "Visit Location":  ["Wellbody"],
-    "Program Location": ["Wellbody"]
-  },
-
   "components": [
     "activeVisits",
     "allergies",
