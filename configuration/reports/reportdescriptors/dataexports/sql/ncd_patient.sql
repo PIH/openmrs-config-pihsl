@@ -345,5 +345,4 @@ date_enrolled,
 outcome_date,
 outcome,
 calculated_reporting_outcome 
-FROM ncd_patient
-;
+FROM ncd_patient;
