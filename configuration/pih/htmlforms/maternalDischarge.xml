@@ -143,6 +143,70 @@
                 margin: 0px 10px 0px 10px;
             }
         </ifMode>
+        
+        <ifMode mode="VIEW" include="true">
+
+            #maternal-discharge legend {
+                display: none;
+            }
+
+            #maternal-discharge fieldset {
+                margin: 0px;
+                border: 0px;
+                padding: 0px;
+            }
+
+            #maternal-discharge fieldset h3 {
+                font-size: 1em;
+                width: 200px;
+                display: inline-block;
+                margin: 0px;
+                margin-right: 10px;
+                color: #3E3E3E;
+                vertical-align: top;
+            }
+
+            #maternal-discharge fieldset p {
+                vertical-align: top;
+                display: inline-block;
+                float: none;
+            }
+
+            #maternal-discharge fieldset .left {
+                vertical-align: top;
+                display: inline-block;
+                float: none;
+            }
+
+            #maternal-discharge .title {
+                display: none;
+            }
+
+            #maternal-discharge .encounter-date {
+                display: none;
+            }
+
+            #maternal-discharge .encounter-provider {
+                display: none;
+            }
+
+            #maternal-discharge .encounter-location {
+                display: none;
+            }
+
+            #maternal-discharge .comment-label {
+                display: none;
+            }
+
+            #maternal-discharge .comment-field {
+                display: block;
+                margin-left: 215px;
+            }
+
+            #maternal-discharge br {
+                display: none;
+            }
+        </ifMode>
     </style>
 
     <div class="print-form-datestamps" style="display:none">
@@ -348,6 +412,13 @@
                 <uimessage code="Summary of management in the hospital" />
             </label>
             <obs conceptId="CIEL:165399" style="textarea" />
+        </div>
+    </section>
+
+    <section id="drug-orders" sectionTag="fieldset"
+             headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/drug-order-widget.xml"/>
         </div>
     </section>
 
