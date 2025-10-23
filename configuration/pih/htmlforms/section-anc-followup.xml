@@ -804,6 +804,19 @@
         </div>
     </section>
 
+    <section id="birth-home" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Birth waiting home">
+        <div class="section-container">
+            <p>
+                <label>
+                    <uimessage code="Currently staying at birth waiting home" />
+                </label>
+                <obs conceptId="PIH:20930" style="checkbox"
+                     answerConceptId="PIH:12366" />
+            </p>
+        </div>
+    </section>
+
     <section id="return" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Return visit">
         <div class="section-container two-columns">
