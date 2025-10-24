@@ -54,8 +54,6 @@ encounterType:
     uuid: "e02a8c32-4f14-4ff7-a4e9-2f087d9a1cf7"
   sierraLeoneNCDfollowup2:
     uuid: "6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2"
-  sierraLeoneInpatientVitals:
-    uuid: "6b1c3929-f23c-423f-8cad-64b17cf10b99"
 
 concept:
   normal:

@@ -1,7 +1,7 @@
 <htmlform id="inpatient-vitals-form"
           formUuid="ce487212-2263-4a5d-a1c1-3879a3e9a141"
           formName="Inpatient Vitals Signs"
-          formEncounterType="6b1c3929-f23c-423f-8cad-64b17cf10b99"
+          formEncounterType="4fb47712-34a6-40d2-8ed3-e153abbd25b7"
           formVersion="1.0">
 
     <translations defaultLocale="en">
