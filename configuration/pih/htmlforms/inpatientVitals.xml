@@ -1,0 +1,605 @@
+<htmlform id="inpatient-vitals-form"
+          formUuid="ce487212-2263-4a5d-a1c1-3879a3e9a141"
+          formName="Inpatient Vitals Signs"
+          formEncounterType="6b1c3929-f23c-423f-8cad-64b17cf10b99"
+          formVersion="1.0">
+
+    <translations defaultLocale="en">
+        <code name="o2Sat">
+            <variant locale="en" value="O&lt;sub&gt;2&lt;/sub&gt; Sat"/>
+            <variant locale="fr" value="SpO&lt;sub&gt;2&lt;/sub&gt;"/>
+            <variant locale="es" value="SatO&lt;sub&gt;2&lt;/sub&gt;"/>
+        </code>
+    </translations>
+
+    <style type="text/css">
+        #who-when-where {
+            margin-bottom: 6px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #who-when-where p {
+            display: inline-block;
+            padding-right: 20px;
+        }
+
+        #where > input[type=text] {
+            display: inline-block;
+        }
+
+        input.legalValue {
+            background-color: white;
+        }
+
+        .field-error {
+            color: #ff6666;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        #inpatient-vitals-form, .exam input[type="checkbox"] {
+            margin: 0px 5px; /* changed values to vertical, horizontal */
+            top: 5px; /* added to offset the checkbox position to line up */
+        }
+
+        .exam label { /*new definition to override labels inside section-containers*/
+            margin: 0px;
+        }
+
+        .row-symptom {
+            margin-top: 20px;
+        }
+
+        .six-columns, .five-columns, .four-columns, .three-plus-one, .three-columns, .two-columns {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+
+        .six-columns > div {
+            display: table-cell;
+            width: 16.6%;
+        }
+
+        .five-columns > div {
+            display: table-cell;
+            width: 20%;
+        }
+
+        .two-columns > div {
+            display: table-cell;
+            width: 50%;
+        }
+
+        .three-columns > div {
+            display: table-cell;
+            width: 33%;
+        }
+
+        .three-plus-one > div {
+            display: table-cell;
+        }
+
+        .three-plus-one > div {
+            width: 29%;
+            margin-top: 20px;
+        }
+
+        .three-plus-one > div:first-child {
+            width: 13%;
+        }
+
+        .three-plus-one {
+            margin-bottom: 20px;
+        }
+
+        .four-columns > div {
+            display: table-cell;
+            width: 25%;
+        }
+
+        .boundary {
+            margin-bottom: 6px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .header-col {
+            text-align: center;
+            white-space: pre-line;
+        }
+
+        #disposition > span {
+            display: inline-flex;
+        }
+
+        #disposition span {
+            padding-left: 15px;
+        }
+
+        .in-the-same-line {
+            display: inline-flex;
+        }
+
+        .side-by-side label {
+            display: inline-block;
+        }
+
+        .side-by-side span {
+            display: inline-block;
+        }
+
+        form input[type="radio"], .form input[type="radio"] {
+            float: none;
+            display: inline-block;
+        }
+
+        p.radio > * {
+            display: inline;
+            float: none !important;
+            min-width: initial;
+        }
+
+        .side-by-side input[type="checkbox"] {
+            float: none;
+            display: inline-block;
+        }
+
+        .vitals span, .complaint span {
+            float: none;
+            display: inline-block;
+        }
+
+        .vitals input[type="text"] {
+            max-width: 60px;
+        }
+
+        .vitals-values input[type="text"] {
+            color: black;
+        }
+
+        .headerLabel {
+            font-size: 1.2em;
+            color: #3E3E3E;
+        }
+
+        .triage-label-green {
+            background-color: #5cb85c;
+        }
+
+        .triage-label-yellow {
+            background-color: #e8e457;
+        }
+
+        .triage-label-red {
+            background-color: #d9534f;
+        }
+
+        .list-inline label, .list-inline input[type="radio"], .list-inline span,
+        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
+        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
+            display: inline-block;
+            float: none;
+        }
+
+        .list-inline label:first-child {
+            width: 220px;
+        }
+
+        .list-inline-wide label:first-child {
+            width: 320px;
+        }
+
+        .list-inline-extra-wide label:first-child {
+            width: 420px;
+        }
+
+        #confirmMsg {
+            color: red;
+            font-weight: bold;
+            display:none;
+        }
+        <ifMode mode="VIEW" include="false">
+            .date-one-line {
+                display: flex;
+            }
+
+            .date-one-line label {
+                align-self: center;
+                margin-right: 1em;
+            }
+
+            .date-one-line span {
+                display: flex;
+            }
+
+            .hasDatepicker {
+                min-width: 120px;
+                margin-top: 0px;
+            }
+
+            .hfe-hours, .hfe-minutes, .hfe-seconds {
+                width: 70px;
+                min-width: 70px;
+                margin: 0px 10px 0px 10px;
+            }
+        </ifMode>
+    </style>
+
+    <ifMode mode="VIEW" include="false">        
+        <script type="text/javascript">
+            jq(document).ready(function() {
+                const normalPriority = '<lookup expression="fn.getConcept('CIEL:1115').id"/>';
+                const emergencyPriority = '<lookup expression="fn.getConcept('PIH:Emergency').id"/>';
+
+                const priorities = {
+                    GREEN: {
+                        value: 0,
+                        message: "Normal",
+                        className: "triage-label-green",
+                        queuePriority: normalPriority
+                    },
+                    YELLOW: {
+                        value: 1,
+                        message: "Urgent",
+                        className: "triage-label-yellow",
+                        queuePriority: emergencyPriority
+                    },
+                    RED: {
+                        value: 2,
+                        message: "Emergency",
+                        className: "triage-label-red",
+                        queuePriority: emergencyPriority
+                    }
+                };
+
+                function getPrioritiesClasses() {
+                    let classNames = [];
+                    for (const priority in priorities) {
+                        classNames.push(priorities[priority].className);
+                    }
+                    return classNames.join(" ");
+                }
+
+                const classNames = getPrioritiesClasses();
+
+                function evaluateBpSystolic(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if (numericValue &lt; 80) {
+                            return priorities.RED;
+                        } else if ((numericValue &gt; 139) &amp;&amp; (numericValue &lt; 160)) {
+                            return priorities.YELLOW;
+                        } else if (numericValue &gt; 159) {
+                            return priorities.RED;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateBpDiastolic(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if (numericValue &lt; 51) {
+                            return priorities.RED;
+                        } else if ((numericValue &gt; 89) &amp;&amp; (numericValue &lt; 110)) {
+                            return priorities.YELLOW;
+                        } else if (numericValue &gt; 109) {
+                            return priorities.RED;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateHeartRate(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if (numericValue &lt; 110) {
+                            return priorities.GREEN;
+                        } else if ((numericValue &gt; 109) &amp;&amp; (numericValue &lt; 120)) {
+                            return priorities.YELLOW;
+                        } else if (numericValue &gt; 119) {
+                            return priorities.RED;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateRespiratoryRate(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if (numericValue &lt; 20) {
+                            return priorities.GREEN;
+                        } else if ((numericValue &gt; 19) &amp;&amp; (numericValue &lt; 30)) {
+                            return priorities.YELLOW;
+                        } else if (numericValue &gt; 29) {
+                            return priorities.RED;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateTemperature(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if ((numericValue &lt; 35) || (numericValue &gt;= 38)) {
+                            return priorities.RED;
+                        } else if ((numericValue &gt; 37.6) &amp;&amp; (numericValue &lt; 38)) {
+                            return priorities.YELLOW;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateFhr(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if ((numericValue &lt; 80) || (numericValue &gt;= 200)) {
+                            return priorities.RED;
+                        } else if ((numericValue &lt; 101) || (numericValue &gt; 159)) {
+                            return priorities.YELLOW;
+                        }
+                    }
+                    return retValue;
+                }
+
+                function evaluateOxigenSaturation(value) {
+                    let retValue = priorities.GREEN;
+                    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+                        let numericValue = Number(value);
+                        if (numericValue &lt;= 92) {
+                            return priorities.RED;
+                        } else if ((numericValue &gt; 92) &amp;&amp; (numericValue &lt; 95)) {
+                            return priorities.YELLOW;
+                        }
+                    }
+                    return retValue;
+                }
+
+                let vitalsInfo = {
+                    bp_systolic: {
+                        evaluate: evaluateBpSystolic,
+                        value: null
+                    },
+                    bp_diastolic: {
+                        evaluate: evaluateBpDiastolic,
+                        value: null
+                    },
+                    heart_rate: {
+                        evaluate: evaluateHeartRate,
+                        value: null
+                    },
+                    respiratory_rate: {
+                        evaluate: evaluateRespiratoryRate,
+                        value: null
+                    },
+                    temperature_c: {
+                        evaluate: evaluateTemperature,
+                        value: null
+                    },
+                    o2_sat: {
+                        evaluate: evaluateOxigenSaturation,
+                        value: null
+                    },
+                    fhr: {
+                        evaluate: evaluateFhr,
+                        value: null
+                    }
+                };
+
+                function evaluateVitals() {
+                    let priorityValue = 0;
+                    for (const obj in vitalsInfo) {
+                        let vitalValue = vitalsInfo[obj].value;
+                        let evalPriority = vitalsInfo[obj].evaluate(vitalValue);
+                        if ( evalPriority.value &gt; 0) {
+                            priorityValue = priorityValue + evalPriority.value;
+                        }
+                    }
+                    return priorityValue;
+                }
+
+                function calculatePriority() {
+                    let globalPriority = evaluateVitals();
+                    if (globalPriority &gt;= 2) {
+                        jq('.submitButton.confirm.right').attr('disabled', true);
+                        jq("#confirmMsg").show();
+                    } else {
+                        jq('.submitButton.confirm.right').attr('disabled', false);
+                        jq("#confirmMsg").hide();
+                    }
+                    return globalPriority;
+                }
+
+                jq('#contactDr').on('change', function() {
+                    if (jq(this).is(':checked')) {
+                        // Checkbox is checked
+                        jq('.submitButton.confirm.right').attr('disabled', false);
+                    } else {
+                        calculatePriority();
+                    }
+                });
+
+                jq(".vitals-values").find('input').on("blur", function() {
+                    const vitalsId = jq(this).closest("span").attr('id');
+                    const vitalValue = jq(this).val();
+                    let inputElement = jq(this);
+                    jq(inputElement).removeClass('legalValue');
+                    jq(inputElement).removeClass(classNames);
+                    if (vitalsId) {
+                        if (vitalValue) {
+                            vitalsInfo[vitalsId].value = vitalValue;
+                            let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
+                            if (vitalsPriority) {
+                                setTimeout(() => {
+                                    jq(inputElement).removeClass('legalValue').addClass(vitalsPriority.className);
+                                }, 100);
+                            }
+                        } else {
+                            vitalsInfo[vitalsId].value = null;
+                            setTimeout(() => {
+                                jq(inputElement).addClass('legalValue');
+                            }, 100);
+                        }
+                    }
+                    calculatePriority();
+                });
+
+                jq(".vitals-values").find('input').attr('autocomplete', 'off');
+                jq(".vitals-values").find('input').trigger("blur");
+                calculatePriority();
+
+            });
+        </script>
+    </ifMode>
+
+    <ifMode mode="VIEW" include="false">
+
+        <div id="who-when-where" class="three-columns">
+            <div style="width: 30%">
+                <p id="who" class="side-by-side">
+                    <label><uimessage code="emr.patientDashBoard.providerRequired"/></label>
+                    <span><encounterProviderAndRole default="currentUser" encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05" required="true"/></span>
+                </p>
+            </div>
+            <div style="width: 30%">
+                <p id="where" class="side-by-side">
+                    <label><uimessage code="emr.locationRequired"/></label>
+                    <encounterLocation required="true" default="SessionAttribute:emrContext.sessionLocationId" tags="Vitals Inpatient Location"/>
+                </p>
+            </div>
+            <div style="width: 35%">
+                <p id="when" class="date-one-line">
+                    <label><uimessage code="emr.patientDashBoard.date"/></label>
+                    <span>
+                        <encounterDate id="encounterDate" default="now" showTime="true"/>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <br/>
+        <h2><uimessage code="VITAL SIGNS"/></h2>
+    </ifMode>
+
+    <hr style="height:1px;border-width:0;color:lightgray;background-color:lightgray"/>
+
+    <div class="vitals six-columns">
+        <div>
+            <label>
+                <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
+            </label>
+            <span class="small">
+                <ifMode mode="VIEW" include="true">
+                    <span class="append-to-value">
+                        <obs conceptId="CIEL:5085" id="bp_systolic" />
+                    </span>
+                    <span class="append-to-value">/</span>
+                    <span class="append-to-value">
+                        <obs conceptId="CIEL:5086" id="bp_diastolic" />
+                    </span>
+                    <span class="append-to-value">mm/Hg</span>
+                </ifMode>
+                <ifMode mode="VIEW" include="false">
+                    <span class="append-to-value left">
+                        <obs conceptId="CIEL:5085" id="bp_systolic" class="vitals-values"/>
+                    </span>
+                    <span class="append-to-value left">/</span>
+                    <span class="append-to-value left">
+                        <obs conceptId="CIEL:5086" id="bp_diastolic" class="vitals-values"/>
+                    </span>
+                    <span class="append-to-value">mm/Hg</span>
+                </ifMode>
+            </span>
+        </div>
+
+        <div>
+            <label>
+                <uimessage code="mirebalais.vitals.short.heartRate.title"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:5087" id="heart_rate" class="vitals-values"
+                     showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
+
+        <div>
+            <label>
+                <uimessage code="mirebalais.vitals.respiratoryRate.short.title"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:5242" id="respiratory_rate" class="vitals-values"
+                     showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
+
+        <div>
+            <label>
+                <uimessage code="Temp"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:5088" id="temperature_c" class="vitals-values"
+                     showUnits="emr.units.degreesCelsius" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
+
+        <div>
+            <label>
+                <uimessage code="o2Sat"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:5092" id="o2_sat" class="vitals-values"
+                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
+
+        <div>
+            <label>
+                <uimessage code="FHR"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:1440" id="fhr" class="vitals-values"
+                     showUnits="true" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
+    </div>
+
+    <br/>
+
+    <h2><uimessage code="OXYGEN AND FLUIDS"/></h2>
+
+    <div class="three-columns">
+        <div>
+            <label><uimessage code="mirebalais.vitals.oxygen.flow.rate" /></label>
+            <span class="small"><obs conceptId="CIEL:165986" showUnits=" lt"></obs></span>
+        </div>
+        <div>
+            <label><uimessage code="total.fluid.input" /></label>
+            <span class="small"><obs conceptId="PIH:7902" showUnits=" L"></obs></span>
+        </div>
+        <div>
+            <label><uimessage code="total.fluid.input" /></label>
+            <span class="small"><input type="text"></input>L</span>
+        </div>
+    </div>
+
+    <div id="confirmMsg">
+        <span>Contact doctor for early intervention if patient triggers one red or two yellow scores at any one time.</span>
+        <br/>
+        <input type="checkbox" id="contactDr"></input>
+        <label for="contactDr">Confirmed doctor contacted</label>
+    </div>
+    <div class="boundary"></div>
+
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button class="submitButton confirm right" onclick="submitHtmlForm()"><uimessage code="mirebalais.save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
+            <button type="button" class="cancel"><uimessage code="emr.cancel"/></button>
+        </div>
+    </ifMode>
+</htmlform>
