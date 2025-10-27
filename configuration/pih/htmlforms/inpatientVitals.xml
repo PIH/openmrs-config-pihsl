@@ -588,7 +588,7 @@
     <div id="o2andFluidsDiv" class="three-columns">
         <div>
             <label><uimessage code="mirebalais.vitals.oxygen.flow.rate" /></label>
-            <span class="small"><obs conceptId="CIEL:165986" showUnits=" lt"></obs></span>
+            <span class="small"><obs conceptId="CIEL:165986" showUnits=" L/m"></obs></span>
         </div>
         <div>
             <label><uimessage code="total.fluid.input" /></label>
