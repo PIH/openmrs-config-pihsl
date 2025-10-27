@@ -1,6 +1,6 @@
 <htmlform id="inpatient-vitals-form"
           formUuid="ce487212-2263-4a5d-a1c1-3879a3e9a141"
-          formName="Inpatient Vitals Signs"
+          formName="Vital Signs Inpatient"
           formEncounterType="6b1c3929-f23c-423f-8cad-64b17cf10b99"
           formVersion="1.0">
 
@@ -212,6 +212,16 @@
                 display: flex;
             }
 
+            #o2andFluidsDiv > div > span.small > input[type="text"] {
+                min-width: 120px;
+                max-width: 60px;
+                margin-left: 5px;
+            }
+
+            #o2andFluidsDiv > div > span.small > span.units {
+                margin-left: 8px;
+            }
+
             .hasDatepicker {
                 min-width: 120px;
                 margin-top: 0px;
@@ -407,7 +417,10 @@
                 function calculatePriority() {
                     let globalPriority = evaluateVitals();
                     if (globalPriority &gt;= 2) {
-                        jq('.submitButton.confirm.right').attr('disabled', true);
+                        let drNotified = jq('#contactDr input[type="checkbox"]').is(':checked');
+                        if ( !drNotified ) {
+                            jq('.submitButton.confirm.right').attr('disabled', true);
+                        }
                         jq("#confirmMsg").show();
                     } else {
                         jq('.submitButton.confirm.right').attr('disabled', false);
@@ -416,7 +429,7 @@
                     return globalPriority;
                 }
 
-                jq('#contactDr').on('change', function() {
+                jq('#contactDr input[type="checkbox"]').on('change', function() {
                     if (jq(this).is(':checked')) {
                         // Checkbox is checked
                         jq('.submitButton.confirm.right').attr('disabled', false);
@@ -572,26 +585,27 @@
 
     <h2><uimessage code="OXYGEN AND FLUIDS"/></h2>
 
-    <div class="three-columns">
+    <div id="o2andFluidsDiv" class="three-columns">
         <div>
             <label><uimessage code="mirebalais.vitals.oxygen.flow.rate" /></label>
             <span class="small"><obs conceptId="CIEL:165986" showUnits=" lt"></obs></span>
         </div>
         <div>
             <label><uimessage code="total.fluid.input" /></label>
-            <span class="small"><obs conceptId="PIH:7902" showUnits=" L"></obs></span>
+            <span class="small"><obs conceptId="CIEL:163036" showUnits=" mL"></obs></span>
         </div>
         <div>
-            <label><uimessage code="total.fluid.input" /></label>
-            <span class="small"><input type="text"></input>L</span>
+            <label><uimessage code="total.fluid.output" /></label>
+            <span class="small">
+                <obs conceptId="CIEL:162659" showUnits=" mL"></obs>
+            </span>
         </div>
     </div>
 
     <div id="confirmMsg">
         <span>Contact doctor for early intervention if patient triggers one red or two yellow scores at any one time.</span>
         <br/>
-        <input type="checkbox" id="contactDr"></input>
-        <label for="contactDr">Confirmed doctor contacted</label>
+        <obs id="contactDr" style="checkbox" conceptId="PIH:20925" answerConceptId="CIEL:1065" answerLabel="" labelText="Confirmed doctor contacted"></obs>
     </div>
     <div class="boundary"></div>
 
