@@ -418,6 +418,7 @@
         "order": [
           "ward-patient-action-button",
           "o2-visit-summary-workspace-siderail-button",
+          "o2-vital-signs-workspace-siderail-button",
           "ward-inpatient-notes-form-action-button",
           "transfer-swap-patient-siderail-button",
           "patient-discharge-siderail-button"
