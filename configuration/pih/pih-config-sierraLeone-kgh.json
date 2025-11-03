@@ -43,6 +43,7 @@
     "primaryCare",
     "programs",
     "relationships",
+    "surgery",
     "systemAdministration",
     "visitManagement",
     "visitNote",
