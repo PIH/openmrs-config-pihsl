@@ -7,7 +7,7 @@ KGH Mental Health,,,,TRUE,TRUE,,,,TRUE,,,TRUE,TRUE,TRUE,,,,TRUE,TRUE,,,,,,,,,,,,
 KGH Laboratory,,,,TRUE,TRUE,,,,,,,TRUE,TRUE,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
 KGH Pharmacy,,,,TRUE,TRUE,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
 MCOE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-MCOE Triage,,,TRUE,,,TRUE,,,,,,,,TRUE,,,TRUE,TRUE,,,,,,,,,,TRUE,TRUE,,,,TRUE,,TRUE
+MCOE Triage,TRUE,TRUE,TRUE,,,TRUE,,TRUE,,,,,,TRUE,,TRUE,TRUE,TRUE,,,,,,,TRUE,,,TRUE,TRUE,,TRUE,,TRUE,,TRUE
 Labour and Delivery,TRUE,TRUE,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,,,,,TRUE,TRUE,,,,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
 MCCU,TRUE,,,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
 NICU,TRUE,,TRUE,,TRUE,,,,,,TRUE,,,TRUE,,,TRUE,,,,TRUE,,TRUE,TRUE,,TRUE,,,,,TRUE,,TRUE,,TRUE
