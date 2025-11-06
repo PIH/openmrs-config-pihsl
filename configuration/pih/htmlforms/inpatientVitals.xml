@@ -246,8 +246,7 @@
         </ifMode>
     </style>
 
-    <ifMode mode="VIEW" include="false">        
-        <script type="text/javascript">
+       <script type="text/javascript">
             jq(document).ready(function() {
                 const normalPriority = '<lookup expression="fn.getConcept('CIEL:1115').id"/>';
                 const emergencyPriority = '<lookup expression="fn.getConcept('PIH:Emergency').id"/>';
@@ -449,6 +448,31 @@
                     }
                 });
 
+                // the following calculations happen only in the view mode
+                jq(".vitals-values").find('.value').each( function() {
+                    const vitalsId = jq(this).parent("span").attr('id');
+                    const vitalValue = jq(this).text();
+                    let inputElement = jq(this);
+                    jq(inputElement).removeClass('value');
+                    jq(inputElement).removeClass(classNames);
+                    if (vitalsId) {
+                       if (vitalValue) {
+                           vitalsInfo[vitalsId].value = vitalValue;
+                           let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
+                           if (vitalsPriority) {
+                            setTimeout(() => {
+                               jq(inputElement).removeClass('value').addClass(vitalsPriority.className);
+                               }, 100);
+                           }
+                       } else {
+                           vitalsInfo[vitalsId].value = null;
+                           setTimeout(() => {
+                               jq(inputElement).addClass('value');
+                               }, 100);
+                       }
+                    }
+                });
+
                 jq(".vitals-values").find('input').on("blur", function() {
                     const vitalsId = jq(this).closest("span").attr('id');
                     const vitalValue = jq(this).val();
@@ -480,7 +504,6 @@
 
             });
         </script>
-    </ifMode>
 
     <ifMode mode="VIEW" include="false">
 
@@ -514,17 +537,6 @@
                 <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
             </label>
             <span class="small">
-                <ifMode mode="VIEW" include="true">
-                    <span class="append-to-value">
-                        <obs conceptId="CIEL:5085" id="bp_systolic" />
-                    </span>
-                    <span class="append-to-value">/</span>
-                    <span class="append-to-value">
-                        <obs conceptId="CIEL:5086" id="bp_diastolic" />
-                    </span>
-                    <span class="append-to-value">mm/Hg</span>
-                </ifMode>
-                <ifMode mode="VIEW" include="false">
                     <span class="append-to-value left">
                         <obs conceptId="CIEL:5085" id="bp_systolic" class="vitals-values"/>
                     </span>
@@ -533,7 +545,6 @@
                         <obs conceptId="CIEL:5086" id="bp_diastolic" class="vitals-values"/>
                     </span>
                     <span class="append-to-value">mm/Hg</span>
-                </ifMode>
             </span>
         </div>
 
