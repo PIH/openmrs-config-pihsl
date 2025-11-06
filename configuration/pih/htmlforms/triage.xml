@@ -185,7 +185,6 @@
         #sticky {
             padding: 0.5ex;
             height: 50px;
-            width: 940px;
             transition: box-shadow 400ms;
         }
 
