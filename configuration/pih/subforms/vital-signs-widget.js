@@ -160,12 +160,14 @@
 
     function evaluateVitals() {
         let priority = priorities.GREEN;
+        let priorityValue = 0;
         for (const obj in vitalsInfo) {
             let vitalValue = vitalsInfo[obj].value;
             let evalPriority = vitalsInfo[obj].evaluate(vitalValue);
-            if ( evalPriority.value &gt; priority.value) {
-                priority = evalPriority;
-            }
+            priorityValue = priorityValue + evalPriority.value;
+        }
+        if (priorityValue &gt;= 2) {
+            priority = priorities.RED;
         }
         return priority;
     }
@@ -182,6 +184,8 @@
             jq('.submitButton.confirm.right').attr('disabled', false);
             jq("#confirmMsg").hide();
         }
+        jq('#sticky').removeClass(classNames).addClass(globalPriority.className);
+        jq('#statusMessage').text(globalPriority.message);
         return globalPriority;
     }
 
