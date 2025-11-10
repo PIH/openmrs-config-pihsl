@@ -1,0 +1,49 @@
+input.legalValue {
+    background-color: white;
+}
+
+.triage-label-green {
+    background-color: #a0eca0;
+}
+
+.triage-label-yellow {
+    background-color: #e8e457;
+}
+
+.triage-label-red {
+    background-color: #ffd7d9;
+}
+
+.vitals span, .complaint span {
+    float: none;
+    display: inline-block;
+}
+
+.vitals input[type="text"] {
+    max-width: 60px;
+}
+
+.vitals-values input[type="text"] {
+    color: black;
+}
+
+.six-columns {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.six-columns > div {
+    display: table-cell;
+    width: 16.6%;
+}
+
+#confirmMsg {
+    color: red;
+    font-weight: bold;
+    display:none;
+}
+
+.colorCodingValue {
+    display: inline-block;
+}
