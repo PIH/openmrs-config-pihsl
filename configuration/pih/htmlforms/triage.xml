@@ -175,6 +175,7 @@
         }
 
         #sticky {
+            width: 1200px;
             padding: 0.5ex;
             height: 50px;
             transition: box-shadow 400ms;
@@ -216,10 +217,15 @@
             width: 420px;
         }
 
+        #admissionLocation select {
+            margin-left: 20px;
+        }
     </style>
 
     <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
+            const tbSymptomPresent = '<lookup expression="fn.getConcept('PIH:11563').id"/>';
+
             var validateForm = function () {
 
                 let needsDisposition = true;
@@ -298,22 +304,14 @@
 
                 function evaluateTBScreening() {
                     let isSymptomPresent = true;
-                    jq(".tbScreen").find("input[type='radio'][value='3410']").each( function(index) {
-                        isSymptomPresent = isSymptomPresent &amp;&amp; this.checked;
-                    });
-                    return isSymptomPresent;
-                }
-
-                function evaluateEbolaScreening() {
-                    let isSymptomPresent = true;
-                    jq(".isolation").find("input[type='checkbox']").each( function(index) {
+                    jq(".tbScreen").find("input[type='radio'][value='" + tbSymptomPresent + "']").each( function(index) {
                         isSymptomPresent = isSymptomPresent &amp;&amp; this.checked;
                     });
                     return isSymptomPresent;
                 }
 
                 function evaluateIsolationStatus() {
-                    let status = evaluateEbolaScreening() || evaluateTBScreening();
+                    let status = evaluateTBScreening();
                     if ( status ) {
                         jq("#isolationMsg").show();
                     } else {
@@ -664,26 +662,6 @@
         </obs>
         <obs conceptId="PIH:14679" id="other-complain" style="text"/>
     </p>
-
-    <div class="ebolaDiv exam">
-        <p class="list-inline">
-            <label>
-                <uimessage code="Ebola screen:" />
-            </label>
-            <repeat>
-                <template>
-                    <obs conceptId="PIH:12245" style="checkbox"
-                         answerConceptId="{cId}" class="{isolationClass}" answerCode="{labelTag}"/>
-                </template>
-                <render cId="CIEL:140238" labelTag="Fever" isolationClass="isolation"/>
-                <render cId="CIEL:127777" labelTag="Red eyes" isolationClass="non-isolation"/>
-                <render cId="CIEL:158843" labelTag="Sore throat" isolationClass="non-isolation"/>
-                <render cId="CIEL:512" labelTag="Rash" isolationClass="isolation"/>
-                <render cId="CIEL:147241" labelTag="Bleeding" isolationClass="isolation"/>
-                <render cId="CIEL:142412" labelTag="Diarrhoea" isolationClass="isolation"/>
-            </repeat>
-        </p>
-    </div>
 
     <label>
         <uimessage code="pihcore.tbscreen.title"/> <ifMode mode="VIEW" include="false"> (If all 4 symptoms are present, patient isolation and urgent review.) </ifMode>
