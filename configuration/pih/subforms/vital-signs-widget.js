@@ -8,12 +8,17 @@
         },
         YELLOW: {
             value: 1,
-            message: "Urgent",
+            message: "Prompt",
             className: "triage-label-yellow"
         },
-        RED: {
+        ORANGE: {
             value: 2,
-            message: "Emergency",
+            message: "Urgent",
+            className: "triage-label-orange"
+        },
+        RED: {
+            value: 3,
+            message: "STAT",
             className: "triage-label-red"
         }
     };

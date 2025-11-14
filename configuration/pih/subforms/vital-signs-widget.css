@@ -10,6 +10,10 @@ input.legalValue {
     background-color: #e8e457;
 }
 
+.triage-label-orange {
+    background-color: orange;
+}
+
 .triage-label-red {
     background-color: #ffd7d9;
 }
