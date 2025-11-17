@@ -67,11 +67,13 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt; 110) {
-                return priorities.GREEN;
-            } else if ((numericValue &gt; 109) &amp;&amp; (numericValue &lt; 120)) {
-                return priorities.YELLOW;
-            } else if (numericValue &gt; 119) {
+            if (numericValue &lt; 40) {
+                return priorities.RED;
+            } if (numericValue &lt; 50) {
+                return priorities.ORANGE;
+            } else if ((numericValue &gt; 119) &amp;&amp; (numericValue &lt; 131)) {
+                return priorities.ORANGE;
+            } else if (numericValue &gt; 130) {
                 return priorities.RED;
             }
         }
@@ -82,12 +84,12 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt; 20) {
+            if (numericValue &lt; 12) {
+                return priorities.ORANGE;
+            } else if (numericValue &lt; 20) {
                 return priorities.GREEN;
-            } else if ((numericValue &gt; 19) &amp;&amp; (numericValue &lt; 30)) {
-                return priorities.YELLOW;
-            } else if (numericValue &gt; 29) {
-                return priorities.RED;
+            } else if (numericValue &gt; 26) {
+                return priorities.ORANGE;
             }
         }
         return retValue;
@@ -97,10 +99,12 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if ((numericValue &lt; 35) || (numericValue &gt;= 38)) {
+            if ((numericValue &lt;= 34.9) || (numericValue &gt;= 40)) {
                 return priorities.RED;
-            } else if ((numericValue &gt; 37.6) &amp;&amp; (numericValue &lt; 38)) {
+            } else if ((numericValue &gt;= 38) &amp;&amp; (numericValue &lt;= 38.3)) {
                 return priorities.YELLOW;
+            } else if ((numericValue &gt; 38.3) &amp;&amp; (numericValue &lt; 40)) {
+                return priorities.ORANGE;
             }
         }
         return retValue;
@@ -110,10 +114,8 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if ((numericValue &lt; 80) || (numericValue &gt;= 200)) {
+            if ((numericValue &lt; 110 ) || (numericValue &gt;= 160)) {
                 return priorities.RED;
-            } else if ((numericValue &lt; 101) || (numericValue &gt; 159)) {
-                return priorities.YELLOW;
             }
         }
         return retValue;
@@ -123,10 +125,10 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt;= 92) {
+            if (numericValue &lt;= 93) {
                 return priorities.RED;
-            } else if ((numericValue &gt; 92) &amp;&amp; (numericValue &lt; 95)) {
-                return priorities.YELLOW;
+            } else if ((numericValue &gt;= 94) &amp;&amp; (numericValue &lt;= 95)) {
+                return priorities.ORANGE;
             }
         }
         return retValue;
@@ -171,9 +173,20 @@
             let evalPriority = vitalsInfo[obj].evaluate(vitalValue);
             priorityValue = priorityValue + evalPriority.value;
         }
-        if (priorityValue &gt;= 2) {
-            priority = priorities.RED;
+        switch ( priorityValue ) {
+            case 0:
+                priority = priorities.GREEN;
+                break;
+            case 1:
+                priority = priorities.YELLOW;
+                break;
+            case 2:
+                priority = priorities.ORANGE;
+                break;
+                default:
+                  priority = priorities.RED;
         }
+
         return priority;
     }
 
