@@ -5,7 +5,8 @@ KGH MCH,,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,TRUE,TRUE,,,TRUE,,,,,,,,TRUE,,,
 KGH NCD,,,,TRUE,TRUE,,,,TRUE,,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,,,,,,,,,,,,,,TRUE,
 KGH Mental Health,,,,TRUE,TRUE,,,,TRUE,,,TRUE,TRUE,TRUE,,,,TRUE,TRUE,,,,,,,,,,,,,,TRUE,,
 KGH Laboratory,,,,TRUE,TRUE,,,,,,,TRUE,TRUE,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
-KGH Pharmacy,,,,TRUE,TRUE,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
+NCD Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
+OPD Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
 MCOE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 MCOE Triage,TRUE,TRUE,TRUE,,,TRUE,,TRUE,,,,,,TRUE,,TRUE,TRUE,TRUE,,,,,,,TRUE,,,TRUE,TRUE,,TRUE,,TRUE,,TRUE
 Labour and Delivery,TRUE,TRUE,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,,,,,TRUE,TRUE,,,,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
@@ -16,3 +17,6 @@ MCOE PACU,TRUE,,TRUE,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,TRUE,TRUE,,TRUE,TRUE,,,,T
 MCOE Pre-Op,TRUE,,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,,,,,,,,,TRUE,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
 Quiet Ward,TRUE,,,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
 Postnatal Ward,TRUE,,TRUE,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,TRUE,TRUE,TRUE,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
+MCOE Inpatient Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
+Maternity Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
+Pediatric Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,
