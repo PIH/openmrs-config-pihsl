@@ -794,6 +794,19 @@
                     jq('#show-more-fetus-button').show();
                 }
 
+                jq('#twins input[type="checkbox"]').on('change', function() {
+                    if (jq(this).is(':checked')) {
+                        jq('.fetus').show();
+                        jq('#show-more-fetus-button').hide();
+                        jq('#show-less-fetus-button').show();
+                    } else {
+                        hideOtherFetus();
+                        jq('#show-less-fetus-button').hide();
+                        jq('#show-more-fetus-button').show();
+                    }
+
+                });
+
                 jq('#show-more-fetus-button').click(function() {
                     jq('.fetus').show();
                     jq('#show-more-fetus-button').hide();
