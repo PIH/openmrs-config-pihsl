@@ -306,7 +306,8 @@
     "conceptCode": "CIEL:1694",
     "encounterTypes": ["2110a810-db62-4914-ba95-604b96010164","153d3182-c76f-4047-b7f2-d83cf967b206"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": []
   },
