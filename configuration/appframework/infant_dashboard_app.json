@@ -324,7 +324,7 @@
     "id": "infant.dashboard.attachments",
     "icon": "fas fa-fw fa-paperclip",
     "label": "pihcore.patientDocuments.label",
-    "url": "attachments/attachments.page?patient={{patient.uuid}}&patientId={{patient.patientId}}",
+    "url": "/coreapps/attachments/attachments.page?patient={{patient.uuid}}&patientId={{patient.patientId}}",
     "extensions": [
       {
         "extensionPointId": "${program.infant.uuid}.secondColumnFragments",
@@ -332,8 +332,8 @@
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
-          "provider": "attachments",
-          "fragment": "dashboardWidget"
+          "provider": "coreapps",
+          "fragment": "attachments/dashboardWidget"
         }
       }
     ],

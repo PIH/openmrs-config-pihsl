@@ -84,7 +84,8 @@
                                "43423212-6f70-4df8-a9f7-2aef88df1ee2","6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2",
                                "093b6ffc-e55a-461a-85cc-c6acf7714a23"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ]
   },
   {
@@ -96,7 +97,8 @@
                        "43423212-6f70-4df8-a9f7-2aef88df1ee2","6a3afa6f-8f78-44a9-80c9-3f4f3b6ad8f2"
     ],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ]
   },
   {
@@ -106,7 +108,8 @@
     "conceptCode": "PIH:Home",
     "encounterTypes": ["2110a810-db62-4914-ba95-604b96010164","153d3182-c76f-4047-b7f2-d83cf967b206"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": []
   },
@@ -181,7 +184,8 @@
                                "7e42e652-89e7-4559-80fd-41f42826c98c","41911448-71a1-43d7-bba8-dc86339850da",
                                "00e5e810-90ec-11e8-9eb6-529269fb1459","00e5e946-90ec-11e8-9eb6-529269fb1459"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": [
       {
@@ -218,7 +222,8 @@
     "encounterTypes": ["41911448-71a1-43d7-bba8-dc86339850da",
                        "00e5e810-90ec-11e8-9eb6-529269fb1459","00e5e946-90ec-11e8-9eb6-529269fb1459"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": [
       {
@@ -240,7 +245,8 @@
                        "fb4318dd-cca9-4d20-bb31-0d4eba947d74","093b6ffc-e55a-461a-85cc-c6acf7714a23",
                        "7e42e652-89e7-4559-80fd-41f42826c98c"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": [
       {
@@ -310,7 +316,8 @@
     "conceptCode": "CIEL:160431",
     "encounterTypes": ["2110a810-db62-4914-ba95-604b96010164","153d3182-c76f-4047-b7f2-d83cf967b206"],
     "actions": [
-      "dischargeIfAdmittedDispositionAction"
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
     ],
     "additionalObs": []
   },
