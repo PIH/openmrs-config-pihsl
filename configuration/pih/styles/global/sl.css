@@ -131,7 +131,7 @@ header a,
 header a:visited,
 header a:hover,
 header a:link {
-    background: #FF9800;
+    background: #FB9500;
 }
 
 .dashboard:hover .visit-link:hover {
@@ -143,12 +143,12 @@ header a:link {
 }
 
 header .user-options li.change-location {
-    border: 1px solid #FF9800;
+    border: 1px solid #FB9500;
 }
 
 header .user-options li.change-location:hover,
 header .user-options li.change-location .focus {
-    background: #FF9800;
+    background: #FB9500;
 }
 
 form input:focus, form select:focus,
@@ -184,11 +184,11 @@ simple-form-ui section fieldset input:focus {
 .dialog .dialog-header,
 .dialog-diagnoses .dialog-header,
 .ngdialog.ngdialog-theme-default .ngdialog-content .dialog-header {
-    background: #FF9800;
+    background: #FB9500;
     color: white;
     padding: 0 20px;
     padding-top: 5px;
-    border-bottom: #FF9800 1px solid;
+    border-bottom: #FB9500 1px solid;
 }
 
 .diagnosis.primary,
