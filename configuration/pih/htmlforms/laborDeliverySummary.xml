@@ -776,7 +776,7 @@
             jq(function() {
 
                 var hasValue = function(element) {
-                    return jq(element).find('.fetus-name input').val();
+                    return jq(element).find('.fetusDeliveryTime input').val();
                 };
 
                 var hideOtherFetus = function() {
@@ -784,14 +784,15 @@
                     jq('#fetus-3').hide();
                 };
 
-                if (!hasValue('#fetus-2')) {
+                if ( !hasValue('#fetus-2') &amp;&amp; !hasValue('#fetus-3') ) {
                     hideOtherFetus();
                     jq('#show-more-fetus-button').show();
                 }
 
-                if (!hasValue('#fetus-3')) {
-                    hideOtherFetus();
-                    jq('#show-more-fetus-button').show();
+                if (jq('#twins input[type="checkbox"]').is(':checked')) {
+                    jq('.fetus').show();
+                    jq('#show-more-fetus-button').hide();
+                    jq('#show-less-fetus-button').show();
                 }
 
                 jq('#twins input[type="checkbox"]').on('change', function() {
