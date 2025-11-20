@@ -370,7 +370,7 @@
                     <uimessage code="attending"/>
                 </label>
                 <encounterProviderAndRole encounterRole="9b135b19-7ebe-4a51-aea2-69a53f9383af"
-                                          providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75"
+                                          providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,2fa6f8da-aa58-11e8-98d0-529269fb1459"
                                           autocompleteProvider="true" required="true"/>
             </p>
 
@@ -382,7 +382,7 @@
                 <div class="provider-grid">
                     <div>
                         <encounterProviderAndRole encounterRole="6e630e03-5182-4cb3-9a82-a5b1a85c09a7"
-                                                  providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,e92792de-006a-4dea-b078-cf3776638b0c"
+                                                  providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,2fa6f8da-aa58-11e8-98d0-529269fb1459,e92792de-006a-4dea-b078-cf3776638b0c"
                                                   autocompleteProvider="true" required="false" count="2" providerWidgetSeparator="&lt;/div&gt;&lt;div&gt;"/>
                     </div>
                 </div>
