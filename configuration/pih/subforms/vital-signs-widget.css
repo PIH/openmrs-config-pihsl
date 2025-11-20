@@ -18,6 +18,10 @@ input.legalValue {
     background-color: #ffd7d9;
 }
 
+.triage-dark-red {
+    background-color: #d9534f;
+}
+
 .vitals span, .complaint span {
     float: none;
     display: inline-block;

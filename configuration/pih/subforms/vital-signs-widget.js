@@ -19,7 +19,8 @@
         RED: {
             value: 3,
             message: "STAT",
-            className: "triage-label-red"
+            className: "triage-label-red",
+            triageClassName: "triage-dark-red"
         }
     };
 
@@ -27,6 +28,9 @@
         let classNames = [];
         for (const priority in priorities) {
             classNames.push(priorities[priority].className);
+            if (priorities[priority].triageClassName) {
+                classNames.push(priorities[priority].triageClassName);
+            }
         }
         return classNames.join(" ");
     }
@@ -202,7 +206,7 @@
             jq('.submitButton.confirm.right').attr('disabled', false);
             jq("#confirmMsg").hide();
         }
-        jq('#sticky').removeClass(classNames).addClass(globalPriority.className);
+        jq('#sticky').removeClass(classNames).addClass(globalPriority.triageClassName ? globalPriority.triageClassName : globalPriority.className);
         jq('#statusMessage').text(globalPriority.message);
         return globalPriority;
     }
