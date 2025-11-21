@@ -206,6 +206,9 @@
             jq('.submitButton.confirm.right').attr('disabled', false);
             jq("#confirmMsg").hide();
         }
+        if (typeof calculateTriagePriority === "function") {
+            globalPriority = calculateTriagePriority();
+        }
         jq('#sticky').removeClass(classNames).addClass(globalPriority.triageClassName ? globalPriority.triageClassName : globalPriority.className);
         jq('#statusMessage').text(globalPriority.message);
         return globalPriority;

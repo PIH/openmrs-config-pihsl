@@ -221,6 +221,51 @@
         <script type="text/javascript">
             const tbSymptomPresent = '<lookup expression="fn.getConcept('PIH:11563').id"/>';
 
+            
+            function evaluateSymptoms() {
+                    let priority = priorities.GREEN;
+                    jq('.redObs').each(function(index, element) {
+                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
+                        if (firstCheckbox == true) {
+                            priority = priorities.RED;
+                        }
+                    });
+                    if (priority.value &gt; priorities.GREEN.value) {
+                        return priority;
+                    }
+
+                    jq('.yellowObs').each(function(index, element) {
+                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
+                        if (firstCheckbox == true) {
+                            priority = priorities.YELLOW;
+                            return priority;
+                        }
+                    });
+                    jq('.orangeObs').each(function(index, element) {
+                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
+                        if (firstCheckbox == true) {
+                            priority = priorities.ORANGE;
+                            return priority;
+                        }
+                    });
+
+                    return priority;
+            }
+
+            function calculateTriagePriority() {
+                    let globalPriority = null;
+                    let vitalsPriority =  evaluateVitals();
+                    let symptomsPriority = evaluateSymptoms();
+                    if ( vitalsPriority.value &gt; symptomsPriority.value ) {
+                        globalPriority = vitalsPriority;
+                    } else {
+                        globalPriority = symptomsPriority;
+                    }
+                    jq('#sticky').removeClass(classNames).addClass(globalPriority.triageClassName ? globalPriority.triageClassName : globalPriority.className);
+                    jq('#statusMessage').text(globalPriority.message);
+                    return globalPriority;
+            }
+
             var validateForm = function () {
 
                 let needsDisposition = true;
@@ -258,54 +303,6 @@
                         jq('#sticky-anchor').height(0);
                     }
                 }
-
-                function evaluateSymptoms() {
-                    let priority = priorities.GREEN;
-                    jq('.redObs').each(function(index, element) {
-                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
-                        if (firstCheckbox == true) {
-                            priority = priorities.RED;
-                        }
-                    });
-                    if (priority.value &gt; priorities.GREEN.value) {
-                        return priority;
-                    }
-
-                    jq('.yellowObs').each(function(index, element) {
-                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
-                        if (firstCheckbox == true) {
-                            priority = priorities.YELLOW;
-                            return priority;
-                        }
-                    });
-                    jq('.orangeObs').each(function(index, element) {
-                        let firstCheckbox = jq(this).children(":checkbox:first").prop('checked');
-                        if (firstCheckbox == true) {
-                            priority = priorities.ORANGE;
-                            return priority;
-                        }
-                    });
-
-                    return priority;
-                }
-
-                function calculateTriagePriority() {
-                    let globalPriority = null;
-                    let vitalsPriority =  evaluateVitals();
-                    let symptomsPriority = evaluateSymptoms();
-                    if ( vitalsPriority.value &gt; symptomsPriority.value ) {
-                        globalPriority = vitalsPriority;
-                    } else {
-                        globalPriority = symptomsPriority;
-                    }
-                    jq('#sticky').removeClass(classNames).addClass(globalPriority.triageClassName ? globalPriority.triageClassName : globalPriority.className);
-                    jq('#statusMessage').text(globalPriority.message);
-                    return globalPriority;
-                }
-
-                jq(".vitals-values").find('input').on("blur", function() {
-                    calculateTriagePriority();
-                });
 
                 function evaluateTBScreening() {
                     let isSymptomPresent = true;
