@@ -245,26 +245,61 @@ username input[type="text"],
     min-height: 4.2em;
 }
 
-            .date-one-line {
-                display: flex;
-            }
+    .date-one-line {
+        display: flex;
+    }
 
-            .date-one-line label {
-                align-self: center;
-                margin-right: 1em;
-            }
+    .date-one-line label {
+        align-self: center;
+        margin-right: 1em;
+    }
 
-            .date-one-line span {
-                display: flex;
-            }
+    .date-one-line span {
+        display: flex;
+    }
 
-            .hasDatepicker {
-                min-width: 120px;
-                margin-top: 0px;
-            }
+    .hasDatepicker {
+        min-width: 120px;
+        margin-top: 0px;
+    }
 
-            .hfe-hours, .hfe-minutes, .hfe-seconds {
-                width: 70px;
-                min-width: 70px;
-                margin: 0px 10px 0px 10px;
-            }
+    .hfe-hours, .hfe-minutes, .hfe-seconds {
+        width: 70px;
+        min-width: 70px;
+        margin: 0px 10px 0px 10px;
+    }
+
+    #data-collection {
+        display: inline-block;
+        width: 58%;
+        vertical-align: top;
+    }
+
+    #encounter-diagnoses-target {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+    }
+
+    #encounter-diagnoses-app {
+        margin-bottom: 20px;
+    }
+
+    .list-inline label, .list-inline input[type="radio"], .list-inline span,
+    .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
+    .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
+        display: inline-block;
+        float: none;
+    }
+
+    .list-inline label:first-child {
+        width: 220px;
+    }
+
+    .list-inline-wide label:first-child {
+        width: 320px;
+    }
+
+    .list-inline-extra-wide label:first-child {
+        width: 420px;
+    }
