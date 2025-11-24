@@ -145,10 +145,9 @@
         <div class="section-container">
             <p class="date-one-line">
                 <label>
-                    <uimessage code="Admission date/time"/>
+                    <uimessage code="Encounter date"/>
                 </label>
-                <!-- This could be "Admission date-time (PIH:12240)" -->
-                <encounterDate id="encounterDate" showTime="true" default="now"/>
+                <encounterDate id="encounterDate" default="now"/>
             </p>
 
             <p>
@@ -159,28 +158,35 @@
                                    tags="PACU Location"/>
             </p>
 
-            <p>
-                <!-- Attending surgeon -->
-                <label>
-                    <uimessage code="Surgeon"/>
-                </label>
-                <encounterProviderAndRole encounterRole="9b135b19-7ebe-4a51-aea2-69a53f9383af"
-                                          providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,2fa6f8da-aa58-11e8-98d0-529269fb1459"
-                                          autocompleteProvider="true" required="false"/>
-            </p>
-
-            <p>
-                <!-- Anesthesiologists -->
-                <label>
-                    <uimessage code="Anesthesiologist"/>
-                </label>
-                <div class="provider-grid">
-                    <div>
-                        <encounterProviderAndRole encounterRole="de11b25c-a641-4630-9524-5b85ece9a4f8"
-                                                  providerRoles="39c28f78-6637-4c21-9bf4-db3e2398054f"
-                                                  autocompleteProvider="true" required="false" count="2" providerWidgetSeparator="&lt;/div&gt;&lt;div&gt;"/>
-                    </div>
+            <div class="two-columns">
+                <div>
+                    <!-- Anesthesiologists -->
+                    <label>
+                        <uimessage code="Anesthesiologist"/>
+                    </label>
+                    <encounterProviderAndRole encounterRole="de11b25c-a641-4630-9524-5b85ece9a4f8"
+                                              providerRoles="39c28f78-6637-4c21-9bf4-db3e2398054f"
+                                              autocompleteProvider="true" required="false" />
                 </div>
+
+                <div>
+                    <!-- Attending surgeon -->
+                    <label>
+                        <uimessage code="Surgeon"/>
+                    </label>
+                    <encounterProviderAndRole encounterRole="9b135b19-7ebe-4a51-aea2-69a53f9383af"
+                                              providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,2fa6f8da-aa58-11e8-98d0-529269fb1459"
+                                              autocompleteProvider="true" required="false"/>
+                </div>
+            </div>
+            <br/>
+            
+            <p class="date-one-line">
+                <label>
+                    <uimessage code="Admission date/time"/>
+                </label>
+                <!-- "Admission date-time (PIH:12240)" -->
+                <obs id="admissionDate" conceptId="PIH:12240" showTime="true" default="now"/>
             </p>
         </div>
     </section>
@@ -195,19 +201,28 @@
 
                 <div id="encounter-diagnoses-target">
                 </div>
+                <br/>
 
-                <h3>
-                    <uimessage code="Procedures"/>
-                </h3>
                 <div class="two-columns">
                     <div>
+                        <h3>
+                            <uimessage code="Procedures"/>
+                        </h3>
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                     </div>
-                    <div></div>
+                    <div>
+                        <p class="list-inline">
+                            <h3>
+                                <uimessage code="Type of anesthesia"/>
+                            </h3>
+                            <obs conceptId="PIH:Type of anesthesia"
+                                 style="radio" answerSeparator=""/>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,15 +245,57 @@
                             <uimessage code="{category}" />
                         </label>
                         <br/>
-                        <obs conceptId="CIEL:{qId}" style="radio" answerSeparator="&lt;br /&gt;" />
+                        <obs conceptId="CIEL:{qId}" style="radio"
+                             answerConceptIds="{aIds}" answerSeparator="&lt;br /&gt;" />
                     </p>
                 </template>
-                <render qId="170339" category="Oxygenation"/>
-                <render qId="170343" category="Respiration"/>
-                <render qId="170347" category="Circulation"/>
-                <render qId="162643" category="Level of consciousness"/>
-                <render qId="170351" category="Activity"/>
+                <render qId="170339" category="Oxygenation" aIds="CIEL:170336,CIEL:170337,CIEL:170338"/>
+                <render qId="170343" category="Respiration" aIds="CIEL:170340,CIEL:170341,CIEL:170342"/>
+                <render qId="170347" category="Circulation" aIds="CIEL:170344,CIEL:170345,CIEL:170346"/>
+                <render qId="162643" category="Level of consciousness" aIds="CIEL:160282,CIEL:162645,CIEL:159508"/>
+                <render qId="170351" category="Activity" aIds="CIEL:170348,CIEL:170349,CIEL:170350"/>
             </repeat>
+        </div>
+    </section>
+
+    <section id="pacu-events" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PACU events">
+        <div class="section-container">
+            <repeat>
+                <template>
+                    <p class="list-inline">
+                        <label>
+                            <uimessage code="{category} score" />
+                        </label>
+                        <obs conceptId="CIEL:{qId}" style="radio"
+                             answerConceptIds="CIEL:1107,CIEL:1498,CIEL:1499,CIEL:1500" answerSeparator="" />
+                    </p>
+                </template>
+                <render qId="169568" category="Pain" />
+                <render qId="170353" category="Nausea" />
+            </repeat>
+
+            <repeat>
+                <template>
+                    <p class="list-inline">
+                        <label>
+                            <uimessage code="{qName}"/>
+                        </label>
+                        <obs conceptId="{qId}" style="radio" answerConceptIds="CIEL:1065,CIEL:1066" />
+                    </p>
+                </template>
+                <!-- render qId="CIEL:122983" qName="Vomiting" / -->
+                <render qId="PIH:21078"   qName="Shivering" />
+                <render qId="CIEL:170354" qName="Ambulation started" />
+                <render qId="CIEL:170355" qName="Feeding started" />
+                <!-- ToDo:  Add catheter removed -->
+                <!-- render qId="CIEL:x" qName="Catheter removed" / -->
+            </repeat>
+        </div>
+    </section>
+
+    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/drug-order-widget.xml"/>
         </div>
     </section>
 
