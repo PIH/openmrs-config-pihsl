@@ -26,6 +26,8 @@ encounterType:
     uuid: "928d21b1-9514-44a0-960f-bdad3551e0eb"
   sierraLeoneNicuTriage:
     uuid: "fb4318dd-cca9-4d20-bb31-0d4eba947d74"
+  sierraLeonePacuFollowup:
+    uuid: "6f2df970-6e3e-4898-9a34-9d9e8955c3eb"
   sierraLeoneLaborProgress:
     uuid: "ac5ec970-31b7-4659-9141-284bfbc13c69"
   sierraLeonePostpartumProgress:

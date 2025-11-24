@@ -448,6 +448,16 @@
                 <obs conceptId="PIH:6194" id="referral-phone-number" style="text"/>
             </div>
         </div>
+        <br/>
+
+        <p id="refer-date" class="date-one-line">
+            <label>
+                <uimessage code="Date/time of referral"/>
+            </label>
+            <span>
+                <obs conceptId="CIEL:163181" showTime="true"/>
+            </span>
+        </p>
     </div>
 
     <div>
@@ -531,76 +541,79 @@
         <tr class="exam">
             <td>
                 <span class="obs-field greenObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>&gt;37 weeks early labour signs </label>
+                    <obs conceptId="PIH:10674" answerConceptId="CIEL:162193"
+                         style="checkbox" answerCode="Labour signs (37+ weeks)"/>
                 </span>
                 <span class="obs-field greenObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>Discomforts of pregnancy</label>
+                    <obs conceptId="PIH:10674" answerConceptId="CIEL:151907"
+                         style="checkbox" answerCode="Pregnancy discomfort"/>
                 </span>
             </td>
             <td>
-                <span class="obs-field yellowObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>&gt;34 weeks signs of active labour</label>
-                </span>
-                <span class="obs-field yellowObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>34-36.6 weeks and early labour signs</label>
-                </span>
-                <span class="obs-field yellowObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>&gt;34 weeks regular contractions and HSV lesion</label>
-                </span>
-                <span class="obs-field yellowObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>&gt;34 weeks planned, elective, repeat cesarean with contractions</label>
-                </span>
-                <span class="obs-field yellowObs">
-                    <input type="checkbox" value="" autocomplete="new-password"></input>
-                    <label>&gt;34 weeks multiple gestation and early contractions</label>
-                </span>
-            </td>
-            <td>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:122496" answerCode="Difficulty breathing"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:121677" answerCode="Altered mental status"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:125562" answerCode="Suicidal or homicidal"/>
-                <obs class="obs-field orangeObs" conceptId="CIEL:165372" style="checkbox"
-                     answerConceptId="CIEL:147232" answerCode="Active vaginal bleeding"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:124193" answerCode="Recent trauma"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:138571" answerCode="HIV+"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:146922" answerCode="Breech or other malpresentation"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:115491" answerCode="Multiple gestation"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
-                     answerConceptId="CIEL:114127" answerCode="Placenta Previa"/>
-                <obs class="obs-field orangeObs" conceptId="PIH:20033" style="checkbox"
-                     answerConceptId="CIEL:113377" answerCode="Decreased FM"/>
-            </td>
-            <td>
+                <label>
+                    34+ weeks
+                </label>
                 <repeat>
                     <template>
-                        <obs class="obs-field redObs" conceptId="CIEL:162558" style="checkbox"
-                             answerConceptId="{cId}" answerCode="{labelTag}"/>
+                        <obs class="obs-field yellowObs" conceptId="PIH:10674" style="checkbox"
+                             answerConceptId="{ansMap}" answerCode="{ansText}"/>
                     </template>
-                    <render cId="CIEL:113054" labelTag="Convulsing" />
-                    <render cId="CIEL:144576" labelTag="Coma" />
+                    <render ansMap="PIH:21087" ansText="Active labour"/>
+                    <render ansMap="PIH:21089" ansText="Regular contractions and HSV lesion" />
+                    <render ansMap="PIH:21090" ansText="Planned, elective, repeat cesarean with contractions" />
+                    <render ansMap="PIH:21091" ansText="Multiple gestation and early contractions" />
                 </repeat>
+                <br/>
+
+                <label>
+                    34 - 36.6 weeks
+                </label>
                 <repeat>
                     <template>
-                        <obs class="obs-field redObs" conceptId="CIEL:165372" style="checkbox"
-                             answerConceptId="{cId}" answerCode="{labelTag}"/>
+                        <obs class="obs-field yellowObs" conceptId="PIH:10674" style="checkbox"
+                             answerConceptId="{ansMap}" answerCode="{ansText}"/>
                     </template>
-                    <render cId="CIEL:147232" labelTag="Vaginal bleeding" />
-                    <render cId="CIEL:130108" labelTag="Signs of placental abruption" />
-                    <render cId="CIEL:127259" labelTag="Signs of uterine rupture" />
-                    <render cId="CIEL:165217" labelTag="Labour with imminent delivery" />
+                    <render ansMap="PIH:21088" ansText="Early labour signs" />
+                </repeat>
+            </td>
+            <td>
+                <repeat>
+                    <template>
+                        <obs class="obs-field orangeObs" conceptId="PIH:10674" style="checkbox"
+                             answerConceptId="{ansMap}" answerCode="{ansText}"/>
+                    </template>
+                    <render ansMap="CIEL:117529" ansText="High-risk pregnancy"/>
+                    <render ansMap="CIEL:142373" ansText="Difficulty breathing"/>
+                    <render ansMap="CIEL:121677" ansText="Altered mental status"/>
+                    <render ansMap="CIEL:125562" ansText="Suicidal ideation"/>
+                    <render ansMap="CIEL:167117" ansText="Homicidal ideation"/>
+                    <render ansMap="PIH:21085" ansText="Uterine contractions (before 34 weeks)"/>
+                    <render ansMap="PIH:21086" ansText="Leaking or spotting (before 34 weeks)"/>
+                    <render ansMap="CIEL:147232" ansText="Vaginal bleeding"/>
+                    <render ansMap="CIEL:124193" ansText="Recent trauma"/>
+                    <render ansMap="CIEL:138571" ansText="HIV+"/>
+                    <render ansMap="CIEL:170363" ansText="Elective c-section" />
+                    <render ansMap="CIEL:146922" ansText="Breech presentation"/>
+                    <render ansMap="CIEL:115491" ansText="Multiple gestation"/>
+                    <render ansMap="CIEL:114127" ansText="Placenta previa"/>
+                    <render ansMap="CIEL:113377" ansText="Decreased fetal movements"/>
+                </repeat>
+            </td>
+            <td>
+                <repeat>
+                    <template>
+                        <obs class="obs-field redObs" conceptId="PIH:10674" style="checkbox"
+                             answerConceptId="{acId}" answerCode="{labelTag}"/>
+                    </template>
+                    <render acId="CIEL:119664" labelTag="Cardiac compromise" />
+                    <render acId="CIEL:127639" labelTag="Respiratory distress" />
+                    <render acId="CIEL:113054" labelTag="Convulsing" />
+                    <render acId="CIEL:147241" labelTag="Hemorrhage" />
+                    <render acId="CIEL:159508" labelTag="Unresponsive" />
+                    <render acId="CIEL:130108" labelTag="Placental abruption" />
+                    <render acId="CIEL:127259" labelTag="Uterine rupture" />
+                    <render acId="CIEL:165217" labelTag="Imminent vaginal delivery" />
+                    <!-- ToDo:  Fetal parts visible on perineum -->
                 </repeat>
             </td>
         </tr>
@@ -654,8 +667,7 @@
                 </div>
             </div>
         </div>
-    <div class="boundary"></div>
-
+    <br/>
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">

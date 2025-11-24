@@ -244,3 +244,27 @@ username input[type="text"],
 .navbar {
     min-height: 4.2em;
 }
+
+            .date-one-line {
+                display: flex;
+            }
+
+            .date-one-line label {
+                align-self: center;
+                margin-right: 1em;
+            }
+
+            .date-one-line span {
+                display: flex;
+            }
+
+            .hasDatepicker {
+                min-width: 120px;
+                margin-top: 0px;
+            }
+
+            .hfe-hours, .hfe-minutes, .hfe-seconds {
+                width: 70px;
+                min-width: 70px;
+                margin: 0px 10px 0px 10px;
+            }
