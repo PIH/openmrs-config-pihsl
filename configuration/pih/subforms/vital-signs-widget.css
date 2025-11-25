@@ -35,7 +35,7 @@ input.legalValue {
     color: black;
 }
 
-.six-columns {
+.six-columns, .five-columns {
     display: table;
     height: 100%;
     width: 100%;
@@ -44,6 +44,11 @@ input.legalValue {
 .six-columns > div {
     display: table-cell;
     width: 16.6%;
+}
+
+.five-columns > div {
+    display: table-cell;
+    width: 20%;
 }
 
 #confirmMsg {

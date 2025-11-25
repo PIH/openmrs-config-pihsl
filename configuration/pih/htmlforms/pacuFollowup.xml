@@ -180,7 +180,7 @@
                 </div>
             </div>
             <br/>
-            
+
             <p class="date-one-line">
                 <label>
                     <uimessage code="Admission date/time"/>
@@ -231,7 +231,17 @@
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
-            <subform path="configuration/pih/subforms/vital-signs-widget.xml"/>
+            <subform path="configuration/pih/subforms/vital-signs-basic-widget.xml"/>
+
+            <br/>
+            <p class="list-inline">
+                <label>
+                    <uimessage code="Pain score" />
+                </label>
+                <obs conceptId="CIEL:166000" style="radio"
+                     answerConceptIds="CIEL:1107,CIEL:1498,CIEL:1499,CIEL:1500"/>
+            </p>
+
         </div>
     </section>
 
