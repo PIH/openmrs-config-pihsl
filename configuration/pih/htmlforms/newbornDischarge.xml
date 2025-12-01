@@ -373,7 +373,7 @@
             <table>
                 <tr>
                     <td>
-                        <div class="three-columns">
+                        <div class="five-columns">
                             <div>
                                 <p class="side-by-side">
                                     <label>
@@ -419,9 +419,45 @@
 
                             <div>
                                 <label>
+                                    <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
+                                </label>
+                                <span class="small">
+                                    <ifMode mode="VIEW" include="true">
+                                        <span class="append-to-value">
+                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
+                                        </span>
+                                        <span class="append-to-value">/</span>
+                                        <span class="append-to-value">
+                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
+                                        </span>
+                                        <span class="append-to-value">mm/Hg</span>
+                                    </ifMode>
+                                    <ifMode mode="VIEW" include="false">
+                                        <span class="append-to-value left">
+                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
+                                        </span>
+                                        <span class="append-to-value left">/</span>
+                                        <span class="append-to-value left">
+                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
+                                        </span>
+                                        <span class="append-to-value">mm/Hg</span>
+                                    </ifMode>
+                                </span>
+                            </div>
+
+                            <div>
+                                <label>
                                     <uimessage code="mirebalais.vitals.short.heartRate.title"/>
                                 </label>
                                 <obs conceptId="CIEL:5087" id="heart_rate"
+                                     showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
+                            </div>
+
+                            <div>
+                                <label>
+                                    <uimessage code="mirebalais.vitals.respiratoryRate.short.title"/>
+                                </label>
+                                <obs conceptId="CIEL:5242" id="respiratory_rate"
                                      showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
                             </div>
                         </div>
@@ -722,6 +758,24 @@
                     <div>
                         <label>Comments about neurological exam</label>
                         <obs conceptId="PIH:11570" style="text" />
+                    </div>
+                </div>
+            </p>
+
+            <p class="side-by-side">
+                <h4>
+                    <uimessage code="pihcore.exam.cardiac_exam"/>
+                </h4>
+                <div class="two-columns">
+                    <div>
+                        <p class="side-by-side">
+                            <obs conceptId="CIEL:1124" style="radio"
+                                 answerConceptIds="CIEL:1115,CIEL:562"/>
+                        </p>
+                    </div>
+                    <div>
+                        <label>Comments about cardiac exam</label>
+                        <obs conceptId="CIEL:163046" style="text" />
                     </div>
                 </div>
             </p>
