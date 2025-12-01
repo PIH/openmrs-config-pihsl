@@ -829,7 +829,7 @@
                         <uimessage code="pihcore.consult.returnVisitDate"/>
                     </label>
                     <span class="small">
-                        <obs id="apptDate" required="true"
+                        <obs id="apptDate" 
                              conceptId="PIH:RETURN VISIT DATE"
                              allowFutureDates="true" allowPastDates="false" />
                     </span>
