@@ -902,6 +902,24 @@
                     </div>
                 </div>
             </p>
+
+            <p class="side-by-side">
+                <h4>
+                    <uimessage code="pihcore.exam.cardiac_exam"/>
+                </h4>
+                <div class="two-columns">
+                    <div>
+                        <p class="side-by-side">
+                            <obs conceptId="CIEL:1124" style="radio"
+                                 answerConceptIds="CIEL:1115,CIEL:562"/>
+                        </p>
+                    </div>
+                    <div>
+                        <label>Comments about cardiac exam</label>
+                        <obs conceptId="CIEL:163046" style="text" />
+                    </div>
+                </div>
+            </p>
         </div>
     </section>
 
