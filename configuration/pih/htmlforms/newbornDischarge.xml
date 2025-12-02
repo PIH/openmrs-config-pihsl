@@ -24,8 +24,16 @@
         <code name="o2Sat">
             <variant locale="en" value="O&lt;sub&gt;2&lt;/sub&gt; Sat"/>
             <variant locale="fr" value="SpO&lt;sub&gt;2&lt;/sub&gt;"/>
-            <variant locale="es" value="SatO&lt;sub&gt;2&lt;/sub&gt;"/>
         </code>
+        <code name="preO2Sat">
+            <variant locale="en" value="Preductal O&lt;sub&gt;2&lt;/sub&gt; Sat"/>
+            <variant locale="fr" value="Preductal SpO&lt;sub&gt;2&lt;/sub&gt;"/>
+        </code>
+        <code name="postO2Sat">
+            <variant locale="en" value="Postductal O&lt;sub&gt;2&lt;/sub&gt; Sat"/>
+            <variant locale="fr" value="Postductal SpO&lt;sub&gt;2&lt;/sub&gt;"/>
+        </code>
+
     </translations>
 
     <style type="text/css">
@@ -461,6 +469,35 @@
                                      showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
                             </div>
                         </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="five-columns">
+                            <div>
+                                <label>
+                                    <uimessage code="preO2Sat"/>
+                                </label>
+                                <obs conceptId="CIEL:170398" id="preDuctalO2"
+                                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+                            </div>
+                            <div>
+                                <label>
+                                    <uimessage code="postO2Sat"/>
+                                </label>
+                                <obs conceptId="CIEL:170399" id="postDuctalO2"
+                                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+                            </div>
+                            <div>
+                                <label>
+                                    <uimessage code="Postductal difference"/>
+                                </label>
+                            </div>
+                            <div></div>
+                            <div></div>
+                        </div>
+
                     </td>
                 </tr>
             </table>
