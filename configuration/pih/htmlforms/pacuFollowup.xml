@@ -186,7 +186,8 @@
                     <uimessage code="Admission date/time"/>
                 </label>
                 <!-- "Admission date-time (PIH:12240)" -->
-                <obs id="admissionDate" conceptId="PIH:12240" showTime="true" default="now"/>
+                <obs id="admissionDate" conceptId="PIH:12240" showTime="true" default="now"
+                     allowFutureDates="false" allowFutureTimes="true"/>
             </p>
         </div>
     </section>
