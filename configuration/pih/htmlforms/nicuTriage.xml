@@ -307,15 +307,6 @@
                                     </span>
                                 </p>
                             </div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="four-columns">
                             <div>
                                 <label>
                                     <uimessage code="Temp"/>
@@ -325,7 +316,14 @@
                                          showUnits="emr.units.degreesCelsius" unitsCssClass="append-to-value"/>
                                 </span>
                             </div>
-
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="four-columns">
                             <div>
                                 <label>
                                     <uimessage code="mirebalais.vitals.short.heartRate.title"/>
@@ -373,14 +371,6 @@
                                     </ifMode>
                                 </span>
                             </div>
-
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="five-columns">
                             <div>
                                 <label>
                                     <uimessage code="o2Sat"/>
@@ -390,7 +380,13 @@
                                          showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
                                 </span>
                             </div>
+                        </div>
+                    </td>
+                </tr>
 
+                <tr>
+                    <td>
+                        <div class="five-columns">
                             <div>
                                 <!-- AVPU/Level of consciousness (CIEL:162643) -->
                                 <label>
@@ -416,14 +412,22 @@
                                 </span>
 
                             </div>
-
+                            <div>
+                                <label>
+                                    <uimessage code="pihcore.lab.hematocrit"/>
+                                </label>
+                                <span class="small">
+                                    <obs conceptId="CIEL:1015" id="hematocrit"
+                                         showUnits="true" unitCssClass="append-to-value"/>
+                                </span>
+                            </div>
                             <div>
                                 <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
                                 <label>
                                     <uimessage code="pihcore.lab.glucose" />
                                 </label>
                                 <span class="small">
-                                    <obs conceptId="CIEL:887" id="glucose"
+                                    <obs conceptId="CIEL:1458" id="glucose"
                                          showUnits="true" unitCssClass="append-to-value"/>
                                 </span>
                             </div>
@@ -517,8 +521,8 @@
                         </label>
                         <br/>
                         <obs id="d-location" conceptId="PIH:20260" style="radio"
-                             answerConceptIds="PIH:7889,CIEL:1601,CIEL:1588,CIEL:5622"
-                             answerCodes="home, in-transit, health clinic, other">
+                             answerConceptIds="PIH:7889,CIEL:1601,CIEL:1588,PIH:12367,CIEL:5622"
+                             answerCodes="home, in-transit, health clinic, KGH/MCOE, other">
                             <controls>
                                 <when value="CIEL:5622" thenDisplay="#delivery-location-other" />
                             </controls>
