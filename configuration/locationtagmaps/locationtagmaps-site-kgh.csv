@@ -20,3 +20,8 @@ Postnatal Ward,TRUE,,TRUE,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,TRUE,TRUE,TRUE,,,TRUE
 MCOE Inpatient Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,,
 Maternity Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,,
 Pediatric Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,TRUE,,,,,,,,,,,,,,,,,,
+Kangaroo Care,TRUE,,,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
+Mothers Dorm,TRUE,,,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
+MCOE Post-Op,TRUE,,,,TRUE,,,,,,TRUE,,,TRUE,,TRUE,,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
+Staff Ward,TRUE,TRUE,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,,,,,TRUE,TRUE,,,,,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
+MCOE Inpatient Registration,,,TRUE,TRUE,,TRUE,,,,,,,,TRUE,,,,TRUE,,,,,,,,,,,,TRUE,,,,,,
