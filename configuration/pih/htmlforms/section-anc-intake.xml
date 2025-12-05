@@ -503,7 +503,7 @@
                     <label>
                         <uimessage code="pihcore.mch.grava"/>
                     </label>
-                    <obs required="true" conceptId="CIEL:5624" id="gravidaInput"  />
+                    <obs conceptId="CIEL:5624" id="gravidaInput"  />
                 </div>
                 <div>
                     <label>
