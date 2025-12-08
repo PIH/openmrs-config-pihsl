@@ -378,103 +378,46 @@
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
+            <subform path="configuration/pih/subforms/vital-signs-infant-widget.xml"/>
+        </div>
+    </section>
+
+    <section id="newbornCondition" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.newborn.condition">
+        <div class="section-container">
             <table>
                 <tr>
                     <td>
-                        <div class="five-columns">
+                        <div class="four-columns">
                             <div>
                                 <p class="side-by-side">
                                     <label>
                                         <uimessage code="Weight"/>
                                     </label>
                                     <ifMode mode="VIEW" include="false">
-                                        <lookup complexExpression="#set( $lastWt = $fn.latestObsBeforeCurrentEncounter('CIEL:5089', true) )"/>
-                                        <includeIf velocityTest="($lastWt) ">
-                                            <span class="prior-obs-value">
-                                                <lookup complexExpression="$lastWt.valueNumeric"/>kg
-                                                (<lookup complexExpression="$lastWt.obsDatetime"/>)
-                                            </span>
-                                        </includeIf>
+                                        <span id="lastWeightKg" class="prior-obs-value"> </span>
                                         <br/>
                                     </ifMode>
                                     <obs conceptId="CIEL:5089" id="weight_kg" showUnits="emr.units.kilograms"
                                          unitsCssClass="append-to-value"/>
                                 </p>
 
-                                <ifMode mode="VIEW" include="false">
-                                    <lookup complexExpression="#set( $birthWt = $fn.latestObsBeforeCurrentEncounter('CIEL:5916', true) )"/>
-                                    <includeIf velocityTest="($birthWt) ">
-                                        <p class="side-by-side">
-                                            <span class="prior-obs-value">
-                                                <label>
-                                                    <uimessage code="Birth Weight:"/>
-                                                </label>
-                                                <lookup complexExpression="$birthWt.valueNumeric"/>kg
-                                                (<lookup complexExpression="$birthWt.obsDatetime"/>)
-                                            </span>
-                                        </p>
-                                    </includeIf>
-                                </ifMode>
+                                <p id="birthWeightBox" class="side-by-side hidden" >
+                                    <span class="prior-obs-value">
+                                        <label>
+                                            <uimessage code="Birth Weight:"/>
+                                        </label>
+                                        <span id="birthWeightInfo"></span>
+                                    </span>
+                                </p>
                             </div>
-
                             <div>
                                 <label>
-                                    <uimessage code="Temperature"/>
+                                    <uimessage code="mirebalais.vitals.muac.navigation.title"/>
                                 </label>
-                                <obs conceptId="CIEL:5088" id="temperature_c"
-                                     showUnits="emr.units.degreesCelsius" unitsCssClass="append-to-value"/>
+                                <obs conceptId="CIEL:1343" id="muac_c"
+                                     showUnits="true" unitsCssClass="append-to-value"/>
                             </div>
-
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
-                                </label>
-                                <span class="small">
-                                    <ifMode mode="VIEW" include="true">
-                                        <span class="append-to-value">
-                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
-                                        </span>
-                                        <span class="append-to-value">/</span>
-                                        <span class="append-to-value">
-                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
-                                        </span>
-                                        <span class="append-to-value">mm/Hg</span>
-                                    </ifMode>
-                                    <ifMode mode="VIEW" include="false">
-                                        <span class="append-to-value left">
-                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
-                                        </span>
-                                        <span class="append-to-value left">/</span>
-                                        <span class="append-to-value left">
-                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
-                                        </span>
-                                        <span class="append-to-value">mm/Hg</span>
-                                    </ifMode>
-                                </span>
-                            </div>
-
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.short.heartRate.title"/>
-                                </label>
-                                <obs conceptId="CIEL:5087" id="heart_rate"
-                                     showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
-                            </div>
-
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.respiratoryRate.short.title"/>
-                                </label>
-                                <obs conceptId="CIEL:5242" id="respiratory_rate"
-                                     showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="five-columns">
                             <div>
                                 <label>
                                     <uimessage code="preO2Sat"/>
@@ -489,15 +432,7 @@
                                 <obs conceptId="CIEL:170399" id="postDuctalO2"
                                      showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
                             </div>
-                            <div>
-                                <label>
-                                    <uimessage code="Postductal difference"/>
-                                </label>
-                            </div>
-                            <div></div>
-                            <div></div>
                         </div>
-
                     </td>
                 </tr>
             </table>

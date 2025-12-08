@@ -644,6 +644,13 @@
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
+            <subform path="configuration/pih/subforms/vital-signs-infant-widget.xml"/>
+        </div>
+    </section>
+
+    <section id="newbornCondition" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.newborn.condition">
+        <div class="section-container">
             <table>
                 <tr>
                     <td>
@@ -703,12 +710,6 @@
                                      showUnits="true" unitsCssClass="append-to-value"/>
                             </div>
                         </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <subform path="configuration/pih/subforms/vital-signs-infant-widget.xml"/>
                     </td>
                 </tr>
             </table>

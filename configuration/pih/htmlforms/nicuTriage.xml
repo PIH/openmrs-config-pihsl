@@ -289,7 +289,7 @@
     </ifMode>
 
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Vitals">
+             headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
             <subform path="configuration/pih/subforms/vital-signs-infant-widget.xml"/>
         </div>
