@@ -289,101 +289,16 @@
     </ifMode>
 
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Vital signs and lab tests">
+             headerStyle="title" headerCode="Vitals">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/vital-signs-infant-widget.xml"/>
+        </div>
+    </section>
+
+    <section id="labTests" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Lab tests">
         <div class="section-container">
             <table>
-                <tr>
-                    <td>
-                        <div class="four-columns">
-                            <div>
-                                <p class="side-by-side">
-                                    <label>
-                                        <uimessage code="Weight"/>
-                                    </label>
-                                    <span class="small">
-                                        <obs conceptId="CIEL:5089" id="weight_kg"
-                                             showUnits="emr.units.kilograms"
-                                             unitsCssClass="append-to-value"/>
-                                    </span>
-                                </p>
-                            </div>
-                            <div>
-                                <label>
-                                    <uimessage code="Temp"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:5088" id="temperature_c"
-                                         showUnits="emr.units.degreesCelsius" unitsCssClass="append-to-value"/>
-                                </span>
-                            </div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="four-columns">
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.short.heartRate.title"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:5087" id="heart_rate"
-                                         showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
-                                </span>
-                            </div>
-
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.respiratoryRate.short.title"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:5242" id="respiratory_rate"
-                                         showUnits="emr.units.perMinute" unitsCssClass="append-to-value"/>
-                                </span>
-                            </div>
-
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
-                                </label>
-                                <span class="small">
-                                    <ifMode mode="VIEW" include="true">
-                                        <span class="append-to-value">
-                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
-                                        </span>
-                                        <span class="append-to-value">/</span>
-                                        <span class="append-to-value">
-                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
-                                        </span>
-                                        <span class="append-to-value">mm/Hg</span>
-                                    </ifMode>
-                                    <ifMode mode="VIEW" include="false">
-                                        <span class="append-to-value left">
-                                            <obs conceptId="CIEL:5085" id="bp_systolic"/>
-                                        </span>
-                                        <span class="append-to-value left">/</span>
-                                        <span class="append-to-value left">
-                                            <obs conceptId="CIEL:5086" id="bp_diastolic" />
-                                        </span>
-                                        <span class="append-to-value">mm/Hg</span>
-                                    </ifMode>
-                                </span>
-                            </div>
-                            <div>
-                                <label>
-                                    <uimessage code="o2Sat"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:5092" id="o2_sat"
-                                         showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
-                                </span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
                 <tr>
                     <td>
                         <div class="five-columns">
