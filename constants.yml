@@ -98,3 +98,13 @@ queue:
 location:
   kgh:
     uuid: "074b2ab0-716a-11eb-8aa6-0242ac110002"
+  mcoeInpatientPharmacy:
+    uuid: "550e8400-e29b-41d4-a716-446655440000"
+  opdPharmacy:
+    uuid: "e458694f-27c3-4a44-a8d8-c53f2ac6a88f"
+  maternityPharmacy:
+    uuid: "84b9b680-786c-4388-9e7c-805614c13b5a"
+  pediatricPharmacy:
+    uuid: "b4d5b9c5-e5c8-490a-a5b4-7055c0e8a1f6"
+  ncdPharmacy:
+    uuid: "8947193b-92f0-4577-a66d-43d4a64c49b7"
