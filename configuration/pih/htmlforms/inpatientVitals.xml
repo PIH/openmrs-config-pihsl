@@ -236,7 +236,7 @@
             </div>
         </div>
         <br/>
-        <h2><uimessage code="VITAL SIGNS"/></h2>
+        <h2><uimessage code="pihcore.vitalSigns"/></h2>
     </ifMode>
 
     <hr style="height:1px;border-width:0;color:lightgray;background-color:lightgray"/>

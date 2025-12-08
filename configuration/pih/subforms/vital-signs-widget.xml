@@ -1,4 +1,4 @@
-<div>
+<div id="vital-signs-widget">
     <subform path="configuration/pih/subforms/vital-signs-widget.css"/>
     <subform path="configuration/pih/subforms/vital-signs-widget.js"/>
 
