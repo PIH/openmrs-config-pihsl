@@ -71,13 +71,15 @@ function evaluateHeartRate(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if (numericValue &lt; 40) {
+        if (numericValue &lt; 80) {
             return priorities.RED;
-        } if (numericValue &lt; 50) {
-            return priorities.ORANGE;
-        } else if ((numericValue &gt; 119) &amp;&amp; (numericValue &lt; 131)) {
-            return priorities.ORANGE;
-        } else if (numericValue &gt; 130) {
+        } else if ((numericValue &gt;= 80) &amp;&amp; (numericValue &lt;= 99)) {
+            return priorities.YELLOW;
+        } else if ((numericValue &gt;= 100) &amp;&amp; (numericValue &lt;= 159)) {
+            return priorities.GREEN;
+        } else if ((numericValue &gt;= 160) &amp;&amp; (numericValue &lt;= 174)) {
+            return priorities.YELLOW;
+        } else if (numericValue &gt;= 175) {
             return priorities.RED;
         }
     }
@@ -88,12 +90,12 @@ function evaluateRespiratoryRate(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if (numericValue &lt; 12) {
-            return priorities.ORANGE;
-        } else if (numericValue &lt; 20) {
+        if ((numericValue &lt;= 25) || (numericValue &gt;= 80)) {
+            return priorities.RED;
+        } else if ((numericValue &gt;= 30) &amp;&amp; (numericValue &lt;= 59)) {
             return priorities.GREEN;
-        } else if (numericValue &gt; 26) {
-            return priorities.ORANGE;
+        } else if (((numericValue &gt;= 26) &amp;&amp; (numericValue &lt;= 29)) || ((numericValue &gt;= 60) &amp;&amp; (numericValue &lt;= 79))) {
+            return priorities.YELLOW;
         }
     }
     return retValue;
@@ -103,12 +105,10 @@ function evaluateTemperature(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if ((numericValue &lt;= 34.9) || (numericValue &gt;= 40)) {
+        if ((numericValue &lt;= 36) || (numericValue &gt;= 38)) {
             return priorities.RED;
-        } else if ((numericValue &gt;= 38) &amp;&amp; (numericValue &lt;= 38.3)) {
+        } else if (((numericValue &gt;= 36) &amp;&amp; (numericValue &lt;= 36.5)) || ((numericValue &gt;= 37.5) &amp;&amp; (numericValue &lt;= 37.9))) {
             return priorities.YELLOW;
-        } else if ((numericValue &gt; 38.3) &amp;&amp; (numericValue &lt; 40)) {
-            return priorities.ORANGE;
         }
     }
     return retValue;
@@ -129,10 +129,10 @@ function evaluateOxigenSaturation(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if (numericValue &lt;= 93) {
+        if (numericValue &lt; 90) {
             return priorities.RED;
-        } else if ((numericValue &gt;= 94) &amp;&amp; (numericValue &lt;= 95)) {
-            return priorities.ORANGE;
+        } else if ((numericValue &gt;= 90) &amp;&amp; (numericValue &lt;= 94)) {
+            return priorities.YELLOW;
         }
     }
     return retValue;
