@@ -13,7 +13,7 @@
                                               providerRoles="${providerGroup.outpatientConsult}"
                                               required="true"/>
                 </span>
-            <span
+            </subform>
         </div>
     </subform>
 
