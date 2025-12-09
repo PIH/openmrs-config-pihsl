@@ -83,6 +83,12 @@
         <span subform-parameter="encounter-location-widget">
             <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" tags="Newborn Admission Note Location"/>
         </span>
+        <span subform-parameter="encounter-provider-widget">
+            <encounterProviderAndRole default="currentUser"
+                                      encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                      providerRoles="${providerGroup.group3}"
+                                      required="true"/>
+        </span>
     </subform>
 
     <div id="data-collection">

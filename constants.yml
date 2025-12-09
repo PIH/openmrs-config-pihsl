@@ -106,3 +106,4 @@ providerGroup:
   group4: "${providerRole.PSYCHOLOGIST.uuid},${providerRole.PHYSICIAN.uuid},${providerRole.CLINICIAN.uuid},${providerRole.NURSE_RN.uuid},${providerRole.ADVANCE_PRACTICE_NURSE.uuid}"
   group5: "${providerRole.PHYSICIAN.uuid},${providerRole.CLINICIAN.uuid},${providerRole.NURSE_RN.uuid},${providerRole.ADVANCE_PRACTICE_NURSE.uuid}"
   group6: "${providerRole.ADVANCE_PRACTICE_NURSE.uuid},${providerRole.NURSE_RN.uuid},${providerRole.NURSE_MIDWIFE.uuid},${providerRole.NURSING_AUXILIARY.uuid},${providerRole.NURSE_ACCOMPAGNATEUR.uuid}"
+  outpatientConsult: "${providerRole.CLINICIAN.uuid},${providerRole.PHYSICIAN.uuid}"

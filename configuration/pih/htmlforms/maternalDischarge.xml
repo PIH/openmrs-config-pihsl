@@ -213,6 +213,12 @@
         <span subform-parameter="encounter-location-widget">
             <encounterLocation default="SessionAttribute:emrContext.sessionLocationId" tags="Postnatal Location"/>
         </span>
+        <span subform-parameter="encounter-provider-widget">
+            <encounterProviderAndRole default="currentUser"
+                                      encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                      providerRoles="${providerGroup.group1}"
+                                      required="true"/>
+        </span>
     </subform>
 
     <ifMode mode="VIEW" include="false">
