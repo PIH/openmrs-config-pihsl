@@ -73,6 +73,15 @@
         </div>
 
         <div>
+            <div class="colorCodingValue">
+                <label>
+                    <uimessage code="pihcore.lab.glucose"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:1458" id="glucose" class="vitals-values"
+                         showUnits="true" unitsCssClass="append-to-value"/>
+                </span>
+            </div>
         </div>
     </div>
     <div id="confirmMsg">

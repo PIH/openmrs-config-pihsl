@@ -220,16 +220,6 @@
                                 </span>
                             </div>
                             <div>
-                                <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
-                                <label>
-                                    <uimessage code="pihcore.lab.glucose" />
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:1458" id="glucose"
-                                         showUnits="true" unitCssClass="append-to-value"/>
-                                </span>
-                            </div>
-                            <div>
                                 <p class="side-by-side">
                                     <!-- MRDT (aka Malaria rapid test) (CIEL:1643) Test/coded -->
                                     <label>
@@ -242,6 +232,8 @@
                                              answerSeparator="&lt;br&gt;"/>
                                     </span>
                                 </p>
+                            </div>
+                            <div>
                             </div>
                         </div>
                     </td>

@@ -138,6 +138,17 @@ function evaluateOxigenSaturation(value) {
     return retValue;
 }
 
+function evaluateGlucose(value) {
+    let retValue = priorities.GREEN;
+    if (value != null &amp;&amp; !(Number.isNaN(value))) {
+        let numericValue = Number(value);
+        if ( (numericValue &lt; 2.6) || (numericValue &gt; 8.3)) {
+            return priorities.RED;
+        }
+    }
+    return retValue;
+}
+
 let vitalsInfo = {
     bp_systolic: {
         evaluate: evaluateBpSystolic,
@@ -161,6 +172,10 @@ let vitalsInfo = {
     },
     o2_sat: {
         evaluate: evaluateOxigenSaturation,
+        value: null
+    },
+    glucose: {
+        evaluate: evaluateGlucose,
         value: null
     },
     fhr: {
