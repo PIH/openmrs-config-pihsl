@@ -372,7 +372,10 @@
                 <div style="width: 34%">
                     <p id="who" class="side-by-side">
                         <label><uimessage code="emr.patientDashBoard.providerRequired"/></label>
-                        <span><encounterProviderAndRole default="currentUser" encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05" required="true"/></span>
+                        <span><encounterProviderAndRole default="currentUser"
+                                                        encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                                        providerRoles="${providerGroup.group6}"
+                                                        required="true"/></span>
                     </p>
                 </div>
                 <div style="width: 30%">
