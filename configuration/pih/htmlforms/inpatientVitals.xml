@@ -220,7 +220,10 @@
         <div class="three-columns">
             <div>
                 <label><uimessage code="emr.patientDashBoard.providerRequired"/></label>
-                <span><encounterProviderAndRole default="currentUser" encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05" required="true"/></span>
+                <span><encounterProviderAndRole default="currentUser"
+                                                encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                                providerRoles="${providerGroup.group1}"
+                                                required="true"/></span>
             </div>
             <div>
                     <label><uimessage code="emr.locationRequired"/></label>
