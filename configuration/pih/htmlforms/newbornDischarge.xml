@@ -161,8 +161,41 @@
         </ifMode>
     </style>
 
-    <ifMode mode="VIEW" include="false">
+
         <script type="text/javascript">
+
+            function calculatePostDuctDiff() {
+                const preductalVal = jq('#preDuctalO2 input[type="text"]').val();
+                const postductalVal = jq('#postDuctalO2 input[type="text"]').val();
+                if ( preductalVal &amp;&amp; postductalVal &amp;&amp; (preductalVal != null) &amp;&amp; !(Number.isNaN(preductalVal)) &amp;&amp; (postductalVal != null) &amp;&amp; !(Number.isNaN(postductalVal))) {
+                    let preductNumeric = Number(preductalVal);
+                    let postductalNumeric = Number(postductalVal);
+                    let postDuctDiff = preductNumeric - postductalNumeric;
+                    jq('#postductalDifference').val(postDuctDiff);
+                    if ( postDuctDiff &gt; 5) {
+                        jq('#postductalDifference').addClass('triage-label-red');
+                    } else {
+                        jq('#postductalDifference').removeClass('triage-label-red');
+                    }
+                }
+            }
+
+            function viewPostDuctDiff() {
+                const preductalVal = jq('#preDuctalO2 .value').text();
+                const postductalVal = jq('#postDuctalO2 .value').text();
+                if ( preductalVal &amp;&amp; postductalVal &amp;&amp; (preductalVal != null) &amp;&amp; !(Number.isNaN(preductalVal)) &amp;&amp; (postductalVal != null) &amp;&amp; !(Number.isNaN(postductalVal))) {
+                    let preductNumeric = Number(preductalVal);
+                    let postductalNumeric = Number(postductalVal);
+                    let postDuctDiff = preductNumeric - postductalNumeric;
+                    jq('#postductalDifference').text(postDuctDiff);
+                    if ( postDuctDiff &gt; 5) {
+                        jq('#postductalDiffDiv').addClass('triage-label-red');
+                    } else {
+                        jq('#postductalDiffDiv').removeClass('triage-label-red');
+                    }
+                }
+            }
+
             jq(document).ready(function() {
 
             jq('.normalObs').change(function(event) {
@@ -190,12 +223,19 @@
                 }
             });
 
+            jq('.o2SatValue input[type="text"]').on('change', function() {
+                calculatePostDuctDiff();
+            });
+
+            calculatePostDuctDiff();
+            viewPostDuctDiff();
+
             // handlers for next and submit buttons, see nextAndSubmitButtons.js
             setUpNextAndSubmitButtons();
 
             });
         </script>
-    </ifMode>
+
 
     <div class="print-form-datestamps" style="display:none">
         <p><uimessage code="pihcore.form.created_on"/>:
@@ -271,7 +311,7 @@
             <table>
                 <tr>
                     <td>
-                        <div class="four-columns">
+                        <div class="five-columns">
                             <div>
                                 <p class="side-by-side">
                                     <label>
@@ -305,15 +345,29 @@
                                 <label>
                                     <uimessage code="preO2Sat"/>
                                 </label>
-                                <obs conceptId="CIEL:170398" id="preDuctalO2"
+                                <obs conceptId="CIEL:170398" id="preDuctalO2" class="o2SatValue"
                                      showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
                             </div>
                             <div>
                                 <label>
                                     <uimessage code="postO2Sat"/>
                                 </label>
-                                <obs conceptId="CIEL:170399" id="postDuctalO2"
+                                <obs conceptId="CIEL:170399" id="postDuctalO2" class="o2SatValue"
                                      showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+                            </div>
+                            <div id="postductalDiffDiv">
+                                <label>
+                                    <uimessage code="pihcore.postductalDifference"/>
+                                </label>
+                                <span class="obs-field">
+                                    <ifMode mode="VIEW" include="false">
+                                        <input id="postductalDifference" type="text" size="5" disabled="disabled"></input>
+                                    </ifMode>
+                                    <ifMode mode="VIEW" include="true">
+                                        <span id="postductalDifference" class="value"></span>
+                                    </ifMode>
+                                    <span class="append-to-value">%</span>
+                                </span>
                             </div>
                         </div>
                     </td>
