@@ -5,6 +5,18 @@
     },
     "patientIdentifierType": "KGHEMRID"
   },
+  "@openmrs/esm-dispensing-app": {
+    "customTabs": [
+      {
+        "title": "Discharge prescriptions",
+        "customPrescriptionsTableEndpoint": "${fhirBaseUrl}/Encounter?_query=encountersWithMedicationRequests&_getpagesoffset=${pageOffset}&_count=${pageSize}&date=ge${date}&status=ACTIVE&type=${encounterType.MATERNAL_DISCHARGE.uuid},${encounterType.NEWBORN_DISCHARGE.uuid}&location=${location}&patientSearchTerm=${patientSearchTerm}",
+        "associatedLocations": [
+          "${location.mcoeInpatientPharmacy.uuid}"
+        ]
+      }
+    ]
+  },
+
   "@openmrs/esm-login-app": {
     "chooseLocation": {
       "enabled": true,
