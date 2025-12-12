@@ -332,7 +332,7 @@
                         <label>
                             <uimessage code="Rupture date/time"/>
                         </label>
-                        <obs conceptId="CIEL:160710" showTime="true"/>
+                        <obs conceptId="CIEL:160710" showTime="true" allowFutureTimes="true"/>
                     </div>
                 </p>
 
