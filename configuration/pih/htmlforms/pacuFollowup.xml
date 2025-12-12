@@ -171,7 +171,7 @@
             const respObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170343').valueCoded.id"/>';
             if (respObs) {
                 totalScore = totalScore + scoreMap.get(respObs);
-                jq('#Respiration_170343').text(scoreMap.get(spO2obs));
+                jq('#Respiration_170343').text(scoreMap.get(respObs));
                 jq('#Respiration_170343').addClass("value");
             }
             </includeIf>
