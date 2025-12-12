@@ -103,22 +103,113 @@
             display: table-cell;
             width: 50%;
         }
+
+        .score {
+            font-size: large;
+            font-weight: bold;
+        }
+        .totalScore {
+            font-size: larger;
+            font-weight: bolder;
+        }
     </style>
 
     <script type="text/javascript">
 
-        jq(function() {
+        const scoreMap = new Map();
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170336').id"/>', 2);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170337').id"/>', 1);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170338').id"/>', 0);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170340').id"/>', 2);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170341').id"/>', 1);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170342').id"/>', 0);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170344').id"/>', 2);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170345').id"/>', 1);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170346').id"/>', 0);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:160282').id"/>', 2);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:162645').id"/>', 1);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:159508').id"/>', 0);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170348').id"/>', 2);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170349').id"/>', 1);
+        scoreMap.set('<lookup expression="fn.getConcept('CIEL:170350').id"/>', 0);
 
-            // make text areas expand based on content (this allows us to avoid scrollbars and thereby facilitate printing)
-            jq('#post-op-surgical-note').on( 'keyup', 'textarea', function (){
-                jq(this).height( 0 );
-                jq(this).height( this.scrollHeight );
-                });
 
-            jq('#post-op-surgical-note').find( 'textarea' ).keyup();
+        function calculateAldreteScore(){
+            let totalScore = 0;
+            jq('.scoreObs').find("input[type='radio']").each(function(index) {
+                if (this.checked) {
+                    const checkedVal = jq(this).val();
+                    const score = scoreMap.get(checkedVal);
+                    totalScore = totalScore + score;
+                    const parentTd = jq(this).closest('td');
+                    if (parentTd) {
+                           const scoreColumn = jq(parentTd).next('td');
+                           if ( scoreColumn ) {
+                                jq(scoreColumn).find('span').text(score);
+                            }
+                    }
+                }
 
+            });
+            jq("#totalScore").text(totalScore);
+            return totalScore;
+        }
+
+        jq(document).ready(function() {
+
+        <ifMode mode="VIEW" include="true" >
+            let totalScore = 0;
+            <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170339')">
+            const spO2obs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170339').valueCoded.id"/>';
+            if (spO2obs) {
+                totalScore = totalScore + scoreMap.get(spO2obs);
+                jq('#Oxygenation_170339').text(scoreMap.get(spO2obs));
+                jq('#Oxygenation_170339').addClass("value");
+            }
+            </includeIf>
+            <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170343')">
+            const respObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170343').valueCoded.id"/>';
+            if (respObs) {
+                totalScore = totalScore + scoreMap.get(respObs);
+                jq('#Respiration_170343').text(scoreMap.get(spO2obs));
+                jq('#Respiration_170343').addClass("value");
+            }
+            </includeIf>
+            <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170347')">
+            const circObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170347').valueCoded.id"/>';
+            if (circObs) {
+                totalScore = totalScore + scoreMap.get(circObs);
+                jq('#Circulation_170347').text(scoreMap.get(circObs));
+                jq('#Circulation_170347').addClass("value");
+            }
+            </includeIf>
+            <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:162643')">
+            const consObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:162643').valueCoded.id"/>';
+            if (consObs) {
+                totalScore = totalScore + scoreMap.get(consObs);
+                jq('#Level of consciousness_162643').text(scoreMap.get(consObs));
+                jq('#Level of consciousness_162643').addClass("value");
+            }
+            </includeIf>
+            <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170351')">
+            const activityObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170351').valueCoded.id"/>';
+            if (activityObs) {
+                totalScore = totalScore + scoreMap.get(activityObs);
+                jq('#Activity_170351').text(scoreMap.get(activityObs));
+                jq('#Activity_170351').addClass("value");
+            }
+            </includeIf>
+            jq('#totalScore').text(totalScore);
+            jq('#totalScore').addClass("value");
+
+        </ifMode>
+        <ifMode mode="VIEW" include="false" >
+            jq(".scoreObs").find("input[type='radio']").on('click', function(event) {
+                calculateAldreteScore();
+            });
+            calculateAldreteScore();
+        </ifMode>
         });
-
     </script>
 
     <ifMode mode="VIEW" include="false" >
@@ -249,23 +340,43 @@
     <section id="aldrete" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Aldrete discharge criteria">
         <div class="section-container">
-            <repeat>
-                <template>
-                    <p class="list-inline">
-                        <label>
-                            <uimessage code="{category}" />
-                        </label>
-                        <br/>
-                        <obs conceptId="CIEL:{qId}" style="radio"
-                             answerConceptIds="{aIds}" answerSeparator="&lt;br /&gt;" />
-                    </p>
-                </template>
-                <render qId="170339" category="Oxygenation" aIds="CIEL:170336,CIEL:170337,CIEL:170338"/>
-                <render qId="170343" category="Respiration" aIds="CIEL:170340,CIEL:170341,CIEL:170342"/>
-                <render qId="170347" category="Circulation" aIds="CIEL:170344,CIEL:170345,CIEL:170346"/>
-                <render qId="162643" category="Level of consciousness" aIds="CIEL:160282,CIEL:162645,CIEL:159508"/>
-                <render qId="170351" category="Activity" aIds="CIEL:170348,CIEL:170349,CIEL:170350"/>
-            </repeat>
+            <table border="1" cellpadding="5" cellspacing="0" style="width:60%; margin-left: 10px;">
+            <thead>
+                <tr>
+                    <th colspan="2">ALDRETE PACU DISCHARGE CRITERIA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <repeat>
+                    <template>
+                            <tr>
+                                <td colspan="2">
+                                    <label><strong><uimessage code="{category}"/></strong></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <obs conceptId="CIEL:{qId}" style="radio" class="scoreObs"
+                                     answerConceptIds="{aIds}" answerSeparator="&lt;br /&gt;"/>
+                                </td>
+                                <td><span id="{category}_{qId}" class="score">0</span>
+                                </td>
+                            </tr>
+                    </template>
+                    <render qId="170339" category="Oxygenation" aIds="CIEL:170336,CIEL:170337,CIEL:170338"/>
+                    <render qId="170343" category="Respiration" aIds="CIEL:170340,CIEL:170341,CIEL:170342"/>
+                    <render qId="170347" category="Circulation" aIds="CIEL:170344,CIEL:170345,CIEL:170346"/>
+                    <render qId="162643" category="Level of consciousness" aIds="CIEL:160282,CIEL:162645,CIEL:159508"/>
+                    <render qId="170351" category="Activity" aIds="CIEL:170348,CIEL:170349,CIEL:170350"/>
+                </repeat>
+                <tr style="border-top: 3px solid black;">
+                    <td>
+                        <label><strong><uimessage code="Total Score"/></strong></label>
+                    </td>
+                    <td><span id="totalScore" class="totalScore">0</span></td>
+                </tr>
+            </tbody>
+            </table>
         </div>
     </section>
 
