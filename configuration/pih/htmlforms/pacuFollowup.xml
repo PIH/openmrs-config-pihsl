@@ -163,40 +163,40 @@
             const spO2obs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170339').valueCoded.id"/>';
             if (spO2obs) {
                 totalScore = totalScore + scoreMap.get(spO2obs);
-                jq('#Oxygenation_170339').text(scoreMap.get(spO2obs));
-                jq('#Oxygenation_170339').addClass("value");
+                jq('#oxygenation_170339').text(scoreMap.get(spO2obs));
+                jq('#oxygenation_170339').addClass("value");
             }
             </includeIf>
             <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170343')">
             const respObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170343').valueCoded.id"/>';
             if (respObs) {
                 totalScore = totalScore + scoreMap.get(respObs);
-                jq('#Respiration_170343').text(scoreMap.get(respObs));
-                jq('#Respiration_170343').addClass("value");
+                jq('#respiration_170343').text(scoreMap.get(respObs));
+                jq('#respiration_170343').addClass("value");
             }
             </includeIf>
             <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170347')">
             const circObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170347').valueCoded.id"/>';
             if (circObs) {
                 totalScore = totalScore + scoreMap.get(circObs);
-                jq('#Circulation_170347').text(scoreMap.get(circObs));
-                jq('#Circulation_170347').addClass("value");
+                jq('#circulation_170347').text(scoreMap.get(circObs));
+                jq('#circulation_170347').addClass("value");
             }
             </includeIf>
             <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:162643')">
             const consObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:162643').valueCoded.id"/>';
             if (consObs) {
                 totalScore = totalScore + scoreMap.get(consObs);
-                jq('#Level of consciousness_162643').text(scoreMap.get(consObs));
-                jq('#Level of consciousness_162643').addClass("value");
+                jq('#levelOfConsciousness_162643').text(scoreMap.get(consObs));
+                jq('#levelOfConsciousness_162643').addClass("value");
             }
             </includeIf>
             <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:170351')">
             const activityObs = '<lookup complexExpression="$fn.getObs($encounter, 'CIEL:170351').valueCoded.id"/>';
             if (activityObs) {
                 totalScore = totalScore + scoreMap.get(activityObs);
-                jq('#Activity_170351').text(scoreMap.get(activityObs));
-                jq('#Activity_170351').addClass("value");
+                jq('#activity_170351').text(scoreMap.get(activityObs));
+                jq('#activity_170351').addClass("value");
             }
             </includeIf>
             jq('#totalScore').text(totalScore);
@@ -351,7 +351,7 @@
                     <template>
                             <tr>
                                 <td colspan="2">
-                                    <label><strong><uimessage code="{category}"/></strong></label>
+                                    <label><strong><uimessage code="pihcore.{category}"/></strong></label>
                                 </td>
                             </tr>
                             <tr>
@@ -363,11 +363,11 @@
                                 </td>
                             </tr>
                     </template>
-                    <render qId="170339" category="Oxygenation" aIds="CIEL:170336,CIEL:170337,CIEL:170338"/>
-                    <render qId="170343" category="Respiration" aIds="CIEL:170340,CIEL:170341,CIEL:170342"/>
-                    <render qId="170347" category="Circulation" aIds="CIEL:170344,CIEL:170345,CIEL:170346"/>
-                    <render qId="162643" category="Level of consciousness" aIds="CIEL:160282,CIEL:162645,CIEL:159508"/>
-                    <render qId="170351" category="Activity" aIds="CIEL:170348,CIEL:170349,CIEL:170350"/>
+                    <render qId="170339" category="oxygenation" aIds="CIEL:170336,CIEL:170337,CIEL:170338"/>
+                    <render qId="170343" category="respiration" aIds="CIEL:170340,CIEL:170341,CIEL:170342"/>
+                    <render qId="170347" category="circulation" aIds="CIEL:170344,CIEL:170345,CIEL:170346"/>
+                    <render qId="162643" category="levelOfConsciousness" aIds="CIEL:160282,CIEL:162645,CIEL:159508"/>
+                    <render qId="170351" category="activity" aIds="CIEL:170348,CIEL:170349,CIEL:170350"/>
                 </repeat>
                 <tr style="border-top: 3px solid black;">
                     <td>
