@@ -220,6 +220,21 @@
 
     </ifMode>
 
+    <section id="dateOfDelivery" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.mch.deliveryDateTime">
+        <div class="section-container">
+            <div>
+                <p class="date-one-line">
+                    <label>
+                        <uimessage code="pihcore.mch.deliveryDateTime"/>
+                    </label>
+                    <br/>
+                    <obs conceptId="PIH:5599" showTime="true" allowFutureTimes="true"/>
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="postnatal-followup" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.postnatalFollowup.title">
         <div class="section-container">
