@@ -506,7 +506,7 @@
     <section id="prevention" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Prevention Measures">
         <div class="section-container">
-
+            <div>
             <repeat>
                 <template>
                     <p class="list-inline-wide">
@@ -523,8 +523,60 @@
                 <render cId="159922" words="Albendazole (deworming)" hint="deworm"/>
                 <render cId="1382"   words="Family planning counselling" hint="fp-counsel"/>
             </repeat>
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Accepts and receives family planning"/>
+                    </label>
+                    <obs id="accepts-fp" conceptId="CIEL:166421" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no">
+                        <controls>
+                            <when value="CIEL:1065" thenDisplay="#family-method"/>
+                        </controls>
+                    </obs>
+                </p>
+            </div>
+            <div id="family-method" class="two-columns">
+                <div>
+                    <p>
+                        <label>
+                            <uimessage code="pihcore.fpMethod"/>
+                        </label>
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="PIH:Family planning construct">
+                                    <obs id="fp-meth-{acID}" conceptId="CIEL:374" style="checkbox"
+                                         answerConceptId="CIEL:{acID}"
+                                         answerCode="{csName}">
+                                        <controls>
+                                            <when value="CIEL:1873" thenDisplay="#implant-date"/>
+                                            <when value="CIEL:5275" thenDisplay="#implant-date"/>
+                                        </controls>
+                                    </obs>
+                                </obsgroup>
+                            </template>
+                            <render acID="159783" csName="Combined oral contraceptive (COC)" />
+                            <render acID="80784"  csName="Progestin-only pill (POP)" />
+                            <render acID="5277"   csName="pihcore.fp.rhythm" />
+                            <render acID="190"    csName="Condoms" />
+                            <render acID="907"    csName="Depo-provera" />
+                            <render acID="5275"   csName="pihcore.fp.iud" />
+                            <render acID="1873"   csName="Implant" />
+                            <render acID="1472"   csName="pihcore.fp.tubalLig" />
+                            <render acID="136163" csName="Exclusive breastfeeding (requires a secondary method)" />
+                        </repeat>
+                    </p>
+                </div>
 
+                <div id="implant-date">
+                    <label>
+                        <uimessage code="pihcore.dateImplant"/>:
+                    </label>
+                    <obs conceptId="PIH:3203" />
+                </div>
+            </div>
         </div>
+
     </section>
 
     <section id="counselling" sectionTag="fieldset" headerTag="legend" headerStyle="title"
