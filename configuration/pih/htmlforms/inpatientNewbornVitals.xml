@@ -254,6 +254,9 @@
                                       providerRoles="${providerGroup.group1}"
                                       required="true"/>
         </span>
+        <span subform-parameter="encounter-date-widget" class="date-one-line">
+            <encounterDate id="encounterDate" default="now" showTime="true" />
+        </span>
     </subform>
 
     <section id="vitals" sectionTag="fieldset" headerTag="legend"

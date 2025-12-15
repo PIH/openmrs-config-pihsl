@@ -37,36 +37,6 @@ function getPrioritiesClasses() {
 
 const classNames = getPrioritiesClasses();
 
-function evaluateBpSystolic(value) {
-    let retValue = priorities.GREEN;
-    if (value != null &amp;&amp; !(Number.isNaN(value))) {
-        let numericValue = Number(value);
-        if (numericValue &lt; 80) {
-            return priorities.RED;
-        } else if ((numericValue &gt; 139) &amp;&amp; (numericValue &lt; 160)) {
-            return priorities.YELLOW;
-        } else if (numericValue &gt; 159) {
-            return priorities.RED;
-        }
-    }
-    return retValue;
-}
-
-function evaluateBpDiastolic(value) {
-    let retValue = priorities.GREEN;
-    if (value != null &amp;&amp; !(Number.isNaN(value))) {
-        let numericValue = Number(value);
-        if (numericValue &lt; 51) {
-            return priorities.RED;
-        } else if ((numericValue &gt; 89) &amp;&amp; (numericValue &lt; 110)) {
-            return priorities.YELLOW;
-        } else if (numericValue &gt; 109) {
-            return priorities.RED;
-        }
-    }
-    return retValue;
-}
-
 function evaluateHeartRate(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
@@ -150,14 +120,6 @@ function evaluateGlucose(value) {
 }
 
 let vitalsInfo = {
-    bp_systolic: {
-        evaluate: evaluateBpSystolic,
-        value: null
-    },
-    bp_diastolic: {
-        evaluate: evaluateBpDiastolic,
-        value: null
-    },
     heart_rate: {
         evaluate: evaluateHeartRate,
         value: null
@@ -250,15 +212,19 @@ jq(document).ready( function() {
         let colorCodingDiv = jq("#" + vitalsId).closest(".colorCodingValue");
         if (vitalsId) {
             if (vitalValue) {
-                vitalsInfo[vitalsId].value = vitalValue;
-                let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
-                if ( vitalsPriority &amp;&amp; colorCodingDiv) {
-                    setTimeout(() => {
-                        jq(colorCodingDiv).addClass(vitalsPriority.className);
-                    }, 100);
+                if (vitalsInfo[vitalsId] ) {
+                    vitalsInfo[vitalsId].value = vitalValue;
+                    let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
+                    if (vitalsPriority &amp;&amp; colorCodingDiv) {
+                        setTimeout(() => {
+                            jq(colorCodingDiv).addClass(vitalsPriority.className);
+                        }, 100);
+                    }
                 }
             } else {
-                vitalsInfo[vitalsId].value = null;
+                if (vitalsInfo[vitalsId] ) {
+                    vitalsInfo[vitalsId].value = null;
+                }
                 setTimeout(() => {
                     jq(inputElement).addClass('value');
                 }, 100);
@@ -274,15 +240,20 @@ jq(document).ready( function() {
         jq(inputElement).removeClass(classNames);
         if (vitalsId) {
             if (vitalValue) {
-                vitalsInfo[vitalsId].value = vitalValue;
-                let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
-                if (vitalsPriority) {
-                    setTimeout(() => {
-                        jq(inputElement).removeClass('legalValue').addClass(vitalsPriority.className);
-                    }, 100);
+                if (vitalsInfo[vitalsId] ) {
+                    vitalsInfo[vitalsId].value = vitalValue;
+
+                    let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
+                    if (vitalsPriority) {
+                        setTimeout(() => {
+                            jq(inputElement).removeClass('legalValue').addClass(vitalsPriority.className);
+                        }, 100);
+                    }
                 }
             } else {
-                vitalsInfo[vitalsId].value = null;
+                if (vitalsInfo[vitalsId] ) {
+                    vitalsInfo[vitalsId].value = null;
+                }
                 setTimeout(() => {
                     jq(inputElement).addClass('legalValue');
                 }, 100);
