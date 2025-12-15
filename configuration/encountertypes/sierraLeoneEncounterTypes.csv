@@ -18,3 +18,4 @@ ${encounterType.sierraLeoneNCDinit2.uuid},,NCD Initial Part 2 only,NCD Initial f
 ${encounterType.sierraLeoneNCDfollowup1.uuid},,NCD Followup Part 1 only,NCD Followup form in Sierra Leone (part 1 only)
 ${encounterType.sierraLeoneNCDfollowup2.uuid},,NCD Followup Part 2 only,NCD Followup form in Sierra Leone (part 2 only)
 ${encounterType.sierraLeoneInpatientVitals.uuid},,Inpatient Vitals,The inpatient vitals form for inpatient locations
+${encounterType.postNatalFollowup.uuid},,Postnatal Followup,Postnatal followup encounter
