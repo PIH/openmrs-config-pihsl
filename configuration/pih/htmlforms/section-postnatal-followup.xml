@@ -179,45 +179,13 @@
     </ifMode>
 
     <ifMode mode="VIEW" include="false">
-
         <script type="text/javascript">
             jq(document).ready(function() {
                 jq("#fhrDiv").hide();
-
-            // Set up EDD and Gestational Age
-            jq("#calculated-edd-and-gestational").hide();
-            const lastLMP = '<lookup complexExpression="$fn.formatDate($fn.latestObs('CIEL:1427').getValueDatetime(), 'yyyy-MM-dd')"/>';
-            const currentEncounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
-            validateEstimatedDeliveryDate("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-            const msgWeeks = '<uimessage code="pihcore.weeks"/>';
-            if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0)) {
-            const lastPeriodDate = new Date(lastLMP);
-            let yearMonthDay = lastLMP.split('-');
-            if (yearMonthDay.length == 3) {
-            lastPeriodDate.setFullYear(yearMonthDay[0]);
-            lastPeriodDate.setMonth(+yearMonthDay[1] -1); // the month starts from 0 for January
-            lastPeriodDate.setDate(yearMonthDay[2]);
-            lastPeriodDate.setHours(0, 0, 0);
-            }
-
-            const gestAgeText = calculateGestationalDays(lastPeriodDate, currentEncounterDate, msgWeeks);
-            jq("#calculated-gestational-age-value").text(gestAgeText);
-            const edd = calculateExpectedDeliveryDate(lastPeriodDate);
-            const locale = window.sessionContext.locale || navigator.language;
-            jq("#calculated-edd").text((Intl.DateTimeFormat(locale, { dateStyle: "medium" })).format(edd));
-            jq("#calculated-edd-and-gestational").show();
-
-            if (!htmlForm.getValueIfLegal("edd.value")) {
-            getField("edd.value").datepicker("setDate", edd);
-            }
-            }
-
-            // handlers for next and submit buttons, see nextAndSubmitButtons.js
-            setUpNextAndSubmitButtons();
+                // handlers for next and submit buttons, see nextAndSubmitButtons.js
+                setUpNextAndSubmitButtons();
             });
         </script>
-
-
     </ifMode>
 
     <section id="dateOfDelivery" sectionTag="fieldset" headerTag="legend"
@@ -307,42 +275,6 @@
 
                     <obs conceptId="CIEL:160079" answerConceptId="PIH:OTHER"
                          commentFieldLabel="  " style="checkbox"/>
-                </div>
-
-            </div>
-
-
-            <div id="calculated-edd-and-gestational" class="two-columns hidden">
-                <div>
-                    <span id="calculated-edd-wrapper">
-                        <span id="calculated-edd-label">
-                            <uimessage code="pihcore.calculatedEstimatedDeliveryDate"/>:&#160;
-                        </span>
-                        <span id='calculated-edd' class="value"></span>
-                    </span>
-                </div>
-
-                <div>
-                    <span id="calculated-gestational-age-wrapper">
-                        <span id="calculated-gestational-age-label">
-                            <uimessage code="pihcore.calculatedGestationalAge"/>:&#160;
-                        </span>
-                        <span id='calculated-gestational-age-value' class="value"></span>
-                    </span>
-                </div>
-            </div>
-            <br/>
-
-            <div class="two-columns">
-                <div>
-                    <label>
-                        <uimessage code="pihcore.pregnancy.dueDate"/>
-                    </label>
-                </div>
-                <div>
-                    <span class="small">
-                        <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="false"/>
-                    </span>
                 </div>
             </div>
         </div>
