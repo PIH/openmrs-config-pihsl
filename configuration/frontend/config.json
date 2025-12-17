@@ -436,7 +436,10 @@
           "patient-discharge-siderail-button"
         ]
       }
-    }
+    },
+    "additionalInpatientNotesConceptUuids": [
+      "${concept.freeTextComment.uuid}"
+    ]
   },
   "@openmrs/esm-patient-tests-app": {
     "orders": {
