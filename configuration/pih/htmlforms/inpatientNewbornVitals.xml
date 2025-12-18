@@ -307,7 +307,13 @@
                         <render qId="CIEL:140054" symptName="floppy"/>
                         <render qId="CIEL:116334" symptName="lethargy"/>
                         <render qId="CIEL:6023" symptName="irritable"/>
+                        <render qId="PIH:6784" symptName="unarousable"/>
+                        <render qId="PIH:21127" symptName="poorTone"/>
                     </repeat>
+                    <p class="side-by-side">
+                            <obs style="radio" conceptId="PIH:21125" answerConceptIds="PIH:1107,PIH:21126,PIH:1115" answerCodes="pihcore.notFeeding,pihcore.reluctantly,pihcore.feedingWell" labelCode="pihcore.feeding"/>
+
+                    </p>
                 </div>
                 <div>
                     <label>
