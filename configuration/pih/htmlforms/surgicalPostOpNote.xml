@@ -599,24 +599,6 @@
             </div>
 
             <div>
-                <p>
-                    <h3>
-                        <uimessage code="fluid_out"/>
-                    </h3>
-                    <label>
-                        <uimessage code="est_blood_loss"/>
-                    </label>
-                    <span class="small">
-                        <obs conceptId="PIH:Estimated blood loss" showUnits="true"/>
-                    </span>
-                    <label>
-                        <uimessage code="urine_out"/>
-                    </label>
-                    <span class="small">
-                        <obs conceptId="PIH:Urine output" showUnits="true"/>
-                    </span>
-                </p>
-
                 <p class="list-inline-wide">
                     <label>
                         <uimessage code="pre_op_antibiotic"/>
@@ -645,6 +627,23 @@
                     <br/>
                     <obs conceptId="PIH:Venous thromboembolism prophylaxis"
                          style="radio" answerSeparator="&lt;br /&gt;"/>
+                </p>
+                <p>
+                    <h3>
+                        <uimessage code="fluid_out"/>
+                    </h3>
+                    <label>
+                        <uimessage code="est_blood_loss"/>
+                    </label>
+                    <span class="small">
+                        <obs conceptId="PIH:Estimated blood loss" showUnits="true"/>
+                    </span>
+                    <label>
+                        <uimessage code="urine_out"/>
+                    </label>
+                    <span class="small">
+                        <obs conceptId="PIH:Urine output" showUnits="true"/>
+                    </span>
                 </p>
             </div>
         </div>
