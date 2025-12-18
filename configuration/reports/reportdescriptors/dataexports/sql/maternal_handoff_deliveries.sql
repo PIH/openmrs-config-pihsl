@@ -65,7 +65,7 @@ INSERT INTO temp_final (
   outcome, C_Section, Vacuum, Vaginal, No_Type_of_Delivery, Total
 )
 VALUES (
-  'Total', @c_section, @vacuum, @vaginal, @no_type, @total
+  'Total', ifnull(@c_section, 0), ifnull(@vacuum, 0), ifnull(@vaginal, 0), ifnull(@no_type, 0), ifnull(@total, 0)
 );
 
 select * from temp_final;
