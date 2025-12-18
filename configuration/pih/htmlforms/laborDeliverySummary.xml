@@ -731,7 +731,10 @@
                     <obs conceptId="PIH:20113" showTime="true" allowFutureTimes="true"/>
                 </span>
             </p>
-
+            <p>
+                <obs conceptId="PIH:6547" style="checkbox"
+                     answerConceptId="PIH:14646" answerCode="pihcore.companion"/>
+            </p>
             <p>
                 <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
                     <obs id="twins" conceptId="PIH:DIAGNOSIS" style="checkbox"
@@ -988,6 +991,29 @@
 
                     <p>
                         <obs conceptId="CIEL:168722" labelCode="Cord abnormality"  />
+                    </p>
+                    <h4><uimessage code="pihcore.mch.breastfeeding" /></h4>
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="pihcore.breastfeeding.initiated" />
+                        </label>
+                        <obs conceptId="CIEL:161543" style="radio" answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="pihcore.yes,pihcore.no" />
+                    </p>
+                    <p class="date-one-line">
+                        <label>
+                            <uimessage code="pihcore.breastfeeding.initiate.dateTime" />
+                        </label>
+                        <span class="small">
+                            <obs conceptId="PIH:21116" showTime="true" allowFutureTimes="true"/>
+                        </span>
+                    </p>
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="pihcore.pihcore.skinToSkin.initiated" />
+                        </label>
+                        <span>
+                        <obs conceptId="CIEL:1651" answerConceptId="CIEL:164173" answerCode=" " style="checkbox"/>
+                        </span>
                     </p>
                 </div>
             </div>
