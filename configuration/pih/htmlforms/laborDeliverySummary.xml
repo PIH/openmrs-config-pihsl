@@ -328,7 +328,7 @@
             });
         </script>
     </ifMode>
-
+    <ifMode mode="VIEW" include="false">
     <script type="text/javascript">
 
         jq(document).ready(function() {
@@ -351,6 +351,7 @@
 
             const patientUuid = '<lookup expression="patient.uuid"/>';
             const currentEncUuid = '<lookup expression="encounter.uuid"/>';
+            const currentEncDatetime = '<lookup expression="encounter.encounterDatetime"/>';
             let editingCurrentObs = false;
             if (currentEncUuid) {
                 let encHasLabourStartObs = false;
@@ -360,7 +361,12 @@
                         encHasLabourStartObs = true;
                      }
                }
-                if ( encHasLabourStartObs || getValue('induced.value')) {
+                let inducedValueObs = false;
+                <includeIf velocityTest="$fn.getObs($encounter, 'CIEL:151750')">
+                    inducedValueObs = true;
+                </includeIf>
+
+                if ( encHasLabourStartObs || inducedValueObs) {
                     // the current encounter already has Labour Progress obs
                     editingCurrentObs = true;
                 }
@@ -370,11 +376,13 @@
                 let currentEncounterDate = '';
                 // look for the encounterDate datepicker widget
                 let encounterDateValue = jq("#encounterDate .hasDatepicker");
-                if (encounterDateValue) {
+                if ( encounterDateValue &amp;&amp; encounterDateValue.length &gt; 0) {
                     let getDate = encounterDateValue.datepicker('getDate');
                     if (getDate) {
                         currentEncounterDate = new Date(getDate);
                     }
+                } else {
+                    currentEncounterDate = new Date(currentEncDatetime);
                 }
 
                 if ( currentEncounterDate ) {
@@ -479,6 +487,7 @@
             }
         });
     </script>
+    </ifMode>
     
     <div class="print-form-datestamps" style="display:none">
         <p><uimessage code="pihcore.form.created_on"/>:
