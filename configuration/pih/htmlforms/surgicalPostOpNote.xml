@@ -543,7 +543,9 @@
                         </label>
                         <br/>
                         <obs conceptId="PIH:IVF administered"
-                             style="radio" answerSeparator="&lt;br /&gt;"/>
+                             style="radio"
+                             answerConceptIds="PIH:7870,PIH:7897,PIH:7898,PIH:11657,PIH:7900,PIH:7873,PIH:11658"
+                             answerSeparator="&lt;br /&gt;"/>
                         <br/>
                         <span class="small">
                             <obs conceptId="PIH:IVF volume" showUnits="true"/>
