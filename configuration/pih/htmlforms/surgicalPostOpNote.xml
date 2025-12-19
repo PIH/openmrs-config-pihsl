@@ -15,7 +15,9 @@
 <htmlform id="surgical-note" class="simple-form-ui" formUuid="f61756c3-b8db-48d3-b8ee-f36f537fe16e"
           formName="Surgical Note"
           formEncounterType="c4941dee-7a9b-4c1c-aa6f-8193e9e5e4e5" formVersion="2.0">
-
+<macros>
+    <macro key="complicationsFromAnesthesia" value="65f257b3-de4f-49a4-8530-77fa5f648c5d"/>
+</macros>
     <translations defaultLocale="fr">
         <code name="surgical_note">
             <variant locale="en" value="Surgical note"/>
@@ -506,7 +508,14 @@
                     </label>
                     <br/>
                     <obs conceptId="PIH:Type of anesthesia"
-                         style="radio" answerSeparator="&lt;br /&gt;"/>
+                         style="radio" answerConceptIds="PIH:7850,PIH:7854,PIH:7855,PIH:7856,PIH:1107,PIH:7852,PIH:7853,PIH:7851,PIH:21112" answerSeparator="&lt;br /&gt;"/>
+                </p>
+                <p class="list-inline">
+                    <label>
+                        <uimessage code="pihcore.anesthesia.complications"/>
+                    </label>
+                    <br/>
+                    <obs conceptId="$complicationsFromAnesthesia"/>
                 </p>
 
                 <p class="list-inline">
@@ -665,6 +674,12 @@
                 </label>
                 <obs id="instructions" conceptId="CIEL:163106" style="textarea" rows="3"
                      cols="80"/>
+            </p>
+            <p>
+                <label>
+                    <uimessage code="pihcore.baby.observations"/>
+                </label>
+                <obs conceptId="PIH:21120" style="textarea" rows="3" cols="80"/>
             </p>
 
             <div class="two-columns">

@@ -1018,7 +1018,7 @@
                     </p>
                     <p class="side-by-side">
                         <label>
-                            <uimessage code="pihcore.pihcore.skinToSkin.initiated" />
+                            <uimessage code="pihcore.skinToSkin.initiated" />
                         </label>
                         <span>
                         <obs conceptId="CIEL:1651" answerConceptId="CIEL:164173" answerCode=" " style="checkbox"/>
