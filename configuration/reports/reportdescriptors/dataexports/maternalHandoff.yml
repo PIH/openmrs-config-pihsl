@@ -2,11 +2,15 @@ key: "maternalhandoff"
 uuid: "9c3d2a6f-8e5a-4c6b-b8c4-9f7e2a1d6e0b"
 name: "Maternal Handoff"
 description: "Maternal Handoff"
+parameters:
+  - key: "handoverDate"
+    type: "java.util.Date"
+    label: "Handover Date"
 datasets:
   - key: "Deliveries"
     type: "sql"
     config: "sql/maternal_handoff_deliveries.sql"
-  - key: "Ward_Acivity"
+  - key: "Ward_Activity"
     type: "sql"
     config: "sql/maternal_handoff_ward_activity.sql"
 designs:
