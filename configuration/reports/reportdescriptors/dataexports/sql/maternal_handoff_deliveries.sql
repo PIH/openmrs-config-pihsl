@@ -1,4 +1,4 @@
--- SET @handoverDate = '2025-12-22'; -- for testing 
+ -- SET @handoverDate = '2025-12-23'; -- for testing 
 
 set @baby_construct = concept_from_mapping('PIH','13555');
 set @type_delivery = concept_from_mapping('PIH','11663');
@@ -42,7 +42,6 @@ INSERT INTO temp_final (outcome) VALUES
   ('No Outcome'),
   ('Total');
 
-
 update temp_final f 
 inner join 
 	(select outcome,
@@ -53,7 +52,7 @@ inner join
 	from temp_births
 	group by outcome) i on ifnull(i.outcome,'No Outcome') = f.outcome
 set 
-f.c_section = i.C_Section,
+f.c_section = i.c_section,
 f.vacuum = i.vacuum,
 f.vaginal = i.vaginal,
 f.no_type_of_delivery = i.no_type_of_delivery;
@@ -80,20 +79,11 @@ set c_section = @c_section,
 	total = @total 
 where f.outcome = 'Total';
 
-update temp_final f 
-set total = 0 where total is null;
-
-update temp_final f 
-set c_section = 0 where c_section is null;
-
-update temp_final f 
-set vacuum = 0 where vacuum is null;
-
-update temp_final f 
-set vaginal = 0 where vaginal is null;
-
-update temp_final f 
-set no_type_of_delivery = 0 where no_type_of_delivery is null;
+update temp_final f set total = 0 where total is null;
+update temp_final f set c_section = 0 where c_section is null;
+update temp_final f set vacuum = 0 where vacuum is null;
+update temp_final f set vaginal = 0 where vaginal is null;
+update temp_final f set no_type_of_delivery = 0 where no_type_of_delivery is null;
 
 update temp_final f 
 set total = c_section + vacuum + vaginal + no_type_of_delivery ;
@@ -103,6 +93,6 @@ outcome "Outcome",
 c_section "C_Section",
 vacuum "Vacuum",
 vaginal "Vaginal",
-no_type_of_delivery "Delivery_Type_Missing",
+no_type_of_delivery "missing_Delivery_Type",
 total "Total"
 from temp_final;

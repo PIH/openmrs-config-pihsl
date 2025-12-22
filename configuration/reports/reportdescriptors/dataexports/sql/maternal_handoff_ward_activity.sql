@@ -1,3 +1,5 @@
+-- SET @handoverDate = '2025-12-20'; -- for testing 
+
 select encounter_type_id into @admission from encounter_type where uuid = '260566e1-c909-4d61-a96f-c1019291a09d';
 select encounter_type_id into @mat_discharge from encounter_type where uuid = '2110a810-db62-4914-ba95-604b96010164';
 select encounter_type_id into @newb_discharge from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
@@ -8,7 +10,10 @@ select location_id into @labour from location where uuid = '11377a5b-6850-11ee-a
 select location_id into @nicu from location where uuid = '0ce2f6fb-6850-11ee-ab8d-0242ac120002';
 select location_id into @pacu from location where uuid = '17596678-6850-11ee-ab8d-0242ac120002';
 select location_id into @pnc from location where uuid = 'ff0d5e73-3fe0-437f-90ba-7d605ac03dc0';
-select location_id into @kangaroo from location where uuid = '81080213-d1f9-11f0-9d46-169316be6a48';
+select location_id into @quiet from location where uuid = '28660b7f-3450-4b86-b840-9670ec68235f';
+select location_id into @mccu from location where uuid = '4d7e927d-6850-11ee-ab8d-0242ac120002';
+select location_id into @postop from location where uuid = 'a39ec469-d1f9-11f0-9d46-169316be6a48';
+select location_id into @preop from location where uuid = '142de844-6850-11ee-ab8d-0242ac120002';
 
 -- insert all admission, discharges, transfers into one table
 drop temporary table if exists temp_adt;
@@ -23,10 +28,10 @@ previous_location_name varchar(255));
 insert into temp_adt (patient_id, visit_id, location_name, encounter_type)
 select patient_id, visit_id, location_name(location_id), encounter_type from encounter e 
 where e.voided = 0
-and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @kangaroo) 
+and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop) 
 and encounter_type in (@admission, @mat_discharge, @newb_discharge, @transfer)
-and encounter_datetime >= DATE_SUB(CURDATE(), INTERVAL 1 DAY) + INTERVAL 8 HOUR
-and encounter_datetime <  CURDATE() + INTERVAL 8 HOUR;
+and encounter_datetime >= DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
+and encounter_datetime < @handoverDate + INTERVAL 8 HOUR;
 
 -- create table of all admissions and transfer ins to locations to prepare for updating the previous location for transfers 
 drop temporary table if exists temp_transfer_ins;
@@ -36,7 +41,7 @@ from encounter e
 inner join temp_adt t on t.patient_id = e.patient_id and t.encounter_type = @transfer  and e.visit_id = t.visit_id
 and e.encounter_type in (@admission, @transfer)
 where e.voided = 0
-and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @kangaroo));
+and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop));
 
 -- create duplicate table to overcome MySQL limitation
 drop temporary table if exists temp_transfer_ins_dup;
@@ -62,12 +67,40 @@ create temporary table temp_adt_transfer_outs
 insert into temp_adt (location_name, encounter_type)
 select previous_location_name, 999999 from temp_adt_transfer_outs;
 
--- final aggregation
-select location_name "Ward", 
-sum(case when encounter_type = @admission then 1 else 0 end) "Admissions",
-sum(case when encounter_type = @transfer then 1 else 0 end) "Transfers In",
-sum(case when encounter_type = 999999 then 1 else 0 end) "Transfers Out",
-sum(case when encounter_type in (@mat_discharge, @newb_discharge) then 1 else 0 end) "Discharges"
-from temp_adt 
-group by location_name;
+drop temporary table if exists temp_final;
+create temporary table temp_final 
+(ward varchar(255),
+admissions int,
+transfers_in int,
+transfers_out int,
+discharges int);
 
+INSERT INTO temp_final (ward)
+(select name from location where location_id in(@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop));
+
+update temp_final t
+inner join 
+	(select location_name "ward", 
+	sum(case when encounter_type = @admission then 1 else 0 end) "admissions",
+	sum(case when encounter_type = @transfer then 1 else 0 end) "transfers_in",
+	sum(case when encounter_type = 999999 then 1 else 0 end) "transfers_out",
+	sum(case when encounter_type in (@mat_discharge, @newb_discharge) then 1 else 0 end) "discharges"
+	from temp_adt group by location_name) i on i.ward= t.ward
+set
+	t.admissions = i.admissions,
+	t.transfers_in = i.transfers_in,
+	t.transfers_out = i.transfers_out,
+	t.discharges = i.discharges;
+	
+update temp_final t set t.admissions = 0 where t.admissions is null;
+update temp_final t set t.transfers_in = 0 where t.transfers_in is null;
+update temp_final t set t.transfers_out = 0 where t.transfers_out is null;
+update temp_final t set t.discharges = 0 where t.discharges is null;
+
+select 
+ward "Ward",
+admissions "Admissions", 
+transfers_in "Transfers_In",
+transfers_out "Transfers_Out",
+discharges "Discharges"
+from temp_final;
