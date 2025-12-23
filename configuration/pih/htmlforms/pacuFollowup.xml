@@ -75,6 +75,7 @@
         }
 
         .list-inline label, .list-inline input[type="radio"], .list-inline span,
+        .list-inline-small label, .list-inline-small input[type="radio"], .list-inline-small span,
         .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
         .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
             display: inline-block;
@@ -83,6 +84,10 @@
 
         .list-inline label:first-child {
             width: 220px;
+        }
+
+        .list-inline label:first-child {
+            width: 170px;
         }
 
         .list-inline-wide label:first-child {
@@ -111,6 +116,10 @@
         .totalScore {
             font-size: larger;
             font-weight: bolder;
+        }
+
+        .small-input input {
+            min-width: 7em;
         }
     </style>
 
@@ -371,37 +380,84 @@
     </section>
 
     <section id="pacu-events" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="PACU events">
-        <div class="section-container">
-            <repeat>
-                <template>
-                    <p class="list-inline">
-                        <label>
-                            <uimessage code="{category} score" />
-                        </label>
-                        <obs conceptId="CIEL:{qId}" style="radio"
-                             answerConceptIds="CIEL:1107,CIEL:1498,CIEL:1499,CIEL:1500" answerSeparator="" />
-                    </p>
-                </template>
-                <render qId="169568" category="Pain" />
-                <render qId="170353" category="Nausea" />
-            </repeat>
+        <div class="section-container two-columns">
+            <div>
+                <repeat>
+                    <template>
+                        <p class="list-inline">
+                            <label>
+                                <uimessage code="{category} score" />
+                            </label>
+                            <obs conceptId="CIEL:{qId}" style="radio"
+                                 answerConceptIds="CIEL:1107,CIEL:1498,CIEL:1499,CIEL:1500" answerSeparator="" />
+                        </p>
+                    </template>
+                    <render qId="169568" category="Pain" />
+                    <render qId="170353" category="Nausea" />
+                </repeat>
 
-            <repeat>
-                <template>
-                    <p class="list-inline">
-                        <label>
-                            <uimessage code="{qName}"/>
-                        </label>
-                        <obs conceptId="{qId}" style="radio" answerConceptIds="CIEL:1065,CIEL:1066" />
+                <repeat>
+                    <template>
+                        <p class="list-inline">
+                            <label>
+                                <uimessage code="{qName}"/>
+                            </label>
+                            <obs conceptId="{qId}" style="radio" answerConceptIds="CIEL:1065,CIEL:1066" />
+                        </p>
+                    </template>
+                    <render qId="CIEL:122983" qName="Vomiting" />
+                    <render qId="PIH:21078"   qName="Shivering" />
+                    <render qId="CIEL:170354" qName="Ambulation started" />
+                    <render qId="CIEL:170355" qName="Feeding started" />
+                    <render qId="CIEL:170483" qName="Urinary catheter removed" />
+                </repeat>
+            </div>
+            <div>
+                <div>
+                    <label>
+                        <uimessage code="mirebalais.vitals.gcs" /> (3-15)
+                    </label>
+                    <p class="small-input">
+                        <obs conceptId="CIEL:160347" />
                     </p>
-                </template>
-                <!-- render qId="CIEL:122983" qName="Vomiting" / -->
-                <render qId="PIH:21078"   qName="Shivering" />
-                <render qId="CIEL:170354" qName="Ambulation started" />
-                <render qId="CIEL:170355" qName="Feeding started" />
-                <!-- ToDo:  Add catheter removed -->
-                <!-- render qId="CIEL:x" qName="Catheter removed" / -->
-            </repeat>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fluid" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Blood/Fluids">
+        <div class="section-container two-columns">
+            <div>
+                <label>
+                    <uimessage code="Blood transfusion"/>
+                </label>
+                <obsgroup groupingConceptId="PIH:Transfusion construct"
+                          hiddenConceptId="PIH:Transfusion of fluid"
+                          hiddenAnswerConceptId="PIH:Whole blood">
+                    <span class="small">
+                        <obs conceptId="CIEL:166650" showUnits="true"/>
+                    </span>
+                    <br/><br/>
+
+                    <p class="list-inline-small">
+                        <label>
+                            <uimessage code="Urgency" />
+                        </label>
+                        <obs conceptId="CIEL:161238" style="radio"
+                             answerConceptIds="CIEL:161236,CIEL:1882,PIH:21137"
+                             answerCodes="routine,urgent,emergency release" />
+                    </p>
+                </obsgroup>
+            </div>
+            <div>
+                <label>
+                    <uimessage code="Urine output"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="PIH:21114" showUnits="true"/>
+                </span>
+            </div>
         </div>
     </section>
 
