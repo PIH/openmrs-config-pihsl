@@ -10,6 +10,9 @@ datasets:
   - key: "Deliveries"
     type: "sql"
     config: "sql/maternal_handoff_deliveries.sql"
+  - key: "Current_Census"
+    type: "sql"
+    config: "sql/maternal_handoff_current_census.sql" 
   - key: "Ward_Activity"
     type: "sql"
     config: "sql/maternal_handoff_ward_activity.sql"
@@ -24,4 +27,4 @@ config:
   order: 50
   components:
     - "dataExports"
-    - "allDataExports"    
+    - "allDataExports"  
