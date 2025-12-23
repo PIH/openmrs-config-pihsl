@@ -253,7 +253,7 @@
                 <div>
                     <!-- Anesthesiologists -->
                     <label>
-                        <uimessage code="Anesthesiologist"/>
+                        <uimessage code="Overseeing anesthesiologist"/>
                     </label>
                     <encounterProviderAndRole encounterRole="de11b25c-a641-4630-9524-5b85ece9a4f8"
                                               providerRoles="39c28f78-6637-4c21-9bf4-db3e2398054f"
@@ -263,7 +263,7 @@
                 <div>
                     <!-- Attending surgeon -->
                     <label>
-                        <uimessage code="Surgeon"/>
+                        <uimessage code="Overseeing surgeon"/>
                     </label>
                     <encounterProviderAndRole encounterRole="9b135b19-7ebe-4a51-aea2-69a53f9383af"
                                               providerRoles="3182ee51-b895-4804-a342-5f261e995222,556ceee6-d899-43d4-a98b-7973ebc85b75,2fa6f8da-aa58-11e8-98d0-529269fb1459"
@@ -324,16 +324,6 @@
              headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
             <subform path="configuration/pih/subforms/vital-signs-basic-widget.xml"/>
-
-            <br/>
-            <p class="list-inline">
-                <label>
-                    <uimessage code="Pain score" />
-                </label>
-                <obs conceptId="CIEL:166000" style="radio"
-                     answerConceptIds="CIEL:1107,CIEL:1498,CIEL:1499,CIEL:1500"/>
-            </p>
-
         </div>
     </section>
 
@@ -412,12 +402,6 @@
                 <!-- ToDo:  Add catheter removed -->
                 <!-- render qId="CIEL:x" qName="Catheter removed" / -->
             </repeat>
-        </div>
-    </section>
-
-    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
-        <div class="section-container">
-            <subform path="configuration/pih/subforms/drug-order-widget.xml"/>
         </div>
     </section>
 

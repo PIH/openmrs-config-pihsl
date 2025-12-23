@@ -765,39 +765,36 @@
         </div>
     </section>
 
-    <section id="treatment-support" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Treatment support">
+    <section id="inputs" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Inputs">
         <div class="section-container">
-            <h4>
+            <h6>
                 <uimessage code="Feeding method"/>
-            </h4>
+            </h6>
+
+            <repeat>
+                <template>
+                    <obs conceptId="CIEL:1151" style="checkbox"
+                         answerConceptId="CIEL:{answer}"
+                         answerCode="{aLabel}"/>
+                </template>
+                <render answer="5632"   aLabel="breastfed" />
+                <render answer="5254"   aLabel="formula" />
+                <render answer="170412" aLabel="nil per oral (NPO)" />
+            </repeat>
+            <br/>
+
             <p class="side-by-side">
-                <obs conceptId="CIEL:1151" style="radio"
-                     answerConceptIds="CIEL:5632,CIEL:5254"
-                     answerCodes="Breastfed,Formula"/>
-                <br/>
                 <obs conceptId="CIEL:168734" style="radio"
                      answerConceptIds="CIEL:168743,CIEL:168735,CIEL:168742"
                      answerCodes="Tube,Cup,Spoon"/>
             </p>
 
             <div>
-                <strong>
-                    <uimessage code="Fluid outputs"/>
-                </strong>
-                <label>
-                    <uimessage code="Total urine output"/>
-                </label>
-                <p class="small-input">
-                    <obs conceptId="PIH:Urine output" showUnits="true"/>
-                </p>
-            </div>
-
-            <div>
                 <p>
-                    <strong>
+                    <h6>
                         <uimessage code="IV"/>
-                    </strong>
+                    </h6>
 
                     <obs conceptId="CIEL:165995" toggle="ivf"
                          answerConceptId="CIEL:1765" answerCode="Intravenous (IV) access"
@@ -821,7 +818,7 @@
                                     </label>
                                     <br/>
                                     <obs conceptId="CIEL:166006" style="radio"
-                                         answerConceptIds="CIEL:166309,CIEL:164385,CIEL:166241,CIEL:164387"/>
+                                         answerConceptIds="CIEL:166309,CIEL:164385,CIEL:166241,CIEL:164387,PIH:21117"/>
                                 </p>
                             </td>
                             <td style="border: 0px;  background-color: #F2F2F2; vertical-align: top">
@@ -833,35 +830,53 @@
                                 </p>
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="2" style="border: 0px;  background-color: #F2F2F2;">
-                                <obsgroup groupingConceptId="PIH:IVF construct">
+                        <tr style="border: 0px;  background-color: #F2F2F2;">
+                            <obsgroup groupingConceptId="PIH:IVF construct">
+                                <td style="border: 0px;  background-color: #F2F2F2;">
+
                                     <label>
-                                        <uimessage code="pihcore.ivf"/>
+                                        <uimessage code="pihcore.ivf"/> (IVF)
                                     </label>
-                                    <p class="side-by-side">
-                                        <obs conceptId="PIH:IVF administered" style="radio"
-                                             answerConceptIds="CIEL:74653,CIEL:80804,PIH:7898,CIEL:161250,CIEL:161922,CIEL:161924,CIEL:78617,PIH:20465,PIH:20466"
-                                             answerCodes="Dextran,Normal saline (NS) 0.9%,Dextrose (D) 5% in Sodium Chloride 0.45%,Dextrose (D) 5% in water,Dextrose (D) 10% in water,Mannitol 20%,Ringer's lactate (RL),1 part RL to 4 parts D10%,75mL D5% + 5mL D50% + 20mL NS + 1mL calcium gluconate"
-                                             answerSeparator="&lt;br /&gt;"/>
-                                        <br/><br/>
-                                        <label>
-                                            <uimessage code="pihcore.ivfVol" />
-                                        </label>
-                                        <p class="small-input">
-                                            <obs conceptId="PIH:IVF volume" showUnits="true"/>
-                                        </p>
+                                    <p>
+                                        <repeat>
+                                            <template>
+                                                <obs conceptId="PIH:IVF administered" style="checkbox"
+                                                     answerConceptId="{answer}"
+                                                     answerCode="{aLabel}" />
+                                            </template>
+                                            <render answer="CIEL:74653" aLabel="Dextran" />
+                                            <render answer="CIEL:80804" aLabel="Normal saline (NS) 0.9%" />
+                                            <render answer="PIH:7898"   aLabel="Dextrose (D) 5% in sodium chloride 0.45%" />
+                                            <render answer="CIEL:161250" aLabel="Dextrose (D) 5% in water" />
+                                            <render answer="CIEL:161922" aLabel="Dextrose (D) 10% in water" />
+                                            <render answer="CIEL:161924" aLabel="Mannitol 20%" />
+                                            <render answer="CIEL:78617" aLabel="Ringer's lactate (RL)" />
+                                            <render answer="PIH:20465" aLabel="1 part RL to 4 parts D10%" />
+                                            <render answer="PIH:20466" aLabel="75mL D5% + 5mL D50% + 20mL NS + 1mL calcium gluconate" />
+                                            <render answer="PIH:21128" aLabel="75mL D5% + 5mLD50% + 20mL NS + 1mL calcium gluconate + magnesium sulfate" />
+                                            <render answer="PIH:21129" aLabel="Dextrose 5% + magnesium sulfate" />
+                                            <render answer="PIH:21130" aLabel="Dextrose 10% + magnesium sulfate" />
+                                        </repeat>
+
                                     </p>
-                                </obsgroup>
-                            </td>
+                                </td>
+                                <td style="border: 0px;">
+                                    <label>
+                                        <uimessage code="pihcore.ivfVol" />
+                                    </label>
+                                    <p class="small-input">
+                                        <obs conceptId="CIEL:170482" showUnits="true"/>
+                                    </p>
+                                </td>
+                            </obsgroup>
                         </tr>
                     </table>
                 </div>
             </div>
 
-            <strong>
+            <h6>
                 <uimessage code="Respiration" />
-            </strong>
+            </h6>
             <div class="two-columns">
                 <div>
                     <p class="side-by-side">
@@ -895,9 +910,15 @@
                         <span class="small">
                             <obs conceptId="PIH:20357" showUnits="cm-h2o"/>
                         </span>
+
+                        <label>
+                            <uimessage code="FiO2"/>
+                        </label>
+                        <span class="small">
+                            <obs conceptId="CIEL:165927" showUnits="true"/>
+                        </span>
                     </div>
                 </div>
-
             </div>
 
             <!-- Apnea -->
@@ -969,9 +990,9 @@
                     </table>
                 </div>
 
-                <strong>
+                <h6>
                     <uimessage code="Blood"/>
-                </strong>
+                </h6>
                 <div class="two-columns">
                     <div>
                         <p class="list-inline">
@@ -986,14 +1007,7 @@
                             </obs>
                         </p>
                     </div>
-                    <div>
-                        <label>
-                            <uimessage code="Estimated blood loss"/>
-                        </label>
-                        <p class="small-input">
-                            <obs conceptId="PIH:Estimated blood loss" showUnits="true"/>
-                        </p>
-                    </div>
+                    <div></div>
                 </div>
 
 
@@ -1014,7 +1028,7 @@
                                     <obsgroup groupingConceptId="PIH:Transfusion construct">
                                         <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:{answer}"/>
                                         <span class="small">
-                                            <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
+                                            <obs conceptId="CIEL:166650" showUnits="true"/>
                                         </span>
                                     </obsgroup>
                                 </div>
@@ -1033,23 +1047,51 @@
                     <br/>
                 </div>
 
-                <strong>
-                    <uimessage code="Surgery" />
-                </strong>
-                <p class="list-inline">
-                    <label>
-                        <uimessage code="Surgery recommended" />
-                    </label>
-                    <obs conceptId="CIEL:164258" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066"
-                         answerCodes="yes,no" />
-                </p>
-
             </div>
+        </div>
+    </section>
 
-            <strong>
+    <section id="outputs" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Outputs">
+        <div class="section-container two-columns">
+            <div>
+                <label>
+                    <uimessage code="Urine output"/>
+                </label>
+                <p class="small-input">
+                    <obs conceptId="PIH:21114" showUnits="true"/>
+                </p>
+            </div>
+            <div>
+                <label>
+                    <uimessage code="Estimated blood loss"/>
+                </label>
+                <p class="small-input">
+                    <obs conceptId="PIH:12555" showUnits="true"/>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="treatment-support" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Treatment support">
+        <div class="section-container">
+
+            <h4>
+                <uimessage code="Surgery" />
+            </h4>
+            <p class="list-inline">
+                <label>
+                    <uimessage code="Surgery recommended" />
+                </label>
+                <obs conceptId="CIEL:164258" style="radio"
+                     answerConceptIds="CIEL:1065,CIEL:1066"
+                     answerCodes="yes,no" />
+            </p>
+
+            <h4>
                 <uimessage code="Birth plan" />
-            </strong>
+            </h4>
             <div class="four-columns">
                 <div>
                     <ifMode mode="VIEW" include="false">
@@ -1098,13 +1140,11 @@
             </div>
             <br/>
 
-            <div>
-                <br/>
-                <label>
-                    <uimessage code="Treatment plan" />
-                </label>
-                <obs conceptId="CIEL:163104" style="textarea" />
-            </div>
+            <h4>
+                <uimessage code="Treatment plan" />
+            </h4>
+            <obs conceptId="CIEL:163104" style="textarea" />
+
         </div>
     </section>
 
