@@ -619,46 +619,52 @@
             </ifMode>
 
             <div id="enter_labour_progress">
-            <p id="when-labor" class="date-one-line">
-                <label>
-                    <uimessage code="Labour start date/time"/>
-                </label>
-                <span>
-                    <obs id="labourStartDateTime" conceptId="CIEL:163444" showTime="true" allowFutureTimes="true"/>
-                </span>
-            </p>
+                <p id="when-labor" class="date-one-line">
+                    <label>
+                        <uimessage code="Labour start date/time"/>
+                    </label>
+                    <span>
+                        <obs id="labourStartDateTime" conceptId="CIEL:163444" showTime="true" allowFutureTimes="true"/>
+                    </span>
+                </p>
 
-            <p class="side-by-side">
-                <label>
-                    <uimessage code="Induced labor" />
-                </label>
-                <obs id="induced" conceptId="CIEL:151750" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066">
-                    <controls>
-                        <when value="CIEL:1065" thenDisplay="#induced-details"/>
-                    </controls>
-                </obs>
-                <br/>
-                <div id="induced-details">
-                    <div id="induced-date" class="date-one-line">
-                        <label>
-                            <uimessage code="Induction date/time"/>
-                        </label>
-                        <obs id="inductionDateTime" conceptId="CIEL:168755" showTime="true" allowFutureTimes="true"/>
-                    </div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Induced labor" />
+                    </label>
+                    <obs id="induced" conceptId="CIEL:151750" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="pihcore.yes,pihcore.no">
+                        <controls>
+                            <when value="CIEL:1065" thenDisplay="#induced-details"/>
+                        </controls>
+                    </obs>
                     <br/>
+                    <div id="induced-details">
+                        <div id="induced-date" class="date-one-line">
+                            <label>
+                                <uimessage code="Induction date/time"/>
+                            </label>
+                            <obs id="inductionDateTime" conceptId="CIEL:168755" showTime="true" allowFutureTimes="true"/>
+                        </div>
+                        <br/>
 
-                    <p class="side-by-side">
-                        <label>
-                            <uimessage code="Method of induction" />
-                        </label>
-                        <obs id="methodOfInduction" conceptId="CIEL:168751" style="radio"
-                             answerConceptIds="CIEL:168752,CIEL:168753,CIEL:168754"
-                             answerCodes="Mechanical induction,Oxytocin,Misoprostol"/>
-                    </p>
-                </div>
-            </p>
+                        <p class="side-by-side">
+                            <label>
+                                <uimessage code="Method of induction" />
+                            </label>
+                            <obs id="methodOfInduction" conceptId="CIEL:168751" style="radio"
+                                 answerConceptIds="CIEL:168752,CIEL:168753,CIEL:168754"
+                                 answerCodes="Mechanical induction,Oxytocin,Misoprostol"/>
+                        </p>
+                    </div>
+                </p>
             </div>
+
+            <p>
+                <obs conceptId="PIH:6547" style="checkbox"
+                     answerConceptId="PIH:14646" answerCode="pihcore.companionPresent"/>
+            </p>
         </div>
     </section>
 
@@ -740,10 +746,7 @@
                     <obs conceptId="PIH:20113" showTime="true" allowFutureTimes="true"/>
                 </span>
             </p>
-            <p>
-                <obs conceptId="PIH:6547" style="checkbox"
-                     answerConceptId="PIH:14646" answerCode="pihcore.companion"/>
-            </p>
+
             <p>
                 <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
                     <obs id="twins" conceptId="PIH:DIAGNOSIS" style="checkbox"
@@ -775,7 +778,7 @@
                                     <obs id="dead-or-alive-{0}"
                                          conceptId="CIEL:159917" style="radio" class="fetusOutcome"
                                          answerConceptIds="CIEL:151849,CIEL:159916,CIEL:135436"
-                                         answerCodes="Alive,FSB,MSB" controlId="fetus-outcome-{0}">  <!-- control ID to retain order on the form -->
+                                         answerCodes="alive,FSB,MSB" controlId="fetus-outcome-{0}">  <!-- control ID to retain order on the form -->
                                         <controls>
                                             <when value="CIEL:151849" thenDisplay=".alive-details-{0}"/>
                                         </controls>
@@ -1041,7 +1044,7 @@
                     </p>
                 </template>
                 <render concept="CIEL:163452" answers="CIEL:1065,CIEL:1066"
-                        name="pihcore.fullAMTSL" codes="emr.yes,emr.no" />
+                        name="pihcore.fullAMTSL" codes="pihcore.yes,pihcore.no" />
              </repeat>
 
             <p class="date-one-line">
@@ -1099,10 +1102,10 @@
                     </label>
                     <repeat>
                         <template>
-                            <obs conceptId="CIEL:1651" answerConceptId="{concept}" answerCodes="{name}"/>
+                            <obs conceptId="CIEL:1651" style="checkbox" answerConceptId="{concept}" answerCode="{name}"/>
                         </template>
-                        <render concept="CIEL:5577"   name="Episiotomy" />
-                        <render concept="CIEL:164157" name="Suture of perineum" />
+                        <render concept="CIEL:5577"   name="episiotomy" />
+                        <render concept="CIEL:164157" name="suture of perineum" />
                     </repeat>
                 </div>
                 <div>
