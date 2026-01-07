@@ -1,4 +1,7 @@
 
+// Note that is currently customized with vital ranges for *pregnancy* patients as defined here:
+//  https://github.com/PIH/openmrs-config-pihsl/blob/master/configuration/conceptreferencerange/vitalsRanges.csv
+// TODO: figure out to pull in the values from the concept reference range table so that we can support other patient types.  We will also need to handle the "yellow" range which is not supported in the reference range table
 
     const priorities = {
         GREEN: {
@@ -41,11 +44,11 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt; 80) {
+            if (numericValue &lt;= 79) {
                 return priorities.RED;
             } else if ((numericValue &gt; 139) &amp;&amp; (numericValue &lt; 160)) {
                 return priorities.YELLOW;
-            } else if (numericValue &gt; 159) {
+            } else if (numericValue &gt;= 160) {
                 return priorities.RED;
             }
         }
@@ -56,11 +59,11 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt; 51) {
+            if (numericValue &lt;= 50) {
                 return priorities.RED;
             } else if ((numericValue &gt; 89) &amp;&amp; (numericValue &lt; 110)) {
                 return priorities.YELLOW;
-            } else if (numericValue &gt; 109) {
+            } else if (numericValue &gt;= 110) {
                 return priorities.RED;
             }
         }
@@ -71,13 +74,13 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if (numericValue &lt; 40) {
+            if (numericValue &lt;= 39) {
                 return priorities.RED;
             } if (numericValue &lt; 50) {
                 return priorities.ORANGE;
             } else if ((numericValue &gt; 119) &amp;&amp; (numericValue &lt; 131)) {
                 return priorities.ORANGE;
-            } else if (numericValue &gt; 130) {
+            } else if (numericValue &gt;= 131) {
                 return priorities.RED;
             }
         }
@@ -90,8 +93,6 @@
             let numericValue = Number(value);
             if (numericValue &lt; 12) {
                 return priorities.ORANGE;
-            } else if (numericValue &lt; 20) {
-                return priorities.GREEN;
             } else if (numericValue &gt; 26) {
                 return priorities.ORANGE;
             }
@@ -118,20 +119,20 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if ((numericValue &lt; 110 ) || (numericValue &gt;= 160)) {
+            if ((numericValue &lt;= 109 ) || (numericValue &gt; 160)) {
                 return priorities.RED;
             }
         }
         return retValue;
     }
 
-    function evaluateOxigenSaturation(value) {
+    function evaluateOxygenSaturation(value) {
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
             if (numericValue &lt;= 93) {
                 return priorities.RED;
-            } else if ((numericValue &gt;= 94) &amp;&amp; (numericValue &lt;= 95)) {
+            } else if (numericValue &lt; 96) {
                 return priorities.ORANGE;
             }
         }
@@ -160,7 +161,7 @@
             value: null
         },
         o2_sat: {
-            evaluate: evaluateOxigenSaturation,
+            evaluate: evaluateOxygenSaturation,
             value: null
         },
         fhr: {
