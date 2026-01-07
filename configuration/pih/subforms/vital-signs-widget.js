@@ -106,9 +106,9 @@
             let numericValue = Number(value);
             if ((numericValue &lt;= 34.9) || (numericValue &gt;= 40)) {
                 return priorities.RED;
-            } else if ((numericValue &gt;= 38) &amp;&amp; (numericValue &lt;= 38.3)) {
+            } else if ((numericValue &gt;= 38) &amp;&amp; (numericValue &lt;= 38.2)) {
                 return priorities.YELLOW;
-            } else if ((numericValue &gt; 38.3) &amp;&amp; (numericValue &lt; 40)) {
+            } else if ((numericValue &gt; 38.2) &amp;&amp; (numericValue &lt; 40)) {
                 return priorities.ORANGE;
             }
         }
@@ -119,7 +119,7 @@
         let retValue = priorities.GREEN;
         if (value != null &amp;&amp; !(Number.isNaN(value))) {
             let numericValue = Number(value);
-            if ((numericValue &lt;= 109 ) || (numericValue &gt; 160)) {
+            if ((numericValue &lt;= 109 ) || (numericValue &gt;= 161)) {
                 return priorities.RED;
             }
         }
