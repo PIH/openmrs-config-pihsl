@@ -1,3 +1,6 @@
+// Note that is currently customized with vital ranges for *infants* as defined here:
+//  https://github.com/PIH/openmrs-config-pihsl/blob/master/configuration/conceptreferencerange/vitalsRanges.csv
+// TODO: figure out to pull in the values from the concept reference range table.  We will also need to handle the "yellow" range which is not supported in the reference range table
 
 
 const priorities = {
@@ -41,7 +44,7 @@ function evaluateHeartRate(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if (numericValue &lt; 80) {
+        if (numericValue &lt;= 79) {
             return priorities.RED;
         } else if ((numericValue &gt;= 80) &amp;&amp; (numericValue &lt;= 99)) {
             return priorities.YELLOW;
@@ -84,22 +87,11 @@ function evaluateTemperature(value) {
     return retValue;
 }
 
-function evaluateFhr(value) {
+function evaluateOxygenSaturation(value) {
     let retValue = priorities.GREEN;
     if (value != null &amp;&amp; !(Number.isNaN(value))) {
         let numericValue = Number(value);
-        if ((numericValue &lt; 110 ) || (numericValue &gt;= 160)) {
-            return priorities.RED;
-        }
-    }
-    return retValue;
-}
-
-function evaluateOxigenSaturation(value) {
-    let retValue = priorities.GREEN;
-    if (value != null &amp;&amp; !(Number.isNaN(value))) {
-        let numericValue = Number(value);
-        if (numericValue &lt; 90) {
+        if (numericValue &lt;= 89) {
             return priorities.RED;
         } else if ((numericValue &gt;= 90) &amp;&amp; (numericValue &lt;= 94)) {
             return priorities.YELLOW;
@@ -133,15 +125,11 @@ let vitalsInfo = {
         value: null
     },
     o2_sat: {
-        evaluate: evaluateOxigenSaturation,
+        evaluate: evaluateOxygenSaturation,
         value: null
     },
     glucose: {
         evaluate: evaluateGlucose,
-        value: null
-    },
-    fhr: {
-        evaluate: evaluateFhr,
         value: null
     }
 };
