@@ -5,13 +5,17 @@ set @estimatedBloodLossOld = (select concept_id from concept where uuid = '3a791
 set @estimatedBloodLossNew = (select concept_id from concept where uuid = '0b4f2fbe-cc2a-438e-82b7-04ec7b550081');
 set @ivfVolumeOld = (select concept_id from concept where uuid = 'ad60741b-7738-491b-b4e0-c623a157fffa');
 set @ivfVolumeNew = (select concept_id from concept where uuid = '40388360-d700-4296-b3f9-446653f6102e');
+set @newbornDailyProgressEncounterTypeId = (select encounter_type_id from encounter_type where uuid = '7e42e652-89e7-4559-80fd-41f42826c98c');
 set @daemonUser = (select user_id from users where username='daemon');
 set @currentDate = now();
 
 -- create temporary table to hold the obs that need to be updated
 drop temporary table if exists temp_litre_obs_to_update ;
 create temporary table temp_litre_obs_to_update as
-select * from obs where concept_id in (@volumeMeasurementUrineOld, @estimatedBloodLossOld, @ivfVolumeOld) and voided = 0;
+select o.* from obs o inner join encounter e on o.encounter_id = e.encounter_id
+where o.concept_id in (@volumeMeasurementUrineOld, @estimatedBloodLossOld, @ivfVolumeOld)
+  and o.voided = 0
+  and e.encounter_type = @newbornDailyProgressEncounterTypeId;
 
 -- create the new obs from the old obs (setting creator to daemonUser, date_created to now(), and uuid to a new uuid)
 insert into obs (
