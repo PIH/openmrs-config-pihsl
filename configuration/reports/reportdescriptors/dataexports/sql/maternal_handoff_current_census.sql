@@ -1,7 +1,6 @@
 select encounter_type_id into @admission from encounter_type where uuid = '260566e1-c909-4d61-a96f-c1019291a09d';
-select encounter_type_id into @mat_discharge from encounter_type where uuid = '2110a810-db62-4914-ba95-604b96010164';
-select encounter_type_id into @newb_discharge from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
 select encounter_type_id into @transfer from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
+select encounter_type_id into @exit_from_care from encounter_type where uuid = 'b6631959-2105-49dd-b154-e1249e0fbcd7';
 
 select location_id into @anc from location where uuid = '11f5c9f9-40b8-46ad-9e7e-59473ce43246';
 select location_id into @labour from location where uuid = '11377a5b-6850-11ee-ab8d-0242ac120002';
@@ -24,13 +23,14 @@ and not exists
 	(select 1 from encounter e2
 	where e2.voided = 0
 	and e2.patient_id = e.patient_id 
-	and e2.encounter_type in (@mat_discharge, @newb_discharge)
-	and e2.encounter_datetime >= e.encounter_datetime 
+	and (e2.encounter_type in (@exit_from_care) or (e2.encounter_type = @transfer and e2.location_id <> e.location_id))
+	and e2.encounter_datetime > e.encounter_datetime 
 	));
 
 delete t from temp_census t 
 inner join person p on p.person_id = t.patient_id
-where TIMESTAMPDIFF(YEAR, p.birthdate, CURDATE()) < 1 and t.location_id <> @nicu;
+where (p.birthdate is null or (TIMESTAMPDIFF(YEAR, p.birthdate, CURDATE()) < 10 and t.location_id <> @nicu))
+   or (p.birthdate is null or (TIMESTAMPDIFF(YEAR, p.birthdate, CURDATE()) > 0 and t.location_id = @nicu)) ;
 
 drop temporary table if exists temp_final;
 create temporary table temp_final 
