@@ -380,5 +380,11 @@
 					concept_from_mapping('PIH','14826'),
 					concept_from_mapping('PIH','11506'));
         </sql>
-    </changeSet>    
+    </changeSet>
+    <changeSet id="20260107-SL-1149-migrate-litre-concepts-to-ml" author="mseaton">
+        <comment>
+            SL-1149: Migrate any data in Urine Output, Blood Loss, and IVF Volume to new concepts
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/migrate_litre_to_ml_obs.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
 </databaseChangeLog>
