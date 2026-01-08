@@ -13,7 +13,7 @@
   -->
 
 <htmlform formUuid="0b0e0e55-4b3a-4d4e-b67e-ba79c7d4df86" formName="Check-In"
-          formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="3.0">
+          formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="3.0" class="allow-empty-form">
     <style>
         .encounter-summary-container {
             font-size: 1em;
@@ -64,10 +64,10 @@
 
         <fieldset>
             <legend>
-                <uimessage code="pih.app.appointments.title"/>
+                bogus
             </legend>
             <h3>
-                <uimessage code="pih.app.appointments.title"/>
+                bogus
             </h3>
             <p>
                 <uimessage code="form.checkin.appointments.text"/>
