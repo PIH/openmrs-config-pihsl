@@ -64,10 +64,10 @@
 
         <fieldset>
             <legend>
-                bogus
+                <uimessage code="pih.app.appointments.title"/>
             </legend>
             <h3>
-                bogus
+                <uimessage code="pih.app.appointments.title"/>
             </h3>
             <p>
                 <uimessage code="form.checkin.appointments.text"/>
