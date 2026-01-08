@@ -1,7 +1,7 @@
 // Note that is currently customized with vital ranges for *infants* as defined here:
 //  https://github.com/PIH/openmrs-config-pihsl/blob/master/configuration/conceptreferencerange/vitalsRanges.csv
 // TODO: figure out to pull in the values from the concept reference range table.  We will also need to handle the "yellow" range which is not supported in the reference range table
-
+// TODO: see https://pihemr.atlassian.net/browse/SL-1153
 
 const priorities = {
     GREEN: {
