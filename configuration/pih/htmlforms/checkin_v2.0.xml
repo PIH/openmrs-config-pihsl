@@ -12,12 +12,12 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform formUuid="c233ca6a-ebe2-4d5a-8f79-466c3aced2a0" formName="Check-In"
-          formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="3.0">
+<htmlform formUuid="6058e2e0-7428-11e5-a837-0800200c9a66" formName="Check-In"
+          formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="2.0">
     <style>
         .encounter-summary-container {
-            font-size: 1em;
-            font-weight: normal;
+        font-size: 1em;
+        font-weight: normal;
         }
 
         .appointment-checkbox label {
@@ -36,8 +36,10 @@
         <script type="text/javascript">
 
             jq(function() {
-                // hack to make the datepicker show when the form is opened
-                getField('encounterDate.value').datepicker('show');
+
+            // hack to make the datepicker show when the form is opened
+            getField('encounterDate.value').datepicker('show');
+
             });
 
         </script>
@@ -85,6 +87,24 @@
                 </p>
             </fieldset>
 
+
+            <fieldset class="required type-of-visit-question">
+                <legend>
+                    <uimessage code="mirebalais.retrospectiveCheckin.visitType.label"/>
+                </legend>
+                <h3>
+                    <uimessage code="mirebalais.retrospectiveCheckin.visitType.label"/>
+                </h3>
+
+                <p class="left">
+                    <obs conceptId="PIH:REASON FOR VISIT" id="typeOfVisit"
+                         answerConceptIds="PIH:OUTPATIENT CONSULTATION,PIH:EMERGENCY VISIT,PIH:ANC VISIT,PIH:Labor and delivery visit,PIH:FAMILY PLANNING SERVICES,PIH:Immunization visit,PIH:MALNUTRITION PROGRAM,PIH:ART VISIT,PIH:TB VISIT,PIH:MENTAL HEALTH SERVICES,CIEL:168363"
+                         answerLabels="Outpatient visit,Sick Visit,ANC,Labour and Delivery,Family Planning,Immunization,Malnutrition,HIV,TB,Mental Health,NCD"
+                         style="dropdown" size="999">
+                    </obs>
+                </p>
+
+            </fieldset>
             <fieldset>
                 <legend>
                     <uimessage code="pih.app.appointments.title"/>
@@ -110,6 +130,21 @@
         <section id="checkin" sectionTag="section" headerStyle="title" headerLabel="">
 
             <span id="most-recent-encounter-title" style="display:none"><!--The Most Recent Encounter app in Core Apps replaces this with the "most recent" label--></span>
+
+            <fieldset class="type-of-visit-question">
+                <legend>
+                    <uimessage code="mirebalais.retrospectiveCheckin.visitType.label"/>
+                </legend>
+                <h3>
+                    <uimessage code="mirebalais.retrospectiveCheckin.visitType.label"/>
+                </h3>
+
+                <p class="left">
+                    <obs conceptId="PIH:REASON FOR VISIT" id="typeOfVisit" showUnits="false"
+                         unitsCssClass="append-to-value" style="dropdown" size="9">
+                    </obs>
+                </p>
+            </fieldset>
 
         </section>
 
