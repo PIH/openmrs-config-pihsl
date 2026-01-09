@@ -422,18 +422,18 @@
     ],
     "hideWorkspaceVitalsLinks": true,
     "extensionSlots": {
-      "action-menu-ward-patient-items-slot": {
+      "ward-patient": {
         "remove": [
-          "clinical-forms-workspace-siderail-button",
-          "order-basket-action-menu"
+          "ward-patient-order-basket",
+          "ward-patient-clinical-forms"
         ],
         "order": [
-          "ward-patient-action-button",
-          "o2-visit-summary-workspace-siderail-button",
-          "o2-vital-signs-workspace-siderail-button",
-          "ward-inpatient-notes-form-action-button",
-          "transfer-swap-patient-siderail-button",
-          "patient-discharge-siderail-button"
+          "ward-patient",
+          "o2-visit-summary-window",
+          "o2-vital-signs-window",
+          "ward-patient-notes",
+          "ward-patient-transfer-swap",
+          "ward-patient-discharge"
         ]
       }
     },
