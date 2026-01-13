@@ -1,7 +1,7 @@
 key: "maternalhandoff"
 uuid: "9c3d2a6f-8e5a-4c6b-b8c4-9f7e2a1d6e0b"
 name: "Maternal Handoff"
-description: "Maternal Handoff"
+description: "Activity from 8am until 8am of the handover date"
 parameters:
   - key: "handoverDate"
     type: "java.util.Date"
@@ -16,6 +16,9 @@ datasets:
   - key: "Ward_Activity"
     type: "sql"
     config: "sql/maternal_handoff_ward_activity.sql"
+  - key: "Death_List"
+    type: "sql"
+    config: "sql/maternal_handoff_death_list.sql"    
 designs:
   - type: "csv"
     properties:
