@@ -16,6 +16,9 @@ datasets:
   - key: "Ward_Activity"
     type: "sql"
     config: "sql/maternal_handoff_ward_activity.sql"
+  - key: "Death_List"
+    type: "sql"
+    config: "sql/maternal_handoff_death_list.sql"    
 designs:
   - type: "csv"
     properties:
