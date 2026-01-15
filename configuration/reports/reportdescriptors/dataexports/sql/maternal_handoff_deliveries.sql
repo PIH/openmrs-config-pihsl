@@ -1,4 +1,17 @@
- -- SET @handoverDate = '2025-12-23'; -- for testing 
+-- set @handoverDate = '2026-01-14';
+-- set @shift = 'evening'; -- 'evening' ;
+
+set @startTime = 
+case
+	when @shift = 'morning' then DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
+	when @shift = 'evening' then @handoverDate + INTERVAL 8 HOUR
+end;
+
+set @endTime = 
+case
+	when @shift = 'morning' then @handoverDate + INTERVAL 8 HOUR
+	when @shift = 'evening' then @handoverDate + INTERVAL 20 HOUR	
+end;
 
 set @baby_construct = concept_from_mapping('PIH','13555');
 set @type_delivery = concept_from_mapping('PIH','11663');
@@ -15,8 +28,8 @@ from obs o
 inner join encounter e on e.encounter_id = o.encounter_id and e.voided = 0 and e.encounter_type =  @delivery
 where o.voided = 0
 and o.concept_id in (@type_delivery,@outcome)
- and obs_datetime >= DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
-and obs_datetime <  @handoverDate + INTERVAL 8 HOUR);
+and obs_datetime >= @startTime
+and obs_datetime <=  @endTime);
 
 drop temporary table if exists temp_births;
 create temporary table temp_births
