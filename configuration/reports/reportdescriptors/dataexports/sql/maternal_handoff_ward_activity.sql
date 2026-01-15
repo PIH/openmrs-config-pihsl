@@ -1,4 +1,17 @@
--- SET @handoverDate = '2025-12-20'; -- for testing 
+-- set @handoverDate = '2026-01-15';
+-- set @shift = 'morning'; -- 'evening' ;
+
+set @startTime = 
+case
+	when @shift = 'morning' then DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
+	when @shift = 'evening' then @handoverDate + INTERVAL 8 HOUR
+end;
+
+set @endTime = 
+case
+	when @shift = 'morning' then @handoverDate + INTERVAL 8 HOUR
+	when @shift = 'evening' then @handoverDate + INTERVAL 20 HOUR	
+end;
 
 select encounter_type_id into @admission from encounter_type where uuid = '260566e1-c909-4d61-a96f-c1019291a09d';
 select encounter_type_id into @mat_discharge from encounter_type where uuid = '2110a810-db62-4914-ba95-604b96010164';
@@ -30,8 +43,8 @@ select patient_id, visit_id, location_name(location_id), encounter_type from enc
 where e.voided = 0
 and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop) 
 and encounter_type in (@admission, @mat_discharge, @newb_discharge, @transfer)
-and encounter_datetime >= DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
-and encounter_datetime < @handoverDate + INTERVAL 8 HOUR;
+and encounter_datetime >= @startTime
+and encounter_datetime <= @endTime;
 
 -- create table of all admissions and transfer ins to locations to prepare for updating the previous location for transfers 
 drop temporary table if exists temp_transfer_ins;
