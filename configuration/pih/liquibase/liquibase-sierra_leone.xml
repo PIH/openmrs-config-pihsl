@@ -382,6 +382,11 @@
         </sql>
     </changeSet>
     <changeSet id="20260107-SL-1149-migrate-litre-concepts-to-ml" author="mseaton">
+        <preConditions onFail="CONTINUE">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept where uuid = '3cb248bf-56aa-4e11-951a-7cc644530763';
+            </sqlCheck>
+        </preConditions>
         <comment>
             SL-1149: Migrate any data in Urine Output, Blood Loss, and IVF Volume to new concepts
         </comment>
