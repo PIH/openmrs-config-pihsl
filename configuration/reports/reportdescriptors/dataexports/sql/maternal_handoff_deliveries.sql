@@ -1,5 +1,5 @@
--- set @handoverDate = '2026-01-14';
--- set @shift = 'evening'; -- 'evening' ;
+-- set @handoverDate = '2026-01-16';
+-- set @shift = 'morning'; -- 'evening' ;
 
 set @startTime = 
 case
@@ -13,6 +13,7 @@ case
 	when @shift = 'evening' then @handoverDate + INTERVAL 20 HOUR	
 end;
 
+set @delivery_datetime = concept_from_mapping('PIH','5599');
 set @baby_construct = concept_from_mapping('PIH','13555');
 set @type_delivery = concept_from_mapping('PIH','11663');
 set @outcome = concept_from_mapping('PIH','13561');
@@ -21,15 +22,23 @@ set @vacuum = concept_from_mapping('PIH','10752');
 set @vaginal = concept_from_mapping('PIH','1170');
 select encounter_type_id into @delivery from encounter_type where uuid = 'fec2cc56-e35f-42e1-8ae3-017142c1ca59';
 
-DROP TEMPORARY TABLE IF EXISTS temp_obs;
-create temporary table temp_obs 
+-- add obs for delivery datetimes 
+DROP TEMPORARY TABLE IF EXISTS temp_delivery_datetimes;
+create temporary table temp_delivery_datetimes 
 (select o.obs_id, o.voided ,o.obs_group_id ,o.concept_id, o.value_coded 
 from obs o
 inner join encounter e on e.encounter_id = o.encounter_id and e.voided = 0 and e.encounter_type =  @delivery
 where o.voided = 0
-and o.concept_id in (@type_delivery,@outcome)
-and obs_datetime >= @startTime
-and obs_datetime <=  @endTime);
+and o.concept_id in (@delivery_datetime)
+and o.value_datetime >= @startTime
+and o.value_datetime <=  @endTime);
+
+DROP TEMPORARY TABLE IF EXISTS temp_obs;
+create temporary table temp_obs 
+(select o.obs_id, o.voided ,o.obs_group_id ,o.concept_id, o.value_coded 
+from temp_delivery_datetimes t 
+inner join obs o on o.obs_group_id = t.obs_group_id and o.voided = 0 and o.concept_id in (@type_delivery, @outcome)
+);
 
 drop temporary table if exists temp_births;
 create temporary table temp_births

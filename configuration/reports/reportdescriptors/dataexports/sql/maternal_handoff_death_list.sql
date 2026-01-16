@@ -106,7 +106,7 @@ where lmp_entered is null;
 select 
 emr_id "EMR_Id",
 patient_name "Patient_name",
-age_of_death "Age_of_Death",
+age_of_death "Age_at_Death",
   CONCAT(DATE_FORMAT(death_datetime, '%b %e, %Y '), LTRIM(LOWER(DATE_FORMAT(death_datetime, '%l:%i%p')))) "Time_of_Death",
 cause "Cause_of_Death",
 pregnancy_status "Pregnancy_Status",
