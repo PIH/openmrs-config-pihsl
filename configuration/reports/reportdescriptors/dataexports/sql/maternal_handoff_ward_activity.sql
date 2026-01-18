@@ -15,7 +15,7 @@ end;
 
 select encounter_type_id into @admission from encounter_type where uuid = '260566e1-c909-4d61-a96f-c1019291a09d';
 select encounter_type_id into @mat_discharge from encounter_type where uuid = '2110a810-db62-4914-ba95-604b96010164';
-select encounter_type_id into @newb_discharge from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
+select encounter_type_id into @newb_discharge from encounter_type where uuid = '153d3182-c76f-4047-b7f2-d83cf967b206';
 select encounter_type_id into @transfer from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
 
 select location_id into @anc from location where uuid = '11f5c9f9-40b8-46ad-9e7e-59473ce43246';
@@ -32,14 +32,15 @@ select location_id into @preop from location where uuid = '142de844-6850-11ee-ab
 drop temporary table if exists temp_adt;
 create temporary table temp_adt
 (patient_id int(11),
+encounter_id int(11),
 visit_id int(11),
 location_name varchar(255),
 encounter_type int(11),
 previous_location_id int(11),
 previous_location_name varchar(255));
 
-insert into temp_adt (patient_id, visit_id, location_name, encounter_type)
-select patient_id, visit_id, location_name(location_id), encounter_type from encounter e 
+insert into temp_adt (patient_id, encounter_id, visit_id, location_name, encounter_type)
+select patient_id, encounter_id,  visit_id, location_name(location_id), encounter_type from encounter e 
 where e.voided = 0
 and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop) 
 and encounter_type in (@admission, @mat_discharge, @newb_discharge, @transfer)
@@ -67,6 +68,7 @@ update temp_adt a
 inner join temp_transfer_ins t on t.encounter_id = 
 (select t2.encounter_id from temp_transfer_ins_dup t2
 where t2.patient_id = a.patient_id
+and t2.encounter_id <> a.encounter_id
 order by t2.encounter_datetime desc limit 1)
 set previous_location_name = location_name(t.location_id)
 where encounter_type = @transfer;
