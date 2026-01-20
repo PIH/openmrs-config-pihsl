@@ -1,7 +1,7 @@
 key: "morningmaternalhandoff"
 uuid: "9c3d2a6f-8e5a-4c6b-b8c4-9f7e2a1d6e0b"
 name: "Morning Maternal Handoff"
-description: "Activity from the 24 hours leading up to 8am of the handover date (8am to 8am)"
+description: "Activity from the 24 hours leading up to 8am of the handover date. (8am to 8am) Current Census will show the live numbers"
 parameters:
   - key: "handoverDate"
     type: "java.util.Date"
