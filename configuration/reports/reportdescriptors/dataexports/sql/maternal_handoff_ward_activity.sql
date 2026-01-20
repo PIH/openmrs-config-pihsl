@@ -1,5 +1,5 @@
--- set @handoverDate = '2026-01-15';
--- set @shift = 'morning'; -- 'evening' ;
+-- set @handoverDate = '2026-01-20';
+-- set @shift = 'evening'; -- 'morning'
 
 set @startTime = 
 case
@@ -14,9 +14,8 @@ case
 end;
 
 select encounter_type_id into @admission from encounter_type where uuid = '260566e1-c909-4d61-a96f-c1019291a09d';
-select encounter_type_id into @mat_discharge from encounter_type where uuid = '2110a810-db62-4914-ba95-604b96010164';
-select encounter_type_id into @newb_discharge from encounter_type where uuid = '153d3182-c76f-4047-b7f2-d83cf967b206';
 select encounter_type_id into @transfer from encounter_type where uuid = '436cfe33-6b81-40ef-a455-f134a9f7e580';
+select encounter_type_id into @exit_from_care from encounter_type where uuid = 'b6631959-2105-49dd-b154-e1249e0fbcd7';
 
 select location_id into @anc from location where uuid = '11f5c9f9-40b8-46ad-9e7e-59473ce43246';
 select location_id into @labour from location where uuid = '11377a5b-6850-11ee-ab8d-0242ac120002';
@@ -43,7 +42,7 @@ insert into temp_adt (patient_id, encounter_id, visit_id, location_name, encount
 select patient_id, encounter_id,  visit_id, location_name(location_id), encounter_type from encounter e 
 where e.voided = 0
 and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop) 
-and encounter_type in (@admission, @mat_discharge, @newb_discharge, @transfer)
+and encounter_type in (@admission, @transfer, @exit_from_care)
 and encounter_datetime >= @startTime
 and encounter_datetime <= @endTime;
 
@@ -99,7 +98,7 @@ inner join
 	sum(case when encounter_type = @admission then 1 else 0 end) "admissions",
 	sum(case when encounter_type = @transfer then 1 else 0 end) "transfers_in",
 	sum(case when encounter_type = 999999 then 1 else 0 end) "transfers_out",
-	sum(case when encounter_type in (@mat_discharge, @newb_discharge) then 1 else 0 end) "discharges"
+	sum(case when encounter_type in (@exit_from_care) then 1 else 0 end) "discharges"
 	from temp_adt group by location_name) i on i.ward= t.ward
 set
 	t.admissions = i.admissions,
