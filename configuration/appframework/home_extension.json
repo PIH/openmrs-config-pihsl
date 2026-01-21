@@ -7,6 +7,7 @@
     "url": "pihcore/reports/interactiveRenderer.page?reportDefinition=9c3d2a6f-8e5a-4c6b-b8c4-9f7e2a1d6e0b",
     "icon": "fas fa-fw fa-handshake",
     "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
+    "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'Admission Location')",
     "order": 181
   },
   {
@@ -17,6 +18,7 @@
     "url": "pihcore/reports/interactiveRenderer.page?reportDefinition=2aacf9f0-5545-4ba9-add3-83a3183fc8b2",
     "icon": "fas fa-fw fa-handshake",
     "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
+    "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'Admission Location')",
     "order": 182
   }  
 ]
