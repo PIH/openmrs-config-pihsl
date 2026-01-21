@@ -27,3 +27,19 @@ jobs:
       env:
         SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
         SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+
+    - name: Deploy to KGH Test
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: 'https://bamboo-ci.pih-emr.org/rest/api/latest/queue/OMRS-DEPLOYKGHTEST'
+        method: 'POST'
+        bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
+        customHeaders: '{"Accept": "application/json"}'
+
+    - name: Deploy to Gladi
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: 'https://bamboo-ci.pih-emr.org/rest/api/latest/queue/OMRS-DEPLOYGLADI'
+        method: 'POST'
+        bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
+        customHeaders: '{"Accept": "application/json"}'
