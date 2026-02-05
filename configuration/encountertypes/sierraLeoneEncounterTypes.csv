@@ -12,7 +12,7 @@ ${encounterType.sierraLeoneLaborProgress.uuid},,Labour Progress,Labor progressio
 ${encounterType.sierraLeonePostpartumProgress.uuid},,Postpartum progress,Postpartum Maternal Daily Progress in Sierra Leone
 ${encounterType.sierraLeoneNicuTriage.uuid},,NICU Triage,NICU Triage in Sierra Leone
 ${encounterType.sierraLeonePacuFollowup.uuid},,PACU Followup,Post-anesthesia care unit (PACU) Followup for Sierra Leone
-${encounterType.sierraLeoneVitalsNCD.uuid},,Vitals for NCD,Vitals modified with glucose measurement for NCD clinic in Sierra Leone
+${encounterType.sierraLeoneVitalsNCD.uuid},,Vitals with Glucose,Vitals modified with glucose measurement in Sierra Leone
 ${encounterType.sierraLeoneNCDinit1.uuid},,NCD Initial Part 1 only,NCD Initial form in Sierra Leone (part 1 only)
 ${encounterType.sierraLeoneNCDinit2.uuid},,NCD Initial Part 2 only,NCD Initial form in Sierra Leone (part 2 only)
 ${encounterType.sierraLeoneNCDfollowup1.uuid},,NCD Followup Part 1 only,NCD Followup form in Sierra Leone (part 1 only)
