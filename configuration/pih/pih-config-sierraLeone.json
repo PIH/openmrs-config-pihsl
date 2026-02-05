@@ -11,6 +11,11 @@
         "config": {
           "secondaryOptions": "secret,totp"
         }
+      },
+      "totp": {
+        "config": {
+          "qrCodeIssuer": "PIHEMR - SL"
+        }
       }
     }
   },
