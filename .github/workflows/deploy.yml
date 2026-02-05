@@ -39,7 +39,7 @@ jobs:
         method: 'POST'
         bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
         customHeaders: '{"Accept": "application/json"}'
-        retry: 10
+        retry: 60
         retryWait: 60000
 
     - name: Deploy to Gladi
@@ -49,5 +49,5 @@ jobs:
         method: 'POST'
         bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
         customHeaders: '{"Accept": "application/json"}'
-        retry: 10
+        retry: 60
         retryWait: 60000
