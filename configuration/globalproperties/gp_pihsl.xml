@@ -40,6 +40,12 @@
         <value>449d5a8e-5da0-4e84-8eb7-819aaf67d824</value>
     </globalProperty>
 
+    <globalProperty>
+        <property>labworkflowowa.labCategoriesConceptSet</property>
+        <!-- Concept: Laboratory Categories concept set -->
+        <value>880468f0-eec0-4d70-861a-fe12d4ba5099</value>
+    </globalProperty>
+
     <!-- Check In -->
     <globalProperty>
         <property>mirebalais.checkIn.paymentAmounts</property>
