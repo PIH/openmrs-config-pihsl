@@ -11,8 +11,10 @@ select location_id into @quiet from location where uuid = '28660b7f-3450-4b86-b8
 select location_id into @mccu from location where uuid = '4d7e927d-6850-11ee-ab8d-0242ac120002';
 select location_id into @postop from location where uuid = 'a39ec469-d1f9-11f0-9d46-169316be6a48';
 select location_id into @preop from location where uuid = '142de844-6850-11ee-ab8d-0242ac120002';
-select location_id into @quiet from location where uuid = '28660b7f-3450-4b86-b840-9670ec68235f';
+select location_id into @kmc from location where uuid = '81080213-d1f9-11f0-9d46-169316be6a48';
 select location_id into @mothers from location where uuid = '989a9b23-d1f9-11f0-9d46-169316be6a48';
+
+select * from location;
 
 drop temporary table if exists temp_census;
 create temporary table temp_census
