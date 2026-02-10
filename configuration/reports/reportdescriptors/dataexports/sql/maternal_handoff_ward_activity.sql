@@ -26,6 +26,8 @@ select location_id into @quiet from location where uuid = '28660b7f-3450-4b86-b8
 select location_id into @mccu from location where uuid = '4d7e927d-6850-11ee-ab8d-0242ac120002';
 select location_id into @postop from location where uuid = 'a39ec469-d1f9-11f0-9d46-169316be6a48';
 select location_id into @preop from location where uuid = '142de844-6850-11ee-ab8d-0242ac120002';
+select location_id into @kmc from location where uuid = '81080213-d1f9-11f0-9d46-169316be6a48';
+select location_id into @mothers from location where uuid = '989a9b23-d1f9-11f0-9d46-169316be6a48';
 
 -- insert all admission, discharges, transfers into one table
 drop temporary table if exists temp_adt;
@@ -41,7 +43,7 @@ previous_location_name varchar(255));
 insert into temp_adt (patient_id, encounter_id, visit_id, location_name, encounter_type)
 select patient_id, encounter_id,  visit_id, location_name(location_id), encounter_type from encounter e 
 where e.voided = 0
-and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop) 
+and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop, @kmc, @mothers) 
 and encounter_type in (@admission, @transfer, @exit_from_care)
 and encounter_datetime >= @startTime
 and encounter_datetime <= @endTime;
@@ -54,7 +56,7 @@ from encounter e
 inner join temp_adt t on t.patient_id = e.patient_id and t.encounter_type = @transfer  and e.visit_id = t.visit_id
 and e.encounter_type in (@admission, @transfer)
 where e.voided = 0
-and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop));
+and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop, @kmc, @mothers));
 
 -- create duplicate table to overcome MySQL limitation
 drop temporary table if exists temp_transfer_ins_dup;
@@ -90,7 +92,7 @@ transfers_out int,
 discharges int);
 
 INSERT INTO temp_final (ward)
-(select name from location where location_id in(@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop));
+(select name from location where location_id in(@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop, @kmc, @mothers));
 
 update temp_final t
 inner join 

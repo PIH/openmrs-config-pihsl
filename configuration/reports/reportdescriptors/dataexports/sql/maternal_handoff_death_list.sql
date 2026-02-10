@@ -26,6 +26,8 @@ select location_id into @mccu from location where uuid = '4d7e927d-6850-11ee-ab8
 select location_id into @postop from location where uuid = 'a39ec469-d1f9-11f0-9d46-169316be6a48';
 select location_id into @preop from location where uuid = '142de844-6850-11ee-ab8d-0242ac120002';
 select location_id into @mcoe_triage from location where uuid = 'f85feffc-fe54-4648-aa14-01ed6d30b943';
+select location_id into @kmc from location where uuid = '81080213-d1f9-11f0-9d46-169316be6a48';
+select location_id into @mothers from location where uuid = '989a9b23-d1f9-11f0-9d46-169316be6a48';
 
 drop temporary table if exists temp_deaths;
 create temporary table temp_deaths 
@@ -60,7 +62,7 @@ and p.death_date <  @endTime
 and exists 
 	(select 1 from encounter e 
 	where e.visit_id = v.visit_id
-	and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop, @mcoe_triage));
+	and e.location_id in (@anc, @labour, @nicu, @pacu, @pnc, @quiet, @mccu, @postop, @preop, @mcoe_triage, @kmc, @mothers));
 
 update temp_deaths t
 set t.emr_id = patient_identifier(patient_id, @identifier_uuid);
