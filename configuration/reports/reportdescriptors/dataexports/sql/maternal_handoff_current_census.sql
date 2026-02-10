@@ -14,8 +14,6 @@ select location_id into @preop from location where uuid = '142de844-6850-11ee-ab
 select location_id into @kmc from location where uuid = '81080213-d1f9-11f0-9d46-169316be6a48';
 select location_id into @mothers from location where uuid = '989a9b23-d1f9-11f0-9d46-169316be6a48';
 
-select * from location;
-
 drop temporary table if exists temp_census;
 create temporary table temp_census
 (select distinct e.location_id, e.patient_id from encounter e 
