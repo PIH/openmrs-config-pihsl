@@ -180,6 +180,7 @@
         <ifMode mode="VIEW" include="false">
             .date-one-line {
                 display: flex;
+                color: black;
             }
 
             .date-one-line label {
@@ -216,26 +217,22 @@
 
 
     <ifMode mode="VIEW" include="false">
-
         <div class="three-columns">
             <div>
-                <label><uimessage code="emr.patientDashBoard.providerRequired"/></label>
-                <span><encounterProviderAndRole default="currentUser"
-                                                encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
-                                                providerRoles="${providerGroup.group1}"
-                                                required="true"/></span>
-            </div>
-            <div>
-                    <label><uimessage code="emr.locationRequired"/></label>
-                    <span><encounterLocation required="true" default="SessionAttribute:emrContext.sessionLocationId" tags="Vitals Inpatient Location"/></span>
-            </div>
-            <div>
-                    <label><uimessage code="emr.patientDashBoard.date"/></label>
-                    <span>
-                        <p id="when" class="date-one-line">
-                            <encounterDate id="encounterDate" default="now" showTime="true"/>
-                        </p>
+                <subform path="configuration/pih/subforms/encounter-provider-location-date.xml">
+                    <span subform-parameter="encounter-provider-widget">
+                        <encounterProviderAndRole default="currentUser"
+                                                  encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                                  providerRoles="${providerGroup.group1}"
+                                                  required="true"/>
                     </span>
+                    <span subform-parameter="encounter-location-widget">
+                        <encounterLocation required="true" default="SessionAttribute:emrContext.sessionLocationId" tags="Vitals Inpatient Location"/>
+                    </span>
+                    <span subform-parameter="encounter-date-widget" class="date-one-line black">
+                        <encounterDate id="encounterDate" default="now" showTime="true"/>
+                    </span>
+                </subform>
             </div>
         </div>
         <br/>
