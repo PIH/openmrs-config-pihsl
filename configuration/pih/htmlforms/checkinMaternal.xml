@@ -30,6 +30,10 @@
             font-weight: normal;
         }
 
+        #who-when-where {
+            border-bottom: none !important;
+        }
+
         form input[type="radio"], .form input[type="radio"] {
             float: none;
             display: inline-block;
@@ -92,48 +96,29 @@
     </style>
 
         <section id="checkin" sectionTag="section" headerStyle="title" headerCode="mirebalais.maternalCheckin.label">
-            <!-- START ENTER/EDIT VERSION OF THE FORM -->
-            <ifMode mode="VIEW" include="false">
-                <fieldset class="required">
-                    <legend>
-                        <uimessage code="mirebalais.retrospectiveCheckin.checkinDate.label"/>
-                    </legend>
-                    <h3>
-                        <uimessage code="mirebalais.retrospectiveCheckin.checkinDate.label"/>
-                    </h3>
-
-                    <p class="left">
-                        <encounterDate id="encounterDate" showTime="false" default="now"/>
-                    </p>
-                </fieldset>
-                <fieldset class="required">
-                    <legend>
+            <fieldset field-separator=", ">
+                <legend><uimessage code="pihcore.details"/></legend>
+                <h3><uimessage code="pihcore.details"/></h3>
+                <subform path="configuration/pih/subforms/encounter-provider-location-date.xml">
+                    <label subform-parameter="encounter-provider-label">
                         <uimessage code="mirebalais.retrospectiveCheckin.provider.label"/>
-                    </legend>
-                    <h3>
-                        <uimessage code="mirebalais.retrospectiveCheckin.provider.label"/>
-                    </h3>
-
-                    <p class="left">
-                        <encounterProviderAndRole default="currentUser" encounterRole="cbfe0b9d-9923-404c-941b-f048adc8cdc0"
+                    </label>
+                    <span subform-parameter="encounter-provider-widget">
+                        <encounterProviderAndRole default="currentUser"
+                                                  encounterRole="cbfe0b9d-9923-404c-941b-f048adc8cdc0"
                                                   required="true"/>
-                    </p>
-                </fieldset>
-
-                <fieldset class="required">
-                    <legend>
+                    </span>
+                    <label subform-parameter="encounter-location-label">
                         <uimessage code="mirebalais.retrospectiveCheckin.location.label"/>
-                    </legend>
-                    <h3>
-                        <uimessage code="mirebalais.retrospectiveCheckin.location.label"/>
-                    </h3>
-
-                    <p class="left">
+                    </label>
+                    <span subform-parameter="encounter-location-widget">
                         <encounterLocation required="true" default="$mcoeTriageLocation" tags="Check-In Maternal Location"/>
-                    </p>
-                </fieldset>
-            <!-- END ENTER/EDIT VERSION OF THE FORM -->
-            </ifMode>
+                    </span>
+                    <label subform-parameter="encounter-date-label">
+                        <uimessage code="mirebalais.retrospectiveCheckin.checkinDate.label"/>
+                    </label>
+                </subform>
+            </fieldset>
 
             <ifMode mode="VIEW">
                 <span id="most-recent-encounter-title" style="display:none"><!--The Most Recent Encounter app in Core Apps replaces this with the "most recent" label--></span>
