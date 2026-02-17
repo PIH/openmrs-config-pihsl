@@ -548,7 +548,7 @@
                              answerSeparator="&lt;br /&gt;"/>
                         <br/>
                         <span class="small">
-                            <obs conceptId="PIH:IVF volume" showUnits="true"/>
+                            <obs conceptId="PIH:21113" showUnits="true"/>
                         </span>
                     </obsgroup>
                 </p>
@@ -647,13 +647,13 @@
                         <uimessage code="est_blood_loss"/>
                     </label>
                     <span class="small">
-                        <obs conceptId="PIH:Estimated blood loss" showUnits="true"/>
+                        <obs conceptId="PIH:12555" showUnits="true"/>
                     </span>
                     <label>
                         <uimessage code="urine_out"/>
                     </label>
                     <span class="small">
-                        <obs conceptId="PIH:Urine output" showUnits="true"/>
+                        <obs conceptId="CIEL:161929" showUnits="true"/>
                     </span>
                 </p>
             </div>
