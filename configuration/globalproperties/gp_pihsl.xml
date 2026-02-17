@@ -46,6 +46,13 @@
         <value>880468f0-eec0-4d70-861a-fe12d4ba5099</value>
     </globalProperty>
 
+    <!-- Medication / dispensing -->
+    <globalProperty>
+        <property>order.durationUnitsConceptUuid</property>
+        <!-- Concept: SL medication duration units -->
+        <value>1922ebbd-8c1f-49a4-9121-a7d15062d98e</value>
+    </globalProperty>
+
     <!-- Check In -->
     <globalProperty>
         <property>mirebalais.checkIn.paymentAmounts</property>
