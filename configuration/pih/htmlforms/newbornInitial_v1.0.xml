@@ -13,10 +13,10 @@
   -->
 
 <htmlform id="newborn-initial"
-          formUuid="18e9f245-c4c5-4af7-8a72-4bd8b67dcd86"
-          htmlformUuid="d19aa8c9-ca46-49bf-8b43-b4cb7f5c4c62"
+          formUuid="9f84aa9d-b6a0-4c2b-be36-1a8f96d8bc79"
+          htmlformUuid="8f1431f2-eb71-4518-9d85-8096aca932d4"
           formName="Newborn Initial"
-          formEncounterType="093b6ffc-e55a-461a-85cc-c6acf7714a23" formVersion="1.1">
+          formEncounterType="093b6ffc-e55a-461a-85cc-c6acf7714a23" formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
 
@@ -935,6 +935,22 @@
                 </label>
                 <obs conceptId="CIEL:163104" style="textarea" />
             </div>
+        </div>
+    </section>
+
+    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/drug-order-widget-newborn.xml"/>
+        </div>
+
+        <div class="section-container">
+            <!-- Medication comments -->
+            <label>
+                <uimessage code="pihcore.remarks"/>
+            </label>
+            <p>
+                <obs conceptId="PIH:10637" cols="50" rows="5" />
+            </p>
         </div>
     </section>
 

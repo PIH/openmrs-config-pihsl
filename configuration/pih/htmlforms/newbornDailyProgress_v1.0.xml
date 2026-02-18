@@ -13,10 +13,10 @@
   -->
 
 <htmlform id="newborn-daily"
-          formUuid="3eddc127-3417-4878-9210-88c55040535f"
-          htmlformUuid="0a17f122-c272-4cd6-a061-9d8ee1c4e9cc"
+          formUuid="6575f0e6-fcae-47ef-9838-4129e60e2cbb"
+          htmlformUuid="ac4c6416-5474-4b38-a4f2-2f316f76ee73"
           formName="Newborn Daily Progress"
-          formEncounterType="7e42e652-89e7-4559-80fd-41f42826c98c" formVersion="1.1">
+          formEncounterType="7e42e652-89e7-4559-80fd-41f42826c98c" formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
@@ -1145,6 +1145,29 @@
             </h4>
             <obs conceptId="CIEL:163104" style="textarea" />
 
+        </div>
+    </section>
+
+    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <p>
+                <!-- Adrenaline administered -->
+                <obs conceptId="PIH:12603" style="checkbox"
+                     answerConceptId="CIEL:154365" answerCode="Adrenaline administered"
+                     commentFieldLabel="if adrenaline administered, enter dosing information:" />
+            </p>
+
+            <subform path="configuration/pih/subforms/drug-order-widget-newborn.xml"/>
+        </div>
+
+        <div class="section-container">
+            <!-- Medication comments -->
+            <label>
+                <uimessage code="pihcore.remarks"/>
+            </label>
+            <p>
+                <obs conceptId="PIH:10637" cols="50" rows="5" />
+            </p>
         </div>
     </section>
 
