@@ -938,6 +938,22 @@
         </div>
     </section>
 
+    <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/drug-order-widget-newborn.xml"/>
+        </div>
+
+        <div class="section-container">
+            <!-- Medication comments -->
+            <label>
+                <uimessage code="pihcore.remarks"/>
+            </label>
+            <p>
+                <obs conceptId="PIH:10637" cols="50" rows="5" />
+            </p>
+        </div>
+    </section>
+
     <section id="outcome" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Outcome">
         <div class="section-container">
