@@ -52,7 +52,7 @@ current_census int,
 free_beds int);
 
 INSERT INTO temp_final (ward)
-(select name from location where location_id in(@anc, @labour, @nicu, @pnc, @quiet, @mccu, @postop, @kmc, @mothers, @mcoe_triage));
+(select name from location where location_id in(@anc, @labour, @pnc, @quiet, @mccu, @postop, @kmc, @mothers, @mcoe_triage));
 INSERT INTO temp_final (ward)
 VALUES
 ('PACU/Pre-Op'),
