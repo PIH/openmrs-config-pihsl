@@ -392,4 +392,24 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate_litre_to_ml_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
+
+    <changeSet id="20260223-SL-1201-migrate-litre-concepts-to-ml" author="ball">
+        <preConditions onFail="MARK_RAN">
+            <not><sqlCheck expectedResult="0">
+                select count(*) from obs o
+                inner join encounter e
+                   on e.encounter_id = o.encounter_id
+                  and e.encounter_type = encounter_type('Surgery Note')
+                where o.concept_id in (
+                    concept_from_mapping('PIH','Urine output'),
+                    concept_from_mapping('PIH','Estimated blood loss'),
+                    concept_from_mapping('PIH','IVF volume'))
+                and o.voided = 0;
+            </sqlCheck></not>
+        </preConditions>
+        <comment>
+            SL-1201: Migrate surgery form obs for Urine Output, Blood Loss, and IVF Volume to new concepts
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/migrate_surgery_litre_to_ml_obs.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>
 </databaseChangeLog>

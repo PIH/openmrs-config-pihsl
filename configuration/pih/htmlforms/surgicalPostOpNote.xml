@@ -649,6 +649,8 @@
                     <span class="small">
                         <obs conceptId="PIH:12555" showUnits="true"/>
                     </span>
+                    <br/>
+
                     <label>
                         <uimessage code="urine_out"/>
                     </label>
