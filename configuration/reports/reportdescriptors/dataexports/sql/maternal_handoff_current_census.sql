@@ -41,7 +41,7 @@ where (p.birthdate is null or (TIMESTAMPDIFF(YEAR, p.birthdate, CURDATE()) < 10 
    or (p.birthdate is null or (TIMESTAMPDIFF(YEAR, p.birthdate, CURDATE()) > 0 and t.location_id = @nicu)) ;
 
 update temp_census t 
-inner join bed_patient_assignment_map m on m.patient_id = t.patient_id
+inner join bed_patient_assignment_map m on m.patient_id = t.patient_id and date_stopped is null
 inner join bed b on b.bed_id = m.bed_id 
 set t.bed_number = b.bed_number;
 
