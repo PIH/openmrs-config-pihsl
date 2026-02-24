@@ -3,7 +3,7 @@
 
 set @startTime = 
 case
-	when @shift = 'morning' then DATE_SUB(@handoverDate, INTERVAL 1 HOUR) + INTERVAL 8 HOUR
+	when @shift = 'morning' then DATE_SUB(@handoverDate, INTERVAL 1 DAY) + INTERVAL 8 HOUR
 	when @shift = 'evening' then @handoverDate + INTERVAL 8 HOUR
 end;
 
