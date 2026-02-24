@@ -1,4 +1,4 @@
--- set @handoverDate = '2026-01-16';
+-- set @handoverDate = '2026-02-23';
 -- set @shift = 'morning'; -- 'evening' ;
 
 set @startTime = 
@@ -109,6 +109,9 @@ update temp_final f set no_type_of_delivery = 0 where no_type_of_delivery is nul
 
 update temp_final f 
 set total = c_section + vacuum + vaginal + no_type_of_delivery ;
+
+delete from temp_final 
+where outcome = 'No Outcome' and total = 0 ;
 
 select 
 outcome "Outcome", 
