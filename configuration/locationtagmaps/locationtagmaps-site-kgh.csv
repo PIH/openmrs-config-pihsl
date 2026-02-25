@@ -9,7 +9,7 @@ NCD Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,,,,,,,,,,,,,,,,,,,,,
 OPD Pharmacy,,,,TRUE,,,,,TRUE,,,,,TRUE,,,,,,,,,,,,,,,,,,,,,,,,
 MCOE,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 MCOE Triage,TRUE,TRUE,TRUE,,,TRUE,,TRUE,,,,,,TRUE,,TRUE,TRUE,TRUE,,,,,,,,,,TRUE,,,TRUE,TRUE,,TRUE,,TRUE,,TRUE
-Labour and Delivery,TRUE,TRUE,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,,,,,,TRUE,TRUE,,,,,,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
+Labour and Delivery,TRUE,TRUE,,,TRUE,,,TRUE,,,TRUE,,,TRUE,,TRUE,TRUE,,,,,TRUE,TRUE,,TRUE,,,,TRUE,,,,TRUE,TRUE,,TRUE,,TRUE
 MCCU,TRUE,,,,TRUE,,,,TRUE,,TRUE,,,TRUE,,TRUE,TRUE,,,,,,,,,,,TRUE,TRUE,,,,,TRUE,,TRUE,,TRUE
 NICU,TRUE,,TRUE,,TRUE,,,,TRUE,,TRUE,,,TRUE,,,,TRUE,,,,TRUE,,TRUE,TRUE,TRUE,,,TRUE,,,TRUE,,TRUE,,TRUE,,TRUE
 Antenatal Ward,TRUE,TRUE,,,TRUE,,,,TRUE,,TRUE,,,TRUE,,TRUE,TRUE,,,,,,,,,,,,TRUE,,,,,TRUE,,TRUE,,TRUE
