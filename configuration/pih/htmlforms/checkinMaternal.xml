@@ -125,8 +125,9 @@
             </ifMode>
 
             <ifMode mode="ENTER" include="true">
-                <includeIf velocityTest="($visit.open)">
-                    <!-- if this is an active visit (visit.open), and we are entering this form for the first time (mode=ENTER) -->
+                <includeIf velocityTest="(!$visit || $visit.open)">
+                    <!-- only display if there is no visit (the patient is just checking in) or there is an active visit (visit.open) AND we are entering this form for the first time (mode=ENTER) -->
+                    <!-- basically we *don't* want to ask this question retrospectively or when editing-->
                     <fieldset class="queue">
                         <legend>
                             <uimessage code="MCOE Triage"/>
