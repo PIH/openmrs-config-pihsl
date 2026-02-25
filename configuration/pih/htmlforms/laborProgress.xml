@@ -532,7 +532,7 @@
                 </label>
                 <obs conceptId="CIEL:167035" style="radio"
                      answerConceptIds="CIEL:167036,CIEL:167037"
-                     answerCodes="pihcore.sensitiveUterus,pihcore.nonSensitiveUterus"/>
+                     answerCodes="pihcore.tenderUterus,pihcore.nonSensitiveUterus"/>
                 <br/><br/>
 
                 <label>
@@ -575,7 +575,8 @@
                     <uimessage code="Overall condition"/>
                 </label>
                 <obs id="outcome-condition" conceptId="CIEL:160116" style="radio"
-                     answerConceptIds="CIEL:160113,CIEL:160115"/>
+                     answerConceptIds="CIEL:160113,CIEL:160115,CIEL:159407"
+                     answerCodes="satisfactory,deteriorated,unsatisfactory"/>
 
                 <div id="disposition">
                     <encounterDisposition />
