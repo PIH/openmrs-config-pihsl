@@ -19,3 +19,6 @@ ${encounterType.sierraLeoneNCDfollowup1.uuid},,NCD Followup Part 1 only,NCD Foll
 ${encounterType.sierraLeoneNCDfollowup2.uuid},,NCD Followup Part 2 only,NCD Followup form in Sierra Leone (part 2 only)
 ${encounterType.sierraLeoneInpatientVitals.uuid},,Inpatient Vitals,The inpatient vitals form for inpatient locations
 ${encounterType.postNatalFollowup.uuid},,Postnatal Followup,Postnatal followup encounter
+${encounterType.ballardScore.uuid},,Ballard Score,Ballard assessment for physical maturity for newborn
+${encounterType.ancProgress.uuid},,ANC Progress,Inpatient Antenatal (ANC) progress for mother
+${encounterType.preOpAssess.uuid},,Pre-op Assessment,Pre-operative and intra-operative assessment for surgery

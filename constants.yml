@@ -20,6 +20,12 @@ encounterType:
     uuid: "9cc89b83-e32f-410a-947d-aeb3bda37571"
   sierraLeoneMchNewbornRegister:
     uuid: "3790ecc6-bc63-48f8-9104-f81dc90ee21c"
+  ballardScore:
+    uuid: "8e027b32-13de-491b-9f29-534d21a48f0d"
+  ancProgress:
+    uuid: "ce67f875-726f-4314-abd5-6bcaec10d273"
+  preOpAssess:
+    uuid: "f69b393e-1b8b-4c10-90ac-7161d95ad29d"
   sierraLeoneNewbornObs:
     uuid: "78d02c05-5b41-4cb6-8c7c-f2e64773489f"
   sierraLeoneNewbornReferral:
