@@ -307,72 +307,64 @@
 
     <section id="newbornCondition" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.newborn.condition">
-        <div class="section-container">
-            <table>
-                <tr>
-                    <td>
-                        <div class="five-columns">
-                            <div>
-                                <p class="side-by-side">
-                                    <label>
-                                        <uimessage code="Weight"/>
-                                    </label>
-                                    <ifMode mode="VIEW" include="false">
-                                        <span id="lastWeightKg" class="prior-obs-value"> </span>
-                                        <br/>
-                                    </ifMode>
-                                    <obs conceptId="CIEL:5089" id="weight_kg" showUnits="emr.units.kilograms"
-                                         unitsCssClass="append-to-value"/>
-                                </p>
+        <div class="section-container five-columns">
+            <div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Weight"/>
+                    </label>
+                    <ifMode mode="VIEW" include="false">
+                        <span id="lastWeightKg" class="prior-obs-value"> </span>
+                        <br/>
+                    </ifMode>
+                    <obs conceptId="CIEL:5089" id="weight_kg" showUnits="emr.units.kilograms"
+                         unitsCssClass="append-to-value"/>
+                </p>
 
-                                <p id="birthWeightBox" class="side-by-side hidden" >
-                                    <span class="prior-obs-value">
-                                        <label>
-                                            <uimessage code="Birth Weight:"/>
-                                        </label>
-                                        <span id="birthWeightInfo"></span>
-                                    </span>
-                                </p>
-                            </div>
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.muac.navigation.title"/>
-                                </label>
-                                <obs conceptId="CIEL:1343" id="muac_c"
-                                     showUnits="true" unitsCssClass="append-to-value"/>
-                            </div>
-                            <div>
-                                <label>
-                                    <uimessage code="preO2Sat"/>
-                                </label>
-                                <obs conceptId="CIEL:170398" id="preDuctalO2" class="o2SatValue"
-                                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
-                            </div>
-                            <div>
-                                <label>
-                                    <uimessage code="postO2Sat"/>
-                                </label>
-                                <obs conceptId="CIEL:170399" id="postDuctalO2" class="o2SatValue"
-                                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
-                            </div>
-                            <div id="postductalDiffDiv">
-                                <label>
-                                    <uimessage code="pihcore.postductalDifference"/>
-                                </label>
-                                <span class="obs-field">
-                                    <ifMode mode="VIEW" include="false">
-                                        <input id="postductalDifference" type="text" size="5" disabled="disabled"></input>
-                                    </ifMode>
-                                    <ifMode mode="VIEW" include="true">
-                                        <span id="postductalDifference" class="value"></span>
-                                    </ifMode>
-                                    <span class="append-to-value">%</span>
-                                </span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+                <p id="birthWeightBox" class="side-by-side hidden" >
+                    <span class="prior-obs-value">
+                        <label>
+                            <uimessage code="Birth Weight:"/>
+                        </label>
+                        <span id="birthWeightInfo"></span>
+                    </span>
+                </p>
+            </div>
+            <div>
+                <label>
+                    <uimessage code="mirebalais.vitals.muac.navigation.title"/>
+                </label>
+                <obs conceptId="CIEL:1343" id="muac_c"
+                     showUnits="true" unitsCssClass="append-to-value"/>
+            </div>
+            <div>
+                <label>
+                    <uimessage code="preO2Sat"/>
+                </label>
+                <obs conceptId="CIEL:170398" id="preDuctalO2" class="o2SatValue"
+                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+            </div>
+            <div>
+                <label>
+                    <uimessage code="postO2Sat"/>
+                </label>
+                <obs conceptId="CIEL:170399" id="postDuctalO2" class="o2SatValue"
+                     showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
+            </div>
+            <div id="postductalDiffDiv">
+                <label>
+                    <uimessage code="pihcore.postductalDifference"/>
+                </label>
+                <span class="obs-field">
+                    <ifMode mode="VIEW" include="false">
+                        <input id="postductalDifference" type="text" size="5" disabled="disabled"></input>
+                    </ifMode>
+                    <ifMode mode="VIEW" include="true">
+                        <span id="postductalDifference" class="value"></span>
+                    </ifMode>
+                    <span class="append-to-value">%</span>
+                </span>
+            </div>
         </div>
     </section>
 
@@ -450,63 +442,55 @@
 
     <section id="labs" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Lab results">
-        <div class="section-container">
-            <table>
-                <tr>
-                    <td>
-                        <div class="four-columns">
-                            <div>
-                                <!-- Hb/Hemoglobin (CIEL:21) Test/Numeric with units -->
-                                <label>
-                                    <uimessage code="pihcore.lab.Hemoglobin"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:21" id="hemoglobin"
-                                         showUnits="true" unitCssClass="append-to-value"/>
-                                </span>
+        <div class="section-container four-columns">
+            <div>
+                <!-- Hb/Hemoglobin (CIEL:21) Test/Numeric with units -->
+                <label>
+                    <uimessage code="pihcore.lab.Hemoglobin"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:21" id="hemoglobin"
+                         showUnits="true" unitCssClass="append-to-value"/>
+                </span>
 
-                            </div>
+            </div>
 
-                            <div>
-                                <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
-                                <label>
-                                    <uimessage code="Blood glucose (RBG)" />
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:887" id="glucose"
-                                         showUnits="true" unitCssClass="append-to-value"/>
-                                </span>
-                            </div>
+            <div>
+                <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
+                <label>
+                    <uimessage code="Blood glucose (RBG)" />
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:887" id="glucose"
+                         showUnits="true" unitCssClass="append-to-value"/>
+                </span>
+            </div>
 
-                            <div>
-                                <p class="side-by-side">
-                                    <!-- MRDT (aka Malaria rapid test) (CIEL:1643) Test/coded -->
-                                    <label>
-                                        <uimessage code="MRDT"/>
-                                    </label>
-                                    <br/>
-                                    <span class="small">
-                                        <obs conceptId="CIEL:1643" style="radio"
-                                             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"
-                                             answerSeparator="&lt;br&gt;"/>
-                                    </span>
-                                </p>
-                            </div>
+            <div>
+                <p class="side-by-side">
+                    <!-- MRDT (aka Malaria rapid test) (CIEL:1643) Test/coded -->
+                    <label>
+                        <uimessage code="MRDT"/>
+                    </label>
+                    <br/>
+                    <span class="small">
+                        <obs conceptId="CIEL:1643" style="radio"
+                             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"
+                             answerSeparator="&lt;br&gt;"/>
+                    </span>
+                </p>
+            </div>
 
-                            <div>
-                                <!-- Total Bilirubin-->
-                                <label>
-                                    <uimessage code="pihcore.lab.bilirubin" />
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:655" id="tbilirubin"
-                                         showUnits="false" />
-                                </span>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <!-- Transcutaneous bilirubin-->
+                <label>
+                    <uimessage code="pihcore.lab.tcB" />
+                </label>
+                <span class="small">
+                    <obs conceptId="PIH:21391" id="tcb"
+                         showUnits="true" />
+                </span>
+            </div>
         </div>
     </section>
 

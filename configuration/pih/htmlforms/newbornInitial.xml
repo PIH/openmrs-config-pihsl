@@ -558,132 +558,115 @@
 
     <section id="newbornCondition" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.newborn.condition">
-        <div class="section-container">
-            <table>
-                <tr>
-                    <td>
-                        <div class="four-columns">
-                            <div>
-                                <p class="side-by-side">
-                                    <label>
-                                        <uimessage code="Weight"/>
-                                    </label>
-                                    <ifMode mode="VIEW" include="false">
-                                        <span id="lastWeightKg" class="prior-obs-value"> </span>
-                                        <br/>
-                                    </ifMode>
-                                    <obs conceptId="CIEL:5089" id="weight_kg" showUnits="emr.units.kilograms"
-                                         unitsCssClass="append-to-value"/>
-                                </p>
+        <div class="section-container four-columns">
+            <div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Weight"/>
+                    </label>
+                    <ifMode mode="VIEW" include="false">
+                        <span id="lastWeightKg" class="prior-obs-value"> </span>
+                        <br/>
+                    </ifMode>
+                    <obs conceptId="CIEL:5089" id="weight_kg" showUnits="emr.units.kilograms"
+                         unitsCssClass="append-to-value"/>
+                </p>
 
-                                <p id="birthWeightBox" class="side-by-side hidden" >
-                                    <span class="prior-obs-value">
-                                        <label>
-                                            <uimessage code="Birth Weight:"/>
-                                        </label>
-                                        <span id="birthWeightInfo"></span>
-                                    </span>
-                                </p>
-                            </div>
+                <p id="birthWeightBox" class="side-by-side hidden" >
+                    <span class="prior-obs-value">
+                        <label>
+                            <uimessage code="Birth Weight:"/>
+                        </label>
+                        <span id="birthWeightInfo"></span>
+                    </span>
+                </p>
+            </div>
 
-                            <div>
-                                <p>
-                                    <label>
-                                        <uimessage code="Length"/>
-                                    </label>
-                                    <obs conceptId="CIEL:5090" showUnits="true"/>
-                                </p>
-                                <p id="birthLengthBox" class="side-by-side hidden" >
-                                    <span class="prior-obs-value">
-                                        <label>
-                                            <uimessage code="Birth Length:"/>
-                                        </label>
-                                        <span id="birthLengthInfo"></span>
-                                    </span>
-                                </p>
-                            </div>
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="Length"/>
+                    </label>
+                    <obs conceptId="CIEL:5090" showUnits="true"/>
+                </p>
+                <p id="birthLengthBox" class="side-by-side hidden" >
+                    <span class="prior-obs-value">
+                        <label>
+                            <uimessage code="Birth Length:"/>
+                        </label>
+                        <span id="birthLengthInfo"></span>
+                    </span>
+                </p>
+            </div>
 
-                            <div>
-                                <label>
-                                    <uimessage code="Head circumference"/>
-                                </label>
-                                <obs conceptId="CIEL:5314" showUnits="true"/>
-                            </div>
+            <div>
+                <label>
+                    <uimessage code="Head circumference"/>
+                </label>
+                <obs conceptId="CIEL:5314" showUnits="true"/>
+            </div>
 
-                            <div>
-                                <label>
-                                    <uimessage code="mirebalais.vitals.muac.navigation.title"/>
-                                </label>
-                                <obs conceptId="CIEL:1343" id="muac_c"
-                                     showUnits="true" unitsCssClass="append-to-value"/>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <label>
+                    <uimessage code="mirebalais.vitals.muac.navigation.title"/>
+                </label>
+                <obs conceptId="CIEL:1343" id="muac_c"
+                     showUnits="true" unitsCssClass="append-to-value"/>
+            </div>
         </div>
     </section>
 
     <section id="labs" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Lab results">
-        <div class="section-container">
-            <table>
-                <tr>
-                    <td>
-                        <div class="four-columns">
-                            <div>
-                                <!-- Hb/Hemoglobin (CIEL:21) Test/Numeric with units -->
-                                <label>
-                                    <uimessage code="pihcore.lab.Hemoglobin"/>
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:21" id="hemoglobin"
-                                         showUnits="true" unitCssClass="append-to-value"/>
-                                </span>
+        <div class="section-container four-columns">
+            <div>
+                <!-- Hb/Hemoglobin (CIEL:21) Test/Numeric with units -->
+                <label>
+                    <uimessage code="pihcore.lab.Hemoglobin"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:21" id="hemoglobin"
+                         showUnits="true" unitCssClass="append-to-value"/>
+                </span>
 
-                            </div>
+            </div>
 
-                            <div>
-                                <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
-                                <label>
-                                    <uimessage code="Blood glucose (RBG)" />
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:887" id="glucose"
-                                         showUnits="true" unitCssClass="append-to-value"/>
-                                </span>
-                            </div>
+            <div>
+                <!-- Serum glucose (CIEL:887) Test/Numeric with units-->
+                <label>
+                    <uimessage code="Blood glucose (RBG)" />
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:887" id="glucose"
+                         showUnits="true" unitCssClass="append-to-value"/>
+                </span>
+            </div>
 
-                            <div>
-                                <p class="side-by-side">
-                                    <!-- MRDT (aka Malaria rapid test) (CIEL:1643) Test/coded -->
-                                    <label>
-                                        <uimessage code="MRDT"/>
-                                    </label>
-                                    <br/>
-                                    <span class="small">
-                                        <obs conceptId="CIEL:1643" style="radio"
-                                             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"
-                                             answerSeparator="&lt;br&gt;"/>
-                                    </span>
-                                </p>
-                            </div>
+            <div>
+                <p class="side-by-side">
+                    <!-- MRDT (aka Malaria rapid test) (CIEL:1643) Test/coded -->
+                    <label>
+                        <uimessage code="MRDT"/>
+                    </label>
+                    <br/>
+                    <span class="small">
+                        <obs conceptId="CIEL:1643" style="radio"
+                             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"
+                             answerSeparator="&lt;br&gt;"/>
+                    </span>
+                </p>
+            </div>
 
-                            <div>
-                                <!-- Total Bilirubin-->
-                                <label>
-                                    <uimessage code="pihcore.lab.bilirubin" />
-                                </label>
-                                <span class="small">
-                                    <obs conceptId="CIEL:655" id="tbilirubin"
-                                         showUnits="false" />
-                                </span>
-                            </div>
-                        </div>
-
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <!-- Transcutaneous bilirubin-->
+                <label>
+                    <uimessage code="pihcore.lab.tcB" />
+                </label>
+                <span class="small">
+                    <obs conceptId="PIH:21391" id="tcb"
+                         showUnits="true" />
+                </span>
+            </div>
         </div>
     </section>
 
