@@ -670,13 +670,13 @@
                             </div>
 
                             <div>
-                                <!-- Total Bilirubin-->
+                                <!-- Transcutaneous bilirubin-->
                                 <label>
-                                    <uimessage code="pihcore.lab.bilirubin" />
+                                    <uimessage code="pihcore.lab.tcB" />
                                 </label>
                                 <span class="small">
-                                    <obs conceptId="CIEL:655" id="tbilirubin"
-                                         showUnits="false" />
+                                    <obs conceptId="PIH:21391" id="tcb"
+                                         showUnits="true" />
                                 </span>
                             </div>
                         </div>
