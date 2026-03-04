@@ -339,7 +339,7 @@
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.vitalSigns">
         <div class="section-container">
-            <subform path="configuration/pih/subforms/vital-signs-widget.xml"/>
+            <subform path="configuration/pih/subforms/vital-signs-basic-widget.xml"/>
         </div>
     </section>
 
