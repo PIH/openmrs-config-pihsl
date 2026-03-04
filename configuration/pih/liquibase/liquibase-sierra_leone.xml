@@ -418,5 +418,24 @@
             UHM-8795: Clean up duplicate dispensing obs
         </comment>
         <sqlFile endDelimiter=";" path="sql/void_duplicate_dispenses.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>  
+      
+    <changeSet id="20260227-migrate-tbili-to-tcb" author="ball">
+        <preConditions onFail="MARK_RAN">
+            <not><sqlCheck expectedResult="0">
+                select count(*) from obs o
+                 inner join encounter e
+                    on e.encounter_id = o.encounter_id
+                   and e.encounter_type IN
+                        (select et.encounter_type_id from encounter_type et
+                          where et.name IN ('Newborn Initial','Newborn Discharge'))
+                where o.concept_id = concept_from_mapping('CIEL','655')
+                and o.voided = 0;
+            </sqlCheck></not>
+        </preConditions>
+        <comment>
+            SL-1223: Migrate Total Bilirubin data to TcB concept on Newborn forms
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/migrate_bilirubin_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 </databaseChangeLog>

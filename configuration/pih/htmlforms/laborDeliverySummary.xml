@@ -1004,21 +1004,31 @@
                     <p>
                         <obs conceptId="CIEL:168722" labelCode="Cord abnormality"  />
                     </p>
+
                     <h4><uimessage code="pihcore.mch.breastfeeding" /></h4>
                     <p class="side-by-side">
                         <label>
                             <uimessage code="pihcore.breastfeeding.initiated" />
                         </label>
-                        <obs conceptId="CIEL:161543" style="radio" answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="pihcore.yes,pihcore.no" />
+                        <obs id="breast" conceptId="CIEL:161543" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="pihcore.yes,pihcore.no" >
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#breastDate" />
+                            </controls>
+                        </obs>
                     </p>
-                    <p class="date-one-line">
-                        <label>
-                            <uimessage code="pihcore.breastfeeding.initiate.dateTime" />
-                        </label>
-                        <span class="small">
-                            <obs conceptId="PIH:21116" showTime="true" allowFutureTimes="true"/>
-                        </span>
-                    </p>
+                    <div id="breastDate">
+                        <p class="date-one-line">
+                            <label>
+                                <uimessage code="pihcore.breastfeeding.initiate.dateTime" />
+                            </label>
+                            <span class="small">
+                                <obs conceptId="PIH:21116" showTime="true" allowFutureTimes="true"/>
+                            </span>
+                        </p>
+                    </div>
+
                     <p class="side-by-side">
                         <label>
                             <uimessage code="pihcore.skinToSkin.initiated" />
@@ -1027,6 +1037,30 @@
                         <obs conceptId="CIEL:1651" answerConceptId="CIEL:164173" answerCode=" " style="checkbox"/>
                         </span>
                     </p>
+
+                    <h4><uimessage code="pihcore.uterotonics" /></h4>
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="pihcore.uterotonicProvided" />
+                        </label>
+                        <obs id="uterotonic" conceptId="PIH:14373" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="pihcore.yes,pihcore.no" >
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#uteroDate" />
+                            </controls>
+                        </obs>
+                    </p>
+                    <div id="uteroDate">
+                        <p class="date-one-line">
+                            <label>
+                                <uimessage code="pihcore.uterotonicDatetime" />
+                            </label>
+                            <span class="small">
+                                <obs conceptId="PIH:21403" showTime="true" allowFutureTimes="true"/>
+                            </span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <br/>

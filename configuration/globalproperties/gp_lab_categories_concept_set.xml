@@ -2,8 +2,8 @@
     <globalProperties>
         <globalProperty>
             <property>labworkflowowa.labCategoriesConceptSet</property>
-            <!-- Concept: SL laboratory orderable categories Concept Set-->
-            <value>880468f0-eec0-4d70-861a-fe12d4ba5099</value>
+            <!-- Concept: SL laboratory RESULT categories Concept Set-->
+            <value>ed25abb2-3b00-4276-9446-7871607e3646</value>
         </globalProperty>
     </globalProperties>
 </config>
