@@ -4,6 +4,87 @@
           formEncounterType="8e027b32-13de-491b-9f29-534d21a48f0d"
           formVersion="1.0">
 
+    <macros>
+        <macro key="ballardImagesBase" value="/openmrs/ms/uiframework/resource/file/configuration/pih/htmlforms/images"/>
+    </macros>
+
+    <style type="text/css">
+        td.clickable-td {
+            cursor: pointer;
+        }
+        td.clickable-td:hover {
+            background: #fff3e0;
+        }
+
+        table td {
+            text-align: center;
+        }
+
+        .score-input span input {
+            text-align: center;
+        }
+
+        .total-score-input span input {
+            text-align: center;
+            font-size: larger;
+        }
+
+        .score-top-border {
+            border-top-style: solid;
+            border-top-width: 5px;
+        }
+
+        .tables-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .tables-container > div {
+            flex: 0 0 auto;
+        }
+
+    </style>
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+
+            function updateTotalNeuroScore() {
+                let total = 0;
+
+                jq(".score-input span input").each(function() {
+                    const raw = jq(this).val();
+
+                    if (raw === null || raw === undefined || raw === "") return;
+
+                    const n = Number(raw);
+                    if (Number.isFinite(n)) total += n;
+                });
+
+                jq("#total-neuro-score").find("input").val(total);
+            }
+
+            function selectScore(signId, score, element) {
+                const row = element.closest('tr');
+                // clear previous highlights in this row (optional but usually desired)
+                jq(row).find('td.clickable-td').css('background-color', '');
+
+                // highlight the clicked cell
+                jq(element).css('background-color', '#fff3e0');
+                console.log(signId);
+                jq("#" + signId + "-score input").val(score);
+                updateTotalNeuroScore();
+            }
+            jq(document).ready(function() {
+                console.log("ready");
+                jq(".score-input span input").attr("readonly", "readonly");
+                jq("#total-neuro-score").find("input").attr("readonly", "readonly");
+                updateTotalNeuroScore();
+            });
+
+        </script>
+
+    </ifMode>
+
     <ifMode mode="VIEW" include="false">
         <div class="three-columns">
             <div>
@@ -27,4 +108,310 @@
         <h2><uimessage code="pihcore.ballardScore.title"/></h2>
     </ifMode>
 
+
+    <div>
+        <subform path="configuration/pih/htmlforms/css/score.css"/>
+        <subform path="configuration/pih/htmlforms/css/37-Grid.css"/>
+
+        <div class="post">
+            <div class="header">
+                <b>NEUROMUSCULAR MATURITY</b>
+            </div>
+        </div>
+
+
+    <div class="content">
+        <div class="tables-container">
+            <div>
+                <table border="1" width="655" class="ScoreSheet">
+                    <tr class="ScoreSheetTableHeader">
+                        <td rowspan="2">
+                            SIGN
+                        </td>
+                        <td colspan="7">
+                            SCORE
+                        </td>
+                        <td rowspan="2">
+                            SIGN SCORE
+                        </td>
+                    </tr>
+                    <tr class="ScoreSheetBlue">
+                        <td>
+                            -1
+                        </td>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Posture
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('posture', 0, this);">
+                            <img alt="posture" src="$ballardImagesBase/posture0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('posture', 1, this);">
+                            <img alt="posture" src="$ballardImagesBase/posture1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('posture', 2, this);">
+                            <img alt="posture" src="$ballardImagesBase/posture2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('posture', 3, this);">
+                            <img alt="posture" src="$ballardImagesBase/posture3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('posture', 4, this);">
+                            <img alt="posture" src="$ballardImagesBase/posture4.gif" />
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21371" id="posture-score"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Square Window
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', -1, this);">
+                            <img alt="square window" src="$ballardImagesBase/square-1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', 0, this);">
+                            <img alt="square window" src="$ballardImagesBase/square0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', 1, this);">
+                            <img alt="square window" src="$ballardImagesBase/square1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', 2, this);">
+                            <img alt="square window" src="$ballardImagesBase/square2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', 3, this);">
+                            <img alt="square window" src="$ballardImagesBase/square3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('square-window', 4, this);">
+                            <img alt="square window" src="$ballardImagesBase/square4.bmp" />
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21372" id="square-window-score"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Arm Recoil
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('arm-recoil', 0, this);">
+                            <img alt="" src="$ballardImagesBase/arm0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('arm-recoil', 1, this);">
+                            <img alt="" src="$ballardImagesBase/arm1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('arm-recoil', 2, this);">
+                            <img alt="" src="$ballardImagesBase/arm2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('arm-recoil', 3, this);">
+                            <img alt="" src="$ballardImagesBase/arm3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('arm-recoil', 4, this);">
+                            <img alt="" src="$ballardImagesBase/arm4.gif" />
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21373" id="arm-recoil-score"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Popliteal Angle
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', -1, this);">
+                            <img alt="" src="$ballardImagesBase/pop-1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 0, this);">
+                            <img alt="" src="$ballardImagesBase/pop0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 1, this);">
+                            <img alt="" src="$ballardImagesBase/pop1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 2, this);">
+                            <img alt="" src="$ballardImagesBase/pop2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 3, this);">
+                            <img alt="" src="$ballardImagesBase/pop3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 4, this);">
+                            <img alt="" src="$ballardImagesBase/pop4.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('pop', 5, this);">
+                            <img alt="" src="$ballardImagesBase/pop5.gif" />
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21374" id="pop-score"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Scarf Sign
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', -1, this);">
+                            <img alt="" src="$ballardImagesBase/scarf-1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', 0, this);">
+                            <img alt="" src="$ballardImagesBase/scarf0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', 1, this);">
+                            <img alt="" src="$ballardImagesBase/scarf1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', 2, this);">
+                            <img alt="" src="$ballardImagesBase/scarf2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', 3, this);">
+                            <img alt="" src="$ballardImagesBase/scarf3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('scarf-sign', 4, this);">
+                            <img alt="" src="$ballardImagesBase/scarf4.gif" />
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21375" id="scarf-sign-score"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ScoreSheetBlue">
+                            Heel To Ear
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', -1, this);">
+                            <img alt="" src="$ballardImagesBase/heel-1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', 0, this);">
+                            <img alt="" src="$ballardImagesBase/heel0.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', 1, this);">
+                            <img alt="" src="$ballardImagesBase/heel1.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', 2, this);">
+                            <img alt="" src="$ballardImagesBase/heel2.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', 3, this);">
+                            <img alt="" src="$ballardImagesBase/heel3.gif" />
+                        </td>
+                        <td class="clickable-td" onclick="selectScore('heel-to-ear', 4, this);">
+                            <img alt="" src="$ballardImagesBase/heel4.gif" />
+                        </td>
+                        <td class="ScoreSheetGray">
+                            &amp;nbsp;
+                        </td>
+                        <td class="score-input">
+                            <obs conceptId="PIH:21376" id="heel-to-ear-score"/>
+                        </td>
+                    </tr>
+                    <tr class="score-top-border">
+                        <td colspan="8">
+                            <p style="text-align: right">
+                                TOTAL NEUROMUSCULAR SCORE
+                            </p>
+                        </td>
+                        <td class="total-score-input">
+                            <obs conceptId="PIH:21384" id="total-neuro-score"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table border="1">
+                    <tr>
+                        <td class="ScoreSheetBlue">Total score</td>
+                        <td class="ScoreSheetBlue">Weeks</td>
+                    </tr>
+                    <tr>
+                        <td>-10</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>-5</td>
+                        <td>22</td>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>24</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>26</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>28</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>34</td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>36</td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>38</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>40</td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>42</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>44</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <button class="submitButton confirm right" onclick="submitHtmlForm()"><uimessage code="mirebalais.save"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
+            <button type="button" class="cancel"><uimessage code="emr.cancel"/></button>
+        </div>
+    </ifMode>
 </htmlform>
