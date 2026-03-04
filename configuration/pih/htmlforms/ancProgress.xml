@@ -195,19 +195,37 @@
             jq(function() {
 
                 var hasValue = function(element) {
-                    return jq(element).find('.fetus-name input').val();
+                    return jq(element).find('.fetusDeliveryTime input').val();
                 };
 
                 var hideOtherFetus = function() {
                     jq('#fetus-2').hide();
                     jq('#fetus-3').hide();
-                    jq('#fetus-4').hide();
                 };
 
-                if (!hasValue('#fetus-2') &amp;&amp; !hasValue('#fetus-3') &amp;&amp; !hasValue('#fetus-4')) {
+                if ( !hasValue('#fetus-2') &amp;&amp; !hasValue('#fetus-3') ) {
                     hideOtherFetus();
                     jq('#show-more-fetus-button').show();
                 }
+
+                if (jq('#twins input[type="checkbox"]').is(':checked')) {
+                    jq('.fetus').show();
+                    jq('#show-more-fetus-button').hide();
+                    jq('#show-less-fetus-button').show();
+                }
+
+                jq('#twins input[type="checkbox"]').on('change', function() {
+                    if (jq(this).is(':checked')) {
+                        jq('.fetus').show();
+                        jq('#show-more-fetus-button').hide();
+                        jq('#show-less-fetus-button').show();
+                    } else {
+                        hideOtherFetus();
+                        jq('#show-less-fetus-button').hide();
+                        jq('#show-more-fetus-button').show();
+                    }
+
+                });
 
                 jq('#show-more-fetus-button').click(function() {
                     jq('.fetus').show();
@@ -414,12 +432,13 @@
              headerCode="pihcore.exam.obstetrical_exam.title">
 
         <div class="section-container">
-            <div class="three-columns">
+            <div class="four-columns">
                 <div>
                     <p class="side-by-side">
                         <label>
                             <uimessage code="Previous abdominal scar" />
                         </label>
+                        <br/>
                         <obs id="ab-scar" conceptId="CIEL:166893" style="radio"
                              answerConceptIds="CIEL:1065,CIEL:1066"
                              answerCodes="yes,no">
@@ -435,6 +454,14 @@
                     </label>
                     <p class="narrow">
                         <obs conceptId="CIEL:1439" showUnits="true"/>
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                            <obs id="twins" conceptId="PIH:DIAGNOSIS" style="checkbox"
+                                 answerConceptId="CIEL:115491" answerCode="twins or triplets"/>
+                        </obsgroup>
                     </p>
                 </div>
                 <div>
@@ -468,7 +495,7 @@
                 h6 {text-align: center;}
             </style>
 
-            <repeat with="['1'],['2'],['3'],['4']">
+            <repeat with="['1'],['2'],['3']">
                 <span id="fetus-{0}" class="fetus">
                     <obsgroup groupingConceptId="CIEL:165381" showIfEmpty="false">
                         <h6>~~~~~~~~~~~~~ Foetus {0} ~~~~~~~~~~~~~</h6>
