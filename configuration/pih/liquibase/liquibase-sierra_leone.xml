@@ -413,6 +413,13 @@
         <sqlFile endDelimiter=";" path="sql/migrate_surgery_litre_to_ml_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 
+    <changeSet id="20260227-UHM-8795-Clean-up-duplicate-dispensing-obs" author="mgoodrich">
+        <comment>
+            UHM-8795: Clean up duplicate dispensing obs
+        </comment>
+        <sqlFile endDelimiter=";" path="sql/void_duplicate_dispenses.sql" relativeToChangelogFile="true" stripComments="true" />
+    </changeSet>  
+      
     <changeSet id="20260227-migrate-tbili-to-tcb" author="ball">
         <preConditions onFail="MARK_RAN">
             <not><sqlCheck expectedResult="0">
