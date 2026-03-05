@@ -259,7 +259,7 @@
     <ifMode mode="VIEW" include="false">
         <h2>
             <label>
-                <uimessage code="pih.task.laborProgress"/>
+                <uimessage code="pih.task.ancProgress"/>
             </label>
         </h2>
     </ifMode>
