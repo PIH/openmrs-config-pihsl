@@ -309,6 +309,17 @@
                                "b7a7c300-f7e5-4d38-a388-fc178ab02e78","ce67f875-726f-4314-abd5-6bcaec10d273"]
   },
   {
+    "uuid": "mothersDorm",
+    "name": "pihcore.disposition.mothersDorm",
+    "conceptCode": "PIH:12948",
+    "encounterTypes": ["2110a810-db62-4914-ba95-604b96010164"],
+    "actions": [
+      "dischargeIfAdmittedDispositionAction",
+      "closeCurrentVisitDispositionAction"
+    ],
+    "additionalObs": []
+  },
+  {
     "uuid": "leftAgainstMedicalAdvice",
     "name": "pihcore.disposition.leftAgainstMedicalAdvice",
     "conceptCode": "CIEL:1694",
