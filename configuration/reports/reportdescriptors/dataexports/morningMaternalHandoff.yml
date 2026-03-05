@@ -41,6 +41,10 @@ designs:
       "characterEncoding": "ISO-8859-1"
       "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
       "dateFormat": "dd-MMM-yyyy HH:mm:ss"
+  - type: "org.openmrs.module.reporting.web.renderers.DefaultWebRenderer"
+    name: "Web"
+    properties:
+      "pageSize": "15"
 config:
   category: "dataExport"
   order: 50
