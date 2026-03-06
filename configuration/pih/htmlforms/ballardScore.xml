@@ -48,9 +48,36 @@
             background-color: white !important;
         }
 
+        #finalScoringDiv span input[type="text"] {
+            width: 120px;
+            min-width: 120px;
+            display: inline-block;
+        }
+
+        #finalScoringDiv .append-to-value {
+            display: inline-block;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
     </style>
     <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
+
+            function updateMaturityRatingTotalScore() {
+                let total = 0;
+                let score = jq("#total-neuro-score").find("input").val();
+                let n = Number(score);
+                if (Number.isFinite(n)) {
+                    total +=n;
+                }
+                score = jq("#total-mat-score").find("input").val();
+                n = Number(score);
+                if (Number.isFinite(n)) {
+                    total +=n;
+                }
+                jq("#maturityRatingTotalScore").find("input").val(total);
+            }
 
             function updateTotalScore(individualScore, totalScore) {
                 let total = 0;
@@ -65,6 +92,7 @@
                 });
 
                 jq("#" + totalScore).find("input").val(total);
+                updateMaturityRatingTotalScore();
             }
 
             function selectScore(signId, score, element) {
@@ -86,6 +114,7 @@
                 jq("#total-neuro-score").find("input").attr("readonly", "readonly");
                 jq(".mat-score-input span input").attr("readonly", "readonly");
                 jq("#total-mat-score").find("input").attr("readonly", "readonly");
+                jq("#maturityRatingTotalScore").find("input").attr("readonly", "readonly");
                 updateTotalScore();
             });
 
@@ -117,7 +146,7 @@
     </ifMode>
 
 
-    <div>
+    <div id="ballardFormDiv">
         <subform path="configuration/pih/htmlforms/css/score.css"/>
         <subform path="configuration/pih/htmlforms/css/37-Grid.css"/>
 
@@ -417,269 +446,359 @@
         <div class="header">
             <b>Physical maturity</b>
         </div>
-        <div class="content">
-            <table border="1" width="655" class="ScoreSheet" id="mat-score">
-                <tr>
-                    <td rowspan="2">
-                        SIGN
-                    </td>
-                    <td colspan="7">
-                        SCORE
-                    </td>
-                    <td rowspan="2">
-                        SIGN SCORE
-                    </td>
-                </tr>
-                <tr class="ScoreSheetBlue">
-                    <td>
-                        -1
-                    </td>
-                    <td>
-                        0
-                    </td>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        5
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Skin
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', -1, this);">
-                        Sticky, friable, transparent
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 0, this);">
-                        gelatinous, red, translucent&amp;nbsp;
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 1, this);">
-                        smooth pink, visible veins
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 2, this);">
-                        superficial peeling &amp;/or rash, few veins
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 3, this);">
-                        cracking, pale areas, rare veins
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 4, this);">
-                        parchment, deep cracking, no vessels
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-skin', 5, this);">
-                        leathery, cracked, wrinkled
-                    </td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21377" id="mat-skin-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        <br />
-                        Lanugo<br />
-                        &amp;nbsp;
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', -1, this);">
-                        none
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', 0, this);">
-                        sparse
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', 1, this);">
-                        abundant
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', 2, this);">
-                        thinning
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', 3, this);">
-                        bald areas
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-lanugo', 4, this);">
-                        mostly bald
-                    </td>
-                    <td class="ScoreSheetGray">
-                        &amp;nbsp;
-                    </td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21378" id="mat-lanugo-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Plantar Surface
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', -1, this);">
-                        &amp;nbsp;heel-toe<br />40-50mm: -1 &lt;40mm: -2
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', 0, this);">
-                        >50 mm<br />
-                        no crease
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', 1, this);">
-                        faint red marks
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', 2, this);">
-                        anterior<br />transverse crease only
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', 3, this);">
-                        creases ant. 2/3
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-plantar', 4, this);">
-                        creases over entire sole
-                    </td>
-                    <td class="ScoreSheetGray"></td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21379" id="mat-plantar-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Breast
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', -1, this);">
-                        imperceptable
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', 0, this);">
-                        barely perceptable
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', 1, this);">
-                        flat areola<br />
-                        no bud
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', 2, this);">
-                        stippled areola<br />
-                        1-2 mm bud
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', 3, this);">
-                        raised areola<br />
-                        3-4 mm bud
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-breast', 4, this);">
-                        full areola<br />
-                        5-10 mm bud
-                    </td>
-                    <td class="ScoreSheetGray"></td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21380" id="mat-breast-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Eye / Ear
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', -1, this);">
-                        lids fused<br />
-                        loosely: -1<br />
-                        tightly: -2
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', 0, this);">
-                        lids open<br />
-                        pinna flat<br />
-                        stays folded
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', 1, this);">
-                        sl. curved pinna; soft; slow recoil
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', 2, this);">
-                        well-curved pinna; soft but ready recoil
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', 3, this);">
-                        formed &amp; firm<br />
-                        instant recoil
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-eye-ear', 4, this);">
-                        thick cartilage<br />
-                        ear stiff
-                    </td>
-                    <td class="ScoreSheetGray">
-                        &amp;nbsp;
-                    </td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21381" id="mat-eye-ear-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Genitals (Male)
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', -1, this);">
-                        scrotum flat, smooth
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', 0, this);">
-                        scrotum empty,<br />
-                        faint rugae
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', 1, this);">
-                        testes in upper canal,<br />
-                        rare rugae
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', 2, this);">
-                        testes descending,<br />
-                        few rugae
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', 3, this);">
-                        testes down,<br />
-                        good rugae
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-male', 4, this);">
-                        testes pendulous,<br />
-                        deep rugae
-                    </td>
-                    <td class="ScoreSheetGray">
-                        &amp;nbsp;
-                    </td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21382" id="mat-genitals-male-score"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="ScoreSheetBlue">
-                        Genitals (Female)
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', -1, this);">
-                        clitoris<br />prominent &amp; labia flat
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', 0, this);">
-                        prominent<br />clitoris &amp; small labia minora
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', 1, this);">
-                        prominent<br />clitoris &amp; enlarging minora
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', 2, this);">
-                        majora &amp; minora equally prominent
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', 3, this);">
-                        majora large,<br />
-                        minora small
-                    </td>
-                    <td class="clickable-td" onclick="selectScore('mat-genitals-female', 4, this);">
-                        majora cover clitoris &amp; minora
-                    </td>
-                    <td class="ScoreSheetGray">
-                        &amp;nbsp;
-                    </td>
-                    <td class="mat-score-input score-input">
-                        <obs conceptId="PIH:21383" id="mat-genitals-female-score"/>
-                    </td>
-                </tr>
-                <tr class="score-top-border">
-                    <td colspan="8">
-                        <p style="text-align: right">Total physical maturity score</p>
-                    </td>
-                    <td class="total-score-input">
-                        <obs conceptId="PIH:21385" id="total-mat-score"/>
-                    </td>
-                </tr>
-            </table>
+
+        <div class="content" id="matScoreDiv">
+            <div class="tables-container">
+                <div>
+                    <table border="1" style="width: 655px" class="ScoreSheet" id="mat-score">
+                        <tr>
+                            <td rowspan="2">
+                                SIGN
+                            </td>
+                            <td colspan="7">
+                                SCORE
+                            </td>
+                            <td rowspan="2">
+                                SIGN SCORE
+                            </td>
+                        </tr>
+                        <tr class="ScoreSheetBlue">
+                            <td>
+                                -1
+                            </td>
+                            <td>
+                                0
+                            </td>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                5
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Skin
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', -1, this);">
+                                Sticky, friable, transparent
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 0, this);">
+                                gelatinous, red, translucent&amp;nbsp;
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 1, this);">
+                                smooth pink, visible veins
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 2, this);">
+                                superficial peeling &amp;/or rash, few veins
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 3, this);">
+                                cracking, pale areas, rare veins
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 4, this);">
+                                parchment, deep cracking, no vessels
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-skin', 5, this);">
+                                leathery, cracked, wrinkled
+                            </td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21377" id="mat-skin-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                <br />
+                                Lanugo<br />
+                                &amp;nbsp;
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', -1, this);">
+                                none
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', 0, this);">
+                                sparse
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', 1, this);">
+                                abundant
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', 2, this);">
+                                thinning
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', 3, this);">
+                                bald areas
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-lanugo', 4, this);">
+                                mostly bald
+                            </td>
+                            <td class="ScoreSheetGray">
+                                &amp;nbsp;
+                            </td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21378" id="mat-lanugo-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Plantar Surface
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', -1, this);">
+                                &amp;nbsp;heel-toe<br />40-50mm: -1 &lt;40mm: -2
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', 0, this);">
+                                >50 mm<br />
+                                no crease
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', 1, this);">
+                                faint red marks
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', 2, this);">
+                                anterior<br />transverse crease only
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', 3, this);">
+                                creases ant. 2/3
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-plantar', 4, this);">
+                                creases over entire sole
+                            </td>
+                            <td class="ScoreSheetGray"></td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21379" id="mat-plantar-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Breast
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', -1, this);">
+                                imperceptable
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', 0, this);">
+                                barely perceptable
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', 1, this);">
+                                flat areola<br />
+                                no bud
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', 2, this);">
+                                stippled areola<br />
+                                1-2 mm bud
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', 3, this);">
+                                raised areola<br />
+                                3-4 mm bud
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-breast', 4, this);">
+                                full areola<br />
+                                5-10 mm bud
+                            </td>
+                            <td class="ScoreSheetGray"></td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21380" id="mat-breast-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Eye / Ear
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', -1, this);">
+                                lids fused<br />
+                                loosely: -1<br />
+                                tightly: -2
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', 0, this);">
+                                lids open<br />
+                                pinna flat<br />
+                                stays folded
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', 1, this);">
+                                sl. curved pinna; soft; slow recoil
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', 2, this);">
+                                well-curved pinna; soft but ready recoil
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', 3, this);">
+                                formed &amp; firm<br />
+                                instant recoil
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-eye-ear', 4, this);">
+                                thick cartilage<br />
+                                ear stiff
+                            </td>
+                            <td class="ScoreSheetGray">
+                                &amp;nbsp;
+                            </td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21381" id="mat-eye-ear-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Genitals (Male)
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', -1, this);">
+                                scrotum flat, smooth
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', 0, this);">
+                                scrotum empty,<br />
+                                faint rugae
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', 1, this);">
+                                testes in upper canal,<br />
+                                rare rugae
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', 2, this);">
+                                testes descending,<br />
+                                few rugae
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', 3, this);">
+                                testes down,<br />
+                                good rugae
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-male', 4, this);">
+                                testes pendulous,<br />
+                                deep rugae
+                            </td>
+                            <td class="ScoreSheetGray">
+                                &amp;nbsp;
+                            </td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21382" id="mat-genitals-male-score"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ScoreSheetBlue">
+                                Genitals (Female)
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', -1, this);">
+                                clitoris<br />prominent &amp; labia flat
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', 0, this);">
+                                prominent<br />clitoris &amp; small labia minora
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', 1, this);">
+                                prominent<br />clitoris &amp; enlarging minora
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', 2, this);">
+                                majora &amp; minora equally prominent
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', 3, this);">
+                                majora large,<br />
+                                minora small
+                            </td>
+                            <td class="clickable-td" onclick="selectScore('mat-genitals-female', 4, this);">
+                                majora cover clitoris &amp; minora
+                            </td>
+                            <td class="ScoreSheetGray">
+                                &amp;nbsp;
+                            </td>
+                            <td class="mat-score-input score-input">
+                                <obs conceptId="PIH:21383" id="mat-genitals-female-score"/>
+                            </td>
+                        </tr>
+                        <tr class="score-top-border">
+                            <td colspan="8">
+                                <p style="text-align: right">Total physical maturity score</p>
+                            </td>
+                            <td class="total-score-input">
+                                <obs conceptId="PIH:21385" id="total-mat-score"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="finalScoringDiv">
+                    <table border="1">
+                        <tr>
+                            <td colspan="2">
+                                <p>
+                                    <span>
+                                        <label>
+                                            <uimessage code="pihcore.gestational.by.date" />
+                                        </label>
+                                        <span class="gestationByDateSpan">
+                                            <obs conceptId="CIEL:163166" showUnits="true" unitsCssClass="append-to-value" size="80"/>
+                                        </span>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                    <p>
+                                        <label>
+                                            <uimessage code="pihcore.birth.date"/>
+                                        </label>
+                                        <p class="date-one-line">
+                                            <lookup class="value" expression="patient.birthdate"/>
+                                        </p>
+                                    </p>
+                            </td>
+                        </tr>
+                        <tr>
+                             <td>
+                                 <label>
+                                     <uimessage code="pihcore.mch.apgarScore1"/>
+                                 </label>
+                                 <!-- APGAR at 1 minutes -->
+                                 <obs conceptId="PIH:14419"/>
+                             </td>
+                            <td>
+                                <label>
+                                    <uimessage code="pihcore.mch.apgarScore"/>
+                                </label>
+                                <!-- APGAR at 5 minutes -->
+                                <obs conceptId="CIEL:159604"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p><label>&amp;nbsp;</label></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p>
+                                    <label>
+                                        <uimessage code="Scoring"/>
+                                    </label>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p>
+                                    <label>
+                                        <uimessage code="pihcore.maturity.rating.totalScore"/>
+                                    </label>
+                                    <span class="gestationByDateSpan">
+                                        <obs conceptId="PIH:21386" id="maturityRatingTotalScore"  size="80"/>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p>
+                                    <label>
+                                        <uimessage code="pihcore.gestational.age.by.maturity"/>
+                                    </label>
+                                    <span class="gestationByDateSpan">
+                                        <input type="text"> </input><span class="append-to-value">weeks</span>
+                                    </span>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
     </div>
