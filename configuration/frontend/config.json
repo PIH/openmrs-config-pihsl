@@ -425,7 +425,8 @@
       "ward-patient": {
         "remove": [
           "ward-patient-order-basket",
-          "ward-patient-clinical-forms"
+          "ward-patient-clinical-forms",
+          "ward-patient-discharge"
         ],
         "order": [
           "ward-patient",
