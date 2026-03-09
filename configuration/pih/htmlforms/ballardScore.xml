@@ -824,7 +824,7 @@
                                         <uimessage code="pihcore.gestational.age.by.maturity"/>
                                     </label>
                                     <span class="gestationByDateSpan">
-                                        <obs conceptId="PIH:21386" id="maturityRatingTotalScore"  size="80"/><span class="append-to-value">weeks</span>
+                                        <obs conceptId="PIH:21413" id="maturityRatingTotalScore"  size="80"/><span class="append-to-value">weeks</span>
                                     </span>
                                 </p>
                             </td>
