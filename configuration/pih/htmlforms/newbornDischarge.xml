@@ -718,7 +718,7 @@
                 <div>
                     <p class="side-by-side">
                         <div id="disposition">
-                            <encounterDisposition />
+                            <encounterDisposition required="true"/>
                         </div>
                     </p>
                 </div>
