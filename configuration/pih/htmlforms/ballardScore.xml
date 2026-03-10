@@ -69,10 +69,11 @@
         }
 
     </style>
-    <ifMode mode="VIEW" include="true">
+    <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
+
             function highlightSavedScores(tableId, scoreInputClass) {
-    debugger;
+                debugger;
                 jq("#" + tableId + " tr").each(function() {
                     const row = jq(this);
                     const scoreCell = row.find("td." + scoreInputClass);
@@ -93,16 +94,6 @@
                     });
                 });
             }
-
-            jq(document).ready(function() {
-                highlightSavedScores("neuro-score", "neuro-score-input");
-                highlightSavedScores("mat-score", "mat-score-input");
-            });
-        </script>
-    </ifMode>
-    <ifMode mode="VIEW" include="false">
-        <script type="text/javascript">
-
             function updateMaturityRatingTotalScore() {
                 let total = 0;
                 let score = jq("#total-neuro-score").find("input").val();
@@ -155,6 +146,8 @@
                 jq("#total-mat-score").find("input").attr("readonly", "readonly");
                 jq("#maturityRatingTotalScore").find("input").attr("readonly", "readonly");
                 updateTotalScore();
+                highlightSavedScores("neuro-score", "neuro-score-input");
+                highlightSavedScores("mat-score", "mat-score-input");
             });
 
         </script>
