@@ -69,11 +69,13 @@
         }
 
     </style>
-    <ifMode mode="VIEW" include="false">
+    <ifMode mode="VIEW" include="true">
         <script type="text/javascript">
 
+            function selectScore(signId, score, element) {
+                return true;
+            }
             function highlightSavedScores(tableId, scoreInputClass) {
-                debugger;
                 jq("#" + tableId + " tr").each(function() {
                     const row = jq(this);
                     const scoreCell = row.find("td." + scoreInputClass);
@@ -94,6 +96,16 @@
                     });
                 });
             }
+
+            jq(document).ready(function() {
+                highlightSavedScores("neuro-score", "neuro-score-input");
+                highlightSavedScores("mat-score", "mat-score-input");
+            });
+        </script>
+    </ifMode>
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+
             function updateMaturityRatingTotalScore() {
                 let total = 0;
                 let score = jq("#total-neuro-score").find("input").val();
@@ -137,8 +149,30 @@
                     const tableId = jq(parentTable).attr("id");
                     updateTotalScore(tableId + "-input" , "total-" + tableId);
                 }
-
             }
+
+            function highlightExistingScores(tableId, scoreInputClass) {
+                jq("#" + tableId + " tr").each(function() {
+                    const row = jq(this);
+                    const scoreCell = row.find("td." + scoreInputClass);
+                    if (scoreCell.length === 0) return;
+
+                    const savedValue = jq(scoreCell).find("span input").val();
+                    if (savedValue === null || savedValue === undefined || savedValue === "") return;
+                    const savedScore = Number(savedValue);
+                    if (!Number.isFinite(savedScore)) return;
+
+                    row.find("td.clickable-td").each(function() {
+                        const onclick = jq(this).attr("onclick") || "";
+                        // extract the score argument: second argument in selectScore('signId', SCORE, this)
+                        const match = onclick.match(/selectScore\([^,]+,\s*(-?\d+)\s*,/);
+                        if (match &amp;&amp; Number(match[1]) === savedScore) {
+                            jq(this).css('background-color', '#fff3e0');
+                        }
+                    });
+                });
+            }
+
             jq(document).ready(function() {
                 jq(".neuro-score-input span input").attr("readonly", "readonly");
                 jq("#total-neuro-score").find("input").attr("readonly", "readonly");
@@ -146,8 +180,8 @@
                 jq("#total-mat-score").find("input").attr("readonly", "readonly");
                 jq("#maturityRatingTotalScore").find("input").attr("readonly", "readonly");
                 updateTotalScore();
-                highlightSavedScores("neuro-score", "neuro-score-input");
-                highlightSavedScores("mat-score", "mat-score-input");
+                highlightExistingScores("neuro-score", "neuro-score-input");
+                highlightExistingScores("mat-score", "mat-score-input");
             });
 
         </script>
