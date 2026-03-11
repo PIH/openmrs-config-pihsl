@@ -134,6 +134,7 @@
                 });
 
                 jq("#" + totalScore).find("input").val(total);
+                jq("#" + totalScore).find("input").trigger('input');
                 updateMaturityRatingTotalScore();
             }
 
@@ -173,6 +174,16 @@
                 });
             }
 
+            htmlForm.getBeforeValidation().push(function() {
+                //SL-1243: Neuromuscular maturity field is required
+                const neuroScore = jq("#total-neuro-score").find("input").val();
+                if ( neuroScore.length &lt; 1 ) {
+                    jq("#total-neuro-score").find('.field-error').html("*Select score from&lt;br&gt;the table above").show();
+                    return false;
+                }
+                return true;
+            });
+
             jq(document).ready(function() {
                 jq(".neuro-score-input span input").attr("readonly", "readonly");
                 jq("#total-neuro-score").find("input").attr("readonly", "readonly");
@@ -182,6 +193,13 @@
                 updateTotalScore();
                 highlightExistingScores("neuro-score", "neuro-score-input");
                 highlightExistingScores("mat-score", "mat-score-input");
+
+                jq("#total-neuro-score").find("input").on('input', function() {
+                    const neuroScore = jq(this).val();
+                    if ( neuroScore.length &gt; 0 ) {
+                        jq("#total-neuro-score").find('.field-error').html("");
+                    }
+                });
             });
 
         </script>
