@@ -705,6 +705,7 @@
                                 <obs conceptId="PIH:21381" id="mat-eye-ear-score"/>
                             </td>
                         </tr>
+                        <includeIf velocityTest="$patient.gender == 'M' ">
                         <tr>
                             <td class="ScoreSheetBlue">
                                 Genitals (Male)
@@ -739,6 +740,8 @@
                                 <obs conceptId="PIH:21382" id="mat-genitals-male-score"/>
                             </td>
                         </tr>
+                        </includeIf>
+                        <includeIf velocityTest="$patient.gender == 'F' ">
                         <tr>
                             <td class="ScoreSheetBlue">
                                 Genitals (Female)
@@ -769,6 +772,7 @@
                                 <obs conceptId="PIH:21383" id="mat-genitals-female-score"/>
                             </td>
                         </tr>
+                        </includeIf>
                         <tr class="score-top-border">
                             <td colspan="8">
                                 <p style="text-align: right">Total physical maturity score</p>
