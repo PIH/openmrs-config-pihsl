@@ -123,6 +123,7 @@
 
             function updateTotalScore(individualScore, totalScore) {
                 let total = 0;
+                let hasScore = false;
 
                 jq("." + individualScore + " span input").each(function() {
                     const raw = jq(this).val();
@@ -131,9 +132,13 @@
 
                     const n = Number(raw);
                     if (Number.isFinite(n)) total += n;
+                    hasScore = true;
                 });
-
-                jq("#" + totalScore).find("input").val(total);
+                if ( hasScore ) {
+                    jq("#" + totalScore).find("input").val(total);
+                } else {
+                    jq("#" + totalScore).find("input").val("");
+                }
                 jq("#" + totalScore).find("input").trigger('input');
                 updateMaturityRatingTotalScore();
             }
@@ -142,9 +147,17 @@
                 const row = element.closest('tr');
                 // clear previous highlights in this row (optional but usually desired)
                 jq(row).find('td.clickable-td').css('background-color', '');
-                // highlight the clicked cell
-                jq(element).css('background-color', '#fff3e0');
-                jq("#" + signId + "-score input").val(score);
+                const existingScore = jq("#" + signId + "-score input").val();
+                if (existingScore.length &gt; 0 ) {
+                    // clear the existing value
+                    jq(element).css('background-color', '');
+                    jq("#" + signId + "-score input").val("");
+                } else {
+                    // highlight the clicked cell
+                    jq(element).css('background-color', '#fff3e0');
+                    jq("#" + signId + "-score input").val(score);
+                }
+
                 const parentTable = element.closest('table');
                 if (parentTable) {
                     const tableId = jq(parentTable).attr("id");
