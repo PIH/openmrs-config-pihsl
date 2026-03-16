@@ -72,15 +72,24 @@
         </div>
     </div>
 
-    <div id="fhrDiv">
+    <div id="fhrDiv" style="vertical-align: top;">
+        <div class="colorCodingValue" style="display: block;">
+            <label>
+                <uimessage code="FHR"/>
+            </label>
+            <span class="small">
+                <obs conceptId="CIEL:1440" id="fhr" class="vitals-values"
+                     showUnits="true" unitsCssClass="append-to-value"/>
+            </span>
+        </div>
         <div class="colorCodingValue">
-        <label>
-            <uimessage code="FHR"/>
-        </label>
-        <span class="small">
-            <obs conceptId="CIEL:1440" id="fhr" class="vitals-values"
-                 showUnits="true" unitsCssClass="append-to-value"/>
-        </span>
+            <label>
+                <uimessage code="Second FHR"/>
+            </label>
+            <span class="small">
+                <obs conceptId="PIH:21416" id="fhr_second" class="vitals-values"
+                     showUnits="true" unitsCssClass="append-to-value"/>
+            </span>
         </div>
     </div>
 </div>
