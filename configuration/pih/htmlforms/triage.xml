@@ -410,9 +410,12 @@
                     <uimessage code="Referral from:"/>
                 </label>
                 <br/>
-                <obs id="role-refer" conceptId="PIH:10647"  style="radio"
+                <obs id="role-refer" conceptId="PIH:10647"  style="radio" required="true"
                      answerConceptIds="PIH:12368,CIEL:1555,CIEL:1575,CIEL:978,CIEL:5622">
                     <controls>
+                        <when value="PIH:12368" thenDisplay="#refer-date" />
+                        <when value="CIEL:1555" thenDisplay="#refer-date" />
+                        <when value="CIEL:1575" thenDisplay="#refer-date" />
                         <when value="CIEL:5622" thenDisplay="#other-referee"/>
                     </controls>
                 </obs>
@@ -455,7 +458,7 @@
     <div>
         <div>
             <p class="side-by-side">
-                <obs id="transport" conceptId="PIH:975" style="radio"
+                <obs id="transport" conceptId="PIH:975" style="radio" required="true"
                      labelText="Method of transport"
                      answerConceptIds="PIH:15074,PIH:MOTORBIKE,PIH:WALKING,PIH:CAR,PIH:OTHER"
                      answerCodes="Ambulance,Motorbike,Walking,Car,Other">
