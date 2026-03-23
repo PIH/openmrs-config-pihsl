@@ -781,6 +781,7 @@
                                          answerCodes="alive,FSB,MSB" controlId="fetus-outcome-{0}">  <!-- control ID to retain order on the form -->
                                         <controls>
                                             <when value="CIEL:151849" thenDisplay=".alive-details-{0}"/>
+                                            <when value="CIEL:159916" thenDisplay=".fsb-details-{0}" />
                                         </controls>
                                     </obs>
                                 </p>
@@ -814,6 +815,15 @@
                                             <uimessage code="Birth length"/>
                                         </label>
                                         <obs conceptId="CIEL:163554" showUnits="true"/>
+                                    </p>
+
+                                    <p class="side-by-side fsb-details-{0}">
+                                        <label>
+                                            <uimessage code="Pre-delivery FHR"/>
+                                        </label>
+                                        <obs conceptId="CIEL:165377" style="radio"
+                                             answerConceptIds="CIEL:1065,CIEL:1066"
+                                             answerCodes="+,-"/>
                                     </p>
                                 </div>
                                 <div>
