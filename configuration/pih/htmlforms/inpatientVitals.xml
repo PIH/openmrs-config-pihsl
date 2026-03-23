@@ -215,62 +215,6 @@
         </ifMode>
     </style>
 
-    <ifMode mode="VIEW" include="true">
-        <!-- a template to display the "view" version of an html form provided by the htmlfromentryui getAsHtml method
-      specifically designed to reformat our "one-question-per-screen" forms to should line-by-line obs -->
-
-        <style>
-            #inpatient-vitals-form legend {
-                display: none;
-            }
-
-            #inpatient-vitals-form .title {
-                display: none;
-            }
-
-            #inpatient-vitals-form .append-to-value {
-                padding-left: 5px;
-            }
-
-            #o2andFluidsDiv > div > span.small > input[type="text"] {
-                min-width: 120px;
-                max-width: 60px;
-                margin-left: 5px;
-            }
-
-            #o2andFluidsDiv > div > span.small > span.units {
-                margin-left: 8px;
-            }
-
-            .two-columns {
-                column-count: 2;
-                -webkit-column-count: 2;
-                -moz-column-count: 2;
-            }
-
-            .section-container {
-                background: #F2F2F2;
-                box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-                padding: 10px 5px 10px 15px;
-                line-height: 1.5em; /*add this for vertical spacing between elements*/
-            }
-
-            .section-container input[type="checkbox"] {
-                margin: 0px 5px; /*changed values to vertical, horizontal*/
-                top:5px; /*added to offset the checkbox position to line up*/
-            }
-
-            .section-container label { /*new definition to override labels inside section-containers*/
-                margin: 0px;
-            }
-
-            .multilines-display {
-                width: 100px;
-                height: 100%;
-            }
-        </style>
-    </ifMode>
-
     <ifMode mode="VIEW" include="false">
         <div class="three-columns">
             <div>
