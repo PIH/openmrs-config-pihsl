@@ -393,7 +393,7 @@
             </p>
 
             <div id="disposition">
-                <encounterDisposition />
+                <encounterDisposition id="encounter-disposition" />
             </div>
         </div>
     </section>

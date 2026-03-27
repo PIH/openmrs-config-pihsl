@@ -679,7 +679,7 @@
                      answerCodes="satisfactory,deteriorated,unsatisfactory"/>
 
                 <div id="disposition">
-                    <encounterDisposition />
+                    <encounterDisposition id="encounter-disposition" />
                 </div>
             </p>
 

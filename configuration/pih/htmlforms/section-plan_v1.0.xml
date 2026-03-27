@@ -373,7 +373,7 @@
         <div class="section-container" >
 
             <div id="disposition">
-                <encounterDisposition required="true"/>
+                <encounterDisposition required="true" id="encounter-disposition" />
             </div>
 
             <label>

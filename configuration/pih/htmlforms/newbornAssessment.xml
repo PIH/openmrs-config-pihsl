@@ -552,7 +552,7 @@
                      answerConceptIds="CIEL:160113,CIEL:160115"/>
 
                 <div id="disposition">
-                    <encounterDisposition />
+                    <encounterDisposition id="encounter-disposition" />
                 </div>
             </p>
 
