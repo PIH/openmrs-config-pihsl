@@ -821,7 +821,7 @@
              headerStyle="title" headerCode="Return visit">
         <div class="section-container two-columns">
             <div id="disposition">
-                <encounterDisposition />
+                <encounterDisposition id="encounter-disposition" />
             </div>
             <div>
                 <p>

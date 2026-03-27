@@ -465,7 +465,7 @@
         <div class="section-container">
             <p class="side-by-side">
                 <div id="disposition">
-                    <encounterDisposition />
+                    <encounterDisposition id="encounter-disposition" />
                 </div>
             </p>
         </div>

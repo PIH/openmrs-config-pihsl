@@ -659,7 +659,7 @@
         <div class="section-container">
             <div class="two-columns">
                 <div id="disposition">
-                    <encounterDisposition required="true"/>
+                    <encounterDisposition required="true" id="encounter-disposition" />
                 </div>
             </div>
         </div>

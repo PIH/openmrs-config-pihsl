@@ -421,7 +421,7 @@
 
                 <div>
                     <div id="disposition">
-                        <encounterDisposition required="false"/>
+                        <encounterDisposition required="false" id="encounter-disposition" />
                     </div>
 
                     <label>
