@@ -165,7 +165,6 @@
     "name": "disposition.emrapi.transferInHospital",
     "conceptCode": "PIH:Transfer within hospital",
     "encounterTypes": ["6444b8d4-407d-444d-aa15-d6dff204ed83",
-                       "153d3182-c76f-4047-b7f2-d83cf967b206",
                        "fb4318dd-cca9-4d20-bb31-0d4eba947d74",
                        "7e42e652-89e7-4559-80fd-41f42826c98c",
                        "093b6ffc-e55a-461a-85cc-c6acf7714a23"],
@@ -173,6 +172,21 @@
       {
         "label": "pihcore.internalTransferLocation",
         "conceptCode": "PIH: 15175",
+        "params": {
+          "id": "transferInternalLocation"
+        }
+      }
+    ]
+  },
+  {
+    "uuid": "transferNewbornDischarge",
+    "name": "disposition.emrapi.transferInHospital",
+    "conceptCode": "PIH:Transfer within hospital",
+    "encounterTypes": ["153d3182-c76f-4047-b7f2-d83cf967b206"],
+    "additionalObs": [
+      {
+        "label": "pihcore.internalTransferLocation",
+        "conceptCode": "PIH:21429",
         "params": {
           "id": "transferInternalLocation"
         }
