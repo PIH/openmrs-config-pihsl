@@ -215,6 +215,11 @@
         #admissionLocation select {
             margin-left: 20px;
         }
+
+        .indented {
+            padding-left: 20pt;
+            padding-right: 20pt;
+        }
     </style>
 
     <ifMode mode="VIEW" include="false">
@@ -350,7 +355,7 @@
 
     <ifMode mode="VIEW" include="false">
         <div id="sticky-anchor"></div>
-        <div class="panel triage-label-green" role="progressbar" aria-valuenow="100"
+        <div class="panel triage-label-dark-green" role="progressbar" aria-valuenow="100"
              aria-valuemin="0" aria-valuemax="100" id="sticky">
             <div>
                 <h3>
@@ -461,7 +466,7 @@
                 <obs id="transport" conceptId="PIH:975" style="radio" required="true"
                      labelText="Method of transport"
                      answerConceptIds="PIH:15074,PIH:MOTORBIKE,PIH:WALKING,PIH:CAR,PIH:OTHER"
-                     answerCodes="Ambulance,Motorbike,Walking,Car,Other">
+                     answerCodes="ambulance,motorbike,walking,car,other">
                     <controls>
                         <when value="PIH:OTHER" thenDisplay="#other-transport"/>
                     </controls>
@@ -520,16 +525,16 @@
     <table>
         <tr>
             <th>
-                Normal<br/>(Green)
+                Normal<br/>(green)
             </th>
             <th>
-                Prompt<br/>(Yellow)
+                Prompt<br/>(yellow)
             </th>
             <th>
-                Urgent<br/>(Orange)
+                Urgent<br/>(orange)
             </th>
             <th>
-                STAT<br/>(Red: Immediately)
+                STAT<br/>(red: immediately)
             </th>
         </tr>
 
@@ -546,7 +551,7 @@
             </td>
             <td>
                 <label>
-                    34+ weeks
+                    <b>34+ weeks</b>
                 </label>
                 <repeat>
                     <template>
@@ -555,13 +560,13 @@
                     </template>
                     <render ansMap="PIH:21087" ansText="Active labour"/>
                     <render ansMap="PIH:21089" ansText="Regular contractions and HSV lesion" />
-                    <render ansMap="PIH:21090" ansText="Planned, elective, repeat cesarean with contractions" />
+                    <render ansMap="PIH:21090" ansText="Planned, elective, repeat caesarean with contractions" />
                     <render ansMap="PIH:21091" ansText="Multiple gestation and early contractions" />
                 </repeat>
                 <br/>
 
                 <label>
-                    34 - 36.6 weeks
+                    <b>34 - 36.6 weeks</b>
                 </label>
                 <repeat>
                     <template>
@@ -603,7 +608,7 @@
                     <render acId="CIEL:119664" labelTag="Cardiac compromise" />
                     <render acId="CIEL:127639" labelTag="Respiratory distress" />
                     <render acId="CIEL:113054" labelTag="Convulsing" />
-                    <render acId="CIEL:147241" labelTag="Hemorrhage" />
+                    <render acId="CIEL:147241" labelTag="Haemorrhage" />
                     <render acId="CIEL:159508" labelTag="Unresponsive" />
                     <render acId="CIEL:130108" labelTag="Placental abruption" />
                     <render acId="CIEL:127259" labelTag="Uterine rupture" />
@@ -626,7 +631,7 @@
              id="complaints"
              style="radio"
              answerConceptIds="CIEL:133632,CIEL:133473,PIH:OTHER"
-             answerCodes="Back/musculo-skeletal pain,Nausea/vomiting,other">
+             answerCodes="back/musculo-skeletal pain,nausea/vomiting,other">
             <controls>
                 <when value="PIH:OTHER" thenDisplay="#other-complain"/>
             </controls>
@@ -635,12 +640,12 @@
     </p>
 
     <label>
-        <uimessage code="pihcore.tbscreen.title"/> <ifMode mode="VIEW" include="false"> (If all 4 symptoms are present, patient isolation and urgent review.) </ifMode>
+        <uimessage code="pihcore.tbscreen.title"/>
     </label>
     <div class="tbScreen" style="padding-bottom: 15px;">
         <repeat with="['Cough > 2 weeks','11567'], ['Fever','5945'], ['Night sweat','6029'],['Weight loss','6477']">
-            <div style="white-space: nowrap;">
-                <p class="list-inline" style="margin-bottom: 5px;">
+            <div style="white-space: nowrap;" class="indented">
+                <p class="list-inline indented" style="margin-bottom: 5px;">
                     <!-- TB symptom -->
                     <label><uimessage code="{0}"/>:&amp;nbsp;&amp;nbsp;</label>
                     <obs conceptIds="PIH:11563,PIH:11564"
