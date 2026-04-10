@@ -4,17 +4,6 @@
   "country": "SIERRA_LEONE",
   "site": "WELLBODY",
 
-  "authenticationConfig": {
-    "scheme": "2fa",
-    "schemes": {
-      "2fa": {
-        "config": {
-          "secondaryOptions": "secret,totp,email"
-        }
-      }
-    }
-  },
-
   "scheduleBackupReports": "true",
   "dashboardUrl": "/pihcore/router/programDashboard.page?patientId={{patientId}}",
   "visitsPageUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
