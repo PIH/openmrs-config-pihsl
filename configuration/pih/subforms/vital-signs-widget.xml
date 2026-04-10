@@ -95,6 +95,6 @@
     </div>
 
     <div id="confirmMsg">
-        <obs id="contactDr" style="checkbox" conceptId="PIH:20925" answerConceptId="CIEL:1065" answerLabel="" labelText="Contact doctor for early intervention"></obs>
+        <obs id="contactDr" style="checkbox" conceptId="PIH:20925" answerConceptId="CIEL:1065" answerLabel="" labelText="Contact doctor about early intervention due to 1 red, 1 orange, or 2 yellow vital score(s)."></obs>
     </div>
 </div>
