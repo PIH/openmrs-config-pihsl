@@ -1,5 +1,5 @@
-<htmlform formUuid="a29c13c8-1d46-4f58-bb09-c9b71e6bc5bf"
-          formName="NCD History" formVersion="2.0">
+<htmlform formUuid="b0b5ed18-f477-45d5-87f9-ad3df76e9b5b"
+          formName="NCD History" formVersion="1.0">
 
     <style type="text/css">
 
@@ -105,6 +105,12 @@
         .five-columns > div {
             display: table-cell;
             width: 20%;
+        }
+
+        .two-columns-old {
+            column-count: 2;
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
         }
 
         p.radio > * {
@@ -366,7 +372,6 @@
                 <label>
                     <uimessage code="Education level" />
                 </label>
-                <br/>
                 <obs id="school" conceptId="CIEL:1712" style="radio"
                      answerConceptIds="CIEL:1713,CIEL:1714,PIH:1701,CIEL:1107"
                      answerCodes="Primary school,Secondary school,Tertiary school,No education"/>
@@ -468,34 +473,31 @@
 
             </div>
 
-            <div class="two-columns">
-                <div>
-                    <p class="side-by-side">
-                        <label>
-                            <uimessage code="Referred from"/>
-                        </label>
-                        <br/>
-                        <obs id="referral-type" conceptId="PIH:Type of referring service" style="radio"
-                             answerConceptIds="PIH:2233,PIH:12368,CIEL:160543,CIEL:978,PIH:14445,CIEL:5485,CIEL:5622"
-                             answerCodes="OPD,PHU,CBP,Self-referred,Screening program,Inpatient ward,other"
-                             answerSeparator="&lt;br /&gt;">
-                            <controls>
-                                <when value="CIEL:5622" thenDisplay="#other-referral-text" />
-                            </controls>
-                        </obs>
-                    </p>
-                </div>
-                <div id="other-referral-text">
-                    <label>
-                        <uimessage code="if other, specify referred from location" />
-                    </label>
-                    <obs conceptId="PIH:6421" style="text" />
+            <p>
+                <label>
+                    <uimessage code="Referred from"/>
+                </label>
 
-                    <!-- ToDo: possible migration of data from comment field to PIH:6421
-                    <obs conceptId="PIH:Type of referring service" style="checkbox"
-                         answerConceptId="PIH:OTHER" commentFieldLabel="" /> -->
+                <div class="two-columns-old">
+                <repeat>
+                    <template>
+                            <obs conceptId="PIH:Type of referring service"
+                                 style="checkbox"
+                                 answerConceptId="{point}" answerCode="{message}"/>
+                    </template>
+
+                    <render point="PIH:2233"    message="OPD"                     comment="outpatient"/>
+                    <render point="PIH:12368"   message="PHU"                     comment="peripheral health unit"/>
+                    <render point="CIEL:160543" message="CBP"                     comment="Community-based program"/>
+                    <render point="CIEL:978"    message="Self-referred"           comment="self-refer"/>
+                    <render point="PIH:14445"   message="Screening program"       comment="Screening"/>
+                    <render point="CIEL:5485"   message="Inpatient ward"          comment="Pediatrics"/>
+                </repeat>
                 </div>
-            </div>
+
+                <obs conceptId="PIH:Type of referring service" style="checkbox"
+                     answerConceptId="PIH:OTHER" commentFieldLabel="" />
+            </p>
         </div>
     </section>
 
@@ -930,25 +932,22 @@
         </div>
     </section>
 
-    <!-- These sections ONLY included for NCD intake encounter (not Part 1) -->
-    <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171'">
-        <section id="reason-for-visit" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-                 headerCode="Reason for visit">
-            <div class="section-container-color">
-                <label>
-                    <uimessage code="Reason evaluated in the NCD clinic"/>
-                </label>
-                <obs conceptId="CIEL:164359" rows="4"/>
-            </div>
-        </section>
+    <section id="reason-for-visit" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Reason for visit">
+        <div class="section-container-color">
+            <label>
+                <uimessage code="Reason evaluated in the NCD clinic"/>
+            </label>
+            <obs conceptId="CIEL:164359" rows="4"/>
+        </div>
+    </section>
 
-        <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
-                 headerCode="pihcore.visitNote.clinicalNotes">
-            <div class="section-container">
-                <obs conceptId="CIEL:161011" style="textarea" />
-            </div>
-        </section>
-    </includeIf>
+    <section sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="pihcore.visitNote.clinicalNotes">
+        <div class="section-container">
+            <obs conceptId="CIEL:161011" style="textarea" />
+        </div>
+    </section>
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">

@@ -1,7 +1,7 @@
 
-<htmlform formUuid="f5ee5823-ff3e-473a-a25a-af074cedce05"
+<htmlform formUuid="7179edaf-9006-49cd-8f12-862ec494f75b"
           formEncounterType="43423212-6f70-4df8-a9f7-2aef88df1ee2"
-          formName="NCD Initial (Part 2)" formVersion="1.0">
+          formName="NCD Initial (Part 2)" formVersion="2.0">
 
     <subform path="configuration/pih/subforms/encounter-with-sections.xml">
         <h2 subform-parameter="encounter-type-name"><uimessage code="ui.i18n.EncounterType.name.43423212-6f70-4df8-a9f7-2aef88df1ee2"/></h2>
