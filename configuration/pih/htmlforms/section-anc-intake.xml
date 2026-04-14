@@ -814,13 +814,29 @@
 
             <p class="list-inline">
                 <label>
-                    <uimessage code="HIV/syphilis rapid test"/>
+                    <uimessage code="HIV/Syphilis rapid test"/>
                 </label>
                 <obs id="hiv-syph-rapid" style="radio"
                      conceptId="CIEL:169624"
-                     answerConceptIds="CIEL:138571,CIEL:136014,CIEL:169623,CIEL:664,CIEL:163611"
-                     answerCodes="HIV,Syphilis,Both (HIV/Syphilis),Negative,Invalid"/>
+                     answerConceptIds="CIEL:138571,CIEL:136014,CIEL:169623,CIEL:664,CIEL:163611,CIEL:1118"
+                     answerCodes="HIV,Syphilis,Both (HIV/Syphilis),Negative,Invalid,Not performed">
+                    <controls>
+                        <when value="CIEL:1118" thenDisplay="#hiv-syph-reason-not-done" />
+                    </controls>
+                </obs>
             </p>
+
+            <div id="hiv-syph-reason-not-done" class="indented">
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Reason not performed"/>
+                    </label>
+                    <obs style="radio"
+                         conceptId="CIEL:165182"
+                         answerConceptIds="CIEL:165183,CIEL:167156,CIEL:5622"
+                         answerCodes="No test kit,Patient refused,other"/>
+                </p>
+            </div>
 
             <p class="list-inline">
                 <label>
@@ -1032,8 +1048,8 @@
                     <uimessage code="Counselled for HIV testing"/>
                 </label>
                 <obs conceptId="PIH:11381" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
-                     answerCodes="yes,no,unknown"
+                     answerConceptIds="CIEL:1065,CIEL:1066"
+                     answerCodes="yes,no"
                      answerSeparator=" " />
             </p>
 
