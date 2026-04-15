@@ -81,29 +81,33 @@
         }
 
         .five-columns, .four-columns, .three-columns, .two-columns {
-        display: table;
-        height: 100%;
-        width: 100%;
+            display: table;
+            height: 100%;
+            width: 100%;
         }
 
         .two-columns > div {
-        display: table-cell;
-        width: 50%;
+            display: table-cell;
+            width: 50%;
         }
 
         .three-columns > div {
-        display: table-cell;
-        width: 33%;
+            display: table-cell;
+            width: 33%;
         }
 
         .four-columns > div {
-        display: table-cell;
-        width: 25%;
+            display: table-cell;
+            width: 25%;
         }
 
         .five-columns > div {
-        display: table-cell;
-        width: 20%;
+            display: table-cell;
+            width: 20%;
+        }
+
+        .side-by-side label {
+            display: inline-block;
         }
     </style>
 
@@ -464,38 +468,43 @@
                          answerConceptIds="CIEL:1065,CIEL:1066"
                          answerCodes="yes,no">
                         <controls>
-                            <when value="CIEL:1065" thenDisplay="#family-method"/>
+                            <when value="CIEL:1065" thenDisplay="#family-planning-method"/>
                         </controls>
                     </obs>
                 </p>
             </div>
-            <div id="family-method" class="two-columns">
+
+            <div id="family-planning-method" class="two-columns">
                 <div>
-                    <p>
+                    <p class="side-by-side">
                         <label>
                             <uimessage code="pihcore.fpMethod"/>
                         </label>
+                        <br/>
+                        <obsgroup groupingConceptId="PIH:Family planning construct">
+                            <obs id="fp-meth-radio" conceptId="CIEL:374" style="radio"
+                                 answerConceptIds="CIEL:159783,CIEL:80784,CIEL:5277,CIEL:907,CIEL:5275,CIEL:1873,CIEL:1472"
+                                 answerCodes="Combined oral contraceptive (COC),Progestin-only pill (POP),pihcore.fp.rhythm,Depo-provera,pihcore.fp.iud,Implant,pihcore.fp.tubalLig"
+                                 answerSeparator="&lt;br /&gt;">
+                                <controls>
+                                    <when value="CIEL:1873" thenDisplay="#implant-date"/>
+                                    <when value="CIEL:5275" thenDisplay="#implant-date"/>
+                                </controls>
+                            </obs>
+                        </obsgroup>
+                    </p>
+
+                    <p>
                         <repeat>
                             <template>
                                 <obsgroup groupingConceptId="PIH:Family planning construct">
-                                    <obs id="fp-meth-{acID}" conceptId="CIEL:374" style="checkbox"
+                                    <obs id="condom-breast-{acID]" conceptId="CIEL:374" style="checkbox"
                                          answerConceptId="CIEL:{acID}"
                                          answerCode="{csName}">
-                                        <controls>
-                                            <when value="CIEL:1873" thenDisplay="#implant-date"/>
-                                            <when value="CIEL:5275" thenDisplay="#implant-date"/>
-                                        </controls>
                                     </obs>
                                 </obsgroup>
                             </template>
-                            <render acID="159783" csName="Combined oral contraceptive (COC)" />
-                            <render acID="80784"  csName="Progestin-only pill (POP)" />
-                            <render acID="5277"   csName="pihcore.fp.rhythm" />
                             <render acID="190"    csName="Condoms" />
-                            <render acID="907"    csName="Depo-provera" />
-                            <render acID="5275"   csName="pihcore.fp.iud" />
-                            <render acID="1873"   csName="Implant" />
-                            <render acID="1472"   csName="pihcore.fp.tubalLig" />
                             <render acID="136163" csName="Exclusive breastfeeding (requires a secondary method)" />
                         </repeat>
                     </p>
@@ -509,7 +518,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <section id="counselling" sectionTag="fieldset" headerTag="legend" headerStyle="title"
