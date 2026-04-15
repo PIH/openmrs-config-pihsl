@@ -55,6 +55,17 @@ input.legalValue {
     width: 20%;
 }
 
+.eight-columns {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.eight-columns > div {
+    display: table-cell;
+    width: 12.5%; /* 100% / 8 =12.5% */
+}
+
 #confirmMsg {
     color: red;
     font-weight: bold;

@@ -2,7 +2,7 @@
     <subform path="configuration/pih/subforms/vital-signs-widget.css"/>
     <subform path="configuration/pih/subforms/vital-signs-widget.js"/>
 
-    <div class="vitals six-columns">
+    <div class="vitals eight-columns">
         <div class="vitals-cell">
             <div class="colorCodingValue">
                 <label>
@@ -69,6 +69,29 @@
                 <obs conceptId="CIEL:5092" id="o2_sat" class="vitals-values"
                      showUnits="emr.units.percent" unitsCssClass="append-to-value"/>
             </span>
+            </div>
+        </div>
+
+        <div>
+            <div class="colorCodingValue">
+                <label>
+                    <uimessage code="HB"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:21" id="hemoglobin" showUnits="true" unitCssClass="append-to-value"/>
+                </span>
+            </div>
+        </div>
+
+        <div>
+            <div class="colorCodingValue">
+                <label>
+                    <uimessage code="pihcore.lab.glucose"/>
+                </label>
+                <span class="small">
+                    <obs conceptId="CIEL:1458" id="glucose" class="vitals-values"
+                         showUnits="true" unitsCssClass="append-to-value"/>
+                </span>
             </div>
         </div>
 
