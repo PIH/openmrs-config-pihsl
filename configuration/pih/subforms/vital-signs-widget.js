@@ -224,7 +224,7 @@ jq(document).ready( function() {
 
     <ifMode mode="VIEW" include="false">
         //Postnatal Ward,  MCOE Post Op ward, Kangaroo Care, Quiet Ward
-        const noFhrLocations = ["ff0d5e73-3fe0-437f-90ba-7d605ac03dc0", "a39ec469-d1f9-11f0-9d46-169316be6a48", "81080213-d1f9-11f0-9d46-169316be6a48", "28660b7f-3450-4b86-b840-9670ec68235f"]
+        const noFhrLocations = ["ff0d5e73-3fe0-437f-90ba-7d605ac03dc0", "a39ec469-d1f9-11f0-9d46-169316be6a48", "81080213-d1f9-11f0-9d46-169316be6a48", "28660b7f-3450-4b86-b840-9670ec68235f"];
         const locationUuid = '<lookup complexExpression="$sessionContext.sessionLocation.uuid"/>';
         const isFound = noFhrLocations.some( location => location.toLowerCase() === locationUuid.toLowerCase());
         if (isFound) {
@@ -249,7 +249,7 @@ jq(document).ready( function() {
         jq(inputElement).removeClass('value');
         jq(inputElement).removeClass(classNames);
         let colorCodingDiv = jq("#" + vitalsId).closest(".colorCodingValue");
-        if (vitalsId) {
+        if (vitalsId &amp;&amp; vitalsInfo[vitalsId]) {
             if (vitalValue) {
                 vitalsInfo[vitalsId].value = vitalValue;
                 let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
@@ -273,7 +273,7 @@ jq(document).ready( function() {
         let inputElement = jq(this);
         jq(inputElement).removeClass('legalValue');
         jq(inputElement).removeClass(classNames);
-        if (vitalsId) {
+        if (vitalsId  &amp;&amp; vitalsInfo[vitalsId]) {
             if (vitalValue) {
                 vitalsInfo[vitalsId].value = vitalValue;
                 let vitalsPriority = vitalsInfo[vitalsId].evaluate(vitalsInfo[vitalsId].value);
