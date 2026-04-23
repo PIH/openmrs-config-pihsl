@@ -27,7 +27,7 @@
     "type": "link",
     "label": "NICU Discharge List",
     "url": "pihcore/reports/interactiveRenderer.page?reportDefinition=7c575650-bf72-46f2-9eb9-dc8f6f414faf",
-    "icon": "fas fa-fw arrow-right-from-bracket",
+    "icon": "fas fa-fw sign-out-alt",
     "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
     "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'NICU Location')",
     "order": 183

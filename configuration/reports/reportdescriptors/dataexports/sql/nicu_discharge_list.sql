@@ -57,10 +57,10 @@ update temp_discharge_list t set inborn_outborn = 'outborn' where t.inborn_outbo
 
 
 select
-  emr_id,
-  name, 
-  discharge_datetime,
-  disposition, 
-  discharge_provider,
-  inborn_outborn "inborn/outborn"
+  emr_id "EMR ID",
+  name "Name", 
+  CONCAT(DATE_FORMAT(discharge_datetime, '%b %e, %Y '), LTRIM(LOWER(DATE_FORMAT(discharge_datetime, '%l:%i%p')))) "Discharged date/time",
+  disposition "Dispositon", 
+  discharge_provider "Discharge provider",
+  inborn_outborn "Inborn/Outborn"
 from temp_discharge_list;
