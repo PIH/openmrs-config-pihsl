@@ -712,8 +712,8 @@
                             <repeat>
                                 <template>
                                     <obsgroup groupingConceptId="PIH:Family planning construct">
-                                        <obs id="fp-meth-{acID}" conceptId="CIEL:374" style="checkbox"
-                                             answerConceptId="CIEL:{acID}"
+                                        <obs id="fp-meth-{dID}" conceptId="CIEL:374" style="checkbox"
+                                             answerConceptId="{acID}"
                                              answerCode="{csName}">
                                             <controls>
                                                 <when value="CIEL:1873" thenDisplay="#implant-date"/>
@@ -722,15 +722,16 @@
                                         </obs>
                                     </obsgroup>
                                 </template>
-                                <render acID="159783" csName="Combined oral contraceptive (COC)" />
-                                <render acID="80784"  csName="Progestin-only pill (POP)" />
-                                <render acID="5277"   csName="pihcore.fp.rhythm" />
-                                <render acID="190"    csName="Condoms" />
-                                <render acID="907"    csName="Depo-provera" />
-                                <render acID="5275"   csName="pihcore.fp.iud" />
-                                <render acID="1873"   csName="Implant" />
-                                <render acID="1472"   csName="pihcore.fp.tubalLig" />
-                                <render acID="136163" csName="Exclusive breastfeeding (requires a secondary method)" />
+                                <render acID="CIEL:159783" dID="159783" csName="Combined oral contraceptive (COC)" />
+                                <render acID="CIEL:80784"  dID="80784" csName="Progestin-only pill (POP)" />
+                                <render acID="CIEL:5277"   dID="5277" csName="pihcore.fp.rhythm" />
+                                <render acID="CIEL:190"    dID="190" csName="Condoms" />
+                                <render acID="CIEL:907"    dID="907" csName="Depo-provera" />
+                                <render acID="PIH:21450"   dID="21450" csName="Sayana press" />
+                                <render acID="CIEL:5275"   dID="5275" csName="pihcore.fp.iud" />
+                                <render acID="CIEL:1873"   dID="1873" csName="Implant" />
+                                <render acID="CIEL:1472"   dID="1472" csName="pihcore.fp.tubalLig" />
+                                <render acID="CIEL:136163" dID="136163" csName="Exclusive breastfeeding (requires a secondary method)" />
                             </repeat>
                         </p>
                     </div>
