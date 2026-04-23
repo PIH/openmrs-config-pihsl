@@ -372,7 +372,17 @@
                     const estGestAge = (40 - gestAge).toFixed(1);
                     jq(".gestationalAge input[type='text']").val(estGestAge);
                 }
+            });
 
+            jq(".gestationalAge input[type='text']").change(function() {
+                const numValue = Number(this.value);
+                if (isNaN(numValue)) {
+                    console.error("Gestational age must be a valid number");
+                    return;
+                }
+                // EDD = (40 weeks - current estimated gestational age in weeks) * 7 days * 24 hours * 60 minutes * 60 seconds * 1000ms
+                const newEdd = new Date(currentEncounterDate.getTime() + (40 - numValue) * 7 * 24 * 60 * 60 * 1000);
+                getField("edd.value").datepicker("setDate", newEdd);
             });
         });
     </script>
