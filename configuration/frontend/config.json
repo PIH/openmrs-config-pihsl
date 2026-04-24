@@ -423,10 +423,14 @@
     "hideWorkspaceVitalsLinks": true,
     "extensionSlots": {
       "ward-patient": {
+	"configure": {
+	  "ward-patient-discharge": {
+	    "allowedSessionLocationUuids": ["989a9b23-d1f9-11f0-9d46-169316be6a48"]
+	  }
+	},
         "remove": [
           "ward-patient-order-basket",
-          "ward-patient-clinical-forms",
-          "ward-patient-discharge"
+          "ward-patient-clinical-forms"
         ],
         "order": [
           "ward-patient",
