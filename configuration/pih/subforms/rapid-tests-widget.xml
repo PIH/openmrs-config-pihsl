@@ -1,0 +1,27 @@
+<div id="rapid-tests-widget">
+    <subform path="configuration/pih/subforms/rapid-tests-widget.js"/>
+    <p class="list-inline">
+        <label>
+            <uimessage code="Hepatitis B (HbsAb)"/>
+        </label>
+        <obs id="HBsAg" style="radio"
+             conceptId="CIEL:159430"
+             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138"/>
+    </p>
+    <p class="list-inline">
+        <label>
+            <uimessage code="HIV rapid test"/>
+        </label>
+        <obs id="hiv-rapid-test" conceptId="CIEL:163722" style="radio"
+             answerConceptIds="CIEL:703,CIEL:664,CIEL:1138,CIEL:160737"
+             answerLabels="Positive,Negative,Indeterminate,Not performed"/>
+    </p>
+    <p class="list-inline">
+        <label>
+            <uimessage code="Syphillis rapid test"/>
+        </label>
+        <obs id="syphillis-rapid-test" conceptId="CIEL:165303" style="radio"
+             answerConceptIds="CIEL:1228,CIEL:1229,CIEL:1138,CIEL:160737"
+             answerLabels="Positive,Negative,Indeterminate,Not performed"/>
+    </p>
+</div>
