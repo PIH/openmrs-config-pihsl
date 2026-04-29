@@ -21,10 +21,6 @@
             font-size: 1em;
             font-weight: normal;
         }
-
-        #who-when-where {
-            border-bottom: none !important;
-        }
     </style>
 
     <ifMode mode="VIEW" include="false">
@@ -845,10 +841,12 @@
                         <uimessage code="Random blood glucose (RBG)"/>
                     </label>
                     <obs class="glucose_value" conceptId="CIEL:1458" showUnits="true"/>
+
+                    <obs id="glucose-coded" class="glucose_value"
+                         conceptId="PIH:21458" style="radio"
+                         answerConceptIds="CIEL:1408,CIEL:1407" />
                 </div>
             </p>
-
-
 
         </fieldset>
 
