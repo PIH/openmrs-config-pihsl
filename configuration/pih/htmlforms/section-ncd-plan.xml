@@ -76,6 +76,9 @@
         </h1>
     </ifMode>
 
+    <!-- Program enrollment -->
+    <enrollInProgram programId="NCD" locationTag="Program Location" />
+
     <section id="drug-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Treatment plan">
         <div class="section-container">
