@@ -18,3 +18,8 @@
     font-weight: bold;
     font-style: italic;
 }
+
+.indented {
+    padding-left: 20px;
+    padding-right: 20px;
+}

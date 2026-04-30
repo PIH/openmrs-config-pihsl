@@ -660,6 +660,7 @@
     <div id="isolationMsg">
         Patient needs isolation and urgent review by infectious disease team.
     </div>
+    <subform path="configuration/pih/subforms/lab-results-section.xml"/>
     <div class="boundary"></div>
         <div class="section-container">
             <div class="two-columns">

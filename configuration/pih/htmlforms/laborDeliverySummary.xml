@@ -1243,7 +1243,7 @@
 
         </div>
     </section>
-
+    <subform path="configuration/pih/subforms/lab-results-section.xml"/>
     <section id="perineum" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Perineum">
         <div class="section-container">
