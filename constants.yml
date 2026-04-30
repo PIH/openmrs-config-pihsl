@@ -125,3 +125,7 @@ providerGroup:
   group5: "${providerRole.PHYSICIAN.uuid},${providerRole.CLINICIAN.uuid},${providerRole.NURSE_RN.uuid},${providerRole.ADVANCE_PRACTICE_NURSE.uuid}"
   group6: "${providerRole.ADVANCE_PRACTICE_NURSE.uuid},${providerRole.NURSE_RN.uuid},${providerRole.NURSE_MIDWIFE.uuid},${providerRole.NURSING_AUXILIARY.uuid},${providerRole.NURSE_ACCOMPAGNATEUR.uuid}"
   outpatientConsult: "${providerRole.CLINICIAN.uuid},${providerRole.PHYSICIAN.uuid}"
+
+globalProperties:
+  labworkflowowa:
+    labResultsEncounterTypes: "${encounterType.LAB_SPECIMEN_COLLECTION.uuid},${encounterType.LAB_RESULTS.uuid},${encounterType.COVID19_INTAKE.uuid},${encounterType.COVID19_FOLLOWUP.uuid},${encounterType.HIV_INTAKE.uuid},${encounterType.HIV_FOLLOWUP.uuid},${encounterType.ANC_INTAKE.uuid},${encounterType.ANC_FOLLOWUP.uuid},${encounterType.NEWBORN_INITIAL.uuid},${encounterType.NEWBORN_DAILY_PROGRESS.uuid},${encounterType.NEWBORN_DISCHARGE.uuid},${encounterType.sierraLeoneNicuTriage.uuid}"
