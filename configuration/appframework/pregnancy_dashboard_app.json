@@ -365,6 +365,30 @@
     }
   },
   {
+    "id": "pregnancy.dashboard.labResults",
+    "icon": "fas fa-fw fa-vial",
+    "label": "pihcore.lab.lab_results.caps",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
+        "order": 6,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/labResults"
+        }
+      }
+    ],
+    "config": {
+      "encounterTypes": "${globalProperties.labworkflowowa.labResultsEncounterTypes}",
+      "detailsUrl": "owa/labworkflow/index.html?patient={{patient.uuid}}&returnUrl=/coreapps/clinicianfacing/patient.page?patientId={{patient.uuid}}&dashboard=${program.pregnancy.uuid}#/LabResults",
+      "obsTypes": "LabSet,Test",
+      "labCategoriesSet": "${concept.laboratoryCategories.uuid}",
+      "maxToDisplay": 5
+    }
+  },
+  {
     "id": "pregnancy.dashboard.dispensedMeds",
     "icon": "fas fa-fw fa-pills",
     "label": "mirebalais.dispensing.title",
@@ -372,7 +396,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 6,
+        "order": 7,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -394,7 +418,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.secondColumnFragments",
-        "order": 7,
+        "order": 8,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
