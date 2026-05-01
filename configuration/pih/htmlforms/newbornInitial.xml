@@ -18,6 +18,7 @@
           formName="Newborn Initial"
           formEncounterType="093b6ffc-e55a-461a-85cc-c6acf7714a23" formVersion="1.1">
 
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
 
     <translations defaultLocale="en">
@@ -842,6 +843,59 @@
              headerCode="Diagnoses">
         <div class="section-container">
 
+            <h3>
+                <label>
+                    <uimessage code="Reasons for admission" />
+                </label>
+            </h3>
+            <div class="two-columns">
+                <div>
+                    <repeat>
+                        <template>
+                            <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                                <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{dxId}" answerCode="{message}"
+                                     style="checkbox"/>
+                            </obsgroup>
+                        </template>
+                        <render dxId="CIEL:121629" message="Anaemia" />
+                        <render dxId="CIEL:121519" message="Apnoea of newborn " />
+                        <render dxId="CIEL:157996" message="Birth asphyxia" />
+                        <render dxId="CIEL:143849" message="Congenital malformation" />
+                        <render dxId="CIEL:111523" message="Extreme prematurity" />
+                        <render dxId="CIEL:156720" message="Hypoxic ischemic encephalopathy of newborn (HIE)" />
+                        <render dxId="CIEL:116222" message="Low birth weight" />
+                        <render dxId="CIEL:140951" message="Macrosomia" />
+                        <render dxId="CIEL:116128" message="Malaria" />
+                    </repeat>
+                    <br/>
+                </div>
+                <div>
+                    <repeat>
+                        <template>
+                            <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                                <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{dxId}" answerCode="{message}"
+                                     style="checkbox"/>
+                            </obsgroup>
+                        </template>
+                        <render dxId="CIEL:115381" message="Meconium aspiration (MAS)" />
+                        <render dxId="CIEL:133385" message="Necrotising enterocolitis (NEC)" />
+                        <render dxId="CIEL:115368" message="Neonatal jaundice" />
+                        <render dxId="CIEL:170788" message="Neonatal meningitis" />
+                        <render dxId="CIEL:143388" message="Neonatal seizures" />
+                        <render dxId="CIEL:226"    message="Neonatal sepsis" />
+                        <render dxId="CIEL:113841" message="Premature birth" />
+                        <render dxId="CIEL:127638" message="Respiratory distress of newborn (RDS)" />
+                        <render dxId="CIEL:112264" message="Transient tachpnea of newborn (TTN)" />
+                       </repeat>
+                    <br/>
+                </div>
+            </div>
+            <hr/>
+            <h3>
+                <label>
+                    <uimessage code="Other diagnoses" />
+                </label>
+            </h3>
             <div id="data-collection">
                 <encounterDiagnosesByObs selectedDiagnosesTarget="#encounter-diagnoses-target"/>
             </div>
