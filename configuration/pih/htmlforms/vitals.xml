@@ -30,11 +30,6 @@
             font-size: 1em;
             font-weight: normal;
         }
-
-        #who-when-where {
-            border-bottom: none !important;
-        }
-
     </style>
 
     <ifMode mode="VIEW" include="false">
