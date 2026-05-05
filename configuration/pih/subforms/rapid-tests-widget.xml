@@ -1,7 +1,7 @@
 <div id="rapid-tests-widget">
     <subform path="configuration/pih/subforms/rapid-tests-widget.css"/>
     <subform path="configuration/pih/subforms/rapid-tests-widget.js"/>
-
+    <div class="boundary"></div>
     <div class="bordered-section">
         <ifMode mode="VIEW" include="false">
             <lookup complexExpression="#set( $hivRtResult = $fn.latestObsBeforeCurrentEncounter('CIEL:163722', false) )"/>
@@ -73,6 +73,7 @@
             </excludeIf>
         </obsgroup>
     </div>
+    <div class="boundary"></div>
     <div class="bordered-section">
         <obsgroup groupingConceptId="PIH:11523">
             <p class="list-inline">
@@ -127,6 +128,7 @@
             </includeIf>
         </ifMode>
     </div>
+    <div class="boundary"></div>
     <div class="bordered-section">
         <p class="list-inline">
             <label>
@@ -160,4 +162,5 @@
             </includeIf>
         </ifMode>
     </div>
+    <div class="boundary"></div>
 </div>

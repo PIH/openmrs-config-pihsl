@@ -1,5 +1,4 @@
 .bordered-section {
-    border: 1px solid black;
     display: block;
     width: fit-content;
     margin-top: 5px;
@@ -22,4 +21,8 @@
 .indented {
     padding-left: 20px;
     padding-right: 20px;
+}
+.boundary {
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ccc;
 }

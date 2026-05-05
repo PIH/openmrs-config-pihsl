@@ -220,6 +220,10 @@
             padding-left: 20pt;
             padding-right: 20pt;
         }
+
+        #lab-results div.section-container {
+            background-color: white;
+        }
     </style>
 
     <ifMode mode="VIEW" include="false">
