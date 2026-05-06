@@ -41,6 +41,21 @@
             display: block;
         }
 
+        fieldset#lab-results {
+            display: block;
+            width: auto;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .section-container {
+            background-color: white;
+        }
+
+        legend.title {
+            font-size: 1.1em;
+            font-family: OpenSans, Arial, sans-serif;
+        }
+
         #mch-triage-form, .exam input[type="checkbox"] {
             margin: 0px 5px; /* changed values to vertical, horizontal */
             top: 5px; /* added to offset the checkbox position to line up */
@@ -664,7 +679,9 @@
     <div id="isolationMsg">
         Patient needs isolation and urgent review by infectious disease team.
     </div>
-    <subform path="configuration/pih/subforms/lab-results-section.xml"/>
+    <div>
+        <subform path="configuration/pih/subforms/lab-results-section.xml"/>
+    </div>
     <div class="boundary"></div>
         <div class="section-container">
             <div class="two-columns">
