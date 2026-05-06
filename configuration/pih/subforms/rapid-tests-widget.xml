@@ -78,7 +78,7 @@
         <obsgroup groupingConceptId="PIH:11523">
             <p class="list-inline">
                 <label>
-                    <uimessage code="Syphillis rapid test"/>
+                    <uimessage code="Syphilis rapid test"/>
                 </label>
                 <obs id="syphillis-rapid-test" conceptId="CIEL:165303" style="radio"
                      answerConceptIds="CIEL:1228,CIEL:1229,CIEL:1138,CIEL:160737"
