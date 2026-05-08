@@ -468,23 +468,34 @@
     <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
             jq(function () {
-                jq("#fasting input[type='radio']").change(function () {
-                    let fastingMode = jq("#fasting input[type='radio']:checked").val();
-                    if (fastingMode) {
-                        jq("#fasting input[type='radio']").attr('data-display-value', '');
-                        jq(this).attr('data-display-value', jq(this).next("label").text());
-
-                    } else {
-                        jq("#fasting input[type='radio']").attr('data-display-value', '');
+                var toggleGlucoseFields = function() {
+                    if (getValue('fasting.value') === '<lookup expression="fn.getConcept('CIEL:1065').id" />') {
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).enable();
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).show();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).hide();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).hide();
                     }
-                });
-
-                jq(".glucose_value input").change(function () {
-                    let glucoseValue = jq(this).val();
-                    if ( glucoseValue ) {
-                        jq("#fasting input[type='radio']").attr('data-display-value', jq(this).closest("div").children("label").text().trim() + ', ' + glucoseValue +  ' ' + jq(this).next("span.units").text());
+                    else if (getValue('fasting.value') === '<lookup expression="fn.getConcept('CIEL:1066').id" />') {
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).hide();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).enable();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).show();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).enable();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).show();
                     }
-                });
+                    else {
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('fbg.value').attr('id')).hide();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('rbg.value').attr('id')).hide();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).disable();
+                        NavigatorController.getFieldById(getField('glucose-coded.value').attr('id')).hide();
+                    }
+                }
+                toggleGlucoseFields();
+                getField('fasting.value').change(toggleGlucoseFields);
             });
         </script>
     </ifMode>
@@ -820,33 +831,36 @@
                 <uimessage code="Glucose fingerstick"/>
             </h3>
 
-            <p class="side-by-side">
-                <obs id="fasting" conceptId="PIH:6689" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="FBG,RBG">
-                    <controls>
-                        <when value="CIEL:1065" thenDisplay="#fbg"/>
-                        <when value="CIEL:1066" thenDisplay="#rbg"/>
-                    </controls>
-                </obs>
-                <div id="fbg">
-                    <label>
-                        <uimessage code="Fasting blood glucose (FBG)"/>
-                    </label>
-                    <obs class="glucose_value" conceptId="CIEL:169672" showUnits="true"/>
+            <div class="side-by-side">
+                <field>
+                    <obs id="fasting" conceptId="PIH:6689" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="FBG,RBG">
+                    </obs>
+                </field>
+                <div>
+                    <field>
+                        <label for="fbg">
+                            <uimessage code="Fasting blood glucose (FBG)"/>
+                        </label>
+                        <obs id="fbg" class="glucose_value" conceptId="CIEL:169672" showUnits="true"/>
+                    </field>
                 </div>
+                <div>
+                    <field>
+                        <label for="rbg">
+                            <uimessage code="Random blood glucose (RBG)"/>
+                        </label>
+                        <obs id="rbg" class="glucose_value" conceptId="CIEL:1458" showUnits="true"/>
+                    </field>
 
-                <div id="rbg">
-                    <label>
-                        <uimessage code="Random blood glucose (RBG)"/>
-                    </label>
-                    <obs class="glucose_value" conceptId="CIEL:1458" showUnits="true"/>
-
-                    <obs id="glucose-coded" class="glucose_value"
-                         conceptId="PIH:21458" style="radio"
-                         answerConceptIds="CIEL:1408,CIEL:1407" />
+                    <field>
+                        <obs id="glucose-coded" class="glucose_value"
+                             conceptId="PIH:21458" style="radio"
+                             answerConceptIds="CIEL:1408,CIEL:1407" />
+                    </field>
                 </div>
-            </p>
+            </div>
 
         </fieldset>
 
