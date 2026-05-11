@@ -316,6 +316,7 @@
       "showTime": true,
       "minValue": "35.9",
       "maxValue": "38",
+      "maxRecords": "5",
       "visitUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview" ,
       "duringCurrentEnrollmentInProgram": "${program.infant.uuid}"
     }
