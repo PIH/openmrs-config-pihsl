@@ -320,8 +320,16 @@
                         <label>if other, specify:</label>
                         <obs conceptId="PIH:8596" style="text"/>
                     </obsgroup>
+
+                    <br/><br/>
+                    <p>
+                        <obs style="checkbox" conceptId="PIH:21460"
+                             answerConceptId="CIEL:1065"
+                             answerCode="Patient needs to bring their radiology images/results to next visit" />
+                    </p>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -411,6 +419,17 @@
         <div class="section-container">
             <div class="two-columns">
                 <div>
+                    <div id="disposition">
+                        <encounterDisposition required="false" id="encounter-disposition" />
+                    </div>
+
+                    <label>
+                        <uimessage code="pihcore.comment"/>
+                    </label>
+                    <obs conceptId="PIH:DISPOSITION COMMENTS" style="text"/>
+                </div>
+
+                <div>
                     <label>
                         <uimessage code="Next appointment date"/>
                     </label>
@@ -420,17 +439,6 @@
                         <uimessage code="Next re-filling date"/>
                     </label>
                     <obs conceptId="CIEL:162549" allowFutureDates="true" id="refillDate"/>
-                </div>
-
-                <div>
-                    <div id="disposition">
-                        <encounterDisposition required="false" id="encounter-disposition" />
-                    </div>
-
-                    <label>
-                        <uimessage code="pihcore.comment"/>
-                    </label>
-                    <obs conceptId="PIH:DISPOSITION COMMENTS" style="text"/>
                 </div>
             </div>
 
