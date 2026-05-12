@@ -173,7 +173,7 @@
                                         <obs conceptId="PIH:DIAGNOSIS" style="radio"
                                              answerConceptIds="CIEL:142474,CIEL:142473,PIH:Gestational diabetes,CIEL:119481"
                                              answerCodes="Type 1 DM,Type 2 DM,Gestational DM,DM not yet specified"
-                                             answerSeparator="&lt;br /&gt;"/>
+                                             answerSeparator="&lt;br /&gt;" required="true"/>
                                     </p>
                                 </obsgroup>
                             </td>
@@ -196,7 +196,7 @@
                                     <obs conceptId="PIH:DIAGNOSIS" style="radio"
                                          answerConceptIds="CIEL:142474,CIEL:142473,CIEL:119481"
                                          answerCodes="Type 1 DM,Type 2 DM,DM not yet specified"
-                                         answerSeparator="&lt;br /&gt;"/>
+                                         answerSeparator="&lt;br /&gt;" required="true"/>
                                 </obsgroup>
                                 </p>
                             </td>
@@ -281,18 +281,18 @@
                                         </label>
                                         <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO"
-                                             answerCodes="yes,no">
+                                             answerCodes="yes,no" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#dm-{q}-details"/>
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render qId="CIEL:1898" questionName="Patient condition improved" q="improved"/>
-                                <render qId="PIH:6756"  questionName="On insulin" q="insulin"/>
-                                <render qId="CIEL:167957" questionName="Severe hypoglycemia in last month" q="severe"/>
-                                <render qId="CIEL:164075" questionName="Overall treatment adherence" q="adher"/>
-                                <render qId="CIEL:167819" questionName="Missed doses in past week" q="missed"/>
+                                <render qId="CIEL:1898" questionName="Patient condition improved" q="improved" req="false"/>
+                                <render qId="PIH:6756"  questionName="On insulin" q="insulin" req="true"/>
+                                <render qId="CIEL:167957" questionName="Severe hypoglycemia in last month" q="severe" req="false"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" q="adher" req="false"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" q="missed" req="true"/>
                             </repeat>
                         </div>
 
@@ -392,16 +392,16 @@
                                         </label>
                                         <obs id="dm-{q}-top" conceptId="{qId}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO"
-                                             answerCodes="yes,no" >
+                                             answerCodes="yes,no" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#dm-{q}-details" />
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render qId="CIEL:167956" questionName="Glycometer (home)" q="home"/>
-                                <render qId="CIEL:167919" questionName="Ability to read and manage glycometer" q="abiity" />
-                                <render qId="PIH:14709"   questionName="Patient adjusted insulin based on glucometer" q="adjust"/>
+                                <render qId="CIEL:167956" questionName="Glucometer (home)" q="home" req="true"/>
+                                <render qId="CIEL:167919" questionName="Ability to read and manage glucometer" q="abiity" req="false" />
+                                <render qId="PIH:14709"   questionName="Patient adjusted insulin based on glucometer" q="adjust" req="false"/>
                             </repeat>
                         </div>
                     </div>
@@ -431,7 +431,7 @@
                         </label>
                         <obs conceptId="PIH:11506" style="radio"
                              answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                             answerCodes="controlled,uncontrolled,complications" />
+                             answerCodes="controlled,uncontrolled,complications" required="true"/>
                     </p>
 
                     <p class="list-inline-wide">

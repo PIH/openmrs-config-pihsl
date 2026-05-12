@@ -235,7 +235,7 @@
                     </label>
                     <obs conceptId="PIH:6189" style="radio"
                          answerConceptIds="PIH:1246,PIH:12612,PIH:6192"
-                         answerCodes="Scheduled,Non scheduled,Urgent"/>
+                         answerCodes="Scheduled,Non scheduled,Urgent" required="true"/>
                 </p>
 
                 <div class="two-columns">
@@ -245,7 +245,7 @@
                                 <uimessage code="Social support" />
                             </label>
                             <obs id="social-support" conceptId="CIEL:163766" style="radio"
-                                 answerConceptIds="CIEL:1065,CIEL:1066">
+                                 answerConceptIds="CIEL:1065,CIEL:1066" required="true">
                                 <controls>
                                     <when value="CIEL:1065" thenDisplay="#specify-support"/>
                                 </controls>
@@ -266,7 +266,7 @@
                                 <uimessage code="Missed school" />
                             </label>
                             <obs id="missed-school" conceptId="PIH:5629" style="radio"
-                                 answerConceptIds="CIEL:1065,CIEL:1066">
+                                 answerConceptIds="CIEL:1065,CIEL:1066" required="true">
                                 <controls>
                                     <when value="CIEL:1065" thenDisplay="#days-missed"/>
                                 </controls>

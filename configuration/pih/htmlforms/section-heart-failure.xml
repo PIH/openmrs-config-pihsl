@@ -421,18 +421,18 @@
                                             </label>
                                             <obs id="hf-fui-{tog}" conceptId="{qId}" style="radio"
                                                  answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                                 answerCodes="yes,no,unknown" >
+                                                 answerCodes="yes,no,unknown" required="{req}" >
                                                 <controls>
                                                     <when value="PIH:YES" thenDisplay="#hf-fui-{tog}-details"/>
                                                 </controls>
                                             </obs>
                                         </p>
                                     </template>
-                                    <render qId="CIEL:167914" questionName="Understands treatment" tog="understand"/>
-                                    <render qId="CIEL:168115" questionName="Low salt adherence diet" tog="salt" />
-                                    <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                                    <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate"/>
-                                    <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
+                                    <render qId="CIEL:167914" questionName="Understands treatment" tog="understand" req="false"/>
+                                    <render qId="CIEL:168115" questionName="Low salt adherence diet" tog="salt" req="false"/>
+                                    <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher" req="false"/>
+                                    <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate" req="false"/>
+                                    <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed" req="true"/>
                                 </repeat>
                             </div>
                             <div id="hf-fui-missed-details">
@@ -513,7 +513,7 @@
                             </label>
                             <obs id="hf-controlled" conceptId="PIH:11506" style="radio"
                                  answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                                 answerCodes="controlled,uncontrolled,complications" >
+                                 answerCodes="controlled,uncontrolled,complications" required="true">
                                 <controls>
                                     <when value="PIH:11508" thenDisplay="#hf-uncontrolled-admit"/>
                                 </controls>
@@ -573,7 +573,7 @@
                     <obs conceptId="PIH:NYHA CLASS" style="radio"
                          answerConceptIds="PIH:NYHA CLASS 1,PIH:NYHA CLASS 2,PIH:NYHA CLASS 3,PIH:NYHA CLASS 4"
                          answerCodes="I (No limitations),II (Comfortable with moderate exercise),III (Comfortable resting),IV (Not comfortable resting)"
-                         answerSeparator="&lt;br /&gt;"/>
+                         answerSeparator="&lt;br /&gt;" required="true"/>
                 </p>
 
                 <strong>

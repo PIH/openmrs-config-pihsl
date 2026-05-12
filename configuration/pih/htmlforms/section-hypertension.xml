@@ -275,17 +275,17 @@
                                         </label>
                                         <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                             answerCodes="yes,no,unknown">
+                                             answerCodes="yes,no,unknown" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware"/>
-                                <render message="CIEL:167914" xId="Understands treatment" tog="understand"/>
-                                <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher"/>
-                                <render message="CIEL:167819" xId="Missed doses in past week" tog="missed"/>
+                                <render message="CIEL:167021" xId="Aware and understands the disease" tog="aware" req="false"/>
+                                <render message="CIEL:167914" xId="Understands treatment" tog="understand" req="false"/>
+                                <render message="CIEL:164075" xId="Overall treatment adherence" tog="adher" req="false"/>
+                                <render message="CIEL:167819" xId="Missed doses in past week" tog="missed" req="true"/>
                             </repeat>
                         </div>
                         <div id="htn-fui-missed-details">
@@ -310,7 +310,7 @@
                                 </label>
                                 <obs id="htn-fui-{tog}" conceptId="{message}" style="radio"
                                      answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                     answerCodes="yes,no,unknown">
+                                     answerCodes="yes,no,unknown" required="true">
                                     <controls>
                                         <when value="PIH:YES" thenDisplay="#htn-fui-{tog}-details"/>
                                     </controls>

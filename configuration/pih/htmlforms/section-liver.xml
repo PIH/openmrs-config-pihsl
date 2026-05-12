@@ -294,18 +294,18 @@
                                         </label>
                                         <obs id="liver-{tog}" conceptId="{qId}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                             answerCodes="yes,no,unknown">
+                                             answerCodes="yes,no,unknown" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#liver-{tog}-details"/>
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render qId="CIEL:167914" questionName="Understands treatment" tog="fui-under"/>
-                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="fui-tite"/>
-                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="fui-adher"/>
-                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="fui-miss"/>
-                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="fui-aware"/>
+                                <render qId="CIEL:167914" questionName="Understands treatment" tog="fui-under" req="false"/>
+                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="fui-tite" req="false"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="fui-adher" req="false"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="fui-miss" req="true"/>
+                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="fui-aware" req="false"/>
                             </repeat>
                         </div>
 
@@ -347,7 +347,7 @@
                         </label>
                         <obs id="liver-control" conceptId="PIH:11506" style="radio"
                              answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                             answerCodes="controlled,uncontrolled,complications" >
+                             answerCodes="controlled,uncontrolled,complications" required="true">
                             <controls>
                                 <when value="PIH:11508" thenDisplay="#liver-fui-uncontrolled"/>
                             </controls>
@@ -376,7 +376,7 @@
                     </label>
                     <obs id="new-hepb-tto" conceptId="PIH:14889" style="radio"
                          answerConceptIds="PIH:YES,PIH:NO"
-                         answerCodes="yes,no">
+                         answerCodes="yes,no" required="true">
                         <controls>
                             <when value="PIH:YES" thenDisplay="#new-hepb-reason"/>
                         </controls>
@@ -416,7 +416,7 @@
                         <obs id="hepB-q" conceptId="PIH:14889" style="radio"
                              labelCode="On treatment"
                              answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
-                             answerCodes="yes,no,not applicable">
+                             answerCodes="yes,no,not applicable" required="true">
                             <controls>
                                 <when value="CIEL:1065" thenDisplay="#hepB-details" />
                             </controls>
@@ -452,7 +452,7 @@
                             <obs style="radio"
                                  conceptId="CIEL:167819"
                                  answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1175"
-                                 answerCodes="yes,no,not applicable" />
+                                 answerCodes="yes,no,not applicable" required="false"/>
 
                         </p>
                         <p class="list-inline-wide">

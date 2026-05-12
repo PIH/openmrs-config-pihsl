@@ -337,7 +337,7 @@
                 </label>
                 <obs conceptId="PIH:6189" style="radio"
                      answerConceptIds="PIH:1246,PIH:12612,PIH:6192"
-                     answerCodes="Scheduled,Non scheduled,Urgent"/>
+                     answerCodes="Scheduled,Non scheduled,Urgent" required="true"/>
             </p>
 
             <div class="two-columns">

@@ -1343,8 +1343,8 @@
                                     </obs>
                                 </p>
                             </template>
-                            <render qId="CIEL:167956" questionName="Glycometer (home)" q="home"/>
-                            <render qId="CIEL:167919" questionName="Ability to read and manage glycometer" q="abiity" />
+                            <render qId="CIEL:167956" questionName="Glucometer (home)" q="home"/>
+                            <render qId="CIEL:167919" questionName="Ability to read and manage glucometer" q="abiity" />
                             <render qId="PIH:14709"   questionName="Patient adjusted insulin based on glucometer" q="adjust"/>
                         </repeat>
                     </div>

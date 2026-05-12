@@ -170,7 +170,7 @@
                             <obs id="scd-test-method" conceptId="CIEL:168730" style="radio"
                                  answerConceptIds="CIEL:160225,CIEL:168733,CIEL:168732,CIEL:165544,CIEL:161519,CIEL:168731,CIEL:1067,CIEL:5622"
                                  answerCodes="SickleScan RDT,HemoTypeSC,Gazelle,pihcore.lab.hgElectro,HPLC,IEF,pihcore.unknownButTested,pihcore.other"
-                                 answerSeparator="&lt;br /&gt;" />
+                                 answerSeparator="&lt;br /&gt;" required="true" />
                         </p>
                     </div>
                 </div>
@@ -277,7 +277,7 @@
                         </label>
                         <obs id="transfusion-status" conceptId="PIH:7868" style="radio"
                              answerConceptIds="CIEL:1065,CIEL:1066"
-                             answerCodes="pihcore.yes,pihcore.no">
+                             answerCodes="pihcore.yes,pihcore.no" required="true">
                             <controls>
                                 <when value="CIEL:1065" thenDisplay="#transfusion-details"/>
                             </controls>
@@ -322,20 +322,20 @@
                                         </label>
                                         <obs id="{tog}" conceptId="{qId}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                             answerCodes="pihcore.yes,pihcore.no,pihcore.unknown">
+                                             answerCodes="pihcore.yes,pihcore.no,pihcore.unknown" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#scd-fui-{tog}-details"/>
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render qId="CIEL:159610" questionName="malariaProphylaxis" tog="malaria"/>
-                                <render qId="CIEL:167914" questionName="understandsTreatment" tog="under"/>
-                                <render qId="PIH:14741"   questionName="abilityToTitrate" tog="tite"/>
-                                <render qId="CIEL:164075" questionName="overallTreatmentAdherence" tog="adher"/>
-                                <render qId="CIEL:167819" questionName="missingDosesPerWeek" tog="miss"/>
-                                <render qId="CIEL:167021" questionName="awareUnderstandsDisease" tog="aware"/>
-                                <render qId="CIEL:167022" questionName="familyAwarenessDisease" tog="family"/>
+                                <render qId="CIEL:159610" questionName="malariaProphylaxis" tog="malaria" req="false"/>
+                                <render qId="CIEL:167914" questionName="understandsTreatment" tog="under" req="false"/>
+                                <render qId="PIH:14741"   questionName="abilityToTitrate" tog="tite" req="false"/>
+                                <render qId="CIEL:164075" questionName="overallTreatmentAdherence" tog="adher" req="false"/>
+                                <render qId="CIEL:167819" questionName="missingDosesPerWeek" tog="miss" req="true"/>
+                                <render qId="CIEL:167021" questionName="awareUnderstandsDisease" tog="aware" req="false"/>
+                                <render qId="CIEL:167022" questionName="familyAwarenessDisease" tog="family" req="false"/>
                             </repeat>
                         </div>
 
@@ -376,7 +376,7 @@
                         </label>
                         <obs id="sickle-control" conceptId="PIH:11506" style="radio"
                              answerConceptIds="PIH:11507,PIH:11508,PIH:11509"
-                             answerCodes="pihcore.controlled,pihcore.uncontrolled,pihcore.complications" >
+                             answerCodes="pihcore.controlled,pihcore.uncontrolled,pihcore.complications" required="true">
                             <controls>
                                 <when value="PIH:11508" thenDisplay="#sc-fui-uncontrolled"/>
                             </controls>
@@ -405,7 +405,7 @@
                 <p class="list-inline">
                     <obs id="scd-hydroxy-q" conceptId="PIH:14869" style="radio"
                          answerConceptIds="PIH:YES,PIH:NO"
-                         answerCodes="pihcore.yes,pihcore.no">
+                         answerCodes="pihcore.yes,pihcore.no" required="true" >
                         <controls>
                             <when value="PIH:YES" thenDisplay="#scd-hydroxy-details"/>
                         </controls>

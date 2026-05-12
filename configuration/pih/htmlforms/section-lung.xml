@@ -542,18 +542,18 @@
                                         </label>
                                         <obs id="lung-fui-{tog}" conceptId="{qId}" style="radio"
                                              answerConceptIds="PIH:YES,PIH:NO,PIH:UNKNOWN"
-                                             answerCodes="yes,no,unknown" >
+                                             answerCodes="yes,no,unknown" required="{req}">
                                             <controls>
                                                 <when value="PIH:YES" thenDisplay="#lung-fui-{tog}-details"/>
                                             </controls>
                                         </obs>
                                     </p>
                                 </template>
-                                <render qId="CIEL:167914" questionName="Understands treatment" tog="understands"/>
-                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate" />
-                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher"/>
-                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed"/>
-                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware"/>
+                                <render qId="CIEL:167914" questionName="Understands treatment" tog="understands" req="false"/>
+                                <render qId="PIH:14741"   questionName="Ability to titrate treatment" tog="titrate" req="false"/>
+                                <render qId="CIEL:164075" questionName="Overall treatment adherence" tog="adher" req="false"/>
+                                <render qId="CIEL:167819" questionName="Missed doses in past week" tog="missed" req="true"/>
+                                <render qId="CIEL:167021" questionName="Aware and understands the disease" tog="aware" req="false"/>
                             </repeat>
 
                             <h5>
