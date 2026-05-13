@@ -303,3 +303,10 @@ username input[type="text"],
     .list-inline-extra-wide label:first-child {
         width: 420px;
     }
+
+
+    .field-error {
+        color: #ff6666;
+        font-size: 1.1em;
+        display: block;
+    }
