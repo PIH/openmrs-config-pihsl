@@ -876,9 +876,20 @@
             <h3>
                 <uimessage code="Radiology"/>
             </h3>
-            <p>
-                <obs conceptId="PIH:9350" style="checkbox" answerConceptId="PIH:Ultrasound" />
-            </p>
+            <div class="two-columns">
+                <div>
+                    <obs id="us-performed" conceptId="PIH:9350" style="checkbox"
+                         answerConceptId="PIH:Ultrasound" >
+                        <controls>
+                            <when value="PIH:Ultrasound" thenDisplay="#us-findings" />
+                        </controls>
+                    </obs>
+                </div>
+                <div id="us-findings">
+                    <obs conceptId="PIH:7018" style="textarea"
+                         labelText="Ultrasound findings" />
+                </div>
+            </div>
             <br/>
 
             <h3>Treatment</h3>
@@ -1109,8 +1120,10 @@
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
             <!-- ToDo:  Fix to drop into the vaccination section
-            <button id="next" type="button" class="submitButton confirm right"><uimessage code="emr.next"/><i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i></button>
-            -->
+            <button id="next" type="button" class="submitButton confirm right">
+                <uimessage code="emr.next"/>
+                <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>
+            </button> -->
             <button id="submit" class="submitButton confirm right">
                 <uimessage code="mirebalais.save"/>
                 <i class="icon-spinner icon-spin icon-2x" style="display: none; margin-left: 10px;"></i>

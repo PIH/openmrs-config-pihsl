@@ -667,9 +667,20 @@
             <h3>
                 <uimessage code="Radiology"/>
             </h3>
-            <p>
-                <obs conceptId="PIH:9350" style="checkbox" answerConceptId="PIH:Ultrasound" />
-            </p>
+            <div class="two-columns">
+                <div>
+                    <obs id="us-performed" conceptId="PIH:9350" style="checkbox"
+                         answerConceptId="PIH:Ultrasound" >
+                        <controls>
+                            <when value="PIH:Ultrasound" thenDisplay="#us-findings" />
+                        </controls>
+                    </obs>
+                </div>
+                <div id="us-findings">
+                    <obs conceptId="PIH:7018" style="textarea"
+                         labelText="Ultrasound findings" />
+                </div>
+            </div>
             <br/>
 
             <h3>Treatment</h3>
