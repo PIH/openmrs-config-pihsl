@@ -2,6 +2,7 @@
 SET @locale = GLOBAL_PROPERTY_VALUE('default_locale', 'en');
 
 select encounter_type_id into @newborn_discharge from encounter_type where uuid = '153d3182-c76f-4047-b7f2-d83cf967b206';
+select location_id into @nicu_location from location where uuid = '0ce2f6fb-6850-11ee-ab8d-0242ac120002';
 
 DROP TABLE IF EXISTS temp_discharge_list;
 CREATE TABLE temp_discharge_list
@@ -21,6 +22,7 @@ select patient_id, encounter_id, encounter_datetime, visit_id
 from encounter e 
 where encounter_type = @newborn_discharge 
 and date(encounter_datetime) = @date
+and location_id = @nicu_location
 and voided = 0;
 
 update temp_discharge_list 
