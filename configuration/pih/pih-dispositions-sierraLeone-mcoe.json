@@ -36,6 +36,35 @@
     ]
   },
   {
+    "uuid": "admitToHospitalNICU",
+    "type": "ADMIT",
+    "careSettingTypes": ["OUTPATIENT"],
+    "name": "disposition.emrapi.admitToHospital",
+    "conceptCode": "PIH:ADMIT TO HOSPITAL",
+    "encounterTypes": ["093b6ffc-e55a-461a-85cc-c6acf7714a23"],
+    "actions": [],
+    "additionalObs": [
+      {
+        "label": "disposition.emrapi.admitToHospital.admissionLocation",
+        "conceptCode": "org.openmrs.module.emrapi: Admission Location",
+        "params": {
+          "id": "admissionLocation",
+          "style": "location",
+          "answerLocationTags": "NICU Location",
+          "restrictToCurrentVisitLocation": "true"
+        }
+      },
+      {
+        "label": "pihcore.disposition.inpatientUnit",
+        "conceptCode": "PIH:21461",
+        "params": {
+          "id": "nicuInOutBornLocation",
+          "style": "location"
+        }
+      }
+    ]
+  },
+  {
     "uuid": "admitToHospitalFromMaternalTriage",
     "type": "ADMIT",
     "careSettingTypes": ["OUTPATIENT"],
