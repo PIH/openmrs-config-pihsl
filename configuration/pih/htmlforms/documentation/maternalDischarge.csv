@@ -1,5 +1,5 @@
-Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,,
+Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group)
+Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,
 Encounter Location,Location,List of available locations,location select,Yes,no,,,
 Encounter Date,Date,N/A,date/time,Yes,no,encounterDate,, 
 Diagnosis (encounter diagnoses),Other,Select diagnoses via Encounter Diagnoses widget,diagnoses widget,No,no,,,
