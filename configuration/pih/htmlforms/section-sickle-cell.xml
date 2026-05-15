@@ -298,17 +298,28 @@
                     <uimessage code="pihcore.awareAndTreat"/>
                 </h5>
 
-                <label>
-                    <uimessage code="pihcore.onTreatment"/>
-                </label>
-                <repeat>
-                    <template>
-                        <obs conceptId="PIH:14857" style="checkbox"
-                             answerConceptId="{qId}" />
-                    </template>
-                    <render qId="CIEL:76613" medName="Folic acid"/>
-                    <render qId="CIEL:81724" medName="Penicillin"/>
-                </repeat>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="pihcore.onTreatment"/>
+                    </label>
+                    <obs id="on-sickle-treatment" conceptId="PIH:21462" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066" required="true">
+                        <controls>
+                            <when value="CIEL:1065" thenDisplay="#sickle-treatment"/>
+                        </controls>
+                    </obs>
+                </p>
+
+                <div id="sickle-treatment">
+                    <repeat>
+                        <template>
+                            <obs conceptId="PIH:14857" style="checkbox"
+                                 answerConceptId="{qId}" />
+                        </template>
+                        <render qId="CIEL:76613" medName="Folic acid"/>
+                        <render qId="CIEL:81724" medName="Penicillin"/>
+                    </repeat>
+                </div>
                 <br/>
 
                 <obsgroup groupingConceptId="PIH:14826">
