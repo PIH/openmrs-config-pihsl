@@ -347,7 +347,7 @@
                             <uimessage code="Care household"/>
                         </label>
                         <obs conceptId="PIH:10642" style="radio"
-                             answerConceptIds="CIEL:1065,CIEL:1066"/>
+                             answerConceptIds="CIEL:1065,CIEL:1066" required="true"/>
                     </p>
                 </div>
                 <div>
@@ -357,7 +357,7 @@
                         </label>
                         <obs conceptId="CIEL:162956" style="radio"
                              answerConceptIds="CIEL:1065,CIEL:1066,CIEL:160737"
-                             answerCodes="Yes,No,Not evaluated"/>
+                             answerCodes="Yes,No,Not evaluated" required="true"/>
                     </p>
                 </div>
             </div>
@@ -369,7 +369,8 @@
                 <br/>
                 <obs id="school" conceptId="CIEL:1712" style="radio"
                      answerConceptIds="CIEL:1713,CIEL:1714,PIH:1701,CIEL:1107"
-                     answerCodes="Primary school,Secondary school,Tertiary school,No education"/>
+                     answerCodes="Primary school,Secondary school,Tertiary school,No education"
+                     required="true"/>
             </p>
 
             <div class="two-columns">
@@ -381,7 +382,8 @@
                         <br/>
                         <obs conceptId="CIEL:166855" style="radio"
                              answerConceptIds="CIEL:1065,CIEL:1066"
-                             answerCodes="Able to read and write,Cannot read and write"/>
+                             answerCodes="Able to read and write,Cannot read and write"
+                             required="true"/>
                     </p>
                 </div>
                 <div id="school-days-a">
@@ -389,8 +391,9 @@
                         <label>
                             <uimessage code="Missed school" />
                         </label>
+                        <br/>
                         <obs id="missed-school-a" conceptId="PIH:5629" style="radio"
-                             answerConceptIds="CIEL:1065,CIEL:1066">
+                             answerConceptIds="CIEL:1065,CIEL:1066" required="true">
                             <controls>
                                 <when value="CIEL:1065" thenDisplay="#days-missed-a"/>
                             </controls>
@@ -412,14 +415,16 @@
                     <uimessage code="Employment status" />
                 </label>
                 <obs conceptId="PIH:3395" style="radio"
-                     answerConceptIds="PIH:14833,CIEL:161382,PIH:UNEMPLOYED,CIEL:166624" />
+                     answerConceptIds="PIH:14833,CIEL:161382,PIH:UNEMPLOYED,CIEL:166624"
+                     required="true"/>
             </p>
 
              <div class="three-columns">
 
                 <obsgroup groupingConceptId="PIH:12736" showIfEmpty="false" >
                     <div>
-                        <obs conceptId="PIH:20862" labelText="Distance to clinic" showUnits="miles" />
+                        <obs conceptId="PIH:20862" labelText="Distance to clinic" showUnits="miles"
+                             required="true"/>
                     </div>
                     <div>
                         <obs conceptId="CIEL:159471" labelText="Average travel time" showUnits="minutes"/>
@@ -440,7 +445,7 @@
             <p class="side-by-side">
                 <br/>
                 <obs conceptId="CIEL:119533" labelText="Food insecurity" style="radio"
-                    answerConceptIds="CIEL:1065,CIEL:1066" />
+                    answerConceptIds="CIEL:1065,CIEL:1066" required="true"/>
             </p>
 
             <div class="two-columns">
@@ -450,7 +455,7 @@
                             <uimessage code="Social support" />
                         </label>
                         <obs id="social-support" conceptId="CIEL:163766" style="radio"
-                             answerConceptIds="CIEL:1065,CIEL:1066">
+                             answerConceptIds="CIEL:1065,CIEL:1066" required="true">
                             <controls>
                                 <when value="CIEL:1065" thenDisplay="#specify-support"/>
                             </controls>
@@ -478,7 +483,8 @@
                         <obs id="referral-type" conceptId="PIH:Type of referring service" style="radio"
                              answerConceptIds="PIH:2233,PIH:12368,CIEL:160543,CIEL:978,PIH:14445,CIEL:5485,CIEL:5622"
                              answerCodes="OPD,PHU,CBP,Self-referred,Screening program,Inpatient ward,other"
-                             answerSeparator="&lt;br /&gt;">
+                             answerSeparator="&lt;br /&gt;"
+                             required="true">
                             <controls>
                                 <when value="CIEL:5622" thenDisplay="#other-referral-text" />
                             </controls>
