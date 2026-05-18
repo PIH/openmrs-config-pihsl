@@ -9,7 +9,7 @@ dac348b7-2ece-47ad-b80a-140fc6788706,,Wellbody MCH,Wellbody MCH,Wellbody,
 6a7fc2e7-282c-4d25-b19c-777731928457,,Wellbody Pharmacy,Wellbody Pharmacy,Wellbody,
 ${location.kgh.uuid},,KGH,KGH,,
 2bcb9215-8cd6-11eb-b7be-0242ac110002,,KGH Triage,KGH Triage,KGH,
-5981f962-6eec-453d-89ce-2f9ac48d096f,,KGH MCH,KGH Maternal Child Health,KGH,${location.maternityPharmacy.uuid}
+5981f962-6eec-453d-89ce-2f9ac48d096f,,MCH OPD,KGH Maternal Child Health (MCH) Outpatient Clinic,KGH,${location.maternityPharmacy.uuid}
 7b959d2f-11f3-4611-b2e4-700200625d61,,KGH NCD,KGH Non-communicate disease clinic,KGH,${location.ncdPharmacy.uuid}
 7b959d2f-11f3-4611-b2e4-700200629a66,,KGH Mental Health,KGH Mental Health clinic,KGH,${location.opdPharmacy.uuid}
 0d3704ab-17f7-4272-aa1b-9118ae51acce,,KGH Laboratory,KGH Laboratory,KGH,
