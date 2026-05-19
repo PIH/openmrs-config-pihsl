@@ -223,6 +223,7 @@
                 setUpEdd(encounterDate,'<uimessage code="pihcore.weeks" />');
                 validateEstimatedDeliveryDate("lastPeriodDate", new Date(+encounterDate), '<uimessage code="pihcore.errors.lastPeriodDateField.invalidDate" />');
                 validateEstimatedDeliveryDate("edd", new Date(+encounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
+                eddCannotBeOlderThanTwoWeeks("edd", new Date(+encounterDate), '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
 
                 // handlers for next and submit buttons, see nextAndSubmitButtons.js
                 setUpNextAndSubmitButtons();
@@ -593,7 +594,7 @@
                         <uimessage code="pihcore.pregnancy.dueDate"/>
                     </label>
                     <span class="small">
-                        <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="false"/>
+                        <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="true"/>
                     </span>
                 </div>
             </div>
