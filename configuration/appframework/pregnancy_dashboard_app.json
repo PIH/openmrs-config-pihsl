@@ -24,7 +24,7 @@
   {
     "id": "pregnancy.dashboard.delivery",
     "icon": "fas fa-fw fa-baby",
-    "label": "pihcore.anc.delivery.title",
+    "label": "DELIVERY",
     "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
     "extensions": [
       {
