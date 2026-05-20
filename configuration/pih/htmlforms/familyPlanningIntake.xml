@@ -1,0 +1,205 @@
+<!--
+  ~ The contents of this file are subject to the OpenMRS Public License
+  ~ Version 1.0 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://license.openmrs.org
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations
+  ~ under the License.
+  ~
+  ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
+  -->
+
+<htmlform formUuid="dffa9543-2cf0-4b9e-9306-0aebeb7a1835"
+          formName="Family Planning Initial"
+          formEncounterType="52fe1a29-678d-49cb-9ccd-7296d634284d"
+          formVersion="1.0">
+
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ReopenVisitAction"/>
+
+    <style type="text/css">
+        .narrow {
+            width: 200px;
+        }
+
+        <ifMode mode="VIEW" include="false">
+            #data-collection {
+                display: inline-block;
+                width: 58%;
+                vertical-align: top;
+            }
+
+        </ifMode>
+
+    </style>
+
+    <script type="text/javascript">
+
+        jq(function() {
+            // handlers for next and submit buttons, see nextAndSubmitButtons.js
+            setUpNextAndSubmitButtons();
+        });
+
+    </script>
+
+    <h2>
+        <label>
+            <uimessage code="Family Planning Initial"/>
+        </label>
+    </h2>
+
+    <subform path="configuration/pih/subforms/encounter-provider-location-date.xml">
+        <span subform-parameter="encounter-location-widget">
+            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
+                               tags="Maternal and Child Location"/>
+        </span>
+        <span subform-parameter="encounter-provider-widget">
+            <encounterProviderAndRole default="currentUser"
+                                      encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                      providerRoles="${providerGroup.group2}"
+                                      required="true"/>
+        </span>
+    </subform>
+
+    <section id="disability" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Disability">
+        <div class="section-container">
+            <repeat>
+                <template>
+                    <obs conceptId="CIEL:162558" style="checkbox"
+                         answerConceptId="{concept}" answerCodeXX="{name}"/>
+                </template>
+                <render concept="PIH:21469"   name="Physical disability" />
+                <render concept="CIEL:159298" name="Visual impairment" />
+                <render concept="CIEL:112846" name="Speech and language impairment" />
+                <render concept="CIEL:139075" name="Hearing impairment" />
+                <render concept="CIEL:153343" name="Learning impairment" />
+                <render concept="PIH:21470"   name="Multiple" />
+            </repeat>
+        </div>
+    </section>
+
+    <section id="service" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Service Type">
+        <div class="section-container">
+            <repeat>
+                <template>
+                    <obs conceptId="PIH:13236" style="checkbox"
+                         answerConceptId="{concept}" answerCode="{name}"/>
+                </template>
+                <render concept="PIH:13235"   name="New client" />
+                <render concept="PIH:7383"    name="Continuing client" />
+                <render concept="CIEL:163494" name="Method switch" />
+                <render concept="PIH:14376"   name="Post abortion" />
+            </repeat>
+        </div>
+    </section>
+
+    <section id="fp-method" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Family Planning Method">
+        <div class="section-container">
+            <div>
+                <div>
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="Family planning counselling"/>
+                        </label>
+                        <obs conceptId="CIEL:1382" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="yes,no"/>
+                    </p>
+
+                    <p class="list-inline-wide">
+                        <label>
+                            <uimessage code="Accepts and receives family planning"/>
+                        </label>
+                        <obs id="accepts-fp" conceptId="CIEL:166421" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="yes,no">
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#family-method"/>
+                            </controls>
+                        </obs>
+                    </p>
+                </div>
+
+                <div id="family-method" class="two-columns">
+                    <div>
+                        <p>
+                            <label>
+                                <uimessage code="pihcore.fpMethod"/>
+                            </label>
+                            <repeat>
+                                <template>
+                                    <obsgroup groupingConceptId="PIH:Family planning construct">
+                                        <obs id="fp-meth-{dID}" conceptId="CIEL:374" style="checkbox"
+                                             answerConceptId="{acID}"
+                                             answerCode="{csName}">
+                                            <controls>
+                                                <when value="CIEL:1873" thenDisplay="#implant-date"/>
+                                                <when value="CIEL:5275" thenDisplay="#implant-date"/>
+                                            </controls>
+                                        </obs>
+                                    </obsgroup>
+                                </template>
+                                <render acID="CIEL:104625" dID="104625" csName="Microgynon" />
+                                <render acID="CIEL:159783" dID="159783" csName="Combined oral contraceptive (COC)" />
+                                <render acID="CIEL:78796"  dID="78796" csName="Microlut" />
+                                <render acID="CIEL:80784"  dID="80784" csName="Progestin-only pill (POP)" />
+                                <render acID="CIEL:190"    dID="190" csName="Condoms" />
+                                <render acID="CIEL:907"    dID="907" csName="Depo-provera" />
+                                <render acID="PIH:21450"   dID="21450" csName="Sayana press" />
+                                <render acID="CIEL:5275"   dID="5275" csName="pihcore.fp.iud" />
+                                <render acID="CIEL:165464" dID="165464" csName="Hormonal IUD" />
+                                <render acID="CIEL:1873"   dID="1873" csName="Jadelle" />
+                                <render acID="CIEL:76022"  dID="76022" csName="Implanon" />
+                                <render acID="CIEL:162422" dID="162422" csName="Implant" />
+                            </repeat>
+                        </p>
+                    </div>
+
+                    <div id="implant-date">
+                        <label>
+                            <uimessage code="pihcore.dateImplant"/>:
+                        </label>
+                        <obs conceptId="PIH:3203" />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="Permanent method"/>
+                    </label>
+                    <includeIf velocityTest="$patient.gender == 'F' ">
+                        <obsgroup groupingConceptId="PIH:Family planning construct">
+                            <obs conceptId="CIEL:374" style="checkbox"
+                                 answerConceptId="CIEL:1472">
+                            </obs>
+                        </obsgroup>
+                    </includeIf>
+                    <includeIf velocityTest="$patient.gender == 'M' ">
+                        <obsgroup groupingConceptId="PIH:Family planning construct">
+                            <obs conceptId="CIEL:374" style="checkbox"
+                                 answerConceptId="CIEL:1489">
+                            </obs>
+                        </obsgroup>
+                    </includeIf>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <submit submitClass="confirm right" submitCode="mirebalais.save"/>
+            <button type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>
