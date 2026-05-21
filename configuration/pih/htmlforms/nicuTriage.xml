@@ -343,7 +343,7 @@
                             <uimessage code="Delivery location"/>
                         </label>
                         <br/>
-                        <obs id="d-location" conceptId="PIH:20260" style="radio"
+                        <obs id="d-location" conceptId="PIH:20260" style="radio" required="true"
                              answerConceptIds="PIH:7889,CIEL:1601,CIEL:1588,PIH:12367,CIEL:5622"
                              answerCodes="home, in-transit, health clinic, KGH/MCOE, other">
                             <controls>
