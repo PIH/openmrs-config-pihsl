@@ -5,14 +5,15 @@ description: "Patients discharged from the Postnatal ward on this date"
 parameters:
   - key: "date"
     type: "java.util.Date"
-    label: "Date"    
-  - key: "locationUUID"
-    type: "java.lang.String"
-    value: "ff0d5e73-3fe0-437f-90ba-7d605ac03dc0"     
+    label: "Date"
 datasets:
   - key: "Discharge_List"
     type: "sql"
-    config: "sql/maternal_discharge_lists.sql" 
+    config: "sql/maternal_discharge_lists.sql"
+    parameters:
+      - key: "locationUUID"
+        type: "java.lang.String"
+        value: "ff0d5e73-3fe0-437f-90ba-7d605ac03dc0"
 designs:
   - type: "csv"
     properties:
