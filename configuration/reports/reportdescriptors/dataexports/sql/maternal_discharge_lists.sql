@@ -7,8 +7,8 @@ select encounter_type_id into @exitFromCare from encounter_type where uuid = 'b6
 select location_id into @ward_location from location where uuid = @locationUUID;
 select visit_attribute_type_id into @bornDuringVisitAttribute from visit_attribute_type where uuid = '86f716fc-5e26-4eb1-9484-46370cff28f0';
 
-DROP TABLE IF EXISTS temp_discharge_list;
-CREATE TABLE temp_discharge_list
+DROP TEMPORARY TABLE IF EXISTS temp_discharge_list;
+CREATE TEMPORARY TABLE temp_discharge_list
 (
 patient_id         int,          
 encounter_id       int,          
