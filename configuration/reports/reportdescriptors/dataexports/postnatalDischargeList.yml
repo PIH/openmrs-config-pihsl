@@ -1,0 +1,31 @@
+key: "postnataldischargelist"
+uuid: "d800da3f-14f7-4a48-93ad-83e31d8afe9f"
+name: "Postnatal Discharge List"
+description: "Patients discharged from the Postnatal ward on this date"
+parameters:
+  - key: "date"
+    type: "java.util.Date"
+    label: "Date"    
+  - key: "locationUUID"
+    type: "java.lang.String"
+    value: "ff0d5e73-3fe0-437f-90ba-7d605ac03dc0"     
+datasets:
+  - key: "Discharge_List"
+    type: "sql"
+    config: "sql/maternal_discharge_lists.sql" 
+designs:
+  - type: "csv"
+    properties:
+      "characterEncoding": "ISO-8859-1"
+      "blacklistRegex": "[^\\p{InBasicLatin}\\p{L}]"
+      "dateFormat": "dd-MMM-yyyy HH:mm:ss"
+  - type: "org.openmrs.module.reporting.web.renderers.DefaultWebRenderer"
+    name: "Web"
+    properties:
+      "pageSize": "15"
+config:
+  category: "dataExport"
+  order: 50
+  components:
+    - "dataExports"
+    - "allDataExports"  

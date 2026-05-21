@@ -22,7 +22,7 @@
     "order": 182
   },
   {
-    "id": "home.app.patientDischargeList",
+    "id": "home.app.nicuDischargeList",
     "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
     "type": "link",
     "label": "NICU Discharge List",
@@ -31,5 +31,16 @@
     "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
     "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'NICU Location')",
     "order": 183
-  }
+  },
+  {
+    "id": "home.app.postnatalDischargeList",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Postnatal Discharge List",
+    "url": "pihcore/reports/interactiveRenderer.page?reportDefinition=d800da3f-14f7-4a48-93ad-83e31d8afe9f",
+    "icon": "fas fa-fw fa-sign-out-alt",
+    "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
+    "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'Postnatal Location')",
+    "order": 184
+  }  
 ]
