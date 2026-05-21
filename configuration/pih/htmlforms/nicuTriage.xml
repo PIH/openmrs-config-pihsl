@@ -136,9 +136,42 @@
                 min-width: 70px;
                 margin: 0px 10px 0px 10px;
             }
+
+            #delivery-location-other input {
+                width: 40% !important;
+                min-width: 0 !important;
+            }
         </ifMode>
     </style>
+    <ifMode mode="VIEW" include="false" >
 
+        <script type="text/javascript">
+            const otherDeliveryLocationConceptId = '<lookup expression="fn.getConcept('CIEL:5622').id"/>';
+
+            htmlForm.getBeforeValidation().push(function() {
+                var valid = true;
+                var deliveryLocation = jq("#d-location input[type='radio']:checked").val();
+                if ( deliveryLocation &amp;&amp; deliveryLocation == otherDeliveryLocationConceptId) {
+                    var locationText = jq("#delivery-location-other input[type='text']").val();
+                    if ( locationText.length &lt; 1 ) {
+                        valid = false;
+                        jq(document).scrollTop(jq("#delivery-location-other").offset().top -100);
+                    }
+                }
+                return valid;
+            });
+
+            jq(document).ready(function() {
+
+                jq("#d-location input[type='radio']").on('click', function() {
+                    var deliveryLocation = jq("#d-location input[type='radio']:checked").val();
+                    if ( deliveryLocation &amp;&amp; deliveryLocation == otherDeliveryLocationConceptId) {
+                        jq("#delivery-location-other").find(".field-error").text('<uimessage code="pihcore.required"/>').show();
+                    }
+                });
+            });
+        </script>
+    </ifMode>
     <div class="print-form-datestamps" style="display:none">
         <p><uimessage code="pihcore.form.created_on"/>:
             <lookup complexExpression="$form.dateCreated"/>
