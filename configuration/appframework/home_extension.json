@@ -42,5 +42,16 @@
     "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
     "require": "hasMemberWithProperty(sessionLocation.tags, 'display', 'Postnatal Location')",
     "order": 184
-  }  
+  },
+  {
+    "id": "home.app.postOpDischargeList",
+    "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+    "type": "link",
+    "label": "Post-Op Discharge List",
+    "url": "pihcore/reports/interactiveRenderer.page?reportDefinition=c6c4c26b-46f0-4271-821b-1c3b4dc12066",
+    "icon": "fas fa-fw fa-sign-out-alt",
+    "requiredPrivilege": "${privilege.app_coreapps_summary_dashboard}",
+    "require": "sessionLocation.uuid === 'a39ec469-d1f9-11f0-9d46-169316be6a48'",
+    "order": 185
+  }   
 ]
