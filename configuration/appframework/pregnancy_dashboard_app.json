@@ -138,6 +138,36 @@
     }
   },
   {
+    "id": "pregnancy.dashboard.ultrasoundFindings",
+    "icon": "fas fa-fw fa-file-video",
+    "label": "pihcore.ultrasound.findings",
+    "url": "/pihcore/visit/visit.page?patient={{patient.uuid}}#/visitList",
+    "extensions": [
+      {
+        "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
+        "order": 6,
+        "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
+        "require": null,
+        "extensionParams": {
+          "provider": "pihcore",
+          "fragment": "dashboardwidgets/obsByEncounter"
+        }
+      }
+    ],
+    "config": {
+      "headers": [
+        "coreapps.date",
+        "pihcore.findings.label"
+      ],
+      "concepts": [
+        "${concept.ultrasoundFindings.uuid}"
+      ],
+      "maxRecords": "1",
+      "visitUrl": "/pihcore/visit/visit.page?patient={{patient.uuid}}&visit={{visit.uuid}}#/overview" ,
+      "duringCurrentEnrollmentInProgram": "${program.pregnancy.uuid}"
+    }
+  },
+  {
     "id": "pregnancy.dashboard.weightGraph",
     "icon": "fas fa-fw fa-chart-bar",
     "label": "WEIGHT",
@@ -145,7 +175,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 6,
+        "order": 7,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
@@ -171,7 +201,7 @@
     "extensions": [
       {
         "extensionPointId": "${program.pregnancy.uuid}.firstColumnFragments",
-        "order": 7,
+        "order": 8,
         "requiredPrivilege": "${privilege.app_coreapps_patient_dashboard}",
         "require": null,
         "extensionParams": {
