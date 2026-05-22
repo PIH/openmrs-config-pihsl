@@ -14,7 +14,7 @@
 
 <htmlform formUuid="dffa9543-2cf0-4b9e-9306-0aebeb7a1835"
           formName="Family Planning Initial"
-          formEncounterType="52fe1a29-678d-49cb-9ccd-7296d634284d"
+          formEncounterType="5a1d1710-98b0-4e5f-8f6b-c9cef0c8cf05"
           formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ReopenVisitAction"/>
@@ -47,7 +47,7 @@
     <ifMode mode="VIEW" include="false">
         <h2>
             <label>
-                <uimessage code="Family Planning Initial"/>
+                <uimessage code="Family Planning Followup"/>
             </label>
         </h2>
     </ifMode>
@@ -94,15 +94,6 @@
                 <render concept="CIEL:163494" name="Method switch" />
                 <render concept="PIH:14376"   name="Post abortion" />
             </repeat>
-            <br/>
-
-            <p class="list-inline-wide">
-                <label>
-                    <uimessage code="For post-partum family planning" />
-                </label>
-                <obs conceptId="PIH:21472" style="radio"
-                     answerConceptIds="PIH:21473,PIH:21474,PIH:21475" />
-            </p>
         </div>
     </section>
 
@@ -112,64 +103,6 @@
             <subform path="configuration/pih/subforms/prior-vital-signs-widget.xml"/>
             <br/>
             <subform path="configuration/pih/subforms/vital-signs-wt-ht-bp-widget.xml"/>
-        </div>
-    </section>
-
-    <section id="fp-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="pihcore.familyPlanningHistory.title">
-        <div class="section-container">
-            <table>
-                <tr>
-                    <td>
-                    </td>
-                    <th>
-                        <label>
-                            <uimessage code="pihcore.startDate" />
-                        </label>
-                    </th>
-                    <th>
-                        <label>
-                            <uimessage code="pihcore.endDate" />
-                        </label>
-                    </th>
-                </tr>
-                <repeat>
-                    <template>
-                        <obsgroup groupingConceptId="PIH:Family planning history construct" showIfEmpty="false">
-                            <tr>
-                                <td id="f{dID}-fp">
-                                    <obs conceptId="CIEL:374" answerConceptId="{acID}"
-                                         answerCode="{csName}" style="checkbox"
-                                         toggle="{id: 'f{dID}-date', style: 'dim'}"/>
-                                </td>
-                                <td class="f{dID}-date">
-                                    <obs conceptId="CIEL:163757" />
-                                </td>
-                                <td class="f{dID}-date">
-                                    <obs conceptId="CIEL:163758" allowFutureDates="true" />
-                                </td>
-                            </tr>
-                        </obsgroup>
-                    </template>
-                    <render acID="CIEL:104625" dID="104625" csName="Microgynon" />
-                    <render acID="CIEL:159783" dID="159783" csName="Other combined oral contraceptive (COC)" />
-                    <render acID="CIEL:78796"  dID="78796" csName="Microlut" />
-                    <render acID="CIEL:80784"  dID="80784" csName="Other progestin-only pill (POP)" />
-                    <render acID="CIEL:190"    dID="190" csName="Condoms" />
-                    <render acID="CIEL:907"    dID="907" csName="Depo-provera" />
-                    <render acID="PIH:21450"   dID="21450" csName="Sayana press" />
-                    <render acID="PIH:21478"   dID="21478"  csName="Copper T IUD" />
-                    <render acID="CIEL:165464" dID="165464" csName="Hormonal IUD" />
-                    <render acID="CIEL:1873"   dID="1873" csName="Jadelle" />
-                    <render acID="CIEL:76022"  dID="76022" csName="Implanon" />
-                    <render acID="CIEL:162422" dID="162422" csName="Other implant" />
-                    <render acID="CIEL:5277"   dID="5277" csName="pihcore.fp.rhythm" />
-                    <render acID="CIEL:136163" dID="136163" csName="Lactation amenorrhea method (LAM)" />
-
-                    <render acID="CIEL:1472" dID="1472" csName="pihcore.fp.tubalLig" />
-                    <render acID="CIEL:1489" dID="1489" csName="Vasectomy" />
-                </repeat>
-            </table>
         </div>
     </section>
 
@@ -185,16 +118,6 @@
                         <obs conceptId="CIEL:1382" style="radio"
                              answerConceptIds="CIEL:1065,CIEL:1066"
                              answerCodes="yes,no"/>
-                    </p>
-
-                    <p class="list-inline-wide">
-                        <label>
-                            <uimessage code="Accepts and receives family planning"/>
-                        </label>
-                        <obs id="accepts-fp" conceptId="CIEL:166421" style="radio"
-                             answerConceptIds="CIEL:1065,CIEL:1066"
-                             answerCodes="yes,no">
-                        </obs>
                     </p>
                 </div>
 
@@ -425,15 +348,6 @@
              headerCode="Additional information">
         <div class="section-container">
             <div>
-                <p>
-                    <label>
-                        <uimessage code="Client referred"/>
-                    </label>
-                    <span class="small">
-                        <obs conceptId="PIH:6421" style="text" />
-                    </span>
-                </p>
-
                 <div>
                     <p>
                         <label>
@@ -446,13 +360,7 @@
                         </span>
                     </p>
                 </div>
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="Referred in from CHW/Facility" />
-                    </label>
-                    <obs conceptId="PIH:2536" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="yes,no" />
-                </p>
+
                 <p class="list-inline-wide">
                     <label>
                         <uimessage code="Referred out to other facility" />
