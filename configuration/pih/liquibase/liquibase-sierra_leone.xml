@@ -431,7 +431,7 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate_bilirubin_obs.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
-    <changeSet id="20260512-set-inborn-visit-attribute" author="PIH">
+    <changeSet id="20260527-set-inborn-visit-attribute" author="PIH">
         <comment>
             SL-1333, Populate past Inborn visit attributes.
             Set the "Born during visit" visit_attribute (uuid 86f716fc-5e26-4eb1-9484-46370cff28f0) to 'true'
@@ -441,7 +441,7 @@
         <sqlFile endDelimiter=";" path="sql/set-inborn-visit-attribute.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
 
-    <changeSet id="20260519-migrate-hiv-rapid-test" author="PIH">
+    <changeSet id="20260527-migrate-hiv-rapid-test" author="PIH">
         <comment>
             SL-1332, Migrate HIV rapid test obs.
             For each non-voided obs of concept CIEL:169624 (HIV/syphilis rapid test) whose value_coded is
@@ -452,7 +452,7 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate-hiv-rapid-test.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
-    <changeSet id="20260519-migrate-syphilis-rapid-test" author="PIH">
+    <changeSet id="20260527-migrate-syphilis-rapid-test" author="PIH">
         <comment>
             SL-1332, Migrate Syphilis rapid test obs.
             For each non-voided obs of concept CIEL:169624 (HIV/syphilis rapid test) whose value_coded is
@@ -463,7 +463,7 @@
         </comment>
         <sqlFile endDelimiter=";" path="sql/migrate-syphilis-rapid-tests.sql" relativeToChangelogFile="true" stripComments="true" />
     </changeSet>
-    <changeSet id="20260518-migrate-dual-hiv-syphilis-rdt-positives" author="PIH">
+    <changeSet id="20260527-migrate-dual-hiv-syphilis-rdt-positives" author="PIH">
         <comment>
             SL-1332, Migrate Syphilis rapid test obs.
             For each non-voided obs of concept CIEL:169624 (HIV/syphilis rapid test) whose value_coded is
