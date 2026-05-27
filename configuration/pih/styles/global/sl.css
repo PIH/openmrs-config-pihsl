@@ -285,6 +285,16 @@ username input[type="text"],
         margin-bottom: 20px;
     }
 
+
+    .indented {
+        padding-left: 20pt;
+        padding-right: 20pt;
+    }
+
+    .side-by-side label {
+        display: inline-block;
+    }
+
     .list-inline label, .list-inline input[type="radio"], .list-inline span,
     .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
     .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {

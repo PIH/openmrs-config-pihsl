@@ -39,6 +39,10 @@ input.legalValue {
     color: black;
 }
 
+.vitals-cell {
+    vertical-align: top;
+}
+
 .six-columns, .five-columns {
     display: table;
     height: 100%;
@@ -68,7 +72,7 @@ input.legalValue {
 
 #confirmMsg {
     color: red;
-    font-weight: bold;
+    font-weight: normal;
     display:none;
 }
 

@@ -228,8 +228,8 @@ jq(document).ready( function() {
         const locationUuid = '<lookup complexExpression="$sessionContext.sessionLocation.uuid"/>';
         const isFound = noFhrLocations.some( location => location.toLowerCase() === locationUuid.toLowerCase());
         if (isFound) {
-            jq("#fhrDiv").hide();
-        }
+            jq("#fhrDiv").hide()};
+
     </ifMode>
 
     jq('#contactDr input[type="checkbox"]').on('change', function() {
