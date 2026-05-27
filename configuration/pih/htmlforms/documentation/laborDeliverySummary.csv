@@ -1,6 +1,6 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,
-Encounter Location,Location,List of available locations,location select,Yes,no,,,
+Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,,
+Encounter Location,Location,List of available locations,location select,Yes,no,,,,
 Admission date/time,Date,N/A,date/time,No,no,CIEL:1640,,,
 Gravida,Numeric,N/A,number,No,no,CIEL:5624,,,
 Para,Numeric,N/A,number,No,no,CIEL:1053,,,
@@ -24,6 +24,6 @@ Induction details (date/time/method),Date/Coded,N/A,date & radio,No,Shown if ind
 Abdominal scar,Coded,yes | no,radio,No,no,CIEL:166893,CIEL:1065|CIEL:1066,,
 # previous c-sections,Numeric,N/A,number,No,Shown if scar yes,CIEL:160081,,,
 Outcome - overall condition,Coded,satisfactory | deteriorated | unsatisfactory,radio,No,no,CIEL:160116,CIEL:160113|CIEL:160115|CIEL:159407,,
-Disposition,Other,Disposition widget,disposition widget,No,no,,,
+Disposition,Other,Disposition widget,disposition widget,No,no,,,,
 Notes / summary,Text,N/A,textarea,No,no,CIEL:161011,,,
-Register baby action,Other,Auto-register baby post-submission,action,No,no,,,
+Register baby action,Other,Auto-register baby post-submission,action,No,no,,,,
