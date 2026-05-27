@@ -15,7 +15,7 @@ Genitals (Male),obsNumeric,-1;0;1;2;3;4;5,clickable cell,false,includeIf $patien
 Genitals (Female),obsNumeric,-1;0;1;2;3;4;5,clickable cell,false,includeIf $patient.gender == 'F',PIH:21383,,Physical maturity,
 Total physical maturity score,obsNumeric,,calculated / text,false,,PIH:21385,,Physical maturity,
 Gestational age (by date),obsNumeric,,number/text,false,,CIEL:163166,,Final scoring,
-Birthdate,person.birthdate,,display,false,, , ,Final scoring,
+Birthdate,person.birthdate,,display,false,,,,Final scoring,
 APGAR at 1 minute,obsNumeric,,number,false,,PIH:14419,,Final scoring,
 APGAR at 5 minutes,obsNumeric,,number,false,,CIEL:159604,,Final scoring,
 Maturity rating total score,obsNumeric,,calculated / text,false,,PIH:21386,,Final scoring,

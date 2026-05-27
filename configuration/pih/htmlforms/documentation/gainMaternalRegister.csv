@@ -1,6 +1,6 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,
-Encounter Location,Location,List of available locations,location select,Yes,no,,,
+Encounter Provider,Provider,List of available providers,provider select,Yes,no,,,,
+Encounter Location,Location,List of available locations,location select,Yes,no,,,,
 Admission date/time,Date,N/A,date,No,no,CIEL:1640,,,
 Gravida,Numeric,N/A,number,No,no,CIEL:5624,,,
 Para,Numeric,N/A,number,No,no,CIEL:1053,,,
@@ -18,10 +18,10 @@ Newborn sex,Coded,M | F,radio,No,no,CIEL:1587,CIEL:1534|CIEL:1535,,
 Birth weight (kg),Numeric,N/A,number,No,no,CIEL:5916,,,
 APGAR score,Numeric,N/A,number,No,no,CIEL:1504,,,
 Breastfeeding initiated within 1 hour,Coded,yes | no,radio,No,no,CIEL:161543,CIEL:1065|CIEL:1066,,
-Initial diagnosis (autocomplete),Other,Autocomplete entries,autocomplete,No,no,PIH:DIAGNOSIS,,PIH:14391
-Final diagnosis (autocomplete),Other,Autocomplete entries,autocomplete,No,no,PIH:DIAGNOSIS,,CIEL:159947
+Initial diagnosis (autocomplete),Other,Autocomplete entries,autocomplete,No,no,PIH:DIAGNOSIS,,PIH:14391,
+Final diagnosis (autocomplete),Other,Autocomplete entries,autocomplete,No,no,PIH:DIAGNOSIS,,CIEL:159947,
 Counselled on family planning before discharge,Coded,yes | no,radio,No,no,CIEL:1382,CIEL:1065|CIEL:1066,,
 Accepted and received FP before discharge,Coded,yes | no,radio,No,no,CIEL:166421,CIEL:1065|CIEL:1066,,
-Disposition (ADT),Other,Disposition widget,disposition widget,No,no,,,
+Disposition (ADT),Other,Disposition widget,disposition widget,No,no,,,,
 HCW name,Text,N/A,text,No,no,PIH:6592,,,
-HCW cadre,Coded,Options including other,radio,No,Shown if other,CIEL:1573,CIEL:5622 (other),, 
+HCW cadre,Coded,Options including other,radio,No,Shown if other,CIEL:1573,CIEL:5622 (other),,

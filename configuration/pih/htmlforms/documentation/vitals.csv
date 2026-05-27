@@ -2,7 +2,7 @@ Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for 
 Chief complaint,Text,N/A,text,No,no,CIEL:160531,,,
 Height (cm),Numeric,N/A,number,No,no,PIH:HEIGHT (CM),,,
 Weight (kg),Numeric,N/A,number,No,no,PIH:WEIGHT (KG),,,
-BMI (calculated),Numeric,N/A,number,No,Shown if age>5,,,
+BMI (calculated),Numeric,N/A,number,No,Shown if age>5,,,,
 Level of consciousness,Coded,Awake (alert) | Responds to voice | Responds to pain | Staring and unresponsive,radio,No,no,PIH:10674,CIEL:160282|CIEL:162645|CIEL:162644|PIH:6784,,
 Mobility level,Coded,Able to walk without assistance | Able to walk with assistance | Wheelchair/Stretcher,radio,No,no,CIEL:162753,CIEL:162750|CIEL:162751|CIEL:162752,,
 Temperature (C),Numeric,N/A,number,No,no,PIH:TEMPERATURE (C),,,
