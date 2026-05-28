@@ -537,11 +537,12 @@
                     <uimessage code="fluids_admin"/>
                 </h3>
                 <p class="list-inline">
+                    <label>
+                        <uimessage code="ivf"/>
+                    </label>
+                    <br/>
                     <obsgroup groupingConceptId="PIH:IVF construct" showIfEmpty="false">
-                        <label>
-                            <uimessage code="ivf"/>
-                        </label>
-                        <br/>
+
                         <obs conceptId="PIH:IVF administered"
                              style="radio"
                              answerConceptIds="PIH:7870,PIH:7897,PIH:7898,PIH:11657,PIH:7900,PIH:7873,PIH:11658"
@@ -622,13 +623,29 @@
                         </controls>
                     </obs>
                 </p>
-                <p id="pre-antibiotic-name" class="list-inline">
+                <p id="pre-antibiotic-name">
                     <label>
                         <uimessage code="antibiotic_name"/>
                     </label>
-                    <br/>
-                    <obs conceptId="PIH:Surgery antibiotics"
-                         style="radio" answerSeparator="&lt;br /&gt;" />
+                    <repeat>
+                        <template>
+                            <obs conceptId="PIH:Surgery antibiotics" style="checkbox"
+                                 answerConceptId="CIEL:{antiB}" />
+                        </template>
+                        <render antiB="450" />
+                        <render antiB="71184" />
+                        <render antiB="71188" />
+                        <render antiB="72998" />
+                        <render antiB="73018" />
+                        <render antiB="73041" />
+                        <render antiB="73239" />
+                        <render antiB="73449" />
+                        <render antiB="73546" />
+                        <render antiB="76488" />
+                        <render antiB="100" />
+                        <render antiB="81951" />
+                    </repeat>
+
                 </p>
 
                 <p class="list-inline-wide">
