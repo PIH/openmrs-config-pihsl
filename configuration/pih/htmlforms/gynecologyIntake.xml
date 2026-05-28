@@ -1,0 +1,459 @@
+<!--
+  ~ The contents of this file are subject to the OpenMRS Public License
+  ~ Version 1.0 (the "License"); you may not use this file except in
+  ~ compliance with the License. You may obtain a copy of the License at
+  ~ http://license.openmrs.org
+  ~
+  ~ Software distributed under the License is distributed on an "AS IS"
+  ~ basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+  ~ License for the specific language governing rights and limitations
+  ~ under the License.
+  ~
+  ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
+  -->
+
+<htmlform formUuid="b456c65f-4d3b-4d1d-b1f5-952e78fa0121"
+          formName="Gynecology Initial"
+          formEncounterType="34700f4f-c3df-4cfc-863a-bd8b92a0a485"
+          formVersion="1.0">
+
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ReopenVisitAction"/>
+
+    <style type="text/css">
+        .narrow {
+            width: 200px;
+        }
+
+        <ifMode mode="VIEW" include="false">
+            #data-collection {
+                display: inline-block;
+                width: 58%;
+                vertical-align: top;
+            }
+
+        </ifMode>
+
+    </style>
+
+    <script type="text/javascript">
+
+        jq(function() {
+            // handlers for next and submit buttons, see nextAndSubmitButtons.js
+            setUpNextAndSubmitButtons();
+        });
+
+    </script>
+
+    <ifMode mode="VIEW" include="false">
+        <h2>
+            <label>
+                <uimessage code="Gynecology Initial"/>
+            </label>
+        </h2>
+    </ifMode>
+
+    <subform path="configuration/pih/subforms/encounter-provider-location-date.xml">
+        <span subform-parameter="encounter-location-widget">
+            <encounterLocation default="SessionAttribute:emrContext.sessionLocationId"
+                               tags="Maternal and Child Location"/>
+        </span>
+        <span subform-parameter="encounter-provider-widget">
+            <encounterProviderAndRole default="currentUser"
+                                      encounterRole="4f10ad1a-ec49-48df-98c7-1391c6ac7f05"
+                                      providerRoles="${providerGroup.group2}"
+                                      required="true"/>
+        </span>
+    </subform>
+
+    <section id="vitals" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.vitalSigns">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/prior-vital-signs-widget.xml"/>
+            <br/>
+            <subform path="configuration/pih/subforms/vital-signs-wt-ht-bp-widget.xml"/>
+        </div>
+    </section>
+
+    <section id="fp-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="pihcore.familyPlanningHistory.title">
+        <div class="section-container">
+            <table>
+                <tr>
+                    <td>
+                    </td>
+                    <th>
+                        <label>
+                            <uimessage code="pihcore.startDate" />
+                        </label>
+                    </th>
+                    <th>
+                        <label>
+                            <uimessage code="pihcore.endDate" />
+                        </label>
+                    </th>
+                </tr>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="PIH:Family planning history construct" showIfEmpty="false">
+                            <tr>
+                                <td id="f{dID}-fp">
+                                    <obs conceptId="CIEL:374" answerConceptId="{acID}"
+                                         answerCode="{csName}" style="checkbox"
+                                         toggle="{id: 'f{dID}-date', style: 'dim'}"/>
+                                </td>
+                                <td class="f{dID}-date">
+                                    <obs conceptId="CIEL:163757" />
+                                </td>
+                                <td class="f{dID}-date">
+                                    <obs conceptId="CIEL:163758" allowFutureDates="true" />
+                                </td>
+                            </tr>
+                        </obsgroup>
+                    </template>
+                    <render acID="CIEL:104625" dID="104625" csName="Microgynon" />
+                    <render acID="CIEL:159783" dID="159783" csName="Other combined oral contraceptive (COC)" />
+                    <render acID="CIEL:78796"  dID="78796" csName="Microlut" />
+                    <render acID="CIEL:80784"  dID="80784" csName="Other progestin-only pill (POP)" />
+                    <render acID="CIEL:190"    dID="190" csName="Condoms" />
+                    <render acID="CIEL:907"    dID="907" csName="Depo-provera" />
+                    <render acID="PIH:21450"   dID="21450" csName="Sayana press" />
+                    <render acID="PIH:21478"   dID="21478"  csName="Copper T IUD" />
+                    <render acID="CIEL:165464" dID="165464" csName="Hormonal IUD" />
+                    <render acID="CIEL:1873"   dID="1873" csName="Jadelle" />
+                    <render acID="CIEL:76022"  dID="76022" csName="Implanon" />
+                    <render acID="CIEL:162422" dID="162422" csName="Other implant" />
+                    <render acID="CIEL:5277"   dID="5277" csName="pihcore.fp.rhythm" />
+                    <render acID="CIEL:136163" dID="136163" csName="Lactation amenorrhea method (LAM)" />
+
+                    <render acID="CIEL:1472" dID="1472" csName="pihcore.fp.tubalLig" />
+                    <render acID="CIEL:1489" dID="1489" csName="Vasectomy" />
+                </repeat>
+            </table>
+        </div>
+    </section>
+
+    <section id="menstrual-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Menstrual History">
+        <div class="section-container">
+            <div id="gpal" class="four-columns">
+                <div>
+                    <label>
+                        <uimessage code="pihcore.mch.grava" />
+                    </label>
+                    <obs conceptId="CIEL:5624" required="false" id="gravidaInput" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.mch.para" />
+                    </label>
+                    <obs conceptId="CIEL:1053" required="false" id="paraInput" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.mch.abortus" />
+                    </label>
+                    <obs conceptId="CIEL:1823" required="false" id="abortusInput" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.mch.living" />
+                    </label>
+                    <obs conceptId="CIEL:1825" required="false" id="livingInput" />
+                </div>
+            </div>
+            <br />
+            <div class="two-columns">
+                <div>
+                    <p class="list-inline">
+                        <label>
+                            <uimessage code="Menstruation" />
+                        </label>
+                        <obs conceptId="CIEL:160600" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="pihcore.regular,pihcore.irregular" />
+                    </p>
+                </div>
+                <div>
+                    <!-- Dysmenorrhea -->
+                    <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                        <obs conceptId="PIH:DIAGNOSIS" style="checkbox" answerConceptId="CIEL:127" />
+                    </obsgroup>
+                </div>
+            </div>
+            <div class="two-columns">
+                <div>
+                    <label>
+                        <uimessage code="pihcore.durationMenstCycle" />
+                    </label>
+                    <obs conceptId="CIEL:160597" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.durationMenses" />
+                    </label>
+                    <obs conceptId="CIEL:163732" />
+                </div>
+            </div>
+            <div class="three-columns">
+                <div>
+                    <label>
+                        <uimessage code="pihcore.ageMenarche" />
+                    </label>
+                    <obs conceptId="CIEL:160598" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.age1stSexualInter" />
+                    </label>
+                    <obs conceptId="CIEL:163587" />
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.numSexPartners" />
+                    </label>
+                    <obs conceptId="CIEL:5570" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pregnancy-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Pregnancy History">
+        <div class="section-container">
+            <table id="pregnancyHistoryTable">
+                <tr>
+                    <th colspan="3">
+                        <uimessage code="pihcore.mch.pregnancyHistory" />
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <uimessage code="pihcore.pregOrder" />
+                    </th>
+                    <th>
+                        <uimessage code="pihcore.mch.deliveryType" />
+                    </th>
+                    <th>
+                        <uimessage code="pihcore.outcome" />
+                    </th>
+                </tr>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="CIEL:163588">
+                            <tr>
+                                <td>
+                                    <obs conceptId="CIEL:163460" defaultValue="{count}" />
+                                </td>
+                                <td>
+                                    <obs conceptId="PIH:11663" answerConceptIds="CIEL:162595,CIEL:161631,CIEL:155884,CIEL:1637,CIEL:159728,CIEL:111770,CIEL:46" />
+                                </td>
+                                <td>
+                                    <obs conceptId="CIEL:161033" />
+                                </td>
+                            </tr>
+                        </obsgroup>
+                    </template>
+                    <render count="1" />
+                    <render count="2" />
+                    <render count="3" />
+                    <render count="4" />
+                    <render count="5" />
+                    <render count="6" />
+                    <render count="7" />
+                    <render count="8" />
+                    <render count="9" />
+                    <render count="10" />
+                </repeat>
+                <tr>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section id="physical-exam" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Physical Exam">
+        <div id="gynecology" class="section-container">
+            <h3>
+                <uimessage code="pihcore.exam.gynecology_exam.title"/>
+            </h3>
+
+            <div class="two-columns exam">
+                <div>
+                    <repeat>
+                        <template>
+                            <p>
+                                <obs class="{switch}" conceptId="PIH:13229"
+                                     answerConceptId="{finding}" style="checkbox"/>
+                            </p>
+                        </template>
+                        <render finding="CIEL:1115" name="Normal" switch="normalObs"/>
+                        <render finding="CIEL:146512" name="GenCandid" switch="abnormalObs"/>
+                        <render finding="CIEL:120147" name="Condyloma" switch="abnormalObs"/>
+                        <render finding="CIEL:118784" name="CervDyspl" switch="abnormalObs"/>
+                        <render finding="CIEL:165162" name="BadSmell" switch="abnormalObs"/>
+                    </repeat>
+
+                    <repeat>
+                        <template>
+                            <p>
+                                <obs class="{switch}" conceptId="PIH:13229"
+                                     answerConceptId="{finding}" answerCode="pihcore.specExam.{name}"
+                                     style="checkbox"/>
+                            </p>
+                        </template>
+                        <render finding="CIEL:116995" name="cervicitis" switch="abnormalObs"/>
+                    </repeat>
+
+                    <repeat>
+                        <template>
+                            <p>
+                                <obs class="{switch}" conceptId="PIH:13229"
+                                     answerConceptId="{finding}" style="checkbox"/>
+                            </p>
+                        </template>
+                        <render finding="CIEL:147967" name="Bartholini" switch="abnormalObs"/>
+                        <render finding="CIEL:864" name="GenUlcer" switch="abnormalObs"/>
+                    </repeat>
+
+                    <p>
+                        <obs class="abnormalObs" conceptId="PIH:13229"
+                             answerConceptId="CIEL:5622" style="checkbox" showCommentField="true" commentFieldLabel=""/>
+                    </p>
+                </div>
+                <div>
+                    <label>
+                        <uimessage code="pihcore.via.long"/>
+                    </label>
+                    <p class="in-line">
+                        <obs conceptId="CIEL:162816" style="radio"
+                             answerConceptIds="CIEL:1115,CIEL:164808,CIEL:116031"
+                             answerSeparator=""/>
+                    </p>
+
+                    <!-- Cryotherapy of lesion of cervix -->
+                    <p>
+                        <obsgroup groupingConceptId="CIEL:1938" showIfEmpty="false">
+                            <span class="small hidden">
+                                <!-- NOTE: Using 6 so it doesn't conflict with the other procedures -->
+                                <obs conceptId="CIEL:1937" defaultValue="6"></obs>
+                            </span>
+                            <obs conceptId="CIEL:1651" style="checkbox"
+                                 answerConceptId="CIEL:162812"/>
+                        </obsgroup>
+                    </p>
+
+                    <p>
+                        <!-- PAP test performed -->
+                        <obs conceptId="CIEL:163952" style="checkbox"
+                             answerConceptId="CIEL:1267"
+                             answerCode="pihcore.papTestPerformed"/>
+                    </p>
+
+                    <p class="list-inline">
+                        <label>
+                            <uimessage code="pihcore.stiSuspected"/>?
+                        </label>
+                        <obs id="susp-sti" conceptId="CIEL:161558" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066" >
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#sti-list" />
+                            </controls>
+                        </obs>
+                    </p>
+
+                    <div id="sti-list">
+                        <repeat>
+                            <template>
+                                <p>
+                                    <obs class="{switch}" conceptId="PIH:14365"
+                                         answerConceptId="{finding}"
+                                         style="checkbox"/>
+                                </p>
+                            </template>
+                            <render finding="CIEL:120733" name="Chlamydia"/>
+                            <render finding="CIEL:117767" name="Gonorrhea"/>
+                            <render finding="CIEL:117829" name="Genital herpes"/>
+                            <render finding="CIEL:111759" name="hepB"/>
+                            <render finding="CIEL:1213"   name="HPV"/>
+                            <render finding="CIEL:117146" name="Trichomoniasis"/>
+                            <render finding="CIEL:148002" name="Bacterial vaginosis (BV)"/>
+                        </repeat>
+                    </div>
+
+                    <p class="comment-label">
+                        <uimessage code="pihcore.exam.comment"/>
+                    </p>
+
+                    <p class="comment-field">
+                        <obs conceptId="PIH:13231" rows="4" cols="45"/>
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h3>
+                    <uimessage code="pihcore.exam.tannerstage"/>
+                </h3>
+                <p class="list-inline">
+                    <uimessage code="pihcore.exam.tannerstage"/>
+                    <obs conceptId="PIH:5310" style="radio" answerSeparator=""
+                         answerConceptIds="CIEL:160771,CIEL:160774,CIEL:160778,CIEL:160782,PIH:11931"
+                         answerLabels="I,II,III,IV,V"/>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="additional" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Additional information">
+        <div class="section-container">
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="Client referred"/>
+                    </label>
+                    <span class="small">
+                        <obs conceptId="PIH:6421" style="text" />
+                    </span>
+                </p>
+
+                <div>
+                    <p>
+                        <label>
+                            <uimessage code="Date of next appointment"/>
+                        </label>
+                        <span class="small">
+                            <obs id="apptDate"
+                                 conceptId="PIH:RETURN VISIT DATE"
+                                 allowFutureDates="true" allowPastDates="false" />
+                        </span>
+                    </p>
+                </div>
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Referred in from CHW/Facility" />
+                    </label>
+                    <obs conceptId="PIH:2536" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="yes,no" />
+                </p>
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Referred out to other facility" />
+                    </label>
+                    <obs conceptId="PIH:6547" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="yes,no" />
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <ifMode mode="VIEW" include="false">
+        <div id="buttons">
+            <submit submitClass="confirm right" submitCode="mirebalais.save"/>
+            <button type="button" class="cancel">
+                <uimessage code="emr.cancel"/>
+            </button>
+        </div>
+    </ifMode>
+
+</htmlform>
