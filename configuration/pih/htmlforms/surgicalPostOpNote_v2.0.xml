@@ -12,9 +12,9 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 
-<htmlform id="surgical-note" class="simple-form-ui" formUuid="3fd75be3-2c5b-40be-8b6e-f00cb0ecda22"
+<htmlform id="surgical-note" class="simple-form-ui" formUuid="f61756c3-b8db-48d3-b8ee-f36f537fe16e"
           formName="Surgical Note"
-          formEncounterType="c4941dee-7a9b-4c1c-aa6f-8193e9e5e4e5" formVersion="2.5">
+          formEncounterType="c4941dee-7a9b-4c1c-aa6f-8193e9e5e4e5" formVersion="2.0">
 <macros>
     <macro key="complicationsFromAnesthesia" value="65f257b3-de4f-49a4-8530-77fa5f648c5d"/>
 </macros>
@@ -536,30 +536,23 @@
                 <h3>
                     <uimessage code="fluids_admin"/>
                 </h3>
-
+                <p class="list-inline">
                     <label>
                         <uimessage code="ivf"/>
                     </label>
-                    <repeat>
-                        <template>
-                            <p class="list-inline">
-                                <obsgroup groupingConceptId="PIH:IVF construct" showIfEmpty="false">
-                                    <obs conceptId="PIH:IVF administered" style="checkbox"
-                                         answerConceptId="CIEL:{ivfId}"/>
-                                    <span class="small">
-                                        <obs conceptId="PIH:21113" showUnits="true"/>
-                                    </span>
-                                </obsgroup>
-                            </p>
-                        </template>
-                        <render ivfId="74653"/>
-                        <render ivfId="161922"/>
-                        <render ivfId="161923"/>
-                        <render ivfId="74653"/>
-                        <render ivfId="161924"/>
-                        <render ivfId="78617"/>
-                        <render ivfId="80804"/>
-                    </repeat>
+                    <br/>
+                    <obsgroup groupingConceptId="PIH:IVF construct" showIfEmpty="false">
+
+                        <obs conceptId="PIH:IVF administered"
+                             style="radio"
+                             answerConceptIds="PIH:7870,PIH:7897,PIH:7898,PIH:11657,PIH:7900,PIH:7873,PIH:11658"
+                             answerSeparator="&lt;br /&gt;"/>
+                        <br/>
+                        <span class="small">
+                            <obs conceptId="PIH:21113" showUnits="true"/>
+                        </span>
+                    </obsgroup>
+                </p>
 
                 <p class="list-inline">
                     <label>
@@ -578,28 +571,42 @@
                 <div id="type-transfusion">
                     <p>
                         <label>
-                            <uimessage code="if blood transfusion, specify type and volume:"/>
+                            <uimessage code="type_and_volume"/>
                         </label>
-
-                        <repeat>
-                            <template>
-                                <p class="list-inline">
-                                    <obsgroup groupingConceptId="PIH:Transfusion construct" showIfEmpty="false">
-                                        <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:{transId}"/>
-                                        <span class="small">
-                                            <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
-                                        </span>
-                                    </obsgroup>
-                                </p>
-                            </template>
-                            <render transId="Whole blood" />
-                            <render transId="Packed red blood cells" />
-                            <render transId="Plasma" />
-                            <render transId="Platelets" />
-                        </repeat>
-
                     </p>
 
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Transfusion construct" showIfEmpty="false">
+                            <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:Whole blood"/>
+                            <span class="small">
+                                <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
+                            </span>
+                        </obsgroup>
+                    </p>
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Transfusion construct" showIfEmpty="false">
+                            <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:Packed red blood cells"/>
+                            <span class="small">
+                                <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
+                            </span>
+                        </obsgroup>
+                    </p>
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Transfusion construct" showIfEmpty="false">
+                            <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:Plasma"/>
+                            <span class="small">
+                                <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
+                            </span>
+                        </obsgroup>
+                    </p>
+                    <p>
+                        <obsgroup groupingConceptId="PIH:Transfusion construct" showIfEmpty="false">
+                            <obs conceptId="PIH:Transfusion of fluid" answerConceptId="PIH:Platelets"/>
+                            <span class="small">
+                                <obs conceptId="PIH:Volume of transfusion" showUnits="true"/>
+                            </span>
+                        </obsgroup>
+                    </p>
                 </div>
             </div>
 
