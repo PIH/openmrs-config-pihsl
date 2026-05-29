@@ -17,8 +17,9 @@
           formEncounterType="34700f4f-c3df-4cfc-863a-bd8b92a0a485"
           formVersion="1.0">
 
-    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ReopenVisitAction"/>
-
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
+    <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction" />
+    
     <style type="text/css">
         .narrow {
             width: 200px;
@@ -133,7 +134,7 @@
     </section>
 
     <section id="menstrual-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Menstrual History">
+             headerCode="Menstrual history">
         <div class="section-container">
             <div id="gpal" class="four-columns">
                 <div>
@@ -193,6 +194,8 @@
                     <obs conceptId="CIEL:163732" />
                 </div>
             </div>
+            <br/>
+
             <div class="three-columns">
                 <div>
                     <label>
@@ -217,7 +220,7 @@
     </section>
 
     <section id="pregnancy-history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Pregnancy History">
+             headerCode="Pregnancy history">
         <div class="section-container">
             <table id="pregnancyHistoryTable">
                 <tr>
@@ -238,7 +241,7 @@
                 </tr>
                 <repeat>
                     <template>
-                        <obsgroup groupingConceptId="CIEL:163588">
+                        <obsgroup groupingConceptId="CIEL:163588" showIfEmpty="false">
                             <tr>
                                 <td>
                                     <obs conceptId="CIEL:163460" defaultValue="{count}" />
@@ -269,8 +272,15 @@
         </div>
     </section>
 
+    <section id="history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Clinical history">
+        <div class="section-container">
+            <obs conceptId="CIEL:160221" style="textarea" />
+        </div>
+    </section>
+
     <section id="physical-exam" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Physical Exam">
+             headerCode="Physical exam">
         <div id="gynecology" class="section-container">
             <h3>
                 <uimessage code="pihcore.exam.gynecology_exam.title"/>
@@ -404,45 +414,121 @@
         </div>
     </section>
 
-    <section id="additional" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Additional information">
-        <div class="section-container">
+    <section id="procedures" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Procedures">
+
+        <div class="section-container two-columns">
             <div>
+                <h3>
+                    <uimessage code="Womens Health procedure history" />
+                </h3>
+                <subform path="configuration/pih/subforms/prior-procedure-widget.xml"/>
+                <repeat with="['1'],['2'],['3'],['4'],['5']">
+                    <obsgroup groupingConceptId="PIH:10492" showIfEmpty="false">
+                        <span class="small hidden">
+                            <obs conceptId="CIEL:1937" defaultValue="{0}"></obs>
+                        </span>
+                        <obs conceptId="CIEL:1651" answerConceptSetIds="PIH:WH procedures"
+                             style="autocomplete"/>
+                    </obsgroup>
+                </repeat>
+
                 <p>
                     <label>
-                        <uimessage code="Client referred"/>
+                        <uimessage code="zl.ifOtherSpecify"/>
                     </label>
-                    <span class="small">
-                        <obs conceptId="PIH:6421" style="text" />
-                    </span>
+                    <obs conceptId="CIEL:165264" />
                 </p>
+            </div>
 
+            <div>
+                <h3>
+                    <uimessage code="Planned procedures" />
+                </h3>
+                <repeat with="['1'],['2'],['3']">
+                    <obsgroup groupingConceptId="PIH:21483" showIfEmpty="false">
+                        <span class="small hidden">
+                            <obs conceptId="CIEL:1937" defaultValue="{0}"></obs>
+                        </span>
+                        <obs conceptId="PIH:10751" answerConceptSetIds="PIH:WH procedures"
+                             style="autocomplete"/>
+                    </obsgroup>
+                </repeat>
+                <p>
+                    <label>
+                        <uimessage code="Other procedure planned"/>
+                    </label>
+                    <obs conceptId="PIH:10772" style="text" />
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="diagnosis" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Diagnosis">
+        <div class="section-container">
+
+            <div id="data-collection">
+                <encounterDiagnosesByObs selectedDiagnosesTarget="#encounter-diagnoses-target"/>
+            </div>
+
+            <div id="encounter-diagnoses-target">
+            </div>
+        </div>
+    </section>
+
+    <section id="rapid-tests" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Laboratory tests">
+        <div class="section-container">
+            <h3>
+                <uimessage code="Rapid Tests" />
+            </h3>
+            <subform path="configuration/pih/subforms/rapid-tests-widget.xml"/>
+            <br/><br/>
+
+            <h3>
+                <uimessage code="Lab Orders" />
+            </h3>
+            <pihLabOrder />
+        </div>
+    </section>
+
+    <section id="drug-orders" sectionTag="fieldset"
+             headerTag="legend" headerStyle="title" headerCode="pihcore.visitNote.orders.medications">
+        <div class="section-container">
+            <subform path="configuration/pih/subforms/drug-order-widget.xml"/>
+        </div>
+    </section>
+
+    <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="coreapps.consult.disposition">
+        <div class="section-container">
+            <div class="two-columns">
                 <div>
                     <p>
                         <label>
-                            <uimessage code="Date of next appointment"/>
+                            <uimessage code="Next appointment date"/>
                         </label>
-                        <span class="small">
-                            <obs id="apptDate"
-                                 conceptId="PIH:RETURN VISIT DATE"
-                                 allowFutureDates="true" allowPastDates="false" />
-                        </span>
+                        <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="false"/>
+                    </p>
+
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="Followup clinic:"/>
+                        </label>
+                        <br/>
+                        <!-- ToDo:  radio or checkboxes?  Update answers -->
+                        <obs conceptId="CIEL:1272" style="radio"
+                             answerConceptIds="PIH:7831,PIH:FAMILY PLANNING SERVICES,PIH:MENTAL HEALTH SERVICES,CIEL:5622"
+                             answerSeparator="&lt;br /&gt;" />
                     </p>
                 </div>
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="Referred in from CHW/Facility" />
-                    </label>
-                    <obs conceptId="PIH:2536" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="yes,no" />
-                </p>
-                <p class="list-inline-wide">
-                    <label>
-                        <uimessage code="Referred out to other facility" />
-                    </label>
-                    <obs conceptId="PIH:6547" style="radio"
-                         answerConceptIds="CIEL:1065,CIEL:1066" answerCodes="yes,no" />
-                </p>
+
+                <div>
+                    <div id="disposition">
+                        <encounterDisposition id="encounter-disposition" />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
