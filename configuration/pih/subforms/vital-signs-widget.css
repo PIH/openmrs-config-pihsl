@@ -79,3 +79,7 @@ input.legalValue {
 .colorCodingValue {
     display: inline-block;
 }
+
+.small-input input {
+    min-width: 5em;
+}

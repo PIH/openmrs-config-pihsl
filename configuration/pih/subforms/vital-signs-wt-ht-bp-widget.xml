@@ -1,9 +1,8 @@
 <div>
     <subform path="configuration/pih/subforms/vital-signs-widget.css"/>
-    <subform path="configuration/pih/subforms/vital-signs-widget.js"/>
 
-<div class="vitals three-columns">
-    <div class="vitals-cell">
+<div class="three-columns">
+    <div>
         <label>
             <uimessage code="mirebalais.vitals.bloodPressure.short.title"/>
         </label>
@@ -26,7 +25,7 @@
         <label>
             <uimessage code="mirebalais.vitals.weight.title"/>
         </label>
-        <span class="small">
+        <span class="small-input">
             <obs conceptId="CIEL:5089" id="weight" class="vitals-values"
                  showUnits="kg" unitsCssClass="append-to-value"/>
         </span>
@@ -36,7 +35,7 @@
         <label>
             <uimessage code="mirebalais.vitals.height.title"/>
         </label>
-        <span class="small">
+        <span class="small-input">
             <obs conceptId="CIEL:5090" id="height" class="vitals-values"
                  showUnits="cm" unitsCssClass="append-to-value"/>
         </span>

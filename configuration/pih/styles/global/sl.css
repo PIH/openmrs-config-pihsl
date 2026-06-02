@@ -285,6 +285,9 @@ username input[type="text"],
         margin-bottom: 20px;
     }
 
+    .narrow {
+        width: 200px;
+    }
 
     .indented {
         padding-left: 20pt;
