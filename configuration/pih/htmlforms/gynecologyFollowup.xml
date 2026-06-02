@@ -21,9 +21,6 @@
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction" />
     
     <style type="text/css">
-        .narrow {
-            width: 200px;
-        }
 
         <ifMode mode="VIEW" include="false">
             #data-collection {

@@ -21,9 +21,6 @@
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction" />
 
     <style type="text/css">
-        .narrow {
-            width: 200px;
-        }
 
         <ifMode mode="VIEW" include="false">
             #data-collection {
@@ -239,32 +236,26 @@
                         <uimessage code="pihcore.outcome" />
                     </th>
                 </tr>
-                <repeat>
-                    <template>
-                        <obsgroup groupingConceptId="CIEL:163588" showIfEmpty="false">
+
+                <repeat with="['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10']">
+                    <span id="birth-id-{0}" class="fetus">
+                        <obsgroup groupingConceptId="CIEL:163588" showIfEmpty="false"
+                                  hiddenConceptId="CIEL:163460" hiddenAnswer="{0}">
                             <tr>
                                 <td>
-                                    <obs conceptId="CIEL:163460" defaultValue="{count}" />
+                                    {0}
                                 </td>
                                 <td>
-                                    <obs conceptId="PIH:11663" answerConceptIds="CIEL:162595,CIEL:161631,CIEL:155884,CIEL:1637,CIEL:159728,CIEL:111770,CIEL:46" />
+                                    <obs conceptId="PIH:11663"
+                                         answerConceptIds="CIEL:162595,CIEL:161631,CIEL:155884,CIEL:1637,CIEL:159728,CIEL:111770,CIEL:46"
+                                         controlId="birth-delivery-type-{0}" />
                                 </td>
                                 <td>
-                                    <obs conceptId="CIEL:161033" />
+                                    <obs conceptId="CIEL:161033" controlId="preg-outcome-{0}" />
                                 </td>
                             </tr>
                         </obsgroup>
-                    </template>
-                    <render count="1" />
-                    <render count="2" />
-                    <render count="3" />
-                    <render count="4" />
-                    <render count="5" />
-                    <render count="6" />
-                    <render count="7" />
-                    <render count="8" />
-                    <render count="9" />
-                    <render count="10" />
+                    </span>
                 </repeat>
                 <tr>
                 </tr>
