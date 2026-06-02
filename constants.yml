@@ -119,6 +119,8 @@ location:
     uuid: "b4d5b9c5-e5c8-490a-a5b4-7055c0e8a1f6"
   ncdPharmacy:
     uuid: "8947193b-92f0-4577-a66d-43d4a64c49b7"
+  nicu:
+    uuid: "0ce2f6fb-6850-11ee-ab8d-0242ac120002"
 
 providerGroup:
   group1: "${providerRole.ADVANCE_PRACTICE_NURSE.uuid},${providerRole.PHYSICIAN.uuid},${providerRole.CLINICIAN.uuid},${providerRole.NURSE_RN.uuid},${providerRole.NURSE_MIDWIFE.uuid},${providerRole.NURSING_AUXILIARY.uuid},${providerRole.MEDICAL_STUDENT.uuid},${providerRole.NURSE_ACCOMPAGNATEUR.uuid}"

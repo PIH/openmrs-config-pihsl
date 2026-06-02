@@ -172,7 +172,9 @@
         }
       }
     ],
-    "config": null
+    "config": {
+      "showAdmissionTypeAtLocation": "${location.nicu.uuid}"
+    }
   },
   {
     "id": "infant.dashboard.currentEnrollment",
