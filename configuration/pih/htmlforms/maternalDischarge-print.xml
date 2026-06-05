@@ -254,19 +254,6 @@
             </span>
         </div>
 
-        <!-- ===================== Footer datestamps ===================== -->
-        <div class="print-form-datestamps">
-            <p><uimessage code="pihcore.form.created_on"/>:
-                <lookup complexExpression="$form.dateCreated"/>
-            </p>
-            <p><uimessage code="pihcore.form.last_updated_on"/>:
-                <lookup complexExpression="$form.dateChanged"/>
-            </p>
-            <p><uimessage code="pihcore.form.printed_on"/>:
-                <lookup complexExpression="$formGeneratedDatetime"/>
-            </p>
-        </div>
-
     </div>
 
 </htmlform>
