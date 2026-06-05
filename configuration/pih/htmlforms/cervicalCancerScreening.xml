@@ -20,6 +20,10 @@
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction" />
 
+    <macros>
+        <macro key="imageBase" value="/openmrs/ms/uiframework/resource/file/configuration/pih/htmlforms/images"/>
+    </macros>
+
     <style type="text/css">
         .narrow {
             width: 200px;
@@ -387,6 +391,68 @@
                 <uimessage code="Lab Orders" />
             </h3>
             <pihLabOrder />
+        </div>
+    </section>
+
+    <section id="integrated-serve" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Integrated services">
+        <div class="section-container two-columns">
+            <div>
+                <label>
+                    <uimessage code="Clinical breast exam (CBE)"/>
+                </label>
+                <p class="in-line">
+                    <obs conceptId="PIH:14180" style="radio"
+                         answerConceptIds="CIEL:1267,CIEL:1118,CIEL:1067"
+                         answerSeparator=""/>
+                </p>
+            </div>
+            <div>
+                <obs conceptId="PIH:21595" style="text"
+                     labelText="Other integrated services"/>
+            </div>
+        </div>
+    </section>
+
+    <section id="quads" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Visual inspection with acetic acid">
+        <div class="section-container two-columns">
+            <div>
+                <label>
+                    <uimessage code="Quadrants involved" />
+                </label>
+                <repeat>
+                    <template>
+                        <obs conceptId="PIH:21500" style="checkbox"
+                             answer="{quad}" answerLabel="Q{quad}" />
+                    </template>
+                    <render quad="1" />
+                    <render quad="2" />
+                    <render quad="3" />
+                    <render quad="4" />
+                </repeat>
+            </div>
+            <div>
+                <img alt="Cervix_quadrants" style="width: 50%; height: auto;"
+                     src="$imageBase/CervixQuadrants.gif" />
+            </div>
+        </div>
+    </section>
+
+    <section id="via-test" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="VIA test results">
+        <div class="section-container">
+            <div>
+                <label>
+                    <uimessage code="Screening results"/>
+                </label>
+                <p class="in-line">
+                    <obs conceptId="CIEL:162816" style="radio"
+                         answerConceptIds="CIEL:664,CIEL:703,CIEL:167159"
+                         answerCodes="VIA negative,VIA positive,Suspect cancer"
+                         answerSeparator=""/>
+                </p>
+            </div>
         </div>
     </section>
 
