@@ -507,10 +507,11 @@
                         <uimessage code="anesthesia"/>
                     </label>
                     <br/>
-                    <obs conceptId="PIH:Type of anesthesia"
-                         style="radio" answerConceptIds="PIH:7850,PIH:7854,PIH:7855,PIH:7856,PIH:1107,PIH:7852,PIH:7853,PIH:7851,PIH:21112" answerSeparator="&lt;br /&gt;"/>
+                    <obs conceptId="PIH:Type of anesthesia" style="radio"
+                         answerConceptIds="PIH:7850,PIH:7854,PIH:7855,PIH:7856,PIH:7852,PIH:7853,PIH:7851,PIH:21112,PIH:1107,"
+                         answerSeparator="&lt;br /&gt;"/>
                 </p>
-                <p class="list-inline">
+                <p>
                     <label>
                         <uimessage code="pihcore.anesthesia.complications"/>
                     </label>
