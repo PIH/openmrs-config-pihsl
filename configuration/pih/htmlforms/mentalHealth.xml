@@ -173,6 +173,7 @@
                 }
                 setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
                 validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
+                eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
 
                 // return appointment date can never be before encounter date
                 var setMinReturnVisitDate = function () {
@@ -940,7 +941,7 @@
                             <label>
                                 <uimessage code="pihcore.pregnancy.dueDate"/>
                             </label>
-                            <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="false"/>
+                            <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="true"/>
                     </div>
                 </div>
 
