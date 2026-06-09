@@ -99,6 +99,18 @@
             padding: 2px 0px;
         }
 
+        /* inline block: keep the label and its value/widget (obs or diagnoses) on the same line */
+        #maternity-discharge-print .block.inline {
+            display: flex;
+            align-items: baseline;
+        }
+
+        #maternity-discharge-print .block.inline .obs-value {
+            display: inline-block;
+            min-height: 0;
+            border-bottom: none;
+        }
+
         #maternity-discharge-print .signature {
             margin-top: 35px;
         }
@@ -190,7 +202,7 @@
         <!-- ===================== Diagnoses and Medications ===================== -->
         <h3>Diagnoses and Medications</h3>
 
-        <div class="block">
+        <div class="block inline">
             <label>Diagnoses:</label>
             <encounterDiagnosesByObs/>
         </div>
@@ -203,17 +215,17 @@
         <!-- ===================== Summary ===================== -->
         <h3>Summary</h3>
 
-        <div class="block">
+        <div class="block inline">
             <label>Clinical History:</label>
             <obs class="obs-value" conceptId="CIEL:160221" style="textarea"/>
         </div>
 
-        <div class="block">
+        <div class="block inline">
             <label>Summary of investigation:</label>
             <obs class="obs-value" conceptId="CIEL:165399" style="textarea"/>
         </div>
 
-        <div class="block">
+        <div class="block inline">
             <label>Summary of management in the hospital:</label>
             <!-- NOTE: the capture form (maternalDischarge.xml) currently stores both the investigation and
                  management summaries under CIEL:165399, so only one stored value exists for these two fields. -->
@@ -223,7 +235,7 @@
         <!-- ===================== Discharge and Follow Up ===================== -->
         <h3>Discharge and Follow Up</h3>
 
-        <div class="block">
+        <div class="block inline">
             <label>Discharge recommendations:</label>
             <obs class="obs-value" conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
         </div>
