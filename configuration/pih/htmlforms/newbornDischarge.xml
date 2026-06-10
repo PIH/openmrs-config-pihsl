@@ -750,23 +750,16 @@
              headerCode="Post discharge">
         <div class="section-container">
             <h3>Post discharge</h3>
-
-            <div class="two-columns">
-                <div>
-                    <label>
-                        <uimessage code="Instructions to caregiver" />
-                    </label>
-                    <obs conceptId="CIEL:163106" style="textarea" />
-                </div>
-
-                <div>
-                    <label>
-                        <uimessage code="Next appointment date"/>
-                    </label>
-                    <obs conceptId="PIH:RETURN VISIT DATE" id="apptDate" required="false"
-                         allowFutureDates="true" allowPastDates="false" />
-                </div>
+            <div>
+                <label>
+                    <uimessage code="Instructions to caregiver" />
+                </label>
+                <obs conceptId="CIEL:163106" style="textarea" />
             </div>
+            <subform path="configuration/pih/subforms/schedule-appointment.xml">
+	        <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="newborn" />
+	    </subform>
+
         </div>
     </section>
 

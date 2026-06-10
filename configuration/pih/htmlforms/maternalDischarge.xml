@@ -308,40 +308,18 @@
     <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="coreapps.consult.disposition">
         <div class="section-container">
-            <div class="two-columns">
-                <div>
-                    <p>
-                        <label>
-                            <uimessage code="Next appointment date"/>
-                        </label>
-                        <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="false"/>
-                    </p>
-
-                    <p class="side-by-side">
-                        <label>
-                            <uimessage code="Followup clinic:"/>
-                        </label>
-                        <br/>
-                        <!-- ToDo:  radio or checkboxes?  Update answers -->
-                        <obs conceptId="CIEL:1272" style="radio"
-                             answerConceptIds="PIH:7831,PIH:FAMILY PLANNING SERVICES,PIH:MENTAL HEALTH SERVICES,CIEL:5622"
-                             answerSeparator="&lt;br /&gt;" />
-                    </p>
-                </div>
-
-                <div>
-                    <div id="disposition">
-                        <encounterDisposition required="true" id="encounter-disposition" />
-                    </div>
-                </div>
-            </div>
-
+	    <div id="disposition">
+	        <encounterDisposition required="true" id="encounter-disposition" />
+	    </div>
             <p>
                 <label>
                     <uimessage code="Discharge recommendation" />
                 </label>
                 <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
             </p>
+            <subform path="configuration/pih/subforms/schedule-appointment.xml">
+	        <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
+	    </subform>
 
         </div>
 
