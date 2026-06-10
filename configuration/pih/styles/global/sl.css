@@ -220,6 +220,11 @@ form input:focus {
     background: #CFDCDB;
 }
 
+form input[type="radio"], .form input[type="radio"] {
+    float: none;
+    display: inline-block;
+}
+
 /* Vitals replace blue highlight */
 ul#formBreadcrumb li.doing ul li.focused {
     color: #FFF;
@@ -300,7 +305,8 @@ username input[type="text"],
 
     .list-inline label, .list-inline input[type="radio"], .list-inline span,
     .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-    .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
+    .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span,
+    .in-line label, .in-line input[type="radio"], .in-line span {
         display: inline-block;
         float: none;
     }
