@@ -71,7 +71,7 @@
     </subform>
 
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="pihcore.vitalSigns">
+             headerStyle="title" headerCode="Previous vital signs">
         <div class="section-container">
             <subform path="configuration/pih/subforms/prior-vital-signs-widget.xml"/>
         </div>
@@ -165,13 +165,15 @@
                          answerCodes="yes,no"/>
                 </p>
 
-                <p class="list-inline-wide">
+                <p class="side-by-side">
                     <label>
                         <uimessage code="Age at first coitus" />
                     </label>
+                    <br/>
                     <obs conceptId="PIH:21487" style="radio"
                          answerConceptIds="PIH:21488,PIH:21489"
-                         answerCodes="less than 15,above 15 years old" />
+                         answerCodes="less than 15,above 15 years old"
+                         answerSeparator="&lt;br /&gt;"/>
                 </p>
 
                 <p class="narrow">
@@ -228,7 +230,7 @@
     <section id="hiv-status" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="HIV status">
         <div class="section-container">
-            <p class="list-inline-wide">
+            <p class="list-inline">
                 <label>
                     <uimessage code="HIV Status" />
                 </label>
@@ -237,7 +239,7 @@
                      answerCodes="positive,negative,unknown" />
             </p>
 
-            <p class="list-inline-wide">
+            <p class="list-inline">
                 <label>
                     <uimessage code="ART Status" />
                 </label>
@@ -246,7 +248,7 @@
                      answerCodes="on ART,not on ART" />
             </p>
 
-            <p class="list-inline-wide">
+            <p class="list-inline">
                 <label>
                     <uimessage code="HCT accepted" />
                 </label>
@@ -355,13 +357,14 @@
              headerCode="Integrated services">
         <div class="section-container two-columns">
             <div>
-                <label>
-                    <uimessage code="Clinical breast exam (CBE)"/>
-                </label>
-                <p class="in-line">
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Clinical breast exam (CBE)"/>
+                    </label>
+                    <br/>
                     <obs conceptId="PIH:14180" style="radio"
                          answerConceptIds="CIEL:1267,CIEL:1118,CIEL:1067"
-                         answerSeparator=""/>
+                         answerSeparator="&lt;br /&gt;"/>
                 </p>
             </div>
             <div>
@@ -555,12 +558,11 @@
     <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Notes, Recommendations, Followup dates">
         <div class="section-container">
-            <div class="three-columns">
+            <div class="two-columns">
                 <div>
-                    <label>
-                        <uimessage code="Notes and recommendations"/>
-                    </label>
-                    <obs conceptId="PIH:COMMENTS AT CONCLUSION OF EXAMINATION" style="textarea" />
+                    <div id="disposition">
+                        <encounterDisposition id="encounter-disposition" />
+                    </div>
                 </div>
                 <div>
                     <p>
@@ -569,9 +571,11 @@
                         </label>
                         <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="false"/>
                     </p>
-                </div>
-                <div id="disposition">
-                    <encounterDisposition id="encounter-disposition" />
+
+                    <label>
+                        <uimessage code="Notes and recommendations"/>
+                    </label>
+                    <obs conceptId="PIH:COMMENTS AT CONCLUSION OF EXAMINATION" style="textarea" />
                 </div>
             </div>
         </div>
