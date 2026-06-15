@@ -25,8 +25,16 @@
     </macros>
 
     <style type="text/css">
-        .narrow {
-            width: 200px;
+        #vitals fieldset p {
+            vertical-align: top;
+            display: inline-block;
+            float: none;
+        }
+
+        #vitals fieldset .left {
+            vertical-align: top;
+            display: inline-block;
+            float: none;
         }
 
         <ifMode mode="VIEW" include="false">
@@ -216,11 +224,11 @@
         </div>
     </section>
 
-    <section id="visit-type" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+    <section id="cc-visit-type" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Visit type">
         <div class="section-container">
             <p class="side-by-side">
-                <obs id="visit-reason" conceptId="CIEL:164181" style="radio"
+                <obs id="cc-visit-reason" conceptId="CIEL:164181" style="radio"
                      answerConceptIds="PIH:21609,PIH:21600,PIH:21601,PIH:21602,PIH:21603,PIH:21604,PIH:21605,PIH:21606,PIH:21607"
                      answerSeparator="&lt;br /&gt;"/>
             </p>
@@ -379,11 +387,7 @@
         <div class="section-container">
             <table>
                 <tr>
-                    <td width="70%">
-                        <img alt="Cervix_quadrants" style="width: 70%; height: auto;"
-                             src="$imageBase/CervixQuadrants.gif" />
-                    </td>
-                    <td style="vertical-align:top;">
+                    <td width="30%" style="vertical-align:top;">
                         <label>
                             <uimessage code="Quadrants&amp;nbsp;involved" />
                         </label>
@@ -399,6 +403,12 @@
                         </repeat>
                         <obs conceptId="PIH:21500" style="checkbox"
                              answerConceptId="PIH:21623" />
+                    </td>
+                    <td width="70%">
+                        <ifMode mode="VIEW" include="false">
+                            <img alt="Cervix_quadrants" style="width: 70%; height: auto;"
+                                 src="$imageBase/CervixQuadrants.gif" />
+                        </ifMode>
                     </td>
                 </tr>
             </table>
