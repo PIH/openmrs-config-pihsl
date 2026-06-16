@@ -31,21 +31,30 @@
 
     <section id="other-ncd-section" sectionTag="fieldset"
              headerTag="legend" headerStyle="title" headerCode="Other NCDs">
-        <div id="other-ncd-dx" class="section-container">
+        <div id="other-ncd-dx" class="section-container two-columns">
 
-            <repeat>
-                <template>
-                    <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                        <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{parId}" answerCodeXX="{message}"
-                             style="checkbox"/>
-                    </obsgroup>
-                </template>
-                <render parId="CIEL:130795" message="Parkinsons disease" />
-                <render parId="CIEL:118976" message="Thyroid disease" />
-            </repeat>
-            <br/><br/>
+            <div>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                            <obs conceptId="PIH:DIAGNOSIS" answerConceptId="{parId}" answerCodeXX="{message}"
+                                 style="checkbox"/>
+                        </obsgroup>
+                    </template>
+                    <render parId="CIEL:130795" message="Parkinsons disease" />
+                    <render parId="CIEL:118976" message="Thyroid disease" />
+                </repeat>
+            </div>
 
-            <p>NOTE: To add a different NCD diagnosis, search on the Diagnosis page.</p>
+            <div>
+                <label>
+                    <uimessage code="Comments about other NCDs" />
+                </label>
+                <obs conceptId="PIH:21625" style="text area" />
+                <br/>
+
+                <p>NOTE: To add additional NCD diagnoses, search on the Diagnosis page.</p>
+            </div>
         </div>
     </section>
 
