@@ -194,12 +194,15 @@
         <div class="section-container">
             <div class="two-columns">
                 <div>
-                    <label position="left">
-                        <uimessage code="pihcore.mch.trimesterAtEnrollment"/>
-                    </label>
-                    <obs conceptId="PIH:11661" style="radio" answerSeparator=""
-                         answerConceptIds="CIEL:1721,CIEL:1722,CIEL:1723"/>
-                    <br/>
+                    <p class="side-by-side">
+                        <label position="left">
+                            <uimessage code="pihcore.mch.trimesterAtEnrollment"/>
+                        </label>
+                        <br/>
+                        <obs conceptId="PIH:11661" style="radio"
+                             answerConceptIds="CIEL:1721,CIEL:1722,CIEL:1723"
+                             answerSeparator="&lt;br /&gt;"/>
+                    </p>
 
                     <!-- Number of ANC visits -->
                     <p>
@@ -605,14 +608,15 @@
                          style="radio" answerSeparator="&lt;br /&gt;"/>
                 </p>
 
-                <p class="radio">
+                <p class="side-by-side">
                     <label position="left">
                         <uimessage code="pihcore.habits.alcohol"/>
                         <i>(consider palm wine and homolais)</i>
                     </label>
-                    <obs conceptId="PIH:HISTORY OF ALCOHOL USE"
+                    <br/>
+                    <obs conceptId="PIH:HISTORY OF ALCOHOL USE" style="radio"
                          answerConceptIds="PIH:IN THE PAST,PIH:CURRENTLY,PIH:NEVER,PIH:unknown"
-                         style="radio" answerSeparator=""/>
+                         answerSeparator="&lt;br /&gt;"/>
                 </p>
 
                 <p class="radio">
@@ -624,14 +628,15 @@
             </div>
 
             <div>
-                <p class="radio">
+                <p class="side-by-side">
                     <label>
                         <uimessage code="pihcore.habits.drugs"/>
                         <i>(ie. tramadol, codeine, kush)</i>
                     </label>
-                    <obs conceptId="CIEL:162556"
+                    <br/>
+                    <obs conceptId="CIEL:162556" style="radio"
                          answerConceptIds="PIH:IN THE PAST,PIH:CURRENTLY,PIH:NEVER,PIH:unknown"
-                         style="radio" answerSeparator=""/>
+                         answerSeparator="&lt;br /&gt;"/>
                 </p>
                 <p>
                     <label>
