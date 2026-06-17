@@ -422,13 +422,15 @@
             </div>
             <div>
                 <p>
+                    <br/>
                     <span id="gestational-age-wrapper">
                         <label>
-                            <uimessage code="pihcore.gestational.age" />
+                            <uimessage code="pihcore.gestational.age" /><uimessage code="pihcore.gestational.age.instructions" />
                         </label>
+
                         <span>
                             <obs conceptId="CIEL:1438" class="value gestationalAge" showUnits="true" unitsCssClass="append-to-value" size="80"/>
-                            <label>(<uimessage code="pihcore.gestational.age.instructions" />)</label>
+
                         </span>
                     </span>
                 </p>
