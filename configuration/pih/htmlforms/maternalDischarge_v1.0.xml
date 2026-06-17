@@ -13,10 +13,10 @@
   -->
 
 <htmlform id="maternal-discharge"
-          formUuid="ccd256b4-a861-4ec2-88f8-6d56927a09b2"
-          htmlformUuid="e299d169-e3ed-42bd-b560-1f5137d72c4d"
+          formUuid="a934da8d-cc58-43e9-af9d-b11cb310728c"
+          htmlformUuid="bedd2c63-5ed2-4e9c-8214-bad7312c6e65"
           formName="Maternal Discharge"
-          formEncounterType="2110a810-db62-4914-ba95-604b96010164" formVersion="1.1">
+          formEncounterType="2110a810-db62-4914-ba95-604b96010164" formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramPostpartumTransitionAction"/>
@@ -308,18 +308,40 @@
     <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="coreapps.consult.disposition">
         <div class="section-container">
-	    <div id="disposition">
-	        <encounterDisposition required="true" id="encounter-disposition" />
-	    </div>
+            <div class="two-columns">
+                <div>
+                    <p>
+                        <label>
+                            <uimessage code="Next appointment date"/>
+                        </label>
+                        <obs conceptId="PIH:RETURN VISIT DATE" allowFutureDates="true" allowPastDates="false" id="apptDate" required="false"/>
+                    </p>
+
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="Followup clinic:"/>
+                        </label>
+                        <br/>
+                        <!-- ToDo:  radio or checkboxes?  Update answers -->
+                        <obs conceptId="CIEL:1272" style="radio"
+                             answerConceptIds="PIH:7831,PIH:FAMILY PLANNING SERVICES,PIH:MENTAL HEALTH SERVICES,CIEL:5622"
+                             answerSeparator="&lt;br /&gt;" />
+                    </p>
+                </div>
+
+                <div>
+                    <div id="disposition">
+                        <encounterDisposition required="true" id="encounter-disposition" />
+                    </div>
+                </div>
+            </div>
+
             <p>
                 <label>
                     <uimessage code="Discharge recommendation" />
                 </label>
                 <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
             </p>
-            <subform path="configuration/pih/subforms/schedule-appointment.xml">
-	        <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
-	    </subform>
 
         </div>
 
