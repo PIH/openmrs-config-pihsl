@@ -42,22 +42,6 @@
             display: inline-block;
         }
 
-        .gestationalAge {
-            white-space: nowrap;
-            display:    inline-flex;
-         }
-
-        .gestationalAge span{
-            margin-left: 10px;
-            margin-top: 10px;
-        }
-
-        .gestationalAge input[type="text"]{
-            min-width: 2%;
-            width: 80px;
-            white-space: nowrap;
-        }
-
     </style>
 
     <style type="text/css">
@@ -129,64 +113,10 @@
     <ifMode mode="VIEW" include="false" >
         <script type="text/javascript">
 
-            jq(function() {             
-                var encounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()" />';
-                setUpEdd(encounterDate,'<uimessage code="pihcore.weeks" />');
-                validateEstimatedDeliveryDate("lastPeriodDate", new Date(+encounterDate), '<uimessage code="pihcore.errors.lastPeriodDateField.invalidDate" />');
-                validateEstimatedDeliveryDate("edd", new Date(+encounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-                eddCannotBeOlderThanTwoWeeks("edd", new Date(+encounterDate), '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
+            <!-- Todo:  Before moving this to the est-delivery-date-ga.js, this javascript was only for edit (not view).  Is that still necessary? -->
 
-                // handlers for next and submit buttons, see nextAndSubmitButtons.js
-                setUpNextAndSubmitButtons();
-
-                htmlForm.getBeforeValidation().push(function() {
-                    //SL-1279, Last menstruation date should not be more than 10 months in the past of the encounter date
-                    const lastPeriodElem = jq("#lastPeriodDate input[type='hidden']");
-                    if ( lastPeriodElem ) {
-                        const lastPeriodVal = lastPeriodElem.val();
-                        if ( lastPeriodVal ) {
-                            if ( daysBetweenUTCDates(new Date(lastPeriodVal), new Date(+encounterDate)) &gt; 305 ) {
-                                jq(window).scrollTop(jq("#lastPeriodDate").offset().top - 100);
-                                return false;
-                            }
-                        }
-                    }
-                    return true;
-                });
-            });
         </script>
     </ifMode>
-
-    <script type="text/javascript">
-
-        jq(document).ready(function() {
-
-            jq("#edd input[type='hidden']").change(function() {
-                const estimatedDelivery = this.value;
-                const estimatedDeliveryDate = new Date(estimatedDelivery);
-                if ( estimatedDeliveryDate.getTime() &gt; currentEncounterDate.getTime() ) {
-                    // the estimated gestational age only makes sense if EDD is after the encounter time
-                    const daysDiff = daysBetweenUTCDates(estimatedDeliveryDate, currentEncounterDate);
-                    const diffWeeks = Math.floor( daysDiff / 7);
-                    const gestAgeRemainderDays = daysDiff % 7;
-                    const gestAge = diffWeeks + (gestAgeRemainderDays ? gestAgeRemainderDays / 10 : 0);
-                    const estGestAge = (40 - gestAge).toFixed(1);
-                    jq(".gestationalAge input[type='text']").val(estGestAge);
-                }
-            });
-
-            jq(".gestationalAge input[type='text']").change(function() {
-                const numValue = Number(this.value);
-                if (isNaN(numValue)) {
-                    console.error("Gestational age must be a valid number");
-                    return;
-                }
-                // EDD = (40 weeks - current estimated gestational age in weeks) * 7 days * 24 hours * 60 minutes * 60 seconds * 1000ms
-                const newEdd = new Date(currentEncounterDate.getTime() + (40 - numValue) * 7 * 24 * 60 * 60 * 1000);
-                getField("edd.value").datepicker("setDate", newEdd);
-            });
-        });
-    </script>
 
     <section id="anc-intake" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.ancIntake.title">
@@ -380,61 +310,8 @@
             </div>
 
             <br/>
-            <div class="two-columns">
-                <!-- Last menstrual period (LMP or DDR) -->
-                <div>
-                    <label>
-                        <uimessage code="pihcore.pregnancy.lastPeriod"/>
-                    </label>
-                    <span class="small">
-                        <obs id="lastPeriodDate" conceptId="CIEL:1427" allowFutureDates="false"/>
-                    </span>
-                </div>
+            <subform path="configuration/pih/subforms/est-delivery-date-ga-initial.xml"/>
 
-                <!-- Due date (DPA) -->
-                <div>
-                    <label>
-                        <uimessage code="pihcore.pregnancy.dueDate"/>
-                    </label>
-                    <span class="small">
-                        <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="true"/>
-                    </span>
-                </div>
-            </div>
-
-            <div id="calculated-edd-and-gestational" class="two-columns hidden">
-                <div>
-                    <span id="calculated-gestational-age-wrapper">
-                        <span id="calculated-gestational-age-label">
-                            <uimessage code="pihcore.calculatedGestationalAge"/>:&#160;
-                        </span>
-                        <span id='calculated-gestational-age-value' class="calculated-gestational-age-value value"></span>
-                    </span>
-                </div>
-                <div>
-                    <span id="calculated-edd-wrapper">
-                        <span id="calculated-edd-label">
-                            <uimessage code="pihcore.calculatedEstimatedDeliveryDate"/>:&#160;
-                        </span>
-                        <span id='calculated-edd' class="calculated-edd value"></span>
-                    </span>
-                </div>
-            </div>
-            <div>
-                <p>
-                    <br/>
-                    <span id="gestational-age-wrapper">
-                        <label>
-                            <uimessage code="pihcore.gestational.age" /><uimessage code="pihcore.gestational.age.instructions" />
-                        </label>
-
-                        <span>
-                            <obs conceptId="CIEL:1438" class="value gestationalAge" showUnits="true" unitsCssClass="append-to-value" size="80"/>
-
-                        </span>
-                    </span>
-                </p>
-            </div>
         </div>
     </section>
 
