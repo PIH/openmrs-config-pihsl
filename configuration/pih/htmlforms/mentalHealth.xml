@@ -39,26 +39,6 @@
     </translations>
 
     <style type="text/css">
-        .narrow {
-        width: 200px;
-        }
-
-        .three-columns, .two-columns {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
-
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .three-columns > div {
-            display: table-cell;
-            width: 33%;
-        }
-
         .simple-form-ui input {
             min-width: 80%
         }
@@ -88,26 +68,6 @@
             display: block;
         }
 
-        .section-container {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-        }
-
-        .section-container input[type="checkbox"] {
-            margin: 0px 5px; /*changed values to vertical, horizontal*/
-            top:5px; /*added to offset the checkbox position to line up*/
-        }
-
-        .section-container label { /*new definition to override labels inside section-containers*/
-            margin: 0px;
-        }
-
-       - .section {
-            width: 100%;
-        }
-
         textarea {
             width: 95%;
         }
@@ -120,60 +80,12 @@
             min-width: unset;
         }
 
-        form input[type="radio"], .form input[type="radio"] {
-            float: none;
-            display: inline-block;
-        }
-
-        .side-by-side label {
-            display: inline-block;
-        }
-
-        .list-inline label, .list-inline input[type="radio"], .list-inline span,
-        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
-            display: inline-block;
-            float: none;
-        }
-
-        .list-inline label:first-child {
-            width: 220px;
-        }
-
-        .list-inline-wide label:first-child {
-            width: 320px;
-        }
-
-        .list-inline-extra-wide label:first-child {
-            width: 420px;
-        }
     </style>
 
     <ifMode mode="VIEW" include="false">
         <script type="text/javascript">
 
             jq(function() {
-
-                const lastPeriodDateConcept = '<lookup expression="fn.getConcept('CIEL:1427').uuid"/>';
-                const dueDateConcept = '<lookup expression="fn.getConcept('CIEL:5596').uuid"/>';
-
-                var currentEncounterDate = new Date();
-                const encounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
-                if (typeof encounterDate !== "undefined" &amp;&amp; encounterDate !== null &amp;&amp; (encounterDate.length > 0)) {
-                    currentEncounterDate = new Date(+encounterDate);
-                } else {
-                    // look for the encounterDate datepicker widget
-                    var encounterDateValue = jq("#encounterDate .hasDatepicker");
-                    if (encounterDateValue) {
-                        var getDate = encounterDateValue.datepicker('getDate');
-                        if (getDate) {
-                            currentEncounterDate = new Date(getDate);
-                        }
-                    }
-                }
-                setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
-                validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-                eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
 
                 // return appointment date can never be before encounter date
                 var setMinReturnVisitDate = function () {
@@ -930,40 +842,10 @@
                      answerCode="pihcore.pregnancy.status"
                      style="checkbox"/>
 
-                <div id="pregnant" class="two-columns">
-                    <div>
-                            <label>
-                                <uimessage code="pihcore.pregnancy.lastPeriod"/>
-                            </label>
-                            <obs id="lastPeriodDate" conceptId="CIEL:1427"/>
-                    </div>
-                    <div>
-                            <label>
-                                <uimessage code="pihcore.pregnancy.dueDate"/>
-                            </label>
-                            <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="true"/>
-                    </div>
+                <br/>
+                <div id="pregnant">
+                    <subform path="configuration/pih/subforms/est-delivery-date-ga-initial.xml"/>
                 </div>
-
-                <div class="two-columns hidden calculated-edd-and-gestational" id="calculated-edd-and-gestational">
-                    <div>
-                        <span id="calculated-gestational-age-wrapper">
-                            <span id="calculated-gestational-age-label">
-                                <uimessage code="pihcore.calculatedGestationalAge"/>:&#160;
-                            </span>
-                            <span id='calculated-gestational-age-value' class="calculated-gestational-age-value value"></span>
-                        </span>
-                    </div>
-                    <div>
-                        <span id="calculated-edd-wrapper">
-                            <span id="calculated-edd-label">
-                                <uimessage code="pihcore.calculatedEstimatedDeliveryDate"/>:&#160;
-                            </span><br/>
-                            <span id='calculated-edd' class="calculated-edd value"></span>
-                        </span>
-                    </div>
-                </div>
-
                 <br/>
             </includeIf>
 
