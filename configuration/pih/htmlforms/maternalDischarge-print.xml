@@ -51,6 +51,7 @@
 
         #maternity-discharge-print .form-header .logo-left img {
             height: 55px;
+            object-fit: contain; /* Ensures the image isn't stretched if the aspect ratio is different */
         }
 
         #maternity-discharge-print .form-header .logo-right {
@@ -58,7 +59,8 @@
         }
 
         #maternity-discharge-print .form-header .logo-right img {
-            height: 60px;
+            height: 45px;
+            width: auto;  /* Maintains aspect ratio */
         }
 
         #maternity-discharge-print .form-header .form-title {
@@ -145,6 +147,27 @@
         }
         .order-field.order-field-hidden {
             display:none;
+        }
+        div#disposition > label {
+            margin-right: 8px; /* Adjust the width of the space as needed */
+        }
+        p.side-by-side > strong {
+            display: none;
+        }
+
+        div#appointment-datetime-field {
+            display: flex;
+            align-items: center; /* Vertically centers the label and the date text */
+            gap: 10px;           /* Adds space between the label and the date */
+        }
+
+        /* Optional: Removing the default bottom margin from the label for better alignment */
+        div#appointment-datetime-field > label {
+            margin-bottom: 0;
+        }
+
+        p.date-one-line {
+            gap: 10px; /* Adjust this value for the amount of space you want */
         }
 
     </style>
@@ -248,23 +271,17 @@
 
         <!-- ===================== Discharge and Follow Up ===================== -->
         <h3>Discharge and Follow Up</h3>
-
+        <div id="disposition">
+            <encounterDisposition required="true" id="encounter-disposition" />
+        </div>
         <div class="block inline">
             <label>Discharge recommendations:</label>
             <obs class="obs-value" conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
         </div>
 
-        <p>
-            <span class="field">
-                <label>Follow up appointment date:</label>
-                <obs conceptId="PIH:RETURN VISIT DATE"/>
-            </span>
-            <span class="field">
-                <label>Follow up clinic:</label>
-                <obs conceptId="CIEL:1272" style="radio"
-                     answerConceptIds="PIH:7831,PIH:FAMILY PLANNING SERVICES,PIH:MENTAL HEALTH SERVICES,CIEL:5622"/>
-            </span>
-        </p>
+        <subform path="configuration/pih/subforms/schedule-appointment.xml">
+            <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
+        </subform>
 
         <div class="signature">
             <span class="field">
