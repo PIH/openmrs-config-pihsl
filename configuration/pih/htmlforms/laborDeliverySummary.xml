@@ -342,21 +342,7 @@
                 jq("span .deliveryMethod input[type='radio']").change(function() {
                     updateFetusEntries(jq(this));
                 });
-
-                // Set up EDD and Gestational Age
-                jq("#calculated-edd-and-gestational").hide();
-                const lastLMP = '<lookup complexExpression="$fn.formatDate($fn.latestObs('CIEL:1427').getValueDatetime(), 'yyyy-MM-dd')"/>';
-                const currentEncounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
-                const msgWeeks = '<uimessage code="pihcore.weeks"/>';
-                if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0)) {
-                    const lastPeriodDate = new Date(lastLMP);
-                    const gestAgeText = calculateGestationalDays(lastPeriodDate, currentEncounterDate, msgWeeks);
-                    jq("#calculated-gestational-age-value").text(gestAgeText);
-                    const edd = calculateExpectedDeliveryDate(lastPeriodDate);
-                    const locale = window.sessionContext.locale || navigator.language;
-                    jq("#calculated-edd").text((Intl.DateTimeFormat(locale, { dateStyle: "medium" })).format(edd));
-                    jq("#calculated-edd-and-gestational").show();
-                }
+            
                 // handlers for next and submit buttons, see nextAndSubmitButtons.js
                 setUpNextAndSubmitButtons();
 
