@@ -152,7 +152,6 @@
 
             #maternal-discharge fieldset p {
                 vertical-align: top;
-                display: inline-block;
                 float: none;
             }
 
@@ -312,9 +311,9 @@
     <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="coreapps.consult.disposition">
         <div class="section-container">
-	    <div id="disposition">
-	        <encounterDisposition required="true" id="encounter-disposition" />
-	    </div>
+        <div id="disposition">
+            <encounterDisposition required="true" id="encounter-disposition" />
+        </div>
             <p>
                 <label>
                     <uimessage code="Discharge recommendation" />
@@ -322,8 +321,8 @@
                 <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
             </p>
             <subform path="configuration/pih/subforms/schedule-appointment.xml">
-	            <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
-	        </subform>
+                <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal,other" sortBy="specialitiesOrderThenServiceName" />
+            </subform>
 
         </div>
 
