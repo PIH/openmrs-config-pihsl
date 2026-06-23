@@ -430,8 +430,11 @@
 
                         <span>
                             <obs conceptId="CIEL:1438" class="value gestationalAge" showUnits="true" unitsCssClass="append-to-value" size="80"/>
-
                         </span>
+
+                        <label>
+                            <uimessage code="pihcore.gaRepresentation" />
+                        </label>
                     </span>
                 </p>
             </div>
