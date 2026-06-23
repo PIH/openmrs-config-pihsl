@@ -98,6 +98,10 @@
             width: 20%;
         }
 
+        #save-and-print-button {
+            margin-top: 5px;
+        }
+
         <ifMode mode="VIEW" include="false">
             .date-one-line {
                 display: flex;
@@ -318,8 +322,8 @@
                 <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
             </p>
             <subform path="configuration/pih/subforms/schedule-appointment.xml">
-	        <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
-	    </subform>
+	            <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
+	        </subform>
 
         </div>
 
@@ -327,6 +331,10 @@
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">
+            <!-- "Save and Print" floats right and is rendered before Save so, with both floated
+                 right, it ends up immediately to the right of Save. It reuses the "confirm" class
+                 so it is the same size and colour as the Save button. -->
+            <button id="save-and-print-button" type="button" class="confirm right">Save&amp;Print</button>
             <submit submitClass="confirm right" submitCode="mirebalais.save"/>
             <button type="button" class="cancel">
                 <uimessage code="emr.cancel"/>
