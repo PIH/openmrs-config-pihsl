@@ -169,6 +169,30 @@
         p.date-one-line {
             gap: 10px; /* Adjust this value for the amount of space you want */
         }
+        /* 1. Make the container a flexbox to align children horizontally */
+        div.orderwidget-order-history-item {
+            display: flex;
+            flex-wrap: wrap; /* Allows fields to wrap to the next line if the screen is too narrow */
+            align-items: baseline; /* Aligns text nicely across different fields */
+            gap: 20px; /* This adds the "couple of spaces" between each field */
+        }
+
+        /* 2. Ensure the direct child wrappers are also inline */
+        div.orderwidget-order-history-item > div {
+            display: inline-block;
+        }
+
+        /* 3. Optional: If you want to hide the labels to save more space */
+        /*
+        div.orderwidget-order-history-item .order-field-label {
+            display: none;
+        }
+        
+        */
+        /* Hide the section if it contains the "no-orders" div */
+        .orderwidget-existing-order-section:has(.orderwidget-section-no-orders) {
+            display: none;
+        }
 
     </style>
 
