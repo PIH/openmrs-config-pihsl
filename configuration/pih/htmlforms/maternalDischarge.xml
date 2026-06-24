@@ -311,19 +311,35 @@
     <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="coreapps.consult.disposition">
         <div class="section-container">
-        <div id="disposition">
-            <encounterDisposition required="true" id="encounter-disposition" />
-        </div>
-            <p>
-                <label>
-                    <uimessage code="Discharge recommendation" />
-                </label>
-                <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
-            </p>
-            <subform path="configuration/pih/subforms/schedule-appointment.xml">
-                <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal,other" sortBy="specialitiesOrderThenServiceName" />
-            </subform>
+            <div class="two-columns">
+                <div>
+                    <div id="disposition">
+                        <encounterDisposition required="true" id="encounter-disposition" />
+                    </div>
+                    <p>
+                        <label>
+                            <uimessage code="Discharge recommendation" />
+                        </label>
+                        <obs conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
+                    </p>
+                </div>
+                <div>
+                    <h4>
+                        <uimessage code="Next appointment date"/>
+                    </h4>
+                    <ifMode mode="VIEW" include="true">
+                        <p><string><uimessage code="pihcore.appointment.viewEditMessage" /></string>
+                        <a href="/openmrs/spa/home/appointment"><uimessage code="pihcore.appointment.viewAppointments" /></a></p>
+                    </ifMode>
+                    <scheduleAppointment optional="true" type="scheduled"
+                                    locationTag="Appointment Location"
+                                    appointmentUuidConcept="PIH:Appointment uuid"
+                                    specialities="maternal,other"
+                                    sortServicesBy="specialityOrder,serviceName"/>
 
+                </div>
+
+            </div>
         </div>
 
     </section>
