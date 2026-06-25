@@ -342,7 +342,7 @@
                 jq("span .deliveryMethod input[type='radio']").change(function() {
                     updateFetusEntries(jq(this));
                 });
-            
+
                 // handlers for next and submit buttons, see nextAndSubmitButtons.js
                 setUpNextAndSubmitButtons();
 
