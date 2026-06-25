@@ -307,9 +307,11 @@
             <obs class="obs-value" conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
         </div>
 
-        <subform path="configuration/pih/subforms/schedule-appointment.xml">
-            <appointmentServiceObs conceptId="PIH:Appointment service" subform-parameter="appointment-service-obs" specialities="maternal" />
-        </subform>
+        <scheduleAppointment optional="true" type="scheduled"
+                        locationTag="Appointment Location"
+                        appointmentUuidConcept="PIH:Appointment uuid"
+                        specialities="maternal,other"
+                        sortServicesBy="specialityOrder,serviceName"/>
 
         <div class="signature">
             <span class="field">
