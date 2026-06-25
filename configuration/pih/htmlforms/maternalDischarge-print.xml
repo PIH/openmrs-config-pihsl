@@ -193,6 +193,10 @@
         .orderwidget-existing-order-section:has(.orderwidget-section-no-orders) {
             display: none;
         }
+        /* Hide New Orders label */
+        .orderwidget-new-order-section > .orderwidget-section-header {
+            display: none;
+        }
 
     </style>
 
