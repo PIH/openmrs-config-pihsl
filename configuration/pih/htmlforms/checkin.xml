@@ -15,11 +15,6 @@
 <htmlform formUuid="c233ca6a-ebe2-4d5a-8f79-466c3aced2a0" formName="Check-In"
           formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="3.0">
     <style>
-        .encounter-summary-container {
-            font-size: 1em;
-            font-weight: normal;
-        }
-
         .appointment-checkbox label {
             margin-top: 10px;
             margin-bottom: 10px;
@@ -29,10 +24,6 @@
             border-bottom: none !important;
         }
     </style>
-
-    <macros>
-
-    </macros>
 
     <!-- START ENTER/EDIT VERSION OF THE FORM -->
     <ifMode mode="VIEW" include="false">

@@ -15,14 +15,13 @@
 <htmlform formUuid="6058e2e0-7428-11e5-a837-0800200c9a66" formName="Check-In"
           formEncounterType="55a0d3ea-a4d7-4e88-8f01-5aceb2d3c61b" formVersion="2.0">
     <style>
-        .encounter-summary-container {
-        font-size: 1em;
-        font-weight: normal;
-        }
-
         .appointment-checkbox label {
             margin-top: 10px;
             margin-bottom: 10px;
+        }
+
+        #who-when-where {
+            border-bottom: none !important;
         }
     </style>
 

@@ -25,38 +25,13 @@
     </macros>
 
     <style>
-        .encounter-summary-container {
-            font-size: 1em;
-            font-weight: normal;
-        }
-
-        #who-when-where {
-            border-bottom: none !important;
-        }
-
         form input[type="radio"], .form input[type="radio"] {
             float: none;
             display: inline-block;
         }
 
-        .side-by-side label {
-            display: inline-block;
-        }
-
-        .section-container input[type="checkbox"] {
-            margin: 0px 5px; /* changed values to vertical, horizontal */
-            top: 5px; /* added to offset the checkbox position to line up */
-        }
-
-        .four-columns, .three-columns, .two-columns {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
-
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
+        #who-when-where {
+            border-bottom: none !important;
         }
 
         #check-in-form fieldset p {

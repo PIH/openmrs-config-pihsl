@@ -409,7 +409,7 @@
                             <uimessage code="pihcore.calculatedGestationalAge"/>:&#160;
                         </span>
                         <span id='calculated-gestational-age-value' class="calculated-gestational-age-value value"></span>
-                    </span>
+                    </span>weeks
                 </div>
                 <div>
                     <span id="calculated-edd-wrapper">
@@ -425,12 +425,13 @@
                     <br/>
                     <span id="gestational-age-wrapper">
                         <label>
-                            <uimessage code="pihcore.gestational.age" /><uimessage code="pihcore.gestational.age.instructions" />
+                            <uimessage code="pihcore.gestational.age.instructions" />
                         </label>
-
+                        <label>
+                            <uimessage code="pihcore.gaRepresentation" />
+                        </label>
                         <span>
                             <obs conceptId="CIEL:1438" class="value gestationalAge" showUnits="true" unitsCssClass="append-to-value" size="80"/>
-
                         </span>
                     </span>
                 </p>
