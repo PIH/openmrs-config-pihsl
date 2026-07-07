@@ -160,6 +160,11 @@
     <script type="text/javascript">
 
         jq(document).ready(function() {
+            let currentEncounterDate = new Date();
+            let lookupEncDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
+            if ( lookupEncDate ) {
+                currentEncounterDate = new Date(+lookupEncDate);
+            }
 
             jq("#edd input[type='hidden']").change(function() {
                 const estimatedDelivery = this.value;
@@ -171,7 +176,12 @@
                     const gestAgeRemainderDays = daysDiff % 7;
                     const gestAge = diffWeeks + (gestAgeRemainderDays ? gestAgeRemainderDays / 10 : 0);
                     const estGestAge = (40 - gestAge).toFixed(1);
-                    jq(".gestationalAge input[type='text']").val(estGestAge);
+                    // UHM-9364: do not display/store negative gestational age values
+                    if (estGestAge > 0) {
+                        jq(".gestationalAge input[type='text']").val(estGestAge);
+                    } else {
+                        jq(".gestationalAge input[type='text']").val('');
+                    }
                 }
             });
 
