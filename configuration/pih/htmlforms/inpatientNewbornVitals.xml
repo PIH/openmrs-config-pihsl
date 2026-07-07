@@ -18,223 +18,114 @@
             min-width: 90%
         }
 
-        .section-container {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-        }
-
-        .section-container input[type="checkbox"] {
-            margin: 0px 5px; /*changed values to vertical, horizontal*/
-            top:5px; /*added to offset the checkbox position to line up*/
-        }
-
-        .section-container label { /*new definition to override labels inside section-containers*/
-            margin: 0px;
-        }
-
-        - .section {
-            width: 100%;
-        }
-
         .field-error {
-        color: #ff6666;
-        font-size: 1.1em;
-        display: block;
+            color: #ff6666;
+            font-size: 1.1em;
+            display: block;
         }
 
         #inpatient-vitals-form, .exam input[type="checkbox"] {
-        margin: 0px 5px; /* changed values to vertical, horizontal */
-        top: 5px; /* added to offset the checkbox position to line up */
+            margin: 0px 5px; /* changed values to vertical, horizontal */
+            top: 5px; /* added to offset the checkbox position to line up */
         }
 
         .exam label { /*new definition to override labels inside section-containers*/
-        margin: 0px;
+            margin: 0px;
         }
 
         .row-symptom {
-        margin-top: 20px;
-        }
-
-        .six-columns, .five-columns, .four-columns, .three-plus-one, .two-columns {
-        display: table;
-        height: 100%;
-        width: 100%;
-        }
-
-        .six-columns > div {
-        display: table-cell;
-        width: 16.6%;
-        }
-
-        .five-columns > div {
-        display: table-cell;
-        width: 20%;
-        }
-
-        .two-columns > div {
-        display: table-cell;
-        width: 50%;
-        }
-
-        .three-columns {
-        display: table;
-        height: 100%;
-        width: 100%;
-        }
-
-        .three-columns > div {
-        display: table-cell;
-        width: 33%;
+            margin-top: 20px;
         }
 
         /* Add media query for responsive behavior */
         @media (max-width: 768px) {
-        .three-columns {
-        display: flex;
-        flex-wrap: wrap;
+            .three-columns {
+            display: flex;
+            flex-wrap: wrap;
         }
 
         .three-columns > div {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        }
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            }
 
         .three-columns > div:last-child {
-        margin-bottom: 0;
-        }
-        }
-
-        .three-plus-one > div {
-        display: table-cell;
-        }
-
-        .three-plus-one > div {
-        width: 29%;
-        margin-top: 20px;
-        }
-
-        .three-plus-one > div:first-child {
-        width: 13%;
+            margin-bottom: 0;
         }
 
         .three-plus-one {
-        margin-bottom: 20px;
+            display: table;
+            height: 100%;
+            width: 100%;
+            margin-bottom: 20px;
         }
 
-        .four-columns > div {
-        display: table-cell;
-        width: 25%;
+        .three-plus-one > div {
+            display: table-cell;
+            width: 29%;
+            margin-top: 20px;
+        }
+
+        .three-plus-one > div:first-child {
+            width: 13%;
         }
 
         .boundary {
-        margin-bottom: 6px;
-        border-bottom: 1px solid #ccc;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #ccc;
         }
 
         .header-col {
-        text-align: center;
-        white-space: pre-line;
+            text-align: center;
+            white-space: pre-line;
         }
 
         #disposition > span {
-        display: inline-flex;
+            display: inline-flex;
         }
 
         #disposition span {
-        padding-left: 15px;
+            padding-left: 15px;
         }
 
         .in-the-same-line {
-        display: inline-flex;
-        }
-
-        .side-by-side label {
-        display: inline-block;
+            display: inline-flex;
         }
 
         .side-by-side span {
-        display: inline-block;
-        }
-
-        form input[type="radio"], .form input[type="radio"] {
-        float: none;
-        display: inline-block;
-        }
-
-        p.radio > * {
-        display: inline;
-        float: none !important;
-        min-width: initial;
+            display: inline-block;
         }
 
         .side-by-side input[type="checkbox"] {
-        float: none;
-        display: inline-block;
+            float: none;
+            display: inline-block;
+        }
+
+        p.radio > * {
+            display: inline;
+            float: none !important;
+            min-width: initial;
         }
 
         .headerLabel {
-        font-size: 1.2em;
-        color: #3E3E3E;
+            font-size: 1.2em;
+            color: #3E3E3E;
         }
 
-
-
-        .list-inline label, .list-inline input[type="radio"], .list-inline span,
-        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
-        display: inline-block;
-        float: none;
-        }
-
-        .list-inline label:first-child {
-        width: 220px;
-        }
-
-        .list-inline-wide label:first-child {
-        width: 320px;
-        }
-
-        .list-inline-extra-wide label:first-child {
-        width: 420px;
-        }
 
         <ifMode mode="VIEW" include="false">
-            .date-one-line {
-            display: flex;
-            }
-
-            .date-one-line label {
-            align-self: center;
-            margin-right: 1em;
-            }
-
-            .date-one-line span {
-            display: flex;
-            }
 
             #o2andFluidsDiv > div > span.small > input[type="text"] {
-            min-width: 120px;
-            max-width: 60px;
-            margin-left: 5px;
+                min-width: 120px;
+                max-width: 60px;
+                margin-left: 5px;
             }
 
             #o2andFluidsDiv > div > span.small > span.units {
-            margin-left: 8px;
+                margin-left: 8px;
             }
 
-            .hasDatepicker {
-            min-width: 120px;
-            margin-top: 0px;
-            }
-
-            .hfe-hours, .hfe-minutes, .hfe-seconds {
-            width: 70px;
-            min-width: 70px;
-            margin: 0px 10px 0px 10px;
-            }
         </ifMode>
     </style>
     <ifMode mode="VIEW" include="false">

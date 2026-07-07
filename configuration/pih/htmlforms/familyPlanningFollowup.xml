@@ -20,19 +20,13 @@
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ReopenVisitAction"/>
 
     <style type="text/css">
-        .narrow {
-            width: 200px;
-        }
-
         <ifMode mode="VIEW" include="false">
             #data-collection {
                 display: inline-block;
                 width: 58%;
                 vertical-align: top;
             }
-
         </ifMode>
-
     </style>
 
     <script type="text/javascript">

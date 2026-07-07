@@ -33,36 +33,11 @@
             margin-top: 20px;
         }
 
-        .six-columns, .five-columns, .four-columns, .three-plus-one, .two-columns {
+        .three-plus-one {
             display: table;
             height: 100%;
             width: 100%;
-        }
-
-        .six-columns > div {
-            display: table-cell;
-            width: 16.6%;
-        }
-
-        .five-columns > div {
-            display: table-cell;
-            width: 20%;
-        }
-
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .three-columns {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
-
-        .three-columns > div {
-            display: table-cell;
-            width: 33%;
+            margin-bottom: 20px;
         }
 
         /* Add media query for responsive behavior */
@@ -85,24 +60,12 @@
 
         .three-plus-one > div {
             display: table-cell;
-        }
-
-        .three-plus-one > div {
             width: 29%;
             margin-top: 20px;
         }
 
         .three-plus-one > div:first-child {
             width: 13%;
-        }
-
-        .three-plus-one {
-            margin-bottom: 20px;
-        }
-
-        .four-columns > div {
-            display: table-cell;
-            width: 25%;
         }
 
         .boundary {
@@ -127,16 +90,7 @@
             display: inline-flex;
         }
 
-        .side-by-side label {
-            display: inline-block;
-        }
-
         .side-by-side span {
-            display: inline-block;
-        }
-
-        form input[type="radio"], .form input[type="radio"] {
-            float: none;
             display: inline-block;
         }
 
@@ -156,41 +110,7 @@
             color: #3E3E3E;
         }
 
-
-
-        .list-inline label, .list-inline input[type="radio"], .list-inline span,
-        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
-            display: inline-block;
-            float: none;
-        }
-
-        .list-inline label:first-child {
-            width: 220px;
-        }
-
-        .list-inline-wide label:first-child {
-            width: 320px;
-        }
-
-        .list-inline-extra-wide label:first-child {
-            width: 420px;
-        }
-
         <ifMode mode="VIEW" include="false">
-            .date-one-line {
-                display: flex;
-                color: black;
-            }
-
-            .date-one-line label {
-                align-self: center;
-                margin-right: 1em;
-            }
-
-            .date-one-line span {
-                display: flex;
-            }
 
             #o2andFluidsDiv > div > span.small > input[type="text"] {
                 min-width: 120px;
@@ -202,16 +122,6 @@
                 margin-left: 8px;
             }
 
-            .hasDatepicker {
-                min-width: 120px;
-                margin-top: 0px;
-            }
-
-            .hfe-hours, .hfe-minutes, .hfe-seconds {
-                width: 70px;
-                min-width: 70px;
-                margin: 0px 10px 0px 10px;
-            }
         </ifMode>
     </style>
 
