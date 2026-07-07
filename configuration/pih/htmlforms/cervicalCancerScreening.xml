@@ -459,7 +459,7 @@
              headerCode="Treatment consent form">
         <div class="section-container">
             <p>
-                <obs conceptId="PIH:21610" answerConceptId="CIEL:1065"
+                <obs conceptId="CIEL:1710" answerConceptId="CIEL:1065"
                      answerCode="I hereby agree and consent to the procedure cryotherapy to be performed on me, the nature of which has been explained to me. I understand that an assurance
                 has been given that the procedure will be performed by a particular person. I have also been informed what I need to care for myself after the procedure." />
             </p>
