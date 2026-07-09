@@ -248,7 +248,7 @@
                     </h4>
                     <ifMode mode="VIEW" include="true">
                         <p><string><uimessage code="pihcore.appointment.viewEditMessage" /></string>
-                        <a href="/openmrs/spa/home/appointment"><uimessage code="pihcore.appointment.viewAppointments" /></a></p>
+                        <a href="/openmrs/spa/home/appointments"><uimessage code="pihcore.appointment.viewAppointments" /></a></p>
                     </ifMode>
                     <scheduleAppointment optional="true" type="scheduled"
                                     locationTag="Appointment Location"
