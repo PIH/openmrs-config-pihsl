@@ -68,10 +68,6 @@
             font-weight: normal;
         }
 
-        #encounterDate input {
-            min-width: 15%
-        }
-
         .half-size-text {
             color: #ff6666;
             font-size: 50%;

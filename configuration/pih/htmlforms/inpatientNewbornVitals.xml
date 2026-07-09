@@ -14,10 +14,6 @@
 
     <style type="text/css">
 
-        form fieldset {
-            min-width: 90%
-        }
-
         .field-error {
             color: #ff6666;
             font-size: 1.1em;
@@ -48,27 +44,10 @@
             display: block;
             width: 100%;
             margin-bottom: 10px;
-            }
+        }
 
         .three-columns > div:last-child {
             margin-bottom: 0;
-        }
-
-        .three-plus-one {
-            display: table;
-            height: 100%;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .three-plus-one > div {
-            display: table-cell;
-            width: 29%;
-            margin-top: 20px;
-        }
-
-        .three-plus-one > div:first-child {
-            width: 13%;
         }
 
         .boundary {

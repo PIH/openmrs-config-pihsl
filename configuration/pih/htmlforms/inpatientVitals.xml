@@ -33,13 +33,6 @@
             margin-top: 20px;
         }
 
-        .three-plus-one {
-            display: table;
-            height: 100%;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
         /* Add media query for responsive behavior */
         @media (max-width: 768px) {
             .three-columns {
@@ -56,16 +49,6 @@
             .three-columns > div:last-child {
                 margin-bottom: 0;
             }
-        }
-
-        .three-plus-one > div {
-            display: table-cell;
-            width: 29%;
-            margin-top: 20px;
-        }
-
-        .three-plus-one > div:first-child {
-            width: 13%;
         }
 
         .boundary {

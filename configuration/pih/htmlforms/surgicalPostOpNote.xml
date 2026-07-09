@@ -210,37 +210,6 @@
             min-width: 80%
         }
 
-        form fieldset {
-            min-width: 90%
-        }
-
-        #encounterDate input {
-            min-width: 15%
-        }
-
-        textarea {
-            overflow-y: hidden;
-            padding-top: 1.1em;
-        }
-
-        @media print {
-            .print-form-datestamps { display: block !important }
-            button.cancel, button.submit { display: none }
-            label { font-weight: bold }
-            label[for] { font-weight: normal } /* refers to the radio set label */
-        }
-
-        .provider-grid {
-            display: inline-grid;
-            grid-template-columns: 400px 400px;
-            background-color: #F2F2F2;
-        }
-
-        .provider-grid > div {
-            padding-left: 5px;
-            border: none;
-        }
-
     </style>
 
     <script type="text/javascript">
