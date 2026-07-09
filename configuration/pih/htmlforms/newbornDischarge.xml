@@ -591,7 +591,8 @@
                             <uimessage code="Date &amp; time of 1st urination"/>
                         </label>
                         <p id="pee-time" class="date-one-line">
-                            <obs conceptId="PIH:20266" showTime="true" allowFutureDates="false"/>
+                            <obs conceptId="PIH:20266"
+                                 showTime="true" allowFutureTimes="true" allowFutureDates="false"/>
                         </p>
 
                         <label>Comments about urination</label>
@@ -619,7 +620,8 @@
                             <uimessage code="Date &amp; time of 1st stool"/>
                         </label>
                         <p id="poo-time" class="date-one-line">
-                            <obs conceptId="PIH:20267" showTime="true" allowFutureDates="false"/>
+                            <obs conceptId="PIH:20267"
+                                 showTime="true" allowFutureTimes="true" allowFutureDates="false" />
                         </p>
 
                         <label>Comments about stool</label>
