@@ -101,7 +101,8 @@
                 validateEstimatedDeliveryDate("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
                 eddCannotBeOlderThanTwoWeeks("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
                 const msgWeeks = '<uimessage code="pihcore.weeks"/>';
-                if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0)) {
+                // SL-1279: Last menstruation date should not be more than 10 months in the past of the encounter date
+                if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0) &amp;&amp; (daysBetweenUTCDates(new Date(lastLMP), new Date(+currentEncounterDate)) &lt; 305)) {
                     const lastPeriodDate = new Date(lastLMP);
                     let yearMonthDay = lastLMP.split('-');
                     if (yearMonthDay.length == 3) {
