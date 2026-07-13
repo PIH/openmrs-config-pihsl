@@ -114,7 +114,7 @@
         }
 
         #maternity-discharge-print .signature {
-            margin-top: 35px;
+            margin-top: 15px;
         }
 
         #maternity-discharge-print .signature .field {
@@ -196,6 +196,38 @@
         /* Hide New Orders label */
         .orderwidget-new-order-section > .orderwidget-section-header {
             display: none;
+        }
+
+        p.schedule-appointment-row label {
+            font-weight: bold;
+        }
+
+        p.schedule-appointment-row.schedule-appointment-provider {
+            display: none;
+        }
+
+        p.schedule-appointment-row.schedule-appointment-status {
+            display: none;
+        }
+
+        p.schedule-appointment-row label {
+            margin-right: 0.6em;
+        }
+
+        .schedule-appointment-date,
+        .schedule-appointment-time {
+            display: inline-block;
+            width: auto;
+            vertical-align: top; /* Ensures they align at the top */
+            margin-right: 15px; /* Adds space between the two items */
+        }
+
+        .schedule-appointment-service,
+        .schedule-appointment-note {
+            display: inline-block;
+            width: auto;
+            vertical-align: top; /* Ensures they align at the top */
+            margin-right: 15px; /* Adds space between the two items */
         }
 
     </style>
@@ -307,6 +339,7 @@
             <obs class="obs-value" conceptId="PIH:DISPOSITION COMMENTS" style="textarea"/>
         </div>
 
+        <h3><uimessage code="pihcore.next.appointment"/></h3>
         <scheduleAppointment optional="true" type="scheduled"
                         locationTag="Appointment Location"
                         appointmentUuidConcept="PIH:Appointment uuid"
