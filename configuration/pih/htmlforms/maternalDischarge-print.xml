@@ -230,6 +230,14 @@
             margin-right: 15px; /* Adds space between the two items */
         }
 
+        .schedule-appointment-location,
+        .schedule-appointment-service {
+            display: inline-block;
+            width: auto;
+            vertical-align: top; /* Ensures alignment if heights differ */
+            margin-right: 15px;  /* Adds some spacing between them */
+        }
+
     </style>
 
     <div id="maternity-discharge-print">
