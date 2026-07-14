@@ -254,6 +254,8 @@
                 <uimessage code="emr.cancel"/>
             </button>
         </div>
+
+        <subform path="configuration/pih/subforms/save-and-print-button.xml"/>
     </ifMode>
 
 </htmlform>
