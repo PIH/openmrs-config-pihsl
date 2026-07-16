@@ -24,7 +24,7 @@
       "numberToShow": 5
     },
     "logo": {
-      "src": "site/logo.png",
+      "src": "logo.png",
       "alt": "Partners In Health - Sierra Leone"
     }
   },
@@ -258,7 +258,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "site/logo.png",
+      "src": "logo.png",
       "alt": "Partners In Health - Sierra Leone",
       "name": "Partners In Health - Sierra Leone",
       "link": "${openmrsBase}/index.htm"
