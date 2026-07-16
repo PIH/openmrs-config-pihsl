@@ -251,16 +251,6 @@ ul#formBreadcrumb li.doing ul li.focused {
         vertical-align: top;
     }
 
-    #encounter-diagnoses-target {
-        display: inline-block;
-        width: 40%;
-        vertical-align: top;
-    }
-
-    #encounter-diagnoses-app {
-        margin-bottom: 20px;
-    }
-
     .field-error {
         color: #ff6666;
         font-size: 1.1em;
