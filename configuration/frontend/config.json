@@ -22,6 +22,10 @@
       "enabled": true,
       "useLoginLocationTag": true,
       "numberToShow": 5
+    },
+    "logo": {
+      "src": "logo.png",
+      "alt": "Partners In Health - Sierra Leone"
     }
   },
   "@openmrs/esm-patient-registration-app": {
