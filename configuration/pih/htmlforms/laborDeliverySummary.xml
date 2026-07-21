@@ -449,6 +449,46 @@
         });
     </script>
     </ifMode>
+
+    <style type="text/css">
+
+        <ifMode mode="VIEW" include="false">
+
+            #placentaAbDesc input {
+                width: 40% !important;
+                min-width: 0 !important;
+            }
+        </ifMode>
+    </style>
+    <ifMode mode="VIEW" include="false" >
+
+        <script type="text/javascript">
+            const placentaAbnormalConceptId = '<lookup expression="fn.getConcept('CIEL:1065').id"/>';
+
+            htmlForm.getBeforeValidation().push(function() {
+            var valid = true;
+            var placentaAbnormal = jq("#placentaAbQ input[type='radio']:checked").val();
+            if ( placentaAbnormal &amp;&amp; placentaAbnormal == placentaAbnormalConceptId) {
+                var placentaAbText = jq("#placentaAbDesc input[type='text']").val();
+                if ( placentaAbText.length &lt; 1 ) {
+                    valid = false;
+                    jq(document).scrollTop(jq("#placentaAbDesc").offset().top -100);
+                }
+            }
+            return valid;
+            });
+
+            jq(document).ready(function() {
+
+            jq("#placentaAbQ input[type='radio']").on('click', function() {
+                var placentaAbnormal = jq("#placentaAbQ input[type='radio']:checked").val();
+                if ( placentaAbnormal &amp;&amp; placentaAbnormal == placentaAbnormalConceptId) {
+                    jq("#placentaAbDesc").find(".field-error").text('<uimessage code="pihcore.required"/>').show();
+                }
+            });
+            });
+        </script>
+    </ifMode>
     
     <div class="print-form-datestamps" style="display:none">
         <p><uimessage code="pihcore.form.created_on"/>:
@@ -938,13 +978,14 @@
                                     <uimessage code="{name}" />
                                 </label>
                                 <br/>
-                                <obs conceptId="{concept}"
+                                <obs conceptId="{concept}" required="true"
                                      answerConceptIds="{answers}" answerCodes="{codes}"
                                      style="radio" answerSeparator="" />
                             </p>
                         </template>
                         <render concept="CIEL:163454" answers="CIEL:163455,CIEL:163456"
-                                name="Visual examination of placenta completeness" codes="pihcore.complete,pihcore.incomplete" />
+                                name="Visual examination of placenta completeness"
+                                codes="pihcore.complete,pihcore.incomplete" />
                     </repeat>
 
                     <p class="date-one-line">
@@ -956,8 +997,22 @@
                         </span>
                     </p>
 
-                    <p>
-                        <obs conceptId="PIH:20152" labelCode="Placenta abnormality"  />
+                    <p class="side-by-side">
+                        <label>
+                            <uimessage code="Placenta abnormality" />
+                        </label>
+                        <obs id="placentaAbQ" conceptId="CIEL:130109" style="radio"
+                             answerConceptIds="CIEL:1065,CIEL:1066"
+                             answerCodes="yes,no"
+                             required="true">
+                            <controls>
+                                <when value="CIEL:1065" thenDisplay="#placentaAbDesc" />
+                            </controls>
+                        </obs>
+                        <div id="placentaAbDesc">
+                            <obs conceptId="PIH:20152" labelCode="Specify placenta abnormality"  />
+                        </div>
+
                     </p>
                 </div>
 
