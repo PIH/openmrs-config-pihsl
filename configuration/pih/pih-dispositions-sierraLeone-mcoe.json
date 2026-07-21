@@ -238,7 +238,8 @@
         "label": "disposition.emrapi.transferOutOfHospital.sites",
         "conceptCode": "PIH: 14424",
         "params": {
-          "id": "transferExternalLocation"
+          "id": "transferExternalLocation",
+          "required": "true"
         }
       }
     ]
@@ -299,7 +300,8 @@
         "label": "disposition.emrapi.transferOutOfHospital.sites",
         "conceptCode": "PIH: 15177",
         "params": {
-          "id": "transferExternalLocation"
+          "id": "transferExternalLocation",
+          "required": "true"
         }
       }
     ]
