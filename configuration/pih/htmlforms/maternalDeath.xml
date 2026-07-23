@@ -33,27 +33,137 @@
         </span>
     </subform>
 
-    <div class="section-container">
-        <strong>
-            <uimessage code="Reason for admission"/>
-        </strong>
-        <br/>
+    <section id="overview" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Overview">
+        <div class="section-container">
 
-        <div id="data-collection">
-            <encounterDiagnosesByObs selectedDiagnosesTarget="#encounter-diagnoses-target"/>
+            <p class="side-by-side">
+                <label>
+                    <uimessage code="Preventable death"/>
+                </label>
+                <obs conceptId="PIH:21659" style="radio"
+                     answerConceptIds="CIEL:1065,CIEL:1066"
+                     answerCodes="yes,no" />
+            </p>
+
+            <p>
+                <label>
+                    <uimessage code="Issues affecting quality"/>
+                </label>
+                <repeat>
+                    <template>
+                        <obs conceptId="PIH:21660" style="checkbox"
+                             answerConceptId="PIH:{issue}" />
+                    </template>
+
+                    <render issue="21661" desc="Inaccuracy of notes" />
+                    <render issue="21662" desc="Time" />
+                    <render issue="21663" desc="Key staff absent" />
+                    <render issue="21664" desc="Adherence to protocol/guidelines" />
+                    <render issue="5622" desc="Other" />
+                </repeat>
+
+                <label>
+                    <uimessage code="if other, specify issues affecting quality care:" />
+                </label>
+                <obs conceptId="PIH:21665" />
+            </p>
+
+            <p>
+                <label>
+                    <uimessage code="History (including prior facility admissions)"/>
+                </label>
+                <obs conceptId="PIH:10142" style="textarea" />
+            </p>
+
+            <p>
+                <label>
+                    <uimessage code="Possible contributing factors to death (3 Delays): "/>
+                </label>
+                <repeat>
+                    <template>
+                        <obs conceptId="PIH:21667" style="checkbox"
+                             answerConceptId="PIH:{factor}" />
+                    </template>
+
+                    <render factor="21668" desc="Deciding to seek care" />
+                    <render factor="21669" desc="Reaching care" />
+                    <render factor="21670" desc="Receiving adequate care" />
+                </repeat>
+            </p>
+
+            <p>
+                <label>
+                    <uimessage code="What could have been done to prevent this death?"/>
+                </label>
+                <obs conceptId="PIH:21666" style="textarea" />
+            </p>
+
         </div>
+    </section>
 
-        <div id="encounter-diagnoses-target">
+
+    <section id="underlyingCause" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Underlying cause of death">
+        <div class="section-container">
+
+            <!-- ToDo:  Should we use diagnoses concepts or PIH:9679? -->
+            <div id="data-collection">
+                <encounterDiagnosesByObs selectedDiagnosesTarget="#encounter-diagnoses-target"/>
+            </div>
+
+            <div id="encounter-diagnoses-target">
+            </div>
         </div>
+    </section>
 
-        <p>
-            <label>
-                <uimessage code="pih.app.notes.summary"/>
-            </label>
-            <obs conceptId="CIEL:161011" style="textarea"/>
-        </p>
+    <section id="actionPts" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="Action points">
+        <div class="section-container">
+            <table>
+                <tr>
+                    <th rowspan="2">S/N</th>
+                    <th rowspan="2">Action item</th>
+                    <th rowspan="2">Responsible person</th>
+                    <th colspan="2">Timeline</th>
+                </tr>
+                <tr>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false">
+                            <tr>
+                                <td>
+                                    {numb}
+                                    <span class="small hidden">
+                                        <obs conceptId="CIEL:163460" defaultValue="{numb}"></obs>
+                                    </span>
+                                </td>
+                                <td>
+                                    <obs conceptId="PIH:21672" style="text"/>
+                                </td>
+                                <td>
+                                    <obs conceptId="PIH:6592" style="text"/>
+                                </td>
+                                <td>
+                                    <obs conceptId="PIH:11131" allowFutureDates="true"/>
+                                </td>
+                                <td>
+                                    <obs conceptId="PIH:12748" allowFutureDates="true"/>
+                                </td>
+                            </tr>
+                        </obsgroup>
+                    </template>
+                    <render numb="1"/>
+                    <render numb="2"/>
+                    <render numb="3"/>
+                </repeat>
+            </table>
+        </div>
+    </section>
 
-    </div>
     <br/>
 
     <ifMode mode="VIEW" include="false">
