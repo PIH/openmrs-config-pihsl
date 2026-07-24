@@ -133,13 +133,11 @@
                 </tr>
                 <repeat>
                     <template>
-                        <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false">
+                        <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false"
+                                  hiddenConceptId="CIEL:163460" hiddenAnswer="{numb}">
                             <tr>
                                 <td>
                                     {numb}
-                                    <span class="small hidden">
-                                        <obs conceptId="CIEL:163460" defaultValue="{numb}"></obs>
-                                    </span>
                                 </td>
                                 <td>
                                     <obs conceptId="PIH:21672" style="text"/>
