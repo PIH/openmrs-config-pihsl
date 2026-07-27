@@ -99,23 +99,23 @@
                 <obs conceptId="PIH:21666" style="textarea" />
             </p>
 
+            <p>
+                <label>
+                    <uimessage code="Underlying cause of death"/>
+                </label>
+                <obs conceptId="PIH:Underlying cause of death"
+                     answerClasses="Diagnosis,Finding,Symptom,Symptom/Finding" style="autocomplete" />
+            </p>
+
         </div>
     </section>
 
-
-    <section id="underlyingCause" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Underlying cause of death">
-        <div class="section-container">
-
-            <!-- ToDo:  Should we use diagnoses concepts or PIH:9679? -->
-            <div id="data-collection">
-                <encounterDiagnosesByObs selectedDiagnosesTarget="#encounter-diagnoses-target"/>
-            </div>
-
-            <div id="encounter-diagnoses-target">
-            </div>
-        </div>
-    </section>
+    <style>
+        th {
+            background-color: #bbbbbb;
+            color: #555555;
+        }
+    </style>
 
     <section id="actionPts" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Action points">
@@ -131,13 +131,13 @@
                     <th>Start</th>
                     <th>End</th>
                 </tr>
-                <repeat>
-                    <template>
+                <repeat with="['1'],['2'],['3']">
+                    <span id="action-id-{0}" >
                         <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false"
-                                  hiddenConceptId="CIEL:163460" hiddenAnswer="{numb}">
+                                  hiddenConceptId="CIEL:165416" hiddenAnswer="{0}">
                             <tr>
                                 <td>
-                                    {numb}
+                                    {0}
                                 </td>
                                 <td>
                                     <obs conceptId="PIH:21672" style="text"/>
@@ -153,10 +153,7 @@
                                 </td>
                             </tr>
                         </obsgroup>
-                    </template>
-                    <render numb="1"/>
-                    <render numb="2"/>
-                    <render numb="3"/>
+                    </span>
                 </repeat>
             </table>
         </div>
