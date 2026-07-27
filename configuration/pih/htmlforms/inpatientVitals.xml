@@ -139,7 +139,7 @@
 
     <ifMode mode="VIEW" include="false">
         <br/>
-        <h2><uimessage code="OXYGEN AND FLUIDS"/></h2>
+        <h2><uimessage code="Oxygen and fluids"/></h2>
 
         <div id="o2andFluidsDiv" class="three-columns">
             <div>

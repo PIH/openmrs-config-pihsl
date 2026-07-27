@@ -21,50 +21,13 @@
         <ifMode mode="VIEW" include="false">
 
             #data-collection {
-            display: inline-block;
-            width: 68%;
-            vertical-align: top;
-            }
-
-            #primary-care-exam input[type="checkbox"] {
-            margin: 0px 5px;  /* changed values to vertical, horizontal */
-            top:5px;          /* added to offset the checkbox position to line up */
-            }
-
-            .section-container-color {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-            }
-
-           - .section {
-        width: 100%;
-        }
-
-            .section-container input[type="checkbox"] {
-            margin: 0px 5px; /* changed values to vertical, horizontal */
-            top:5px;         /* added to offset the checkbox position to line up */
-            }
-
-
-            form input[type="radio"], .form input[type="radio"] {
-                float: none;
                 display: inline-block;
+                width: 68%;
+                vertical-align: top;
             }
 
             .tanner label {
                 display: inline-block;
-            }
-
-            .section-container label { /*new definition to override labels inside section-containers*/
-            margin: 0px;
-            }
-
-            .two-columns {
-            column-count: 2;
-            -webkit-column-count: 2;
-            -moz-column-count: 2;
             }
         </ifMode>
     </style>
@@ -230,7 +193,7 @@
                 <uimessage code="pihcore.exam.general_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:GENERAL EXAM FINDINGS"
                          answerConceptId="PIH:NORMAL" style="checkbox"
@@ -280,7 +243,7 @@
                 <uimessage code="pihcore.exam.mental_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="CIEL:163043" answerConceptId="PIH:NORMAL"
                          style="checkbox" />
@@ -314,7 +277,7 @@
                 <uimessage code="pihcore.exam.skin_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:SKIN EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -348,7 +311,7 @@
                 <uimessage code="pihcore.exam.heent_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:HEENT EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -396,7 +359,7 @@
                 <uimessage code="pihcore.exam.lymph_exam.title"/>
             </h3>
 
-            <div  class="two-columns exam">
+            <div  class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="CIEL:1121" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -433,7 +396,7 @@
                 <uimessage code="pihcore.exam.cardiac_exam.title"/>
             </h3>
 
-            <div  class="two-columns exam">
+            <div  class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:CARDIAC EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -466,7 +429,7 @@
                 <uimessage code="pihcore.exam.chest_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:CHEST EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -503,7 +466,7 @@
                 <uimessage code="pihcore.exam.abdominal_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:ABDOMINAL EXAM FINDINGS"
                          answerConceptId="PIH:NORMAL" style="checkbox"/>
@@ -552,7 +515,7 @@
                 <uimessage code="pihcore.exam.urogenital_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:UROGENITAL EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -594,7 +557,7 @@
                 <uimessage code="pihcore.exam.neuro_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:NEUROLOGIC EXAM FINDINGS"
                          answerConceptId="PIH:NORMAL" style="checkbox"/>
@@ -634,7 +597,7 @@
                 <uimessage code="pihcore.exam.musculoskeletal_exam.title"/>
             </h3>
 
-            <div class="two-columns exam">
+            <div class="two-columns-without-divs exam">
                 <p>
                     <obs class="normalObs" conceptId="PIH:MUSCULOSKELETAL EXAM FINDINGS" answerConceptId="PIH:NORMAL" style="checkbox"/>
                 </p>
@@ -678,7 +641,7 @@
                     <uimessage code="pihcore.exam.gross_motor_skills_exam.title"/>
                 </h3>
 
-                <div class="two-columns exam">
+                <div class="two-columns-without-divs exam">
                     <p>
                         <obs class="normalObs" conceptId="PIH:GROSS MOTOR SKILLS EVALUATION" answerConceptId="PIH:NORMAL" style="checkbox"/>
                     </p>
@@ -704,7 +667,7 @@
                     <uimessage code="pihcore.exam.fine_motor_skills_exam.title"/>
                 </h3>
 
-                <div class="two-columns exam">
+                <div class="two-columns-without-divs exam">
                     <p>
                         <obs class="normalObs" conceptId="PIH:FINE MOTOR SKILLS EVALUATION" answerConceptId="PIH:NORMAL" style="checkbox"/>
                     </p>
@@ -729,7 +692,7 @@
                     <uimessage code="pihcore.exam.language_development_evaluation.title"/>
                 </h3>
 
-                <div class="two-columns exam">
+                <div class="two-columns-without-divs exam">
                     <p>
                         <obs class="normalObs" conceptId="PIH:LANGUAGE DEVELOPMENT EVALUATION" answerConceptId="PIH:NORMAL" style="checkbox"/>
                     </p>
@@ -754,7 +717,7 @@
                     <uimessage code="pihcore.exam.social_skills_evaluation.title"/>
                 </h3>
 
-                <div class="two-columns exam">
+                <div class="two-columns-without-divs exam">
                     <p>
                         <obs class="normalObs" conceptId="PIH:SOCIAL SKILLS EVALUATION" answerConceptId="PIH:NORMAL" style="checkbox"/>
                     </p>

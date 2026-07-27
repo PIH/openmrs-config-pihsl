@@ -9,63 +9,15 @@
             display: block;
         }
 
-        .side-by-side label {
-        display: inline-block;
-        }
-
         label {
-        padding: 0px 3px 0px 0px
+        padding: 0px 3px 0px 0px;
         }
 
-        form input[type="radio"], .form input[type="radio"] {
-            float: none;
-            display: inline-block;
-        }
-
-        .five-columns, .four-columns, .three-columns, .two-columns {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
-
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .three-columns > div {
-            display: table-cell;
-            width: 33%;
-        }
 
         p.radio > * {
             display: inline;
             float: none !important;
             min-width: initial;
-        }
-
-        .section-container {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-        }
-
-        .section-container input[type="checkbox"] {
-            margin: 0px 5px; /*changed values to vertical, horizontal*/
-            top:5px; /*added to offset the checkbox position to line up*/
-        }
-
-        .section-container label { /*new definition to override labels inside section-containers*/
-            margin: 0px;
-        }
-
-       - .section {
-        width: 100%;
-        }
-
-        label {
-            padding: 0px 3px 0px 0px
         }
 
     </style>
@@ -109,16 +61,11 @@
             padding-bottom: 25px;
         }
 
-        .two-column-old {
-            column-count: 2;
-            -webkit-column-count: 2;
-            -moz-column-count: 2;
-        }
     </style>
     <br/>
 
     <section id="test-orders" sectionTag="fieldset" headerTag="legend" headerStyle="title" headerCode="pihcore.lab.lab_tests.title">
-        <div class="section-container two-column-old">
+        <div class="section-container two-columns-without-divs">
             <order orderType="52a447d3-a64a-11e3-9aeb-50e549534c5e" onLoadFunction="renderOrderWidgetAsCheckboxes">
                 <orderTemplate>
                     <div style="display:none;">

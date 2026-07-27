@@ -20,9 +20,6 @@
             margin-top: 1.5em;
         }
 
-        .past-medical-history-item {
-        }
-
         .past-medical-history-item input[type=checkbox] {
             float: none;
             vertical-align: middle;
@@ -40,71 +37,8 @@
             vertical-align: middle;
         }
 
-        .side-by-side label {
-            display: inline-block;
-        }
-
-        .list-inline label, .list-inline input[type="radio"], .list-inline span,
-        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
-            display: inline-block;
-            float: none;
-        }
-
-        .list-inline label:first-child {
-            width: 220px;
-        }
-
-        .list-inline-wide label:first-child {
-            width: 320px;
-        }
-
-        .list-inline-extra-wide label:first-child {
-            width: 420px;
-        }
-
         label {
             padding: 0px 3px 0px 0px
-        }
-
-        form input[type="radio"], .form input[type="radio"] {
-            float: none;
-            display: inline-block;
-        }
-
-        #test-orders input[type=checkbox] {
-            float: none;
-            vertical-align: middle;
-        }
-
-        #test-orders p {
-            margin-bottom: 5px
-        }
-
-        #test-orders span, #test-orders label {
-            display: inline !important;
-            vertical-align: middle;
-        }
-
-        .five-columns, .four-columns, .three-columns, .two-columns {
-            display: table;
-            height: 100%;
-            width: 100%;
-        }
-
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .three-columns > div {
-            display: table-cell;
-            width: 33%;
-        }
-
-        .five-columns > div {
-            display: table-cell;
-            width: 20%;
         }
 
         p.radio > * {
@@ -113,32 +47,6 @@
             min-width: initial;
         }
 
-        .section-container {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-        }
-
-        .section-container-color {
-            background: #F2F2F2;
-            box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-            padding: 10px 5px 10px 15px;
-            line-height: 1.5em; /*add this for vertical spacing between elements*/
-        }
-
-        .section-container input[type="checkbox"] {
-            margin: 0px 5px; /*changed values to vertical, horizontal*/
-            top:5px; /*added to offset the checkbox position to line up*/
-        }
-
-        .section-container label { /*new definition to override labels inside section-containers*/
-            margin: 0px;
-        }
-
-       - .section {
-            width: 100%;
-        }
     </style>
 
 

@@ -113,30 +113,11 @@
                 display: none;
             }
 
-            .section-container {
-                background: #F2F2F2;
-                box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
-                padding: 10px 5px 10px 15px;
-                line-height: 1.5em; /*add this for vertical spacing between elements*/
-            }
-
-            .section-container input[type="checkbox"] {
-                margin: 0px 5px; /*changed values to vertical, horizontal*/
-                top:5px; /*added to offset the checkbox position to line up*/
-            }
-
-            .section-container label { /*new definition to override labels inside section-containers*/
-                margin: 0px;
-            }
-
             .multilines-display {
                 width: 100px;
                 height: 100%;
             }
 
-            .side-by-side label {
-                display: inline-block;
-            }
         </style>
 
     </ifMode>

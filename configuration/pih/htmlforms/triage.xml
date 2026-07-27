@@ -17,19 +17,6 @@
     </translations>
 
     <style type="text/css">
-        #who-when-where {
-            margin-bottom: 6px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        #who-when-where p {
-            display: inline-block;
-            padding-right: 20px;
-        }
-
-        #where > input[type=text] {
-            display: inline-block;
-        }
 
         input.legalValue {
             background-color: white;
@@ -47,6 +34,7 @@
             margin-left: 0;
             margin-right: 0;
         }
+
         .section-container {
             background-color: white;
         }
@@ -69,35 +57,21 @@
             margin-top: 20px;
         }
 
-        .six-columns, .five-columns-tb, .four-columns, .three-plus-one, .three-columns, .two-columns {
+        .five-columns-tb, .three-plus-one {
             display: table;
             height: 100%;
             width: 100%;
         }
-
 
         .five-columns-tb > div {
             display: table-cell;
             width: 20%;
         }
 
-        .two-columns > div {
-            display: table-cell;
-            width: 50%;
-        }
-
-        .three-columns > div {
-            display: table-cell;
-            width: 33%;
-        }
-
-        .three-plus-one > div {
-            display: table-cell;
-        }
-
         .three-plus-one > div {
             width: 29%;
             margin-top: 20px;
+            display: table-cell;
         }
 
         .three-plus-one > div:first-child {
@@ -106,11 +80,6 @@
 
         .three-plus-one {
             margin-bottom: 20px;
-        }
-
-        .four-columns > div {
-            display: table-cell;
-            width: 25%;
         }
 
         .boundary {
@@ -131,16 +100,7 @@
             padding-left: 15px;
         }
 
-        .side-by-side label {
-            display: inline-block;
-        }
-
         .side-by-side span {
-            display: inline-block;
-        }
-
-        form input[type="radio"], .form input[type="radio"] {
-            float: none;
             display: inline-block;
         }
 
@@ -206,25 +166,6 @@
             color: red;
             font-weight: bold;
             display:none;
-        }
-
-        .list-inline label, .list-inline input[type="radio"], .list-inline span,
-        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
-        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
-            display: inline-block;
-            float: none;
-        }
-
-<!--        .list-inline label:first-child {-->
-<!--            width: 220px;-->
-<!--        }-->
-
-        .list-inline-wide label:first-child {
-            width: 320px;
-        }
-
-        .list-inline-extra-wide label:first-child {
-            width: 420px;
         }
 
         #admissionLocation select {
