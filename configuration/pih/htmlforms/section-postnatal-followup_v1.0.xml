@@ -1,7 +1,7 @@
-<htmlform id="section-anc-followup"
-          formUuid="d7ed025a-7d8f-46ae-abc6-03de835ef903"
-          formName="Prenatal followup section"
-          formVersion="4.0">
+<htmlform id="section-postnatal-followup"
+          formUuid="9a775ba9-a6b2-44b8-bc0a-6a30cf318626"
+          formName="Postnatal followup section"
+          formVersion="1.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.CleanDiagnosisConstructAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
@@ -10,129 +10,202 @@
     <style type="text/css">
 
         form fieldset {
-           min-width: 90%
+        min-width: 90%
+        }
+
+        #encounterDate input {
+        min-width: 15%
         }
 
         textarea {
-            overflow-y: hidden; /* fixes scrollbar flash - kudos to @brettjonesdev */
-            padding-top: 1.1em; /* fixes text jump on Enter keypress */
+        overflow-y: hidden; /* fixes scrollbar flash - kudos to @brettjonesdev */
+        padding-top: 1.1em; /* fixes text jump on Enter keypress */
         }
 
         @media print {
-            .print-form-datestamps { display: block !important }
-            button.cancel, button.submit { display: none }
-            label { font-weight: bold }
-            label[for] { font-weight: normal } /* refers to the radio set label */
+        .print-form-datestamps { display: block !important }
+        button.cancel, button.submit { display: none }
+        label { font-weight: bold }
+        label[for] { font-weight: normal } /* refers to the radio set label */
         }
 
-        .side-button input[type="radio"] {
-            float: none;
-            display: inline-block;
+        .section-container {
+        background: #F2F2F2;
+        box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+        padding: 10px 5px 10px 15px;
+        line-height: 1.5em; /*add this for vertical spacing between elements*/
+        }
+
+        .section-container input[type="checkbox"] {
+        margin: 0px 5px; /*changed values to vertical, horizontal*/
+        top:5px; /*added to offset the checkbox position to line up*/
+        }
+
+        .section-container label { /*new definition to override labels inside section-containers*/
+        margin: 0px;
+        }
+
+        - .section {
+        width: 100%;
+        }
+
+        .list-inline label, .list-inline input[type="radio"], .list-inline span,
+        .list-inline-wide label, .list-inline-wide input[type="radio"], .list-inline-wide span,
+        .list-inline-extra-wide label, .list-inline-extra-wide input[type="radio"], .list-inline-extra-wide span {
+        display: inline-block;
+        float: none;
+        }
+
+        .list-inline label:first-child {
+        width: 220px;
+        }
+
+        .list-inline-wide label:first-child {
+        width: 320px;
+        }
+
+        .list-inline-extra-wide label:first-child {
+        width: 420px;
         }
 
         #vitals fieldset p {
-            vertical-align: top;
-            display: inline-block;
-            float: none;
+        vertical-align: top;
+        display: inline-block;
+        float: none;
         }
 
         #vitals fieldset .left {
-            vertical-align: top;
-            display: inline-block;
-            float: none;
+        vertical-align: top;
+        display: inline-block;
+        float: none;
         }
 
+        .five-columns, .four-columns, .three-columns, .two-columns {
+        display: table;
+        height: 100%;
+        width: 100%;
+        }
+
+        .two-columns > div {
+        display: table-cell;
+        width: 50%;
+        }
+
+        .three-columns > div {
+        display: table-cell;
+        width: 33%;
+        }
+
+        .four-columns > div {
+        display: table-cell;
+        width: 25%;
+        }
+
+        .five-columns > div {
+        display: table-cell;
+        width: 20%;
+        }
     </style>
 
     <style type="text/css">
         <ifMode mode="VIEW" include="true">
 
-            #section-anc-followup legend {
-                display: none;
+            #section-postnatal-followup legend {
+            display: none;
             }
 
-            #section-anc-followup fieldset {
-                margin: 0px;
-                border: 0px;
-                padding: 0px;
+            #section-postnatal-followup fieldset {
+            margin: 0px;
+            border: 0px;
+            padding: 0px;
             }
 
-            #section-anc-followup fieldset h3 {
-                font-size: 1em;
-                width: 200px;
-                display: inline-block;
-                margin: 0px;
-                margin-right: 10px;
-                color: #3E3E3E;
-                vertical-align: top;
+            #section-postnatal-followup fieldset h3 {
+            font-size: 1em;
+            width: 200px;
+            display: inline-block;
+            margin: 0px;
+            margin-right: 10px;
+            color: #3E3E3E;
+            vertical-align: top;
             }
 
-            #section-anc-followup fieldset p {
-                vertical-align: top;
-                display: inline-block;
-                float: none;
+            #section-postnatal-followup fieldset p {
+            vertical-align: top;
+            display: inline-block;
+            float: none;
             }
 
-            #section-anc-followup fieldset .left {
-                vertical-align: top;
-                display: inline-block;
-                float: none;
+            #section-postnatal-followup fieldset .left {
+            vertical-align: top;
+            display: inline-block;
+            float: none;
             }
 
-            #section-anc-followup .title {
-                display: none;
+            #section-postnatal-followup .title {
+            display: none;
             }
 
-            #section-anc-followup br {
-                display: none;
+            #section-postnatal-followup .encounter-date {
+            display: none;
+            }
+
+            #section-postnatal-followup .encounter-provider {
+            display: none;
+            }
+
+            #section-postnatal-followup .encounter-location {
+            display: none;
+            }
+
+            #section-postnatal-followup .comment-label {
+            display: none;
+            }
+            #section-postnatal-followup .comment-field {
+            display: block;
+            margin-left: 215px;
+            }
+            #section-postnatal-followup br {
+            display: none;
             }
         </ifMode>
     </style>
 
-    <ifMode mode="VIEW" include="false">
-
+    <ifMode mode="VIEW" include="true">
         <script type="text/javascript">
             jq(document).ready(function() {
+                jq("#fhrDiv").hide();
+            });
+        </script>
+    </ifMode>
 
-                // Set up EDD and Gestational Age
-                jq("#calculated-edd-and-gestational").hide();
-                const lastLMP = '<lookup complexExpression="$fn.formatDate($fn.latestObs('CIEL:1427').getValueDatetime(), 'yyyy-MM-dd')"/>';
-                const currentEncounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
-                validateEstimatedDeliveryDate("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-                eddCannotBeOlderThanTwoWeeks("edd", new Date(+currentEncounterDate), '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
-                const msgWeeks = '<uimessage code="pihcore.weeks"/>';
-                // SL-1279: Last menstruation date should not be more than 10 months in the past of the encounter date
-                if (typeof lastLMP !== "undefined" &amp;&amp; lastLMP !== null &amp;&amp; (lastLMP.length > 0) &amp;&amp; (daysBetweenUTCDates(new Date(lastLMP), new Date(+currentEncounterDate)) &lt; 305)) {
-                    const lastPeriodDate = new Date(lastLMP);
-                    let yearMonthDay = lastLMP.split('-');
-                    if (yearMonthDay.length == 3) {
-                        lastPeriodDate.setFullYear(yearMonthDay[0]);
-                        lastPeriodDate.setMonth(+yearMonthDay[1] -1); // the month starts from 0 for January
-                        lastPeriodDate.setDate(yearMonthDay[2]);
-                        lastPeriodDate.setHours(0, 0, 0);
-                    }
-
-                    const gestAgeText = calculateGestationalDays(lastPeriodDate, currentEncounterDate, msgWeeks);
-                    jq("#calculated-gestational-age-value").text(gestAgeText);
-                    const edd = calculateExpectedDeliveryDate(lastPeriodDate);
-                    const locale = window.sessionContext.locale || navigator.language;
-                    jq("#calculated-edd").text((Intl.DateTimeFormat(locale, { dateStyle: "medium" })).format(edd));
-                    jq("#calculated-edd-and-gestational").show();
-
-                    if (!htmlForm.getValueIfLegal("edd.value")) {
-                        getField("edd.value").datepicker("setDate", edd);
-                    }
-                }
-
+    <ifMode mode="VIEW" include="false">
+        <script type="text/javascript">
+            jq(document).ready(function() {
+                jq("#fhrDiv").hide();
                 // handlers for next and submit buttons, see nextAndSubmitButtons.js
                 setUpNextAndSubmitButtons();
             });
         </script>
-
     </ifMode>
 
-    <section id="anc-followup" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="pihcore.ancFollowup.title">
+    <section id="dateOfDelivery" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.mch.deliveryDateTime">
+        <div class="section-container">
+            <div>
+                <p class="date-one-line">
+                    <label>
+                        <uimessage code="pihcore.mch.deliveryDateTime"/>
+                    </label>
+                    <br/>
+                    <obs conceptId="PIH:5599" showTime="true" allowFutureTimes="true"/>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="postnatal-followup" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="pihcore.postnatalFollowup.title">
         <div class="section-container">
             <div class="two-columns">
                 <div>
@@ -168,7 +241,7 @@
 
                 <!-- ToDo:  Is antenatal hemorrhage a danger sign or risk factor -->
                 <!--   <render concept="CIEL:228" name="antenatal hemorrhage"/> -->
-
+                <br/><br/><br/>
                 <!-- Risk factors for mother -->
                 <div>
                     <label>
@@ -205,53 +278,14 @@
                          commentFieldLabel="  " style="checkbox"/>
                 </div>
             </div>
-
-            <br/><br/>
-            <div id="calculated-edd-and-gestational" class="two-columns hidden">
-                <div>
-                    <span id="calculated-edd-wrapper">
-                        <span id="calculated-edd-label">
-                            <uimessage code="pihcore.calculatedEstimatedDeliveryDate"/>:&#160;
-                        </span>
-                        <span id='calculated-edd' class="value"></span>
-                    </span>
-                </div>
-
-                <div>
-                    <span id="calculated-gestational-age-wrapper">
-                        <span id="calculated-gestational-age-label">
-                            <uimessage code="pihcore.calculatedGestationalAge"/>:&#160;
-                        </span>
-                        <span id='calculated-gestational-age-value' class="value"></span>
-                    </span>
-                </div>
-            </div>
-            <br/>
-
-            <div class="two-columns">
-              <div>
-                  <label>
-                      <uimessage code="pihcore.pregnancy.dueDate"/>
-                  </label>
-              </div>
-                <div>
-                  <span class="small">
-                      <obs id="edd" conceptId="CIEL:5596" allowFutureDates="true" allowPastDates="true"/>
-                  </span>
-              </div>
-            </div>
         </div>
     </section>
 
     <section id="vitals" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="pihcore.vitalSigns">
-
         <div class="section-container">
-            <subform path="configuration/pih/subforms/prior-vital-signs-widget.xml"/>
-            <br/>
-            <subform path="configuration/pih/subforms/vital-signs-anc-widget.xml"/>
+            <subform path="configuration/pih/subforms/vital-signs-widget.xml"/>
         </div>
-
     </section>
 
     <section id="lab-treatment" sectionTag="fieldset" headerTag="legend"
@@ -299,20 +333,9 @@
             <h3>
                 <uimessage code="Radiology"/>
             </h3>
-            <div class="two-columns">
-                <div>
-                    <obs id="us-performed" conceptId="PIH:9350" style="checkbox"
-                         answerConceptId="PIH:Ultrasound" >
-                        <controls>
-                            <when value="PIH:Ultrasound" thenDisplay="#us-findings" />
-                        </controls>
-                    </obs>
-                </div>
-                <div id="us-findings">
-                    <obs conceptId="PIH:7018" style="textarea"
-                         labelText="Ultrasound findings" />
-                </div>
-            </div>
+            <p>
+                <obs conceptId="PIH:9350" style="checkbox" answerConceptId="PIH:Ultrasound" />
+            </p>
             <br/>
 
             <h3>Treatment</h3>
@@ -352,6 +375,24 @@
         </div>
     </section>
 
+    <style>
+        #data-collection {
+        display: inline-block;
+        width: 58%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-target {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        }
+
+        #encounter-diagnoses-app {
+        margin-bottom: 20px;
+        }
+    </style>
+
     <section id="diagnosis" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Diagnoses">
         <div class="section-container">
@@ -380,7 +421,7 @@
     <section id="prevention" sectionTag="fieldset" headerTag="legend"
              headerStyle="title" headerCode="Prevention Measures">
         <div class="section-container">
-
+            <div>
             <repeat>
                 <template>
                     <p class="list-inline-wide">
@@ -397,7 +438,61 @@
                 <render cId="159922" words="Albendazole (deworming)" hint="deworm"/>
                 <render cId="1382"   words="Family planning counselling" hint="fp-counsel"/>
             </repeat>
+                <p class="list-inline-wide">
+                    <label>
+                        <uimessage code="Accepts and receives family planning"/>
+                    </label>
+                    <obs id="accepts-fp" conceptId="CIEL:166421" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no">
+                        <controls>
+                            <when value="CIEL:1065" thenDisplay="#family-method"/>
+                        </controls>
+                    </obs>
+                </p>
+            </div>
+            <div id="family-method" class="two-columns">
+                <div>
+                    <p>
+                        <label>
+                            <uimessage code="pihcore.fpMethod"/>
+                        </label>
+                        <repeat>
+                            <template>
+                                <obsgroup groupingConceptId="PIH:Family planning construct">
+                                    <obs id="fp-meth-{dID}" conceptId="CIEL:374" style="checkbox"
+                                         answerConceptId="{acID}"
+                                         answerCode="{csName}">
+                                        <controls>
+                                            <when value="CIEL:1873" thenDisplay="#implant-date"/>
+                                            <when value="CIEL:5275" thenDisplay="#implant-date"/>
+                                        </controls>
+                                    </obs>
+                                </obsgroup>
+                            </template>
+                            <render acID="CIEL:159783" dID="159783" csName="Combined oral contraceptive (COC)" />
+                            <render acID="CIEL:80784"  dID="80784" csName="Progestin-only pill (POP)" />
+                            <render acID="CIEL:5277"   dID="5277" csName="pihcore.fp.rhythm" />
+                            <render acID="CIEL:190"    dID="190" csName="Condoms" />
+                            <render acID="CIEL:907"    dID="907" csName="Depo-provera" />
+                            <render acID="PIH:21450"   dID="21450" csName="Sayana press" />
+                            <render acID="CIEL:5275"   dID="5275" csName="pihcore.fp.iud" />
+                            <render acID="CIEL:1873"   dID="1873" csName="Implant" />
+                            <render acID="CIEL:1472"   dID="1472" csName="pihcore.fp.tubalLig" />
+                            <render acID="CIEL:136163" dID="136163" csName="Exclusive breastfeeding (requires a secondary method)" />
+                        </repeat>
+                    </p>
+                </div>
+
+                <div id="implant-date">
+                    <label>
+                        <uimessage code="pihcore.dateImplant"/>:
+                    </label>
+                    <obs conceptId="PIH:3203" />
+                </div>
+            </div>
         </div>
+
     </section>
 
     <section id="counselling" sectionTag="fieldset" headerTag="legend" headerStyle="title"
@@ -408,8 +503,8 @@
                     <uimessage code="Counselled for HIV testing"/>
                 </label>
                 <obs conceptId="PIH:11381" style="radio"
-                     answerConceptIds="CIEL:1065,CIEL:1066"
-                     answerCodes="yes,no"
+                     answerConceptIds="CIEL:1065,CIEL:1066,CIEL:1067"
+                     answerCodes="yes,no,unknown"
                      answerSeparator=" " />
             </p>
 
@@ -424,47 +519,26 @@
         </div>
     </section>
 
-    <section id="birth-home" sectionTag="fieldset" headerTag="legend"
-             headerStyle="title" headerCode="Birth waiting home">
-        <div class="section-container">
-            <p>
-                <label>
-                    <uimessage code="Currently staying at birth waiting home" />
-                </label>
-                <obs conceptId="PIH:20930" style="checkbox"
-                     answerConceptId="PIH:12366" />
-            </p>
-        </div>
-    </section>
-    <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Return visit">
-        <div class="section-container">
-            <div class="two-columns">
-                <div>
-                    <div id="disposition">
-                        <encounterDisposition id="encounter-disposition" />
-                    </div>
-                </div>
-                <div>
-                    <h4>
-                        <uimessage code="Next appointment date"/>
-                    </h4>
-                    <ifMode mode="VIEW" include="true">
-                        <p><string><uimessage code="pihcore.appointment.viewEditMessage" /></string>
-                        <a href="/openmrs/spa/home/appointments"><uimessage code="pihcore.appointment.viewAppointments" /></a></p>
-                    </ifMode>
-                    <scheduleAppointment optional="true" type="scheduled"
-                                    locationTag="Appointment Location"
-                                    appointmentUuidConcept="PIH:Appointment uuid"
-                                    specialities="maternal,other"
-                                    sortServicesBy="specialityOrder,serviceName"/>
-
-                </div>
-
+    <section id="return" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Return visit">
+        <div class="section-container two-columns">
+            <div id="disposition">
+                <encounterDisposition id="encounter-disposition" />
+            </div>
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="pihcore.consult.returnVisitDate"/>
+                    </label>
+                    <span class="small">
+                        <obs id="apptDate"
+                             conceptId="PIH:RETURN VISIT DATE"
+                             allowFutureDates="true" allowPastDates="false" />
+                    </span>
+                </p>
             </div>
         </div>
     </section>
-    
 
     <ifMode mode="VIEW" include="false">
         <div id="buttons">

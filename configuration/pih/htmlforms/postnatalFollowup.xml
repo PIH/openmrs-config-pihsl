@@ -1,7 +1,7 @@
 <htmlform formUuid="366c36aa-82cf-4949-8bbc-2cb5d9a4fa49"
           formName="Postnatal Followup"
-          formEncounterType="b7a7c300-f7e5-4d38-a388-fc178ab02e78"
-          formVersion="1.0">
+          formEncounterType="929df787-1236-4cb8-a3a2-5aa7a7600d8c"
+          formVersion="1.1">
 
     <subform path="configuration/pih/subforms/encounter-with-sections.xml">
         <h2 subform-parameter="encounter-type-name"><uimessage code="ui.i18n.EncounterType.name.b7a7c300-f7e5-4d38-a388-fc178ab02e78"/></h2>

@@ -1,10 +1,10 @@
-<htmlform formUuid="945c8816-bdd1-4712-8fb1-2fc95ddf943f"
-          formName="Prenatal Followup"
-          formEncounterType="0ad6338a-086d-4fb8-9926-332753b0cf19"
-          formVersion="3.1">
+<htmlform formUuid="6e8d7da3-2405-446c-bf0d-f76d06f29e41"
+          formName="ANC First Visit (Initial)"
+          formEncounterType="00e5e810-90ec-11e8-9eb6-529269fb1459"
+          formVersion="3.0">
 
     <subform path="configuration/pih/subforms/encounter-with-sections.xml">
-        <h2 subform-parameter="encounter-type-name"><uimessage code="ui.i18n.EncounterType.name.00e5e946-90ec-11e8-9eb6-529269fb1459"/></h2>
+        <h2 subform-parameter="encounter-type-name"><uimessage code="ui.i18n.EncounterType.name.00e5e810-90ec-11e8-9eb6-529269fb1459"/></h2>
         <div subform-parameter="encounter-provider-location-date-section">
             <subform path="configuration/pih/subforms/encounter-provider-location-date.xml">
                 <span subform-parameter="encounter-provider-widget">
@@ -21,4 +21,3 @@
     </subform>
 
 </htmlform>
-
