@@ -1,6 +1,6 @@
-<htmlform formUuid="6e8d7da3-2405-446c-bf0d-f76d06f29e41"
+<htmlform formUuid="a3b04938-1da7-4582-8b66-c9575790b63b"
           formName="ANC First Visit (Initial)"
-          formEncounterType="a3b04938-1da7-4582-8b66-c9575790b63b"
+          formEncounterType="00e5e810-90ec-11e8-9eb6-529269fb1459"
           formVersion="3.1">
 
     <subform path="configuration/pih/subforms/encounter-with-sections.xml">
