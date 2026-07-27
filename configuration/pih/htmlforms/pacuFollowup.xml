@@ -237,12 +237,12 @@
                         <obs conceptId="PIH:Surgical procedure" answerClasses="Procedure" style="autocomplete"/>
                     </div>
                     <div>
-                        <p class="list-inline">
-                            <h3>
-                                <uimessage code="Type of anesthesia"/>
-                            </h3>
+                        <h3>
+                            <uimessage code="Type of anesthesia"/>
+                        </h3>
+                        <p class="side-by-side">
                             <obs conceptId="PIH:Type of anesthesia"
-                                 style="radio" answerSeparator=""/>
+                                 style="radio" answerSeparator="&lt;br&gt;" />
                         </p>
                     </div>
                 </div>
@@ -263,7 +263,7 @@
             <table border="1" cellpadding="5" cellspacing="0" style="width:60%; margin-left: 10px;">
             <thead>
                 <tr>
-                    <th colspan="2">ALDRETE PACU DISCHARGE CRITERIA</th>
+                    <th colspan="2">Aldrete PACU discharge criteria</th>
                 </tr>
             </thead>
             <tbody>
@@ -276,8 +276,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <obs conceptId="CIEL:{qId}" style="radio" class="scoreObs"
-                                     answerConceptIds="{aIds}" answerSeparator="&lt;br /&gt;"/>
+                                    <p class="side-by-side">
+                                        <obs conceptId="CIEL:{qId}" style="radio" class="scoreObs"
+                                             answerConceptIds="{aIds}" answerSeparator="&lt;br /&gt;"/>
+                                    </p>
                                 </td>
                                 <td><span id="{category}_{qId}" class="score">0</span>
                                 </td>
@@ -361,13 +363,15 @@
                     </span>
                     <br/><br/>
 
-                    <p class="list-inline-small">
+                    <p class="side-by-side">
                         <label>
                             <uimessage code="Urgency" />
                         </label>
+                        <br/>
                         <obs conceptId="CIEL:161238" style="radio"
                              answerConceptIds="CIEL:161236,CIEL:1882,PIH:21137"
-                             answerCodes="routine,urgent,emergency release" />
+                             answerCodes="routine,urgent,emergency release"
+                             answerSeparator="&lt;br&gt;"/>
                     </p>
                 </obsgroup>
             </div>
