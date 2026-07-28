@@ -12,9 +12,9 @@
   ~ Copyright (C) OpenMRS, LLC.  All Rights Reserved.
   -->
 <htmlform id="section-anc-intake"
-          formUuid="e046d2df-1b46-4a7c-94ad-9d3bdeabac86"
+          formUuid="640f90e5-3cf4-4316-9598-00910da0d8fe"
           formName="ANC First (Initial) section"
-          formVersion="4.0">
+          formVersion="3.0">
 
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.PregnancyProgramEnrollmentAction"/>
     <postSubmissionAction class="org.openmrs.module.pihcore.htmlformentry.action.ApplyDispositionAction"/>
@@ -751,31 +751,24 @@
             </p>
         </div>
     </section>
-    <section id="disposition-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Return visit">
-        <div class="section-container">
-            <div class="two-columns">
-                <div>
-                    <div id="disposition">
-                        <encounterDisposition id="encounter-disposition" />
-                    </div>
-                </div>
-                <div>
-                    <h4>
-                        <uimessage code="Next appointment date"/>
-                    </h4>
-                    <ifMode mode="VIEW" include="true">
-                        <p><string><uimessage code="pihcore.appointment.viewEditMessage" /></string>
-                        <a href="/openmrs/spa/home/appointments"><uimessage code="pihcore.appointment.viewAppointments" /></a></p>
-                    </ifMode>
-                    <scheduleAppointment optional="true" type="scheduled"
-                                    locationTag="Appointment Location"
-                                    appointmentUuidConcept="PIH:Appointment uuid"
-                                    specialities="maternal,other"
-                                    sortServicesBy="specialityOrder,serviceName"/>
 
-                </div>
-
+    <section id="return" sectionTag="fieldset" headerTag="legend"
+             headerStyle="title" headerCode="Return visit">
+        <div class="section-container two-columns">
+            <div id="disposition">
+                <encounterDisposition id="encounter-disposition" />
+            </div>
+            <div>
+                <p>
+                    <label>
+                        <uimessage code="pihcore.consult.returnVisitDate"/>
+                    </label>
+                    <span class="small">
+                        <obs id="apptDate" 
+                             conceptId="PIH:RETURN VISIT DATE"
+                             allowFutureDates="true" allowPastDates="false" />
+                    </span>
+                </p>
             </div>
         </div>
     </section>
