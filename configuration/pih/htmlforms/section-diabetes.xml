@@ -56,20 +56,21 @@
                                 <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
                                     <p class="side-by-side">
                                         <obs conceptId="PIH:DIAGNOSIS" style="radio"
-                                             answerConceptIds="CIEL:142474,CIEL:142473,PIH:Gestational diabetes,CIEL:119481"
-                                             answerCodes="Type 1 DM,Type 2 DM,Gestational DM,DM not yet specified"
+                                             answerConceptIds="CIEL:142474,CIEL:142473,PIH:Gestational diabetes"
+                                             answerCodes="Type 1 DM,Type 2 DM,Gestational DM"
                                              answerSeparator="&lt;br /&gt;" required="true"/>
                                     </p>
                                 </obsgroup>
                             </td>
-                            <td align="top">
-                                <repeat with="['type1Dm','CIEL:142474','Type 1'],
-                                      ['type2Dm','CIEL:165208','Type 2'],
-                                      ['gestationalDm','PIH:Gestational diabetes','Gestational']">
-                                    <uimessage code="pihcore.ncd.diabetes.{0}Treatment.full"/>
-                                    <br/>
-                                    <br/>
-                                </repeat>
+                            <td>
+                                <p class="side-by-side">
+                                    <repeat with="['type1Dm','CIEL:142474','Type 1'],
+                                          ['type2Dm','CIEL:165208','Type 2'],
+                                          ['gestationalDm','PIH:Gestational diabetes','Gestational']">
+                                        <uimessage code="pihcore.ncd.diabetes.{0}Treatment.full"/>
+                                        <br/>
+                                    </repeat>
+                                </p>
                             </td>
                         </tr>
                     </includeIf>
@@ -77,20 +78,22 @@
                         <tr>
                             <td>
                                 <p class="side-by-side">
-                                <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
-                                    <obs conceptId="PIH:DIAGNOSIS" style="radio"
-                                         answerConceptIds="CIEL:142474,CIEL:142473,CIEL:119481"
-                                         answerCodes="Type 1 DM,Type 2 DM,DM not yet specified"
-                                         answerSeparator="&lt;br /&gt;" required="true"/>
-                                </obsgroup>
+                                    <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                                        <obs conceptId="PIH:DIAGNOSIS" style="radio"
+                                             answerConceptIds="CIEL:142474,CIEL:142473"
+                                             answerCodes="Type 1 DM,Type 2 DM"
+                                             answerSeparator="&lt;br /&gt;" required="true"/>
+                                    </obsgroup>
                                 </p>
                             </td>
-                            <td align="top">
-                                <repeat with="['type1Dm','CIEL:142474','Type 1'],
-                                  ['type2Dm','CIEL:165208','Type 2']">
-                                    <uimessage code="pihcore.ncd.diabetes.{0}Treatment.full"/>
-                                    <br/>
-                                </repeat>
+                            <td>
+                                <p class="side-by-side">
+                                    <repeat with="['type1Dm','CIEL:142474','Type 1'],
+                                      ['type2Dm','CIEL:165208','Type 2']">
+                                        <uimessage code="pihcore.ncd.diabetes.{0}Treatment.full"/>
+                                        <br/>
+                                    </repeat>
+                                </p>
                             </td>
                         </tr>
                     </includeIf>
