@@ -132,24 +132,26 @@
                     <th>End</th>
                 </tr>
                 <repeat with="['1'],['2'],['3']">
-                    <span id="action-id-{0}" >
-                        <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false"
-                                  hiddenConceptId="CIEL:165416" hiddenAnswer="{0}">
+                    <span id="action-{0}" >
+                        <obsgroup groupingConceptId="PIH:21673" showIfEmpty="false" >
                             <tr>
                                 <td>
                                     {0}
+                                    <span class="small hidden">
+                                        <obs id="action-order-{0}" conceptId="CIEL:165416" defaultValue="{0}" controlId="order-{0}"/>
+                                    </span>
                                 </td>
                                 <td>
-                                    <obs conceptId="PIH:21672" style="text"/>
+                                    <obs conceptId="PIH:21672" controlId="action-desc-{0}" style="text"/>
                                 </td>
                                 <td>
-                                    <obs conceptId="PIH:6592" style="text"/>
+                                    <obs conceptId="PIH:6592" controlId="action-person-{0}" style="text"/>
                                 </td>
                                 <td>
-                                    <obs conceptId="PIH:11131" allowFutureDates="true"/>
+                                    <obs conceptId="PIH:11131" controlId="s-date-{0}" allowFutureDates="true"/>
                                 </td>
                                 <td>
-                                    <obs conceptId="PIH:12748" allowFutureDates="true"/>
+                                    <obs conceptId="PIH:12748" controlId="e-date-{0}" allowFutureDates="true"/>
                                 </td>
                             </tr>
                         </obsgroup>
