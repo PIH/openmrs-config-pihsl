@@ -434,7 +434,7 @@
     ],
     "config": {
       "encounterTypes": "${globalProperties.labworkflowowa.labResultsEncounterTypes}",
-      "detailsUrl": "owa/labworkflow/index.html?patient={{patient.uuid}}&returnUrl=/coreapps/clinicianfacing/patient.page?patientId={{patient.uuid}}&dashboard=${program.pregnancy.uuid}#/LabResults",
+      "detailsUrl": "pihcore/router/labRouter.page?patient={{patient.uuid}}&dashboard=${program.pregnancy.uuid}",
       "obsTypes": "LabSet,Test",
       "labCategoriesSet": "${concept.laboratoryCategories.uuid}",
       "maxToDisplay": 5
