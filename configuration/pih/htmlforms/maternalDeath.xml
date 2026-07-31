@@ -33,6 +33,17 @@
         </span>
     </subform>
 
+    <table>
+        <tr>
+            <td>
+                Admission date/time: <lookup expression="fn.latestEncounter('260566e1-c909-4d61-a96f-c1019291a09d')"/>
+                <br/>
+                <!-- ToDo: show time too -->
+                Death date/time:  <lookup expression="patient.deathDate"/>
+            </td>
+        </tr>
+    </table>
+
     <section id="overview" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="Overview">
         <div class="section-container">

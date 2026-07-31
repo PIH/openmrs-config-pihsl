@@ -454,11 +454,32 @@
 
                 </div>
 
+                <strong>
+                    <uimessage code="Additional information"/>
+                </strong>
                 <p class="list-inline">
                     <label>
                         <uimessage code="Improvement since last visit"/>
                     </label>
                     <obs conceptId="PIH:14782" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no" />
+                </p>
+
+                <p class="list-inline">
+                    <label>
+                        <uimessage code="Has log book?"/>
+                    </label>
+                    <obs conceptId="PIH:21676" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no" />
+                </p>
+
+                <p class="list-inline">
+                    <label>
+                        <uimessage code="Has correction scale book?"/>
+                    </label>
+                    <obs conceptId="PIH:21677" style="radio"
                          answerConceptIds="CIEL:1065,CIEL:1066"
                          answerCodes="yes,no" />
                 </p>
