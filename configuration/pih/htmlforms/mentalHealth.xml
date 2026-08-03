@@ -80,21 +80,9 @@
 
     </style>
 
-
-
     <ifMode mode="VIEW" include="false">
-
-        <includeIf velocityTest="$patient.gender == 'F' ">
-            <script type="text/javascript">
-                jq(function() {
-                    setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
-                    validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-                    eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
-                });
-            </script>
-        </includeIf>
-
         <script type="text/javascript">
+
             jq(function() {
 
                 const lastPeriodDateConcept = '<lookup expression="fn.getConcept('CIEL:1427').uuid"/>';
@@ -102,6 +90,7 @@
 
                 var currentEncounterDate = new Date();
                 const encounterDate = '<lookup expression="encounter.getEncounterDatetime().getTime()"/>';
+                const gender = '<lookup expression="patient.gender"/>';
                 if (typeof encounterDate !== "undefined" &amp;&amp; encounterDate !== null &amp;&amp; (encounterDate.length > 0)) {
                     currentEncounterDate = new Date(+encounterDate);
                 } else {
@@ -113,6 +102,12 @@
                             currentEncounterDate = new Date(getDate);
                         }
                     }
+                }
+
+                if (gender === 'F') {
+                    setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
+                    validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
+                    eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
                 }
 
                 // return appointment date can never be before encounter date
@@ -152,6 +147,7 @@
                     });
                 });
             });
+
         </script>
     </ifMode>
 
