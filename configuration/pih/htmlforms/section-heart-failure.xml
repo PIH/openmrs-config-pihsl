@@ -30,14 +30,14 @@
 
     <section id="heart_failure-section" sectionTag="fieldset" headerTag="legend" headerStyle="title"
              headerCode="pihcore.ncd.heart_failure">
-        <script type="text/javascript">
-            jq( function() {
-                updateLastCheckboxRequired("#hf-main-dx","#hf-required-msg",'<uimessage code="pihcore.required.Upper"/>');
-            });
-        </script>
         <div id="heart_failure" class="section-container">
             <!-- this section is ONLY included for NCD intake encounter(s) -->
             <includeIf velocityTest="$encounter.encounterType.uuid == 'ae06d311-1866-455b-8a64-126a9bd74171' || $encounter.encounterType.uuid == '43423212-6f70-4df8-a9f7-2aef88df1ee2' ">
+                <script type="text/javascript">
+                    jq( function() {
+                        updateLastCheckboxRequired("#hf-main-dx","#hf-required-msg",'<uimessage code="pihcore.required.Upper"/>');
+                    });
+                </script>
                 <div class="two-columns">
                     <div>
                         <p id="hf-main-dx" class="side-by-side">
