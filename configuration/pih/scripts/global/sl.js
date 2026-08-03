@@ -8,9 +8,14 @@ function anyCheckboxesSelected(containerSelector) {
  * @param {string} containerSelector - The selector for the container containing checkboxes.
  * @param {string} requiredMsgId - The selector for the element to display the required message.
  * @param {string} requiredMsg - The message to display when the last checkbox is required.
- * @returns {boolean} - Returns true if the last checkbox is required, false otherwise.
+ * @returns {void} - Does nothing if containerSelector is falsy or matches no elements.
  */
 function updateLastCheckboxRequired(containerSelector, requiredMsgId, requiredMsg) {
+  // Bail out if the container isn't present in the DOM (e.g. an includeIf section that didn't render).
+  if (!containerSelector || jq(containerSelector).length === 0) {
+    return;
+  }
+
   // Initialize the flag to keep track of the last checkbox state.
   let islastCheckbox = false;
 
@@ -28,7 +33,9 @@ function updateLastCheckboxRequired(containerSelector, requiredMsgId, requiredMs
 
       // Display the required message and focus on the last checkbox
       jq(requiredMsgId).text(requiredMsg).show()
-      lastCheckbox.focus()
+      if (lastCheckbox.length > 0) {
+        lastCheckbox.focus()
+      }
       islastCheckbox = false;
 
     } else {
