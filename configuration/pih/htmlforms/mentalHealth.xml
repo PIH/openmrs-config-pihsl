@@ -80,9 +80,21 @@
 
     </style>
 
-    <ifMode mode="VIEW" include="false">
-        <script type="text/javascript">
 
+
+    <ifMode mode="VIEW" include="false">
+
+        <includeIf velocityTest="$patient.gender == 'F' ">
+            <script type="text/javascript">
+                jq(function() {
+                    setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
+                    validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
+                    eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
+                });
+            </script>
+        </includeIf>
+
+        <script type="text/javascript">
             jq(function() {
 
                 const lastPeriodDateConcept = '<lookup expression="fn.getConcept('CIEL:1427').uuid"/>';
@@ -102,9 +114,6 @@
                         }
                     }
                 }
-                setUpEdd(currentEncounterDate, '<uimessage code="pihcore.weeks"/>');
-                validateEstimatedDeliveryDate("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.invalidDate" />');
-                eddCannotBeOlderThanTwoWeeks("edd", currentEncounterDate, '<uimessage code="pihcore.errors.eddField.twoWeeksOlder" />');
 
                 // return appointment date can never be before encounter date
                 var setMinReturnVisitDate = function () {
@@ -143,7 +152,6 @@
                     });
                 });
             });
-
         </script>
     </ifMode>
 
