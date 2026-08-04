@@ -245,18 +245,6 @@ ul#formBreadcrumb li.doing ul li.focused {
     min-height: 4.2em;
 }
 
-    #data-collection {
-        display: inline-block;
-        width: 58%;
-        vertical-align: top;
-    }
-
-    .field-error {
-        color: #ff6666;
-        font-size: 1.1em;
-        display: block;
-    }
-
 .ncdButtonDark.confirm, ncdButtonDark.confirm {
     background: #3f746d;
     border-color: #3f746d;
