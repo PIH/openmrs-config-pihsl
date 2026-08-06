@@ -132,7 +132,6 @@
 
             #section-postnatal-followup fieldset p {
             vertical-align: top;
-            display: inline-block;
             float: none;
             }
 
