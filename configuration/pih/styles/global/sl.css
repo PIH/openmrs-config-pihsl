@@ -245,18 +245,3 @@ ul#formBreadcrumb li.doing ul li.focused {
     min-height: 4.2em;
 }
 
-.ncdButtonDark.confirm, ncdButtonDark.confirm {
-    background: #3f746d;
-    border-color: #3f746d;
-}
-
-.ncdButtonLight.confirm, ncdButtonLight.confirm {
-    background: #6f9792;
-    border-color: #6f9792;
-}
-
-.ncdButtonSelf.confirm, ncdButtonSelf.confirm {
-    background: #6f9792;
-    border-color: #6f9792;
-    color: black;
-}
