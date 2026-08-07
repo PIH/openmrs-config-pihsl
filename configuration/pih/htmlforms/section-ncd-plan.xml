@@ -10,9 +10,8 @@
         }
 
         label {
-        padding: 0px 3px 0px 0px;
+            padding: 0px 3px 0px 0px;
         }
-
 
         p.radio > * {
             display: inline;
@@ -133,6 +132,7 @@
                     <obsgroup groupingConceptId="PIH:Radiology report construct"
                               hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:12">
                         <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
 
                         <repeat with="['CIEL:1118',  'Not done'],
                                       ['CIEL:1115',  'Normal'],
@@ -161,6 +161,7 @@
                     <obsgroup groupingConceptId="PIH:Radiology report construct"
                               hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="PIH:12556">
                         <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
 
                         <repeat with="['CIEL:1118',  'Not done'],
                                       ['CIEL:1115',  'Normal'],
@@ -186,6 +187,7 @@
                     <obsgroup groupingConceptId="PIH:Radiology report construct"
                               hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:845">
                         <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
 
                         <repeat with="['CIEL:1118','Not done'],
                                     ['CIEL:1115',  'Normal'],
@@ -218,6 +220,7 @@
                     <obsgroup groupingConceptId="PIH:Radiology report construct"
                               hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:159565">
                         <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
 
                         <repeat with="['CIEL:1118','Not done'],
                                       ['CIEL:1115','Normal'],
@@ -247,6 +250,7 @@
                     <obsgroup groupingConceptId="PIH:Radiology report construct"
                               hiddenConceptId="PIH:Radiology procedure performed" hiddenAnswerConceptId="CIEL:159567">
                         <obs conceptId="PIH:12847" labelCode="Date"/>
+                        <br/>
 
                         <repeat with="['CIEL:1118','Not done'],
                                   ['CIEL:1115','Normal'],
