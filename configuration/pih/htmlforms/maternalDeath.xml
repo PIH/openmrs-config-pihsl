@@ -111,11 +111,43 @@
             </p>
 
             <p>
-                <label>
-                    <uimessage code="Underlying cause of death"/>
-                </label>
-                <obs conceptId="PIH:Underlying cause of death"
-                     answerClasses="Diagnosis,Finding,Symptom,Symptom/Finding" style="autocomplete" />
+                <strong>
+                    <uimessage code="Underlying causes of death"/>
+                </strong>
+                <div class="three-columns">
+                    <div>
+                        <label>
+                            <uimessage code="Primary" />
+                        </label>
+                        <span id="primaryCause">
+                            <obsgroup groupingConceptId="PIH:21678"
+                                      showIfEmpty="false">
+                                <obs conceptId="PIH:Underlying cause of death"
+                                     answerClasses="Diagnosis,Finding,Symptom,Symptom/Finding" style="autocomplete" controlId="primeCause" />
+                                <span class="small hidden">
+                                    <obs conceptId="CIEL:159946" defaultValue="PIH:primary" controlId="primary"/>
+                                </span>
+                            </obsgroup>
+                        </span>
+                    </div>
+                    <div>
+                        <label>
+                            <uimessage code="Secondary" />
+                        </label>
+                        <span id="secondaryCause">
+                            <obsgroup groupingConceptId="PIH:21678"
+                                      showIfEmpty="false">
+                                <obs conceptId="PIH:Underlying cause of death"
+                                     answerClasses="Diagnosis,Finding,Symptom,Symptom/Finding" style="autocomplete" controlId="secondCause" />
+                                <span class="small hidden">
+                                    <obs conceptId="CIEL:159946" defaultValue="PIH:secondary" controlId="secondary"/>
+                                </span>
+                            </obsgroup>
+                        </span>
+                    </div>
+                    <div></div>
+                </div>
+
             </p>
 
         </div>
