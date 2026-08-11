@@ -1,6 +1,36 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Diabetes diagnosis (female),Coded,Type 1 DM | Type 2 DM | Gestational | Not yet specified,radio,Yes,Included only for NCD intake,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|PIH:Gestational diabetes|CIEL:119481,Visit Diagnoses,PIH:Visit Diagnoses
-Diabetes diagnosis (male),Coded,Type 1 DM | Type 2 DM | Not yet specified,radio,Yes,Included only for NCD intake,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|CIEL:119481,Visit Diagnoses,PIH:Visit Diagnoses
-Suggested treatment (rendered text),Other,See treatment text,info,No,no,,,,
-Blood glucose (recent),Numeric,N/A,number,No,no,3cd4e194-26fe-102b-80cb-0017a47871b2,,,
-HbA1c (orders/obs),Other,Order options/order widget,order/obs,No,no,159644AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,,,
+PIH:DIAGNOSIS,Coded,Type 1 Dm | Type 2 Dm | Gestational Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|PIH:Gestational diabetes,,PIH:Visit Diagnoses
+PIH:DIAGNOSIS,Coded,Type 1 Dm | Type 2 Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473,,PIH:Visit Diagnoses
+PIH:14485,Coded,CIEL:142452 | CIEL:118983 | CIEL:142429 | CIEL:119270 | CIEL:111103 | CIEL:145438 | CIEL:120860 | CIEL:150807 | PIH:14706 | CIEL:1107,checkbox,No,no,PIH:14485,CIEL:142452|CIEL:118983|CIEL:142429|CIEL:119270|CIEL:111103|CIEL:145438|CIEL:120860|CIEL:150807|PIH:14706|CIEL:1107,PIH:14485,
+"if other complications, specify",Coded,N/A,radio,No,no,PIH:14711,,,
+Complications at injection site,Coded,PIH:14705 | CIEL:137300 | CIEL:156567 | CIEL:5622,checkbox,No,no,PIH:14706,PIH:14705|CIEL:137300|CIEL:156567|CIEL:5622,Complications at injection site,
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:1898,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:6756,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167957,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:164075,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167819,PIH:YES|PIH:NO,,PIH:14469
+# of hypoglycemic episodes in past 30 days,Coded,N/A,radio,No,no,PIH:14708,,Treatment indicators,PIH:14469
+# of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Treatment indicators,PIH:14469
+Indications for ACE inhibitors,Coded,Yes | No,radio,No,PIH:YES → show #dm-on-ace-details,CIEL:168000,PIH:YES|PIH:NO,Treatment indicators,PIH:14469
+On ACE inhibitors,Coded,Yes | No,radio,No,PIH:NO → show #dm-not-ace-details,CIEL:167998,PIH:YES|PIH:NO,Treatment indicators,PIH:14469
+Reason not on ACE inhibitors,Text,N/A,text,No,no,PIH:20002,,Treatment indicators,PIH:14469
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167956,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167919,PIH:YES|PIH:NO,,PIH:14469
+{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:14709,PIH:YES|PIH:NO,,PIH:14469
+Disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,no,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Treatment indicators,PIH:14469
+DKA indicates hospitalization,Coded,Yes | No | Unknown,radio,No,no,PIH:20001,CIEL:1065|CIEL:1066|CIEL:1067,Treatment indicators,PIH:14469
+Fundoscopy performed,Coded,Yes | PIH:NOT DONE,radio,No,CIEL:1267 → show #fundy-results,CIEL:167916,CIEL:1267|PIH:NOT DONE,,
+Fundoscopy results,Coded,CIEL:1115 | CIEL:1116,radio,No,CIEL:1116 → show #fun-findings,CIEL:167917,CIEL:1115|CIEL:1116,,
+CIEL:167917,Coded,CIEL:142429 | CIEL:113271 | CIEL:124755 | CIEL:142820 | CIEL:143265 | CIEL:119109,checkbox,No,no,CIEL:167917,CIEL:142429|CIEL:113271|CIEL:124755|CIEL:142820|CIEL:143265|CIEL:119109,CIEL:167917,
+Foot examination performed,Coded,Yes | PIH:NOT DONE,radio,No,CIEL:1267 → show #foot-results,PIH:14779,CIEL:1267|PIH:NOT DONE,,
+Foot exam findings,Coded,CIEL:1115 | CIEL:1116,radio,No,CIEL:1116 → show #abnormal-foot,CIEL:1127,CIEL:1115|CIEL:1116,,
+CIEL:165471,Coded,CIEL:118983 | CIEL:132653 | CIEL:163411 | CIEL:152805,checkbox,No,no,CIEL:165471,CIEL:118983|CIEL:132653|CIEL:163411|CIEL:152805,CIEL:165471,
+Other foot exam comments,Coded,N/A,radio,No,no,PIH:14778,,,
+Referred to surgery,Coded,Yes | No,radio,No,no,PIH:14781,CIEL:1065|CIEL:1066,,
+Improvement since last visit,Coded,Yes | No,radio,No,no,PIH:14782,CIEL:1065|CIEL:1066,,
+Has log book?,Coded,Yes | No,radio,No,no,PIH:21676,CIEL:1065|CIEL:1066,,
+Has correction scale book?,Coded,Yes | No,radio,No,no,PIH:21677,CIEL:1065|CIEL:1066,,
+Remarks,Coded,N/A,radio,No,no,PIH:11974,,,

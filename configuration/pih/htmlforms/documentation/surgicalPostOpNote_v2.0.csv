@@ -18,23 +18,20 @@ Scheduled,Coded,Yes | No,radio,No,no,PIH:Scheduled surgery,PIH:YES|PIH:NO,,
 Post op diagnoses,Coded,N/A,autocomplete,No,no,PIH:Post-surgery diagnosis,,,
 Post op diagnoses,Coded,N/A,autocomplete,No,no,PIH:Post-surgery diagnosis,,,
 Post op diagnoses,Coded,N/A,autocomplete,No,no,PIH:Post-surgery diagnosis,,,
-Anesthesia,Coded,PIH:7850 | PIH:7854 | PIH:7855 | PIH:7856 | PIH:7852 | PIH:7853 | PIH:7851 | PIH:21112 | PIH:1107,radio,No,no,PIH:Type of anesthesia,PIH:7850|PIH:7854|PIH:7855|PIH:7856|PIH:7852|PIH:7853|PIH:7851|PIH:21112|PIH:1107,,
-Complications from anaesthesia,Coded,N/A,radio,No,no,$complicationsFromAnesthesia,,,
+Anesthesia,Coded,PIH:7850 | PIH:7854 | PIH:7855 | PIH:7856 | PIH:7852 | PIH:7853 | PIH:7851 | PIH:21112 | PIH:1107 | ,radio,No,no,PIH:Type of anesthesia,PIH:7850|PIH:7854|PIH:7855|PIH:7856|PIH:7852|PIH:7853|PIH:7851|PIH:21112|PIH:1107|,,
+Anesthesia complications,Coded,N/A,radio,No,no,$complicationsFromAnesthesia,,,
 Wound class,Coded,N/A,radio,No,no,PIH:Classifications of surgical wounds,,,
-Ivf,Coded,CIEL:74653 | CIEL:161922 | CIEL:161923 | CIEL:74653 | CIEL:161924 | CIEL:78617 | CIEL:80804,checkbox,No,no,PIH:IVF administered,CIEL:74653|CIEL:161922|CIEL:161923|CIEL:74653|CIEL:161924|CIEL:78617|CIEL:80804,Ivf,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+Ivf,Coded,PIH:7870 | PIH:7897 | PIH:7898 | PIH:11657 | PIH:7900 | PIH:7873 | PIH:11658,radio,No,no,PIH:IVF administered,PIH:7870|PIH:7897|PIH:7898|PIH:11657|PIH:7900|PIH:7873|PIH:11658,Ivf,PIH:IVF construct
+Ivf,Coded,N/A,radio,No,no,PIH:21113,,Ivf,PIH:IVF construct
 Transfusion,Coded,Yes | No,radio,No,PIH:YES → show #type-transfusion,PIH:Transfusion status,PIH:YES|PIH:NO,,
-"if blood transfusion, specify type and volume:",Coded,PIH:Whole blood | PIH:Packed red blood cells | PIH:Plasma | PIH:Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood|PIH:Packed red blood cells|PIH:Plasma|PIH:Platelets,"if blood transfusion, specify type and volume:",PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Type and volume,Coded,PIH:Whole blood,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood,,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Type and volume,Coded,PIH:Packed red blood cells,radio,No,no,PIH:Transfusion of fluid,PIH:Packed red blood cells,,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Type and volume,Coded,PIH:Plasma,radio,No,no,PIH:Transfusion of fluid,PIH:Plasma,,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Type and volume,Coded,PIH:Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Platelets,,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
 Pre op antibiotic,Coded,Yes | No,radio,No,PIH:YES → show #pre-antibiotic-name,PIH:Pre-operative antibiotic administered,PIH:YES|PIH:NO,,
 Antibiotic name,Coded,CIEL:450 | CIEL:71184 | CIEL:71188 | CIEL:72998 | CIEL:73018 | CIEL:73041 | CIEL:73239 | CIEL:73449 | CIEL:73546 | CIEL:76488 | CIEL:100 | CIEL:81951,checkbox,No,no,PIH:Surgery antibiotics,CIEL:450|CIEL:71184|CIEL:71188|CIEL:72998|CIEL:73018|CIEL:73041|CIEL:73239|CIEL:73449|CIEL:73546|CIEL:76488|CIEL:100|CIEL:81951,Antibiotic name,
 Vtp,Coded,N/A,radio,No,no,PIH:Venous thromboembolism prophylaxis,,,

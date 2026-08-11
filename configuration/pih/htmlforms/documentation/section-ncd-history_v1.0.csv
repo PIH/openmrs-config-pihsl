@@ -1,24 +1,24 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Type of visit,Coded,Scheduled | Non Scheduled | Urgent,radio,Yes,no,PIH:6189,PIH:1246|PIH:12612|PIH:6192,,
-Care household,Coded,Yes | No,radio,Yes,no,PIH:10642,CIEL:1065|CIEL:1066,,
-Vulnerable,Coded,Yes | No | Not Evaluated,radio,Yes,no,CIEL:162956,CIEL:1065|CIEL:1066|CIEL:160737,,
-Education level,Coded,Primary School | Secondary School | Tertiary School | No Education,radio,Yes,no,CIEL:1712,CIEL:1713|CIEL:1714|PIH:1701|CIEL:1107,,
-Literacy level,Coded,Able To Read And Write | Cannot Read And Write,radio,Yes,no,CIEL:166855,CIEL:1065|CIEL:1066,,
-Missed school,Coded,Yes | No,radio,Yes,CIEL:1065 → show #days-missed-a,PIH:5629,CIEL:1065|CIEL:1066,,
+Type of visit,Coded,Scheduled | Non Scheduled | Urgent,radio,No,no,PIH:6189,PIH:1246|PIH:12612|PIH:6192,,
+Care household,Coded,Yes | No,radio,No,no,PIH:10642,CIEL:1065|CIEL:1066,,
+Vulnerable,Coded,Yes | No | Not Evaluated,radio,No,no,CIEL:162956,CIEL:1065|CIEL:1066|CIEL:160737,,
+Education level,Coded,Primary School | Secondary School | Tertiary School | No Education,radio,No,no,CIEL:1712,CIEL:1713|CIEL:1714|PIH:1701|CIEL:1107,,
+Literacy level,Coded,Able To Read And Write | Cannot Read And Write,radio,No,no,CIEL:166855,CIEL:1065|CIEL:1066,,
+Missed school,Coded,Yes | No,radio,No,CIEL:1065 → show #days-missed-a,PIH:5629,CIEL:1065|CIEL:1066,,
 Days of lost schooling (related diseases),Coded,N/A,radio,No,no,PIH:14446,,,
-Employment status,Coded,PIH:14833 | CIEL:161382 | PIH:UNEMPLOYED | CIEL:166624,radio,Yes,no,PIH:3395,PIH:14833|CIEL:161382|PIH:UNEMPLOYED|CIEL:166624,,
-Distance to clinic,Coded,N/A,radio,Yes,no,PIH:20862,,,PIH:12736
+Employment status,Coded,PIH:14833 | CIEL:161382 | PIH:UNEMPLOYED | CIEL:166624,radio,No,no,PIH:3395,PIH:14833|CIEL:161382|PIH:UNEMPLOYED|CIEL:166624,,
+Distance to clinic,Coded,N/A,radio,No,no,PIH:20862,,,PIH:12736
 Average travel time,Coded,N/A,radio,No,no,CIEL:159471,,,PIH:12736
 CIEL:1732,Coded,N/A,radio,No,no,CIEL:1732,,,PIH:12736
 Average cost of transport,Coded,N/A,radio,No,no,CIEL:159470,,,PIH:TRANSPORTATION CONSTRUCT
-Food insecurity,Coded,Yes | No,radio,Yes,no,CIEL:119533,CIEL:1065|CIEL:1066,,
-Social support,Coded,Yes | No,radio,Yes,CIEL:1065 → show #specify-support,CIEL:163766,CIEL:1065|CIEL:1066,,
+Food insecurity,Coded,Yes | No,radio,No,no,CIEL:119533,CIEL:1065|CIEL:1066,,
+Social support,Coded,Yes | No,radio,No,CIEL:1065 → show #specify-support,CIEL:163766,CIEL:1065|CIEL:1066,,
 "if yes, specify support:",Coded,Transport,radio,No,no,PIH:2156,PIH:990,,
 "if yes, specify support:",Coded,Food,radio,No,no,PIH:2156,PIH:1400,,
 "if yes, specify support:",Coded,School,radio,No,no,PIH:2156,PIH:2863,,
 "if yes, specify support:",Coded,Other,radio,No,no,PIH:2156,CIEL:5622,,
-Referred from,Coded,Opd | Phu | Cbp | Self-Referred | Screening Program | Inpatient Ward | Other,radio,Yes,CIEL:5622 → show #other-referral-text,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485|CIEL:5622,,
-"if other, specify referred from location",Text,N/A,text,No,no,PIH:6421,,,
+PIH:Type of referring service,Coded,PIH:2233 | PIH:12368 | CIEL:160543 | CIEL:978 | PIH:14445 | CIEL:5485,checkbox,No,no,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485,PIH:Type of referring service,
+Referred from,Coded,PIH:OTHER,checkbox,No,no,PIH:Type of referring service,PIH:OTHER,,
 Category instructions,Coded,PIH:DIABETES | PIH:HYPERTENSION | PIH:HEART FAILURE | PIH:Chronic respiratory disease program | CIEL:145438 | PIH:3714 | CIEL:160849 | PIH:Sickle-Cell Anemia | CIEL:5622,checkbox,No,no,PIH:NCD category,PIH:DIABETES|PIH:HYPERTENSION|PIH:HEART FAILURE|PIH:Chronic respiratory disease program|CIEL:145438|PIH:3714|CIEL:160849|PIH:Sickle-Cell Anemia|CIEL:5622,Category instructions,PIH:15001
 CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
 CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
