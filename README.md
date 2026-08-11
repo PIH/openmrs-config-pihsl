@@ -8,7 +8,7 @@ For more background on OpenMRS distributions, see the [OpenMRS wiki](https://wik
 
 | Directory | Description |
 |---|---|
-| [`content/`](content/README.md) | Sierra Leone-specific OpenMRS content package (Initializer configuration files) |
+| [`content/`](content/README.md) | Sierra Leone-specific OpenMRS content package (Initializer and O3 configuration files) |
 | [`distro/`](distro/README.md) | Distribution definition — resolves all component versions into `openmrs-distro.properties` |
 
 ## Components
@@ -31,14 +31,77 @@ Component versions are defined in `distro/pom.xml` and resolved into `distro/ope
 | `kgh-test` | `sierraLeone,sierraLeone-kgh,sierraLeone-kgh-test` |
 | `gladi` | `sierraLeone,sierraLeone-wellbody,sierraLeone-wellbody-gladi` |
 
-## Developer Guide
+## Using the OpenMRS SDK
 
-Local development runs through the shared
-[`openmrs-contrib-distro-tools`](https://github.com/PIH/openmrs-contrib-distro-tools) CLI
-(`openmrs-docker`/`openmrs-sdk`), installed once per machine rather than embedded in this repo.
-Follow that repo's [Install](https://github.com/PIH/openmrs-contrib-distro-tools#install) section first — the commands below assume `openmrs-docker`/`openmrs-sdk` are already on your `PATH`.
+Developers can use the OpenMRS SDK to set up, update, and run local OpenMRS instances.
+All normal [OpenMRS SDK](https://wiki.openmrs.org/display/docs/OpenMRS+SDK) commands are supported.
 
-### Docker (`openmrs-docker`)
+One can also use the `openmrs-sdk` command supplied by the [`openmrs-contrib-distro-tools`](https://github.com/PIH/openmrs-contrib-distro-tools) CLI if that is more convenient.
+Follow the installation instructions in that repo first if you wish to use this command.
+Consult the [`openmrs-contrib-distro-tools` README](https://github.com/PIH/openmrs-contrib-distro-tools/README.md)
+for more information on each supported command and configuration option.
+
+#### Setting up a new SDK server
+
+Whenever one creates a new SDK server, there are several options one has to configure it.  One must specify the
+distribution to install, the PIH Config to use, the Tomcat port, the Debug port, the Java version, and whether to
+connect to an existing database or to create a new one, and whether to do so in the default SDK Docker container,
+one's own Docker container, or in a native MySQL server.  The `openmrs-sdk` documentation provides a full list of
+these options, which can be set via environment variables.
+
+The least configuration required to get up and running is to specify the PIH Config only, which will use all
+other defaults including the database, which will use the built-in SDK Docker container.:
+
+```
+PIH_CONFIG=sierraLeone,sierraLeone-kgh \
+openmrs-sdk create <server-id>
+```
+
+Many developers maintain their own MySQL Docker container into which they maintain their various SDK servers.  For example,
+one might have an existing MySQL Docker container named `mysq56` exposing port 3308, and with a root password of `password`.
+To use this container instead, simply add the appropriate additional environment variables as documented in the README:
+
+```
+PIH_CONFIG=sierraLeone,sierraLeone-kgh \
+DB_CONTAINER=mysql56 \
+DB_PORT=3308 \
+DB_PASSWORD=password \
+openmrs-sdk create <server-id>
+```
+
+#### Running an SDK server
+
+This is just a thin wrapper around the native OpenMRS SDK maven command:
+
+```bash
+openmrs-sdk run <server-id>
+```
+
+#### Updating a server with the latest distribution (war, modules, owas, config, frontend)
+
+> [!NOTE]
+> For those who are familiar with previously running `./pihemrDeploy.sh` from `openmrs-distro-pihemr`,
+> this is the equivalent of that, with the addition that this will also update the configuration and frontend.
+
+```bash
+openmrs-sdk update <server-id>
+```
+
+#### Updating only the configuration of a server
+
+Unlike a full update, this only updates the configuration files and is intended to be faster, suitable for
+more rapid iteration of content changes for testing.
+
+> [!NOTE]
+> For those who are familiar with previously running `./install.sh` from `openmrs-config-pihsl`, this is the
+> equivalent of that, with the exception that this will not automatically build in local changes to `openmrs-config-pihemr`.
+> One will first need to run a `mvn clean install` in `openmrs-config-pihemr` to incorporate local changes from it.
+
+```bash
+openmrs-sdk update-config <server-id>
+```
+
+### Using Docker
 
 For each supported configuration profile, an example environment file is provided in the repo root to get started quickly.
 Because this file is found in the distribution repository, it is assumed that this is checked out on your machine, and
@@ -64,26 +127,6 @@ openmrs-docker kgh destroy
 ```
 
 The same pattern applies to `wellbody.env`, `kgh-test.env`, and `gladi.env` — substitute the instance name accordingly.
-
-### OpenMRS SDK (`openmrs-sdk`)
-
-Use `openmrs-sdk` to run a site using the [OpenMRS SDK](https://wiki.openmrs.org/display/docs/OpenMRS+SDK), which sets up a local Tomcat server with its own MySQL instance.
-
-```
-openmrs-sdk <command> <server-id>
-```
-
-**Example — first-time setup:**
-```bash
-PIH_CONFIG=sierraLeone,sierraLeone-kgh openmrs-sdk create pihsl
-openmrs-sdk run pihsl
-```
-
-**Example — after updating component versions:**
-```bash
-openmrs-sdk update pihsl
-openmrs-sdk run pihsl
-```
 
 ## CI and Publishing
 
