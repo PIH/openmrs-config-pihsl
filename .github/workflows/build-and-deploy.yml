@@ -1,0 +1,57 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  build-and-publish:
+    if: github.repository_owner == 'PIH'
+    concurrency:
+      group: build-and-deploy-${{ github.ref }}
+      cancel-in-progress: true
+    uses: PIH/openmrs-contrib-distro-tools/.github/workflows/build-and-deploy.yml@main
+    with:
+      image_name: partnersinhealth/pihsl-emr
+      maven_profiles: distro-zip
+    secrets: inherit
+
+  deploy-to-kgh-test:
+    if: github.repository_owner == 'PIH'
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-to-kgh-test-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Deploy to KGH Test
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://bamboo-ci.pih-emr.org/rest/api/latest/queue/OMRS-DEPLOYKGHTEST'
+          method: 'POST'
+          bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
+          customHeaders: '{"Accept": "application/json"}'
+          retry: 60
+          retryWait: 60000
+          ignoreStatusCodes: 400
+
+  deploy-to-gladi:
+    if: github.repository_owner == 'PIH'
+    needs: build-and-publish
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-to-gladi-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Deploy to Gladi
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'https://bamboo-ci.pih-emr.org/rest/api/latest/queue/OMRS-DEPLOYGLADI'
+          method: 'POST'
+          bearerToken: ${{ secrets.PIH_BAMBOO_API_KEY }}
+          customHeaders: '{"Accept": "application/json"}'
+          retry: 60
+          retryWait: 60000
+          ignoreStatusCodes: 400

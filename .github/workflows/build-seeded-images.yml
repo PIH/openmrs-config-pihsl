@@ -1,0 +1,55 @@
+name: Build seeded images
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  kgh:
+    if: github.repository_owner == 'PIH'
+    concurrency:
+      group: build-seeded-images-kgh-${{ github.ref }}
+      cancel-in-progress: true
+    uses: PIH/openmrs-contrib-distro-tools/.github/workflows/build-seeded-image.yml@main
+    with:
+      image_name: partnersinhealth/pihsl-emr
+      site: kgh
+      pih_config: sierraLeone,sierraLeone-kgh
+    secrets: inherit
+
+  wellbody:
+    if: github.repository_owner == 'PIH'
+    concurrency:
+      group: build-seeded-images-wellbody-${{ github.ref }}
+      cancel-in-progress: true
+    uses: PIH/openmrs-contrib-distro-tools/.github/workflows/build-seeded-image.yml@main
+    with:
+      image_name: partnersinhealth/pihsl-emr
+      site: wellbody
+      pih_config: sierraLeone,sierraLeone-wellbody
+    secrets: inherit
+
+  kgh-test:
+    if: github.repository_owner == 'PIH'
+    concurrency:
+      group: build-seeded-images-kgh-test-${{ github.ref }}
+      cancel-in-progress: true
+    uses: PIH/openmrs-contrib-distro-tools/.github/workflows/build-seeded-image.yml@main
+    with:
+      image_name: partnersinhealth/pihsl-emr
+      site: kgh-test
+      pih_config: sierraLeone,sierraLeone-kgh,sierraLeone-kgh-test
+    secrets: inherit
+
+  gladi:
+    if: github.repository_owner == 'PIH'
+    concurrency:
+      group: build-seeded-images-gladi-${{ github.ref }}
+      cancel-in-progress: true
+    uses: PIH/openmrs-contrib-distro-tools/.github/workflows/build-seeded-image.yml@main
+    with:
+      image_name: partnersinhealth/pihsl-emr
+      site: gladi
+      pih_config: sierraLeone,sierraLeone-wellbody,sierraLeone-wellbody-gladi
+    secrets: inherit
