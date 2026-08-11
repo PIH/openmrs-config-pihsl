@@ -1,9 +1,9 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 PIH:DIAGNOSIS,Coded,Type 1 Dm | Type 2 Dm | Gestational Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|PIH:Gestational diabetes,,PIH:Visit Diagnoses
 PIH:DIAGNOSIS,Coded,Type 1 Dm | Type 2 Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473,,PIH:Visit Diagnoses
-PIH:14485,Coded,CIEL:142452 | CIEL:118983 | CIEL:142429 | CIEL:119270 | CIEL:111103 | CIEL:145438 | CIEL:120860 | CIEL:150807 | PIH:14706 | CIEL:1107,checkbox,No,no,PIH:14485,CIEL:142452|CIEL:118983|CIEL:142429|CIEL:119270|CIEL:111103|CIEL:145438|CIEL:120860|CIEL:150807|PIH:14706|CIEL:1107,PIH:14485,
+PIH:14485,Coded,Diabetic foot | Neuropathy | Diabetic retinopathy | Cardiovascular disease | Cerebrovascular accident | Chronic kidney disease | Cataract | Sexual dysfunction | Complications at injection site | None,checkbox,No,no,PIH:14485,CIEL:142452|CIEL:118983|CIEL:142429|CIEL:119270|CIEL:111103|CIEL:145438|CIEL:120860|CIEL:150807|PIH:14706|CIEL:1107,PIH:14485,
 "if other complications, specify",Coded,N/A,radio,No,no,PIH:14711,,,
-Complications at injection site,Coded,PIH:14705 | CIEL:137300 | CIEL:156567 | CIEL:5622,checkbox,No,no,PIH:14706,PIH:14705|CIEL:137300|CIEL:156567|CIEL:5622,Complications at injection site,
+Complications at injection site,Coded,"Lipohypertrophy | Infection following infusion, injection, transfusion and/or vaccination | Hematoma | Other",checkbox,No,no,PIH:14706,PIH:14705|CIEL:137300|CIEL:156567|CIEL:5622,Complications at injection site,
 Patient condition improved,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:1898,PIH:YES|PIH:NO,,PIH:14469
 On insulin,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:6756,PIH:YES|PIH:NO,,PIH:14469
 Severe hypoglycemia in last month,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167957,PIH:YES|PIH:NO,,PIH:14469
@@ -22,12 +22,12 @@ Ability to read and manage glucometer,Coded,Yes | No,radio,No,PIH:YES → show #
 Patient adjusted insulin based on glucometer,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:14709,PIH:YES|PIH:NO,,PIH:14469
 Disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,no,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Treatment indicators,PIH:14469
 DKA indicates hospitalization,Coded,Yes | No | Unknown,radio,No,no,PIH:20001,CIEL:1065|CIEL:1066|CIEL:1067,Treatment indicators,PIH:14469
-Fundoscopy performed,Coded,Yes | PIH:NOT DONE,radio,No,CIEL:1267 → show #fundy-results,CIEL:167916,CIEL:1267|PIH:NOT DONE,,
-Fundoscopy results,Coded,CIEL:1115 | CIEL:1116,radio,No,CIEL:1116 → show #fun-findings,CIEL:167917,CIEL:1115|CIEL:1116,,
-CIEL:167917,Coded,CIEL:142429 | CIEL:113271 | CIEL:124755 | CIEL:142820 | CIEL:143265 | CIEL:119109,checkbox,No,no,CIEL:167917,CIEL:142429|CIEL:113271|CIEL:124755|CIEL:142820|CIEL:143265|CIEL:119109,CIEL:167917,
-Foot examination performed,Coded,Yes | PIH:NOT DONE,radio,No,CIEL:1267 → show #foot-results,PIH:14779,CIEL:1267|PIH:NOT DONE,,
-Foot exam findings,Coded,CIEL:1115 | CIEL:1116,radio,No,CIEL:1116 → show #abnormal-foot,CIEL:1127,CIEL:1115|CIEL:1116,,
-CIEL:165471,Coded,CIEL:118983 | CIEL:132653 | CIEL:163411 | CIEL:152805,checkbox,No,no,CIEL:165471,CIEL:118983|CIEL:132653|CIEL:163411|CIEL:152805,CIEL:165471,
+Fundoscopy performed,Coded,Completed | Not done,radio,No,CIEL:1267 → show #fundy-results,CIEL:167916,CIEL:1267|PIH:NOT DONE,,
+Fundoscopy results,Coded,Normal | Abnormal,radio,No,CIEL:1116 → show #fun-findings,CIEL:167917,CIEL:1115|CIEL:1116,,
+CIEL:167917,Coded,Diabetic retinopathy | Retinal detachment | Thrombosis of retinal vein | Deep retinal hemorrhage | Cotton wool spots | Optic nerve disease,checkbox,No,no,CIEL:167917,CIEL:142429|CIEL:113271|CIEL:124755|CIEL:142820|CIEL:143265|CIEL:119109,CIEL:167917,
+Foot examination performed,Coded,Completed | Not done,radio,No,CIEL:1267 → show #foot-results,PIH:14779,CIEL:1267|PIH:NOT DONE,,
+Foot exam findings,Coded,Normal | Abnormal,radio,No,CIEL:1116 → show #abnormal-foot,CIEL:1127,CIEL:1115|CIEL:1116,,
+CIEL:165471,Coded,Neuropathy | Numbness of foot | Foot ulcer | Foot infection,checkbox,No,no,CIEL:165471,CIEL:118983|CIEL:132653|CIEL:163411|CIEL:152805,CIEL:165471,
 Other foot exam comments,Coded,N/A,radio,No,no,PIH:14778,,,
 Referred to surgery,Coded,Yes | No,radio,No,no,PIH:14781,CIEL:1065|CIEL:1066,,
 Improvement since last visit,Coded,Yes | No,radio,No,no,PIH:14782,CIEL:1065|CIEL:1066,,
