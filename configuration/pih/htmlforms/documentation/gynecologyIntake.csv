@@ -2,7 +2,7 @@ Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for 
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
 Subform: prior-vital-signs-widget.xml,Other,Subform — configuration/pih/subforms/prior-vital-signs-widget.xml,subform,No,no,,,,
 Subform: vital-signs-wt-ht-bp-widget.xml,Other,Subform — configuration/pih/subforms/vital-signs-wt-ht-bp-widget.xml,subform,No,no,,,,
-CIEL:374,Coded,CIEL:104625 | CIEL:159783 | CIEL:78796 | CIEL:80784 | CIEL:190 | CIEL:907 | PIH:21450 | PIH:21478 | CIEL:165464 | CIEL:1873 | CIEL:76022 | CIEL:162422 | CIEL:5277 | CIEL:136163 | CIEL:1472 | CIEL:1489,checkbox,No,no,CIEL:374,CIEL:104625|CIEL:159783|CIEL:78796|CIEL:80784|CIEL:190|CIEL:907|PIH:21450|PIH:21478|CIEL:165464|CIEL:1873|CIEL:76022|CIEL:162422|CIEL:5277|CIEL:136163|CIEL:1472|CIEL:1489,CIEL:374,PIH:Family planning history construct
+CIEL:374,Coded,Ethinyl estradoil / Levonorgestrel | Combined oral contraceptive pills | Levonorgestrel | Norethindrone | Condoms | Medroxyprogesterone acetate (Depo-provera) | Sayana press | Copper T IUD | Mirena hormone-eluting intrauterine device (IUD) | Jadelle (implantable contraceptive) | Etonogestrel | Implant | Natural family planning | Lactational amenorrhea | Tubal ligation | Vasectomy,checkbox,No,no,CIEL:374,CIEL:104625|CIEL:159783|CIEL:78796|CIEL:80784|CIEL:190|CIEL:907|PIH:21450|PIH:21478|CIEL:165464|CIEL:1873|CIEL:76022|CIEL:162422|CIEL:5277|CIEL:136163|CIEL:1472|CIEL:1489,CIEL:374,PIH:Family planning history construct
 CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
 CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
 CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
@@ -40,7 +40,7 @@ Para,Coded,N/A,radio,No,no,CIEL:1053,,,
 Abortus,Coded,N/A,radio,No,no,CIEL:1823,,,
 Living,Coded,N/A,radio,No,no,CIEL:1825,,,
 Menstruation,Coded,Pihcore.Regular | Pihcore.Irregular,radio,No,no,CIEL:160600,CIEL:1065|CIEL:1066,,
-Menstruation,Coded,CIEL:127,checkbox,No,no,PIH:DIAGNOSIS,CIEL:127,,PIH:Visit Diagnoses
+Menstruation,Coded,Dysmenorrhea,checkbox,No,no,PIH:DIAGNOSIS,CIEL:127,,PIH:Visit Diagnoses
 Duration Menst Cycle,Coded,N/A,radio,No,no,CIEL:160597,,,
 Duration Menses,Coded,N/A,radio,No,no,CIEL:163732,,,
 Age Menarche,Coded,N/A,radio,No,no,CIEL:160598,,,
@@ -50,15 +50,15 @@ Gynecology Initial,Text,N/A,textarea,No,no,CIEL:160221,,,
 PIH:13229,Coded,Normal | GenCandid | Condyloma | CervDyspl | BadSmell,checkbox,No,no,PIH:13229,CIEL:1115|CIEL:146512|CIEL:120147|CIEL:118784|CIEL:165162,PIH:13229,
 PIH:13229,Coded,cervicitis,checkbox,No,no,PIH:13229,CIEL:116995,PIH:13229,
 PIH:13229,Coded,Bartholini | GenUlcer,checkbox,No,no,PIH:13229,CIEL:147967|CIEL:864,PIH:13229,
-Gynecology exam title,Coded,CIEL:5622,checkbox,No,no,PIH:13229,CIEL:5622,,
-Via long,Coded,CIEL:1115 | CIEL:164808 | CIEL:116031,radio,No,no,CIEL:162816,CIEL:1115|CIEL:164808|CIEL:116031,,
+Gynecology exam title,Coded,Other,checkbox,No,no,PIH:13229,CIEL:5622,,
+Via long,Coded,Normal | Pre-cancerous dysplasia | Neoplasm/cancer,radio,No,no,CIEL:162816,CIEL:1115|CIEL:164808|CIEL:116031,,
 Via long,Coded,N/A,radio,No,no,CIEL:1937,,,CIEL:1938
-Via long,Coded,CIEL:162812,checkbox,No,no,CIEL:1651,CIEL:162812,,CIEL:1938
+Via long,Coded,Cryotherapy of lesion of cervix,checkbox,No,no,CIEL:1651,CIEL:162812,,CIEL:1938
 Via long,Coded,pihcore.papTestPerformed,checkbox,No,no,CIEL:163952,CIEL:1267,,
 Sti Suspected,Coded,Yes | No,radio,No,CIEL:1065 → show #sti-list,CIEL:161558,CIEL:1065|CIEL:1066,,
 PIH:14365,Coded,Chlamydia | Gonorrhea | Genital herpes | hepB | HPV | Trichomoniasis | Bacterial vaginosis (BV),checkbox,No,no,PIH:14365,CIEL:120733|CIEL:117767|CIEL:117829|CIEL:111759|CIEL:1213|CIEL:117146|CIEL:148002,PIH:14365,
 Comment,Coded,N/A,radio,No,no,PIH:13231,,,
-Tannerstage,Coded,CIEL:160771 | CIEL:160774 | CIEL:160778 | CIEL:160782 | PIH:11931,radio,No,no,PIH:5310,CIEL:160771|CIEL:160774|CIEL:160778|CIEL:160782|PIH:11931,,
+Tannerstage,Coded,Stage I | Stage II | Stage III | Stage IV | Stage V,radio,No,no,PIH:5310,CIEL:160771|CIEL:160774|CIEL:160778|CIEL:160782|PIH:11931,,
 Subform: prior-procedure-widget.xml,Other,Subform — configuration/pih/subforms/prior-procedure-widget.xml,subform,No,no,,,,
 Zl if Other Specify,Coded,N/A,radio,No,no,CIEL:165264,,,
 Other procedure planned,Text,N/A,text,No,no,PIH:10772,,,
@@ -66,5 +66,5 @@ Diagnoses (encounterDiagnosesByObs),Other,Pick diagnoses,diagnoses widget,No,no,
 Subform: rapid-tests-widget.xml,Other,Subform — configuration/pih/subforms/rapid-tests-widget.xml,subform,No,no,,,,
 Subform: drug-order-widget.xml,Other,Subform — configuration/pih/subforms/drug-order-widget.xml,subform,No,no,,,,
 Next appointment date,Date,N/A,date,No,no,PIH:RETURN VISIT DATE,,,
-Followup clinic:,Coded,PIH:7831 | PIH:FAMILY PLANNING SERVICES | PIH:MENTAL HEALTH SERVICES | CIEL:5622,radio,No,no,CIEL:1272,PIH:7831|PIH:FAMILY PLANNING SERVICES|PIH:MENTAL HEALTH SERVICES|CIEL:5622,,
+Followup clinic:,Coded,Obstetrics/Gynecology | Family planning services | Mental health | Other,radio,No,no,CIEL:1272,PIH:7831|PIH:FAMILY PLANNING SERVICES|PIH:MENTAL HEALTH SERVICES|CIEL:5622,,
 Disposition,Other,Disposition widget,disposition widget,Yes,no,,,,
