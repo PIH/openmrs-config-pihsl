@@ -5,14 +5,14 @@ PIH:DIAGNOSIS,Coded,Cirrhosis due to Hepatitis B | Cirrhosis due to Hepatitis C 
 ,Coded,CIEL:168289,radio,No,no,,CIEL:168289,,PIH:14875
 ,Coded,CIEL:460 | CIEL:139582 | CIEL:120345 | CIEL:879,radio,No,no,,CIEL:460|CIEL:139582|CIEL:120345|CIEL:879,,PIH:14875
 ,Coded,CIEL:159449,radio,No,no,,CIEL:159449,,PIH:14875
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Missed doses in past week,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Clinical indicators,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:15164,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Patient condition improved,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+On prophylaxis for esophageal varices,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:15164,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
 Liver disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,PIH:11508 → show #liver-fui-uncontrolled,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Clinical indicators,PIH:14827
 Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Clinical indicators,PIH:14827
 Indication for Hepatitis B treatment,Coded,Yes | No,radio,Yes,PIH:YES → show #new-hepb-reason,PIH:14889,PIH:YES|PIH:NO,Clinical indicators,PIH:14827

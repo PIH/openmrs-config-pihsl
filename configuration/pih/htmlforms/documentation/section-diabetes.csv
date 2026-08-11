@@ -4,22 +4,22 @@ PIH:DIAGNOSIS,Coded,Type 1 Dm | Type 2 Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474
 PIH:14485,Coded,CIEL:142452 | CIEL:118983 | CIEL:142429 | CIEL:119270 | CIEL:111103 | CIEL:145438 | CIEL:120860 | CIEL:150807 | PIH:14706 | CIEL:1107,checkbox,No,no,PIH:14485,CIEL:142452|CIEL:118983|CIEL:142429|CIEL:119270|CIEL:111103|CIEL:145438|CIEL:120860|CIEL:150807|PIH:14706|CIEL:1107,PIH:14485,
 "if other complications, specify",Coded,N/A,radio,No,no,PIH:14711,,,
 Complications at injection site,Coded,PIH:14705 | CIEL:137300 | CIEL:156567 | CIEL:5622,checkbox,No,no,PIH:14706,PIH:14705|CIEL:137300|CIEL:156567|CIEL:5622,Complications at injection site,
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:1898,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:6756,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167957,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:164075,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167819,PIH:YES|PIH:NO,,PIH:14469
+Patient condition improved,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:1898,PIH:YES|PIH:NO,,PIH:14469
+On insulin,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:6756,PIH:YES|PIH:NO,,PIH:14469
+Severe hypoglycemia in last month,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167957,PIH:YES|PIH:NO,,PIH:14469
+Overall treatment adherence,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:164075,PIH:YES|PIH:NO,,PIH:14469
+Missed doses in past week,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167819,PIH:YES|PIH:NO,,PIH:14469
 # of hypoglycemic episodes in past 30 days,Coded,N/A,radio,No,no,PIH:14708,,Treatment indicators,PIH:14469
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Treatment indicators,PIH:14469
 Indications for ACE inhibitors,Coded,Yes | No,radio,No,PIH:YES → show #dm-on-ace-details,CIEL:168000,PIH:YES|PIH:NO,Treatment indicators,PIH:14469
 On ACE inhibitors,Coded,Yes | No,radio,No,PIH:NO → show #dm-not-ace-details,CIEL:167998,PIH:YES|PIH:NO,Treatment indicators,PIH:14469
 Reason not on ACE inhibitors,Text,N/A,text,No,no,PIH:20002,,Treatment indicators,PIH:14469
-{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
-{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
-{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167956,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167919,PIH:YES|PIH:NO,,PIH:14469
-{question Name},Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:14709,PIH:YES|PIH:NO,,PIH:14469
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+Ability to titrate insulin,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #dm-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14469
+Glucometer (home),Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167956,PIH:YES|PIH:NO,,PIH:14469
+Ability to read and manage glucometer,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,CIEL:167919,PIH:YES|PIH:NO,,PIH:14469
+Patient adjusted insulin based on glucometer,Coded,Yes | No,radio,No,PIH:YES → show #dm-{q}-details,PIH:14709,PIH:YES|PIH:NO,,PIH:14469
 Disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,no,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Treatment indicators,PIH:14469
 DKA indicates hospitalization,Coded,Yes | No | Unknown,radio,No,no,PIH:20001,CIEL:1065|CIEL:1066|CIEL:1067,Treatment indicators,PIH:14469
 Fundoscopy performed,Coded,Yes | PIH:NOT DONE,radio,No,CIEL:1267 → show #fundy-results,CIEL:167916,CIEL:1267|PIH:NOT DONE,,

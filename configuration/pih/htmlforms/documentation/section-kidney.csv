@@ -7,19 +7,19 @@ Nephrotic syndrome likely related with:,Coded,CIEL:115745 | PIH:14767,checkbox,N
 Nephrotic syndrome likely related with:,Coded,pihcore.other,checkbox,No,no,PIH:14766,CIEL:5622,,
 Chronic renal failure secondary to:,Coded,CIEL:120575 | CIEL:120574 | CIEL:120579 | CIEL:120578 | CIEL:120577,radio,No,no,CIEL:165570,CIEL:120575|CIEL:120574|CIEL:120579|CIEL:120578|CIEL:120577,,
 ,Coded,CIEL:460 | CIEL:121629 | CIEL:117441,radio,No,no,,CIEL:460|CIEL:121629|CIEL:117441,,PIH:14732
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14716,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Hypertension controlled,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14716,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Missed doses in past week,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Clinical indicators,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14718,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:128340,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Stable creatinine level,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14718,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Proteinuria,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:128340,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Patient condition improved,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
 CKD/nephrotic syndrome control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,PIH:11508 → show #ckd-fui-uncontrolled,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Clinical indicators,PIH:14717
 Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Clinical indicators,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14721,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14719,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14720,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Glomerulonephritis/nephrotic syndrome relapse,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14721,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+Dialysis referral,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14719,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
+On dialysis,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #ckd-fui-{tog}-details,PIH:14720,PIH:YES|PIH:NO|CIEL:1067,,PIH:14717
 Remarks,Coded,N/A,radio,No,no,PIH:14813,,,
