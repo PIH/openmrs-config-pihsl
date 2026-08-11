@@ -12,15 +12,15 @@ Transfusion In12mo,Coded,N/A,radio,No,no,PIH:13748,,,PIH:15162
 Transfusion In12mo,Coded,N/A,radio,No,no,CIEL:163268,,,PIH:15162
 On Treatment,Coded,Yes | No,radio,Yes,CIEL:1065 → show #sickle-treatment,PIH:21462,CIEL:1065|CIEL:1066,,
 PIH:14857,Coded,CIEL:76613 | CIEL:81724,checkbox,No,no,PIH:14857,CIEL:76613|CIEL:81724,PIH:14857,
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:159610,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167022,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Malaria Prophylaxis,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:159610,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Understands Treatment,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Ability To Titrate,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Overall Treatment Adherence,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Missing Doses Per Week,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Aware Understands Disease,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Family Awareness Disease,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #scd-fui-{tog}-details,CIEL:167022,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
 Num Missing Doses Per Week,Coded,N/A,radio,No,no,CIEL:167918,,On Treatment,PIH:14826
-{question Name},Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
+Patient Condition Improved,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,PIH:YES → show #{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14826
 Sickle Cell Disease Control,Coded,Pihcore.Controlled | Pihcore.Uncontrolled | Pihcore.Complications,radio,Yes,PIH:11508 → show #sc-fui-uncontrolled,PIH:11506,PIH:11507|PIH:11508|PIH:11509,On Treatment,PIH:14826
 Send For Admission,Coded,Pihcore.Yes | Pihcore.No | Pihcore.Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,On Treatment,PIH:14826
 Indications For Hydroxyurea,Coded,Pihcore.Yes | Pihcore.No,radio,Yes,PIH:YES → show #scd-hydroxy-details,PIH:14869,PIH:YES|PIH:NO,Indications For Hydroxyurea,PIH:14872

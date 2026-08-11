@@ -18,22 +18,22 @@ Congenital heart disease,Coded,CIEL:148196 | CIEL:123240 | CIEL:130715 | CIEL:14
 ,Coded,CIEL:122496 | CIEL:131689 | CIEL:130783,radio,No,no,,CIEL:122496|CIEL:131689|CIEL:130783,,PIH:14733
 ,Coded,CIEL:127640 | CIEL:130166 | CIEL:136394,radio,No,no,,CIEL:127640|CIEL:130166|CIEL:136394,,PIH:14733
 Hf vol status,Coded,CIEL:159575 | CIEL:117315 | CIEL:138099,radio,No,no,CIEL:159574,CIEL:159575|CIEL:117315|CIEL:138099,Clinical indicators,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:168115,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Low salt adherence diet,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:168115,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Missed doses in past week,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Clinical indicators,PIH:14724
 On ACE inhibitors,Coded,Yes | No,radio,No,no,PIH:14531,CIEL:1065|CIEL:1066,,PIH:14724
 On beta-blockers,Coded,Yes | No,radio,No,no,PIH:14723,CIEL:1065|CIEL:1066,,PIH:14724
 On spironolactone,Coded,Yes | No,radio,No,no,PIH:14811,CIEL:1065|CIEL:1066,,PIH:14724
-{question Name},Coded,Yes | No | Unknown | Not Indicated,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14739,PIH:YES|PIH:NO|PIH:UNKNOWN|PIH:NOT INDICATED,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Endocarditis prevention therapy,Coded,Yes | No | Unknown | Not Indicated,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14739,PIH:YES|PIH:NO|PIH:UNKNOWN|PIH:NOT INDICATED,,PIH:14724
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
 Disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,PIH:11508 → show #hf-uncontrolled-admit,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Clinical indicators,PIH:14724
 Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Clinical indicators,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14738,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
-{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14740,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Patient condition improved,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Refer for surgery evaluation,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14738,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
+Echocardiogram improvement,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #hf-fui-{tog}-details,PIH:14740,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14724
 "For rheumatic heart disease, on secondary antibiotic prophylaxis",Coded,Yes | No,radio,No,no,PIH:15168,CIEL:1065|CIEL:1066,Clinical indicators,PIH:14724
 Hf nyha Classification,Coded,I (No Limitations) | Ii (Comfortable With Moderate Exercise) | Iii (Comfortable Resting) | Iv (Not Comfortable Resting),radio,Yes,no,PIH:NYHA CLASS,PIH:NYHA CLASS 1|PIH:NYHA CLASS 2|PIH:NYHA CLASS 3|PIH:NYHA CLASS 4,,
 PIH:Fulfillment status,Coded,Yes | No,radio,No,CIEL:1267 → show #cardio-ref-details,PIH:Fulfillment status,CIEL:1267|CIEL:160068,Cardiology referral,PIH:6329
