@@ -1,5 +1,25 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Liver diagnosis selection,Coded,Acute Hep B | Chronic Hep B | Chronic Hep C,checkbox,No,Only for intake,PIH:DIAGNOSIS,CIEL:121812|CIEL:120557|CIEL:145347,Visit Diagnoses,PIH:Visit Diagnoses
-Hepatocarcinoma options,Coded,HBV | HCV | Unknown,checkbox,No,no,PIH:DIAGNOSIS,CIEL:168297|CIEL:168298|PIH:14911,Visit Diagnoses,PIH:Visit Diagnoses
-Cirrhosis secondary causes,Coded,See options,checkbox,No,no,PIH:DIAGNOSIS,CIEL:...,,
-Liver-specific notes,Text,N/A,textarea,No,no,CIEL:161011,,,
+PIH:DIAGNOSIS,Coded,Acute Hepatitis B | Chronic Hepatitis B | Chronic Hepatitis C,checkbox,No,no,PIH:DIAGNOSIS,CIEL:121812|CIEL:120557|CIEL:145347,PIH:DIAGNOSIS,PIH:Visit Diagnoses
+PIH:DIAGNOSIS,Coded,Hepatocarcinoma due to Hepatitis B | Hepatocarcinoma due to Hepatitis C | Hepatocarcinoma due to unknown cause,checkbox,No,no,PIH:DIAGNOSIS,CIEL:168297|CIEL:168298|PIH:14911,PIH:DIAGNOSIS,PIH:Visit Diagnoses
+PIH:DIAGNOSIS,Coded,Cirrhosis due to Hepatitis B | Cirrhosis due to Hepatitis C | Alcoholic cirrhosis | Fibrosis secondary to Schistosoma | Non-alcoholic steatohepatitis | Cardiac cirrhosis | Unknown,checkbox,No,no,PIH:DIAGNOSIS,CIEL:168300|CIEL:168301|CIEL:149157|PIH:15156|PIH:14910|CIEL:146184|CIEL:143118,PIH:DIAGNOSIS,PIH:Visit Diagnoses
+,Coded,CIEL:168289,radio,No,no,,CIEL:168289,,PIH:14875
+,Coded,CIEL:460 | CIEL:139582 | CIEL:120345 | CIEL:879,radio,No,no,,CIEL:460|CIEL:139582|CIEL:120345|CIEL:879,,PIH:14875
+,Coded,CIEL:159449,radio,No,no,,CIEL:159449,,PIH:14875
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+# of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Clinical indicators,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+{question Name},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #liver-{tog}-details,PIH:15164,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14827
+Liver disease control,Coded,Controlled | Uncontrolled | Complications,radio,Yes,PIH:11508 → show #liver-fui-uncontrolled,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Clinical indicators,PIH:14827
+Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Clinical indicators,PIH:14827
+Indication for Hepatitis B treatment,Coded,Yes | No,radio,Yes,PIH:YES → show #new-hepb-reason,PIH:14889,PIH:YES|PIH:NO,Clinical indicators,PIH:14827
+Clinical indicators,Coded,PIH:20018 | CIEL:168583 | PIH:20019,checkbox,No,no,PIH:14914,PIH:20018|CIEL:168583|PIH:20019,Clinical indicators,PIH:14827
+Clinical indicators,Coded,PIH:20020 | PIH:20016,checkbox,No,no,PIH:14914,PIH:20020|PIH:20016,Clinical indicators,PIH:14827
+Awareness and treatment,Coded,Yes | No | Not Applicable,radio,Yes,CIEL:1065 → show #hepB-details,PIH:14889,CIEL:1065|CIEL:1066|CIEL:1175,,PIH:14890
+PIH:14888,Coded,Tenofovir | Entecavir,checkbox,No,no,PIH:14888,CIEL:84795|CIEL:75694,PIH:14888,PIH:14890
+Secondary effects,Coded,Yes | No | Not Applicable,radio,No,no,CIEL:162871,CIEL:1065|CIEL:1066|CIEL:1175,,PIH:14890
+Missed doses in the last week,Coded,Yes | No | Not Applicable,radio,No,no,CIEL:167819,CIEL:1065|CIEL:1066|CIEL:1175,,PIH:14890
+Response to treatment (after 1 year),Coded,Complete (Undetectable Vl) | Partial (Decrease But Persistent) | No Response | Lab Not Done,radio,No,no,PIH:14892,CIEL:1775|CIEL:162677|PIH:2416|CIEL:1118,,PIH:14890

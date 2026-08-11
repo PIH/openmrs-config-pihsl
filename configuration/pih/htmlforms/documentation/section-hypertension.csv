@@ -1,5 +1,14 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Type of hypertension,Coded,Essential | Secondary,radio,No,Only for intake,PIH:11940,CIEL:140987|CIEL:113087,,
-HTN stage (categorization),Coded,Pre-HTN | 1 (Mild) | 2 (Moderate),radio,No,no,CIEL:165583,CIEL:165206|CIEL:165203|CIEL:165204,,
-Associated systolic/diastolic ranges,Info,Rendered labels,info,No,no,,,,
-Target BP and plan,Text/N/A,textarea,No,no,CIEL:...,,,,
+Type of hypertension,Coded,Essential | Secondary,radio,No,no,PIH:11940,CIEL:140987|CIEL:113087,,
+Stage label,Coded,Pre-Htn | 1 (Mild) | 2 (Moderate),radio,No,no,CIEL:165583,CIEL:165206|CIEL:165203|CIEL:165204,,
+Hypertension summary,Coded,N/A,radio,No,no,PIH:11971,,,
+PIH:14456,Coded,CIEL:111103 | CIEL:145438 | CIEL:139069 | CIEL:5622,checkbox,No,no,PIH:14456,CIEL:111103|CIEL:145438|CIEL:139069|CIEL:5622,PIH:14456,
+"if other, specify",Coded,N/A,radio,No,no,PIH:14457,,,
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
+{x Id},Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
+# of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Self management and awareness,PIH:14462
+{x Id},Coded,Yes | No | Unknown,radio,Yes,PIH:YES → show #htn-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
+Disease control,Coded,Controlled | Uncontrolled | Complications,radio,No,no,PIH:11506,PIH:11507|PIH:11508|PIH:11509,Self management and awareness,PIH:14462
+Dangerous BP indicates hospitalization,Coded,Yes | No | Unknown,radio,No,no,PIH:20003,CIEL:1065|CIEL:1066|CIEL:1067,Self management and awareness,PIH:14462
