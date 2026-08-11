@@ -50,3 +50,4 @@ Configuration files live under `configuration/`, split into two subdirectories:
 | `var.providerGroup.*` | Comma-separated provider-role UUID lists used by app-framework privilege rules — pre-resolved from the parent's `providerRole.*` constants |
 | `var.globalProperties.labworkflowowa.labResultsEncounterTypes` | Comma-separated encounter-type UUID list for the lab workflow OWA global property — pre-resolved from the parent's `encounterType.*` constants |
 | `var.program.*`, `var.programWorkflow.*` | Program/program-workflow UUIDs — defined in the parent `pihemr-content`, duplicated here because this repo's configuration references them |
+| `var.privilege.app_coreapps_patient_dashboard`, `var.privilege.app_coreapps_summary_dashboard` | Privilege names used by `appframework/*.json` dashboard extensions — defined in the parent `pihemr-content`, duplicated here for the same reason |
