@@ -6,7 +6,7 @@ Education level,Coded,Primary School | Secondary School | Tertiary School | No E
 Literacy level,Coded,Able To Read And Write | Cannot Read And Write,radio,No,no,CIEL:166855,CIEL:1065|CIEL:1066,,
 Missed school,Coded,Yes | No,radio,No,CIEL:1065 → show #days-missed-a,PIH:5629,CIEL:1065|CIEL:1066,,
 Days of lost schooling (related diseases),Coded,N/A,radio,No,no,PIH:14446,,,
-Employment status,Coded,PIH:14833 | CIEL:161382 | PIH:UNEMPLOYED | CIEL:166624,radio,No,no,PIH:3395,PIH:14833|CIEL:161382|PIH:UNEMPLOYED|CIEL:166624,,
+Employment status,Coded,Employed | Self employed | Unemployed | Leave of absence,radio,No,no,PIH:3395,PIH:14833|CIEL:161382|PIH:UNEMPLOYED|CIEL:166624,,
 Distance to clinic,Coded,N/A,radio,No,no,PIH:20862,,,PIH:12736
 Average travel time,Coded,N/A,radio,No,no,CIEL:159471,,,PIH:12736
 CIEL:1732,Coded,N/A,radio,No,no,CIEL:1732,,,PIH:12736
@@ -17,9 +17,9 @@ Social support,Coded,Yes | No,radio,No,CIEL:1065 → show #specify-support,CIEL:
 "if yes, specify support:",Coded,Food,radio,No,no,PIH:2156,PIH:1400,,
 "if yes, specify support:",Coded,School,radio,No,no,PIH:2156,PIH:2863,,
 "if yes, specify support:",Coded,Other,radio,No,no,PIH:2156,CIEL:5622,,
-PIH:Type of referring service,Coded,PIH:2233 | PIH:12368 | CIEL:160543 | CIEL:978 | PIH:14445 | CIEL:5485,checkbox,No,no,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485,PIH:Type of referring service,
-Referred from,Coded,PIH:OTHER,checkbox,No,no,PIH:Type of referring service,PIH:OTHER,,
-Category instructions,Coded,PIH:DIABETES | PIH:HYPERTENSION | PIH:HEART FAILURE | PIH:Chronic respiratory disease program | CIEL:145438 | PIH:3714 | CIEL:160849 | PIH:Sickle-Cell Anemia | CIEL:5622,checkbox,No,no,PIH:NCD category,PIH:DIABETES|PIH:HYPERTENSION|PIH:HEART FAILURE|PIH:Chronic respiratory disease program|CIEL:145438|PIH:3714|CIEL:160849|PIH:Sickle-Cell Anemia|CIEL:5622,Category instructions,PIH:15001
+PIH:Type of referring service,Coded,Primary care clinic | Peripheral Health Unit | Community-based organization | Self-refer | Screening program | Hospitalized,checkbox,No,no,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485,PIH:Type of referring service,
+Referred from,Coded,Other,checkbox,No,no,PIH:Type of referring service,PIH:OTHER,,
+Category instructions,Coded,Diabetes | Hypertension | Heart failure | Chronic respiratory disease program | Chronic kidney disease | Cirrhosis of liver | Palliative treatment | Sickle cell disease | Other,checkbox,No,no,PIH:NCD category,PIH:DIABETES|PIH:HYPERTENSION|PIH:HEART FAILURE|PIH:Chronic respiratory disease program|CIEL:145438|PIH:3714|CIEL:160849|PIH:Sickle-Cell Anemia|CIEL:5622,Category instructions,PIH:15001
 CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
 CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
 CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
@@ -35,7 +35,7 @@ Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5085,,,
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5086,,,
 MUAC,Coded,Red | Yellow | Green,radio,No,no,CIEL:160908,CIEL:127778|CIEL:160910|CIEL:160909,,
 BMI results,Coded,Underweight (Bmi Under 18.5) | Normal (Bmi 18.5 - 24.9) | Overweight (Bmi 25.0 - 29.9) | Moderate Obese (Bmi 30.0 - 34.9) | Severe Obese (Bmi 35.0 - 39.9),radio,No,no,CIEL:167092,CIEL:123814|CIEL:167090|CIEL:114413|CIEL:115115|CIEL:133952,,
-Obesity,Coded,CIEL:115115,radio,No,no,,CIEL:115115,BMI results,PIH:1292
+Obesity,Coded,Obesity,radio,No,no,,CIEL:115115,BMI results,PIH:1292
 Alcohol,Coded,Yes | No | Unknown,radio,No,no,CIEL:159449,PIH:YES|PIH:NO|PIH:UNKNOWN,,
 Smoking,Coded,Yes | No | Unknown,radio,No,no,CIEL:163731,PIH:YES|PIH:NO|PIH:UNKNOWN,,
 Indoor cooking,Coded,Yes | No | Unknown,radio,No,no,CIEL:159365,PIH:YES|PIH:NO|PIH:UNKNOWN,,
@@ -49,9 +49,9 @@ On NSAIDs,Coded,Yes | No | Unknown,radio,No,no,PIH:14712,PIH:YES|PIH:NO|PIH:UNKN
 On Nephrotoxic drugs,Coded,Yes | No | Unknown,radio,No,no,PIH:14713,PIH:YES|PIH:NO|PIH:UNKNOWN,,
 Family history of cardiac disease,Coded,Yes | No | Unknown,radio,No,no,CIEL:140231,PIH:YES|PIH:NO|PIH:UNKNOWN,,
 Pregnancy,Coded,Yes | No | Unknown,radio,No,no,CIEL:5272,PIH:YES|PIH:NO|PIH:UNKNOWN,,
-Risk factors for liver cirrhosis,Coded,CIEL:159449 | CIEL:5841 | CIEL:115115 | CIEL:160666,checkbox,No,no,PIH:14873,CIEL:159449|CIEL:5841|CIEL:115115|CIEL:160666,Risk factors for liver cirrhosis,
+Risk factors for liver cirrhosis,Coded,History of alcohol use | Herbal traditional medications | Obesity | Current drug user,checkbox,No,no,PIH:14873,CIEL:159449|CIEL:5841|CIEL:115115|CIEL:160666,Risk factors for liver cirrhosis,
 Risk factors for liver cirrhosis,Coded,Others,checkbox,No,no,PIH:14873,CIEL:5622,,
-Risk factors for Hepatitis B,Coded,CIEL:168292 | CIEL:168293 | CIEL:168294 | CIEL:1063 | PIH:14920 | Unknown | CIEL:1107,checkbox,No,no,PIH:14874,CIEL:168292|CIEL:168293|CIEL:168294|CIEL:1063|PIH:14920|CIEL:1067|CIEL:1107,Risk factors for Hepatitis B,
+Risk factors for Hepatitis B,Coded,Maternal infection | Sibling infection | Partner infected | Blood transfusion | Traditional ceremony | Unknown | None,checkbox,No,no,PIH:14874,CIEL:168292|CIEL:168293|CIEL:168294|CIEL:1063|PIH:14920|CIEL:1067|CIEL:1107,Risk factors for Hepatitis B,
 Other risk factors,Coded,N/A,radio,No,no,PIH:12999,,,
 HIV,Coded,Positive | Negative | Unknown,radio,No,no,CIEL:1169,CIEL:703|CIEL:664|CIEL:1067,,
 NCD Patient Card,Coded,Yes | No | Unknown,radio,No,CIEL:1065 → show #comorbitity-details,CIEL:166020,CIEL:1065|CIEL:1066|CIEL:1067,,

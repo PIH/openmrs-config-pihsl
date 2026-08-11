@@ -2,7 +2,7 @@ Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for 
 Type of hypertension,Coded,Essential | Secondary,radio,No,no,PIH:11940,CIEL:140987|CIEL:113087,,
 Stage label,Coded,Pre-Htn | 1 (Mild) | 2 (Moderate),radio,No,no,CIEL:165583,CIEL:165206|CIEL:165203|CIEL:165204,,
 Hypertension summary,Coded,N/A,radio,No,no,PIH:11971,,,
-PIH:14456,Coded,CIEL:111103 | CIEL:145438 | CIEL:139069 | CIEL:5622,checkbox,No,no,PIH:14456,CIEL:111103|CIEL:145438|CIEL:139069|CIEL:5622,PIH:14456,
+PIH:14456,Coded,Cerebrovascular accident | Chronic kidney disease | Heart failure | Other,checkbox,No,no,PIH:14456,CIEL:111103|CIEL:145438|CIEL:139069|CIEL:5622,PIH:14456,
 "if other, specify",Coded,N/A,radio,No,no,PIH:14457,,,
 Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
 Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #htn-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14462
