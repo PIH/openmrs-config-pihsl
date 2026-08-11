@@ -10,7 +10,7 @@ Increased inhaler use,Coded,Yes | No | Unknown,radio,No,no,PIH:14622,CIEL:1065|C
 Wheeze during exam,Coded,Yes | No | Unknown,radio,No,no,PIH:14623,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620
 Activity limitation,Coded,Yes | No | Unknown,radio,No,no,PIH:11925,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620
 Night waking due to dyspnea,Coded,Yes | No | Unknown,radio,No,no,PIH:14626,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620
-COPD exacerbation,Coded,Yes | No | Unknown,radio,No,CIEL:1065 → show #details-exar-copd,CIEL:166093,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
+COPD exacerbation,Coded,Yes | No | Unknown,radio,No,Yes → show #details-exar-copd,CIEL:166093,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
 Number of COPD exacerbations since last visit,Coded,N/A,radio,No,no,CIEL:167821,,COPD evaluation,PIH:14620
 "If exacerbation, hospitalization needed?",Coded,Yes | No | Unknown,radio,No,no,PIH:14626,CIEL:1065|CIEL:1066|CIEL:1067,COPD evaluation,PIH:14620
 Exacerbations (more than or equal to 1),Coded,Yes | No,radio,No,no,PIH:14618,PIH:YES|PIH:NO,,PIH:14587
@@ -22,13 +22,13 @@ Triggers cause exacerbation of asthma,Coded,Yes | No,radio,No,no,PIH:14619,PIH:Y
 Asthma severity,Coded,Mild | Moderate | Severe,radio,No,no,PIH:7405,CIEL:1498|CIEL:1499|CIEL:1500,,
 Inhaler Ed,Coded,Yes | No | Unknown,radio,No,no,PIH:7399,PIH:YES|PIH:NO|CIEL:1067,,
 Good inhaler technique,Coded,Yes | No | Unknown,radio,No,no,PIH:7397,PIH:YES|PIH:NO|CIEL:1067,,
-Understands treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Missed doses in past week,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Patient condition improved,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-dc-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Lung decompensation,Coded,Yes | No | Unknown,radio,No,PIH:YES → show #lung-dc-fui-{tog}-details,PIH:20008,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Understands treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Missed doses in past week,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Patient condition improved,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Lung decompensation,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-{tog}-details,PIH:20008,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
 Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Chronic lung disease followup indicators,PIH:14812
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Chronic lung disease followup indicators,PIH:14812
 Date,Coded,N/A,radio,No,no,CIEL:163724,,Spirometry,PIH:14610

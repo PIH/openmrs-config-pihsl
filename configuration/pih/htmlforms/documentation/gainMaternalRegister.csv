@@ -34,5 +34,5 @@ Accepted and received a family planning before discharge,Coded,Yes | No,radio,No
 Encounter Date,Date,N/A,date/time,Yes,no,encounterDate,,,
 Disposition,Other,Disposition widget,disposition widget,Yes,no,,,,
 HCW Name,Coded,N/A,radio,No,no,PIH:6592,,,CIEL:163391
-HCW Cadre:,Coded,N/A,radio,No,CIEL:5622 → show #other-role,CIEL:1573,,,CIEL:163391
+HCW Cadre:,Coded,N/A,radio,No,Other → show #other-role,CIEL:1573,,,CIEL:163391
 Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14415,,,CIEL:163391

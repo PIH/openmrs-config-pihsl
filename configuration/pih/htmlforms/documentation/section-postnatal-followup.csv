@@ -21,7 +21,7 @@ Subform: drug-order-widget.xml,Other,Subform — configuration/pih/subforms/drug
 Received LLIN (Long-lasting insecticide net),Coded,Yes | No,radio,No,no,CIEL:159855,CIEL:1065|CIEL:1066,,
 Albendazole (deworming),Coded,Yes | No,radio,No,no,CIEL:159922,CIEL:1065|CIEL:1066,,
 Family planning counselling,Coded,Yes | No,radio,No,no,CIEL:1382,CIEL:1065|CIEL:1066,,
-Accepts and receives family planning,Coded,Yes | No,radio,No,CIEL:1065 → show #family-method,CIEL:166421,CIEL:1065|CIEL:1066,,
+Accepts and receives family planning,Coded,Yes | No,radio,No,Yes → show #family-method,CIEL:166421,CIEL:1065|CIEL:1066,,
 Fp Method,Coded,Combined oral contraceptive pills | Norethindrone | Natural family planning | Condoms | Medroxyprogesterone acetate (Depo-provera) | Sayana press | Intra uterine device (IUD) | Jadelle (implantable contraceptive) | Tubal ligation | Lactational amenorrhea,checkbox,No,no,CIEL:374,CIEL:159783|CIEL:80784|CIEL:5277|CIEL:190|CIEL:907|PIH:21450|CIEL:5275|CIEL:1873|CIEL:1472|CIEL:136163,Fp Method,PIH:Family planning construct
 Date Implant,Coded,N/A,radio,No,no,PIH:3203,,,
 Counselled for HIV testing,Coded,Yes | No | Unknown,radio,No,no,PIH:11381,CIEL:1065|CIEL:1066|CIEL:1067,,

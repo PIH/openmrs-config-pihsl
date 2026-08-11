@@ -13,7 +13,7 @@ Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14679,,,
 PIH:GENERAL EXAM FINDINGS,Coded,Normal | Oedema | Jaundice | Pallor,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,CIEL:1115|CIEL:460|CIEL:136443|CIEL:5245,PIH:GENERAL EXAM FINDINGS,
 Other Non-Coded,Coded,Other,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,PIH:OTHER NON-CODED,,
 Comment,Coded,N/A,radio,No,no,CIEL:163042,,,
-Previous abdominal scar,Coded,Yes | No,radio,No,CIEL:1065 → show #ab-scar-details,CIEL:166893,CIEL:1065|CIEL:1066,,
+Previous abdominal scar,Coded,Yes | No,radio,No,Yes → show #ab-scar-details,CIEL:166893,CIEL:1065|CIEL:1066,,
 Symp Fundal Ht,Coded,N/A,radio,No,no,CIEL:1439,,,
 Symp Fundal Ht,Coded,twins or triplets,checkbox,No,no,PIH:DIAGNOSIS,CIEL:115491,,PIH:Visit Diagnoses
 Number of foetuses,Coded,N/A,radio,No,no,PIH:21404,,,
