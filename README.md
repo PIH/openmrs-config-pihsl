@@ -1,53 +1,98 @@
-openmrs-config-pihsl
-==============================
+# PIH Sierra Leone EMR Distribution
 
-### Prerequistes
+This repository defines the OpenMRS distribution for PIH Sierra Leone. It packages together the [PIH EMR](https://github.com/PIH/openmrs-distro-pihemr) parent distribution,
+Sierra Leone-specific content, and the PIH EMR frontend into a single deployable artifact.
+For more background on OpenMRS distributions, see the [OpenMRS wiki](https://wiki.openmrs.org/display/docs/OpenMRS+Distributions).
 
-Some utility scripts, "install.sh" and "watch.sh", have been written to ease having to manually run mvn install
-and watch commands on both this project and the "openmrs-config-pihemr" project.
+## Repository Structure
 
-However, these scripts depend on finding your "openmrs-config-pihemr" relative to this project, so they should both be 
-checked out into the same directory, and the "openmrs-config-pihemr" directory should be named "openmrs-config-pihemr"
-or "config-pihemr".
+| Directory | Description |
+|---|---|
+| [`content/`](content/README.md) | Sierra Leone-specific OpenMRS content package (Initializer configuration files) |
+| [`distro/`](distro/README.md) | Distribution definition — resolves all component versions into `openmrs-distro.properties` |
 
-Example directory structure:
+## Components
 
-openmrs-config-pihemr
-openmrs-config-pihsl
+| Component | Artifact |
+|---|---|
+| PIH EMR parent distro | `org.openmrs.distro:pihemr` |
+| PIH EMR shared content | `org.pih.openmrs:pihemr-content` |
+| Sierra Leone content | `org.pih.openmrs:pihsl-content` |
+| PIH EMR frontend | `org.pih.openmrs:openmrs-frontend-pihemr` |
 
-or
+Component versions are defined in `distro/pom.xml` and resolved into `distro/openmrs-distro.properties` at build time.
 
-config-pihemr
-config-pihsl
+## Supported Configuration Profiles
 
-### Steps to deploy new changes to your local development server
+| Site | PIH Config |
+|---|---|
+| `kgh` | `sierraLeone,sierraLeone-kgh` |
+| `wellbody` | `sierraLeone,sierraLeone-wellbody` |
+| `kgh-test` | `sierraLeone,sierraLeone-kgh,sierraLeone-kgh-test` |
+| `gladi` | `sierraLeone,sierraLeone-wellbody,sierraLeone-wellbody-gladi` |
 
-Run "./install.sh [serverId]" where [serverId] is the name of the SDK server you are deploying to.  This will first build 
-the config-pihemr project, then build the config-pihsl project, (pulling in any changes to config-pihemr),
-and finally deploying the changes to the server specified by [serverId].
+## Developer Guide
 
-#### To enable watching, you run the following:
+Local development runs through the shared
+[`openmrs-contrib-distro-tools`](https://github.com/PIH/openmrs-contrib-distro-tools) CLI
+(`openmrs-docker`/`openmrs-sdk`), installed once per machine rather than embedded in this repo.
+Follow that repo's [Install](https://github.com/PIH/openmrs-contrib-distro-tools#install) section first — the commands below assume `openmrs-docker`/`openmrs-sdk` are already on your `PATH`.
 
-"./watch.sh [serverId]" where [serverId] is the name of the SDK server you are deploying too.  This will watch
-*both* the config-pihemr and config-pihsl projects for changes and redeploy when there are changes.  It runs
-indefinitely, so you will need to cancel it with a "Ctrl-C".
+### Docker (`openmrs-docker`)
 
+For each supported configuration profile, an example environment file is provided in the repo root to get started quickly.
+Because this file is found in the distribution repository, it is assumed that this is checked out on your machine, and
+that `openmrs-docker` commands are running from the root of the distribution repository — it sets `DISTRO_SOURCE_DIR`
+to this location. If you're using it as an example for running elsewhere, you may need to change or remove that.
 
-### General usage
+To use the example environment file for `kgh` to get up and running with a new instance:
 
-`mvn clean compile` - Will generate your configurations into "target/openmrs-packager-config/configuration"
-`mvn clean package` - Will compile as above, and generate a zip package at "target/${artifactId}-${version}.zip"
+```bash
+source kgh.env
+openmrs-docker create kgh
+openmrs-docker kgh initialize # Optional, but speeds up initial startup
+openmrs-docker kgh start
+openmrs-docker kgh wait  # Tails logs until OpenMRS is ready, then exits
+```
 
-In order to facilitate deploying configurations easily into an OpenMRS SDK server, one can add an additional parameter
-to either of the above commands to specify that the compiled configuration should also be copied to an existing 
-OpenMRS SDK server:
+Once created, day-to-day commands only need the instance name:
 
-`mvn clean compile -DserverId=pihsl` - Will compile as above, and copy the resulting configuration to `~/openmrs/pihsl/configuration`
+```bash
+openmrs-docker kgh stop
+openmrs-docker kgh logs
+openmrs-docker kgh destroy
+```
 
-If the configuration package you are building will be depended upon by another configuration package, you must "install" it
-in order for the other package to be able to pick it up.
+The same pattern applies to `wellbody.env`, `kgh-test.env`, and `gladi.env` — substitute the instance name accordingly.
 
-`mvn clean install` - Will compile and package as above, and install as an available dependency on your system
+### OpenMRS SDK (`openmrs-sdk`)
 
-For more details regarding the available commands please see:
-https://github.com/openmrs/openmrs-contrib-packager-maven-plugin 
+Use `openmrs-sdk` to run a site using the [OpenMRS SDK](https://wiki.openmrs.org/display/docs/OpenMRS+SDK), which sets up a local Tomcat server with its own MySQL instance.
+
+```
+openmrs-sdk <command> <server-id>
+```
+
+**Example — first-time setup:**
+```bash
+PIH_CONFIG=sierraLeone,sierraLeone-kgh openmrs-sdk create pihsl
+openmrs-sdk run pihsl
+```
+
+**Example — after updating component versions:**
+```bash
+openmrs-sdk update pihsl
+openmrs-sdk run pihsl
+```
+
+## CI and Publishing
+
+CI is handled by GitHub Actions. On every push to `master`, the [Build and deploy](.github/workflows/build-and-deploy.yml) workflow:
+
+1. Builds and publishes the Maven artifact to [Maven Central](https://central.sonatype.com/artifact/org.pih.openmrs/pihsl-distro) as `org.pih.openmrs:pihsl-distro`.
+2. Builds and pushes a multi-platform Docker image (amd64 + arm64) to Docker Hub at [`partnersinhealth/pihsl-emr`](https://hub.docker.com/r/partnersinhealth/pihsl-emr), tagged with both `latest` and the Maven project version.
+3. Fires the existing Bamboo `kgh-test` and `gladi` deploy triggers, exactly as the legacy `deploy.yml` workflow did.
+
+A separate [Build seeded images](.github/workflows/build-seeded-images.yml) workflow runs nightly and publishes pre-initialized seed images to Docker Hub for all four sites (`partnersinhealth/pihsl-emr-seed-kgh`, `-seed-wellbody`, `-seed-kgh-test`, `-seed-gladi`).
+
+A separate [Update Versions](.github/workflows/update-versions.yml) workflow runs hourly and automatically commits any available snapshot dependency updates to `master`.
