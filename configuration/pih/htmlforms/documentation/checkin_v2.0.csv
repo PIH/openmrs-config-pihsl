@@ -1,6 +1,5 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Checkin date,Date,N/A,date,Yes,no,,,,
-Provider,Provider,List of available providers,provider select,Yes,no,,,,
-Location,Location,List of available locations,location select,Yes,no,,,,
-Type of visit,Coded,Outpatient visit | Sick Visit | ANC | Labour and Delivery | Family Planning | Immunization | Malnutrition | HIV | TB | Mental Health | NCD,dropdown,No,no,PIH:REASON FOR VISIT,,,
-Appointments,Other,Appointment entries,appointments widget,No,no,,,,
+Encounter Date,Date,N/A,date/time,Yes,no,encounterDate,,,
+Encounter Location,Location,List of available locations,location select,Yes,no,,,,
+Retrospective Checkin visit Type label,Coded,PIH:OUTPATIENT CONSULTATION | PIH:EMERGENCY VISIT | PIH:ANC VISIT | PIH:Labor and delivery visit | PIH:FAMILY PLANNING SERVICES | PIH:Immunization visit | PIH:MALNUTRITION PROGRAM | PIH:ART VISIT | PIH:TB VISIT | PIH:MENTAL HEALTH SERVICES | CIEL:168363,dropdown,No,no,PIH:REASON FOR VISIT,PIH:OUTPATIENT CONSULTATION|PIH:EMERGENCY VISIT|PIH:ANC VISIT|PIH:Labor and delivery visit|PIH:FAMILY PLANNING SERVICES|PIH:Immunization visit|PIH:MALNUTRITION PROGRAM|PIH:ART VISIT|PIH:TB VISIT|PIH:MENTAL HEALTH SERVICES|CIEL:168363,,
+Retrospective Checkin visit Type label,Coded,N/A,dropdown,No,no,PIH:REASON FOR VISIT,,,
