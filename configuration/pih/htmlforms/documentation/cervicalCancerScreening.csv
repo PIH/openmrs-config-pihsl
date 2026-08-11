@@ -29,7 +29,7 @@ Clinical breast exam (CBE),Coded,Completed | Not done | Unknown,radio,No,no,PIH:
 Other integrated services,Text,N/A,textarea,No,no,PIH:21595,,,
 Quadrants&nbsp;involved,Coded,Left upper quadrant | Right upper quadrant | Right lower quadrant | Left lower quadrant,checkbox,No,no,PIH:21500,CIEL:160380|CIEL:5107|CIEL:160381|CIEL:5104,Quadrants&nbsp;involved,
 Quadrants&nbsp;involved,Coded,Endocervical (EC) canal,checkbox,No,no,PIH:21500,PIH:21623,,
-Screening results,Coded,Via Negative | Via Positive | Suspect Cancer,radio,No,CIEL:703 → show #via+,CIEL:162816,CIEL:664|CIEL:703|CIEL:167159,,
+Screening results,Coded,Via Negative | Via Positive | Suspect Cancer,radio,No,Positive → show #via+,CIEL:162816,CIEL:664|CIEL:703|CIEL:167159,,
 Entire lesion seen,Coded,Yes | No,radio,No,no,PIH:21498,CIEL:1065|CIEL:1066,,
 Covers more than 75% of cervix,Coded,Yes | No,radio,No,no,PIH:21494,CIEL:1065|CIEL:1066,,
 Extends into endocervical canal/vagina,Coded,Yes | No,radio,No,no,PIH:21498,CIEL:1065|CIEL:1066,,
@@ -39,7 +39,7 @@ CIEL:1651,Coded,Cryotherapy of lesion of cervix | Thermocauterization of cervix 
 PIH:21615,Coded,Postponed cryotherapy | Postponed thermal ablation,checkbox,No,no,PIH:21615,PIH:21600|PIH:21614,PIH:21615,
 Reason for delay,Text,N/A,text,No,no,PIH:REASON TO POSTPONE TEXT,,,
 Subform: drug-order-widget.xml,Other,Subform — configuration/pih/subforms/drug-order-widget.xml,subform,No,no,,,,
-Referred to,Coded,Obstetrics/Gynecology | Family planning services | Mental health | Other,radio,No,CIEL:5622 → show #other-referral,CIEL:1272,PIH:7831|PIH:FAMILY PLANNING SERVICES|PIH:MENTAL HEALTH SERVICES|CIEL:5622,,PIH:12837
+Referred to,Coded,Obstetrics/Gynecology | Family planning services | Mental health | Other,radio,No,Other → show #other-referral,CIEL:1272,PIH:7831|PIH:FAMILY PLANNING SERVICES|PIH:MENTAL HEALTH SERVICES|CIEL:5622,,PIH:12837
 "if other, specify referral site",Text,N/A,text,No,no,PIH:11134,,,PIH:12837
 Reason for referral,Coded,LEEP (loop electrosurgical excision procedure) | Cryotherapy of lesion of cervix | Suspected cancer | Other,checkbox,No,no,CIEL:1887,CIEL:162810|CIEL:162812|CIEL:167159|CIEL:5622,Reason for referral,
 "if other gynecological condition, specify reason",Text,N/A,text,No,no,CIEL:164359,,,

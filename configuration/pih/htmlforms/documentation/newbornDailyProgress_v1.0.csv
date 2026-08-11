@@ -31,16 +31,16 @@ Site of IV,Coded,Scalp | Hand | Forearm | Foot | Umbilical cord,radio,No,no,CIEL
 Number of days with IV,Coded,N/A,radio,No,no,PIH:20290,,,
 PIH:IVF administered,Coded,Dextran | Sodium Chloride 0.9% | Dextrose 5% in Sodium Chloride 0.45% | Dextrose 5% in water | Dextrose 10% in water | Mannitol 20% | Ringer's lactate | 1 part RL to 4 parts D10% | 75mL D5% + 5mL D50% + 20mL NS + 1mL calcium gluconate | 75mL D5% + 5mL D50% + 20mL NS + 1mL calcium gluconate + Magnesium Sulfate | Dextrose 5% in water + Magnesium Sulfate | Dextrose 10% in water + Magnesium Sulfate,checkbox,No,no,PIH:IVF administered,CIEL:74653|CIEL:80804|PIH:7898|CIEL:161250|CIEL:161922|CIEL:161924|CIEL:78617|PIH:20465|PIH:20466|PIH:21128|PIH:21129|PIH:21130,PIH:IVF administered,PIH:IVF construct
 Ivf Vol,Coded,N/A,radio,No,no,CIEL:170482,,,PIH:IVF construct
-Air supply,Coded,Room air | Supplemental oxygen therapy | CPAP,radio,No,CIEL:165944 → show #cpap; CIEL:162738 → show #oxy2,CIEL:162739,CIEL:162735|CIEL:162738|CIEL:165944,,
+Air supply,Coded,Room air | Supplemental oxygen therapy | CPAP,radio,No,CPAP → show #cpap; Supplemental oxygen therapy → show #oxy2,CIEL:162739,CIEL:162735|CIEL:162738|CIEL:165944,,
 O2,Coded,N/A,radio,No,no,CIEL:165986,,,
 CPAP machine pressure,Coded,N/A,radio,No,no,PIH:20357,,,
 Fi O2,Coded,N/A,radio,No,no,CIEL:165927,,,
-Respiration,Coded,Apnea of newborn,checkbox,No,CIEL:121519 → show #apnea-duration,PIH:DIAGNOSIS,CIEL:121519,,PIH:Visit Diagnoses
+Respiration,Coded,Apnea of newborn,checkbox,No,Apnea of newborn → show #apnea-duration,PIH:DIAGNOSIS,CIEL:121519,,PIH:Visit Diagnoses
 "if apnea, specify apnea duration:",Coded,N/A,radio,No,no,PIH:20460,,,
-Neo Resusc,Coded,Yes | No,radio,No,CIEL:1065 → show #type-resuscitation,CIEL:162131,CIEL:1065|CIEL:1066,,
+Neo Resusc,Coded,Yes | No,radio,No,Yes → show #type-resuscitation,CIEL:162131,CIEL:1065|CIEL:1066,,
 CIEL:165995,Coded,Supplemental oxygen therapy | Bag valve mask ventilation | Endotracheal intubation | Cardiopulmonary resuscitation (CPR),checkbox,No,no,CIEL:165995,CIEL:162738|CIEL:167383|CIEL:165935|CIEL:167415,CIEL:165995,
 Number of days with respiratory support,Coded,N/A,radio,No,no,PIH:20291,,,
-Transfusion,Coded,Yes | No,radio,No,CIEL:1065 → show #transfusion-details,PIH:Transfusion status,PIH:YES|PIH:NO,,
+Transfusion,Coded,Yes | No,radio,No,Yes → show #transfusion-details,PIH:Transfusion status,PIH:YES|PIH:NO,,
 Type of transfusion,Coded,Simple | Exchange,radio,No,no,PIH:20464,PIH:20463|CIEL:167423,,
 PIH:Transfusion of fluid,Coded,Whole blood | Packed red blood cells | Plasma | Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood|PIH:Packed red blood cells|PIH:Plasma|PIH:Platelets,PIH:Transfusion of fluid,PIH:Transfusion construct
 CIEL:166650,Coded,N/A,radio,No,no,CIEL:166650,,,PIH:Transfusion construct

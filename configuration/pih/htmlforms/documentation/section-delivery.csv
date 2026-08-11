@@ -17,7 +17,7 @@ Mother,Coded,N/A,radio,No,no,CIEL:169036,,,
 Mother,Coded,N/A,radio,No,no,CIEL:169037,,,
 PIH:12564,Coded,"Placental abnormality | Malpresentation of foetus | Cephalopelvic disproportion | Low birth weight infant, 1000-1249 gm | low birth weight infant, 1250-1499 gm | low birth weight infant, 1500-1749 gm | low birth weight infant, 1750-1999 gm | low birth weight infant, 2000-2499 gm | Extreme premature (less than 28 weeks | Very premature (28 to 32 weeks) | Moderate premature (32 to 36 weeks) | Respiratory distress | Birth asphyxia | Foetal distress | Intra-uterine foetal demise | Intra-uterine growth retardation | Congenital malformation | Premature rupture of membranes | Meconium aspiration",checkbox,No,no,PIH:12564,CIEL:130109|CIEL:115939|CIEL:145935|CIEL:162217|CIEL:162218|CIEL:162219|CIEL:162237|CIEL:162239|CIEL:111523|PIH:11789|PIH:11790|CIEL:127639|PIH:Birth Asphyxia|PIH:Fetal distress|CIEL:116642|CIEL:118245|CIEL:143849|CIEL:129211|CIEL:115866,PIH:12564,
 HCW Name,Coded,N/A,radio,No,no,PIH:6592,,,CIEL:163391
-HCW Cadre:,Coded,Doctor | Sechn Midwife | Rn Midwife | Eso | Other,radio,No,CIEL:5622 → show #other-role,CIEL:1573,PIH:DOCTOR|PIH:20156|PIH:20157|PIH:20158|CIEL:5622,,CIEL:163391
+HCW Cadre:,Coded,Doctor | Sechn Midwife | Rn Midwife | Eso | Other,radio,No,Other → show #other-role,CIEL:1573,PIH:DOCTOR|PIH:20156|PIH:20157|PIH:20158|CIEL:5622,,CIEL:163391
 Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14415,,,CIEL:163391
 Counselled on family planning before discharge,Coded,Yes | No,radio,No,no,CIEL:1382,CIEL:1065|CIEL:1066,,
 Accepted and received a family planning before discharge,Coded,Yes | No,radio,No,no,CIEL:166421,CIEL:1065|CIEL:1066,,

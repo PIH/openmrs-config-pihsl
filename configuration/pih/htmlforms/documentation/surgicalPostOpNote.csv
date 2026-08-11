@@ -29,13 +29,13 @@ PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
 PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
 PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
 PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-Transfusion,Coded,Yes | No,radio,No,PIH:YES → show #type-transfusion,PIH:Transfusion status,PIH:YES|PIH:NO,,
+Transfusion,Coded,Yes | No,radio,No,Yes → show #type-transfusion,PIH:Transfusion status,PIH:YES|PIH:NO,,
 "if blood transfusion, specify type and volume:",Coded,Whole blood | Packed red blood cells | Plasma | Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood|PIH:Packed red blood cells|PIH:Plasma|PIH:Platelets,"if blood transfusion, specify type and volume:",PIH:Transfusion construct
 PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
 PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
 PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
 PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-Pre op antibiotic,Coded,Yes | No,radio,No,PIH:YES → show #pre-antibiotic-name,PIH:Pre-operative antibiotic administered,PIH:YES|PIH:NO,,
+Pre op antibiotic,Coded,Yes | No,radio,No,Yes → show #pre-antibiotic-name,PIH:Pre-operative antibiotic administered,PIH:YES|PIH:NO,,
 Antibiotic name,Coded,Amoxicillin + clavulanic acid | Amphotericin B | Ampicillin | Cefazolin | Cefotaxime | Ceftriaxone | Chloramphenicol | Ciprofloxacin | Clindamycin | Fluconazole | Gentamicin | Phenobarbital,checkbox,No,no,PIH:Surgery antibiotics,CIEL:450|CIEL:71184|CIEL:71188|CIEL:72998|CIEL:73018|CIEL:73041|CIEL:73239|CIEL:73449|CIEL:73546|CIEL:76488|CIEL:100|CIEL:81951,Antibiotic name,
 Vtp,Coded,N/A,radio,No,no,PIH:Venous thromboembolism prophylaxis,,,
 Est blood loss,Coded,N/A,radio,No,no,PIH:12555,,,

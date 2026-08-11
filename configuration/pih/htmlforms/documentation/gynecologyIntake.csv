@@ -55,7 +55,7 @@ Via long,Coded,Normal | Pre-cancerous dysplasia | Neoplasm/cancer,radio,No,no,CI
 Via long,Coded,N/A,radio,No,no,CIEL:1937,,,CIEL:1938
 Via long,Coded,Cryotherapy of lesion of cervix,checkbox,No,no,CIEL:1651,CIEL:162812,,CIEL:1938
 Via long,Coded,pihcore.papTestPerformed,checkbox,No,no,CIEL:163952,CIEL:1267,,
-Sti Suspected,Coded,Yes | No,radio,No,CIEL:1065 → show #sti-list,CIEL:161558,CIEL:1065|CIEL:1066,,
+Sti Suspected,Coded,Yes | No,radio,No,Yes → show #sti-list,CIEL:161558,CIEL:1065|CIEL:1066,,
 PIH:14365,Coded,Chlamydia | Gonorrhea | Genital herpes | hepB | HPV | Trichomoniasis | Bacterial vaginosis (BV),checkbox,No,no,PIH:14365,CIEL:120733|CIEL:117767|CIEL:117829|CIEL:111759|CIEL:1213|CIEL:117146|CIEL:148002,PIH:14365,
 Comment,Coded,N/A,radio,No,no,PIH:13231,,,
 Tannerstage,Coded,Stage I | Stage II | Stage III | Stage IV | Stage V,radio,No,no,PIH:5310,CIEL:160771|CIEL:160774|CIEL:160778|CIEL:160782|PIH:11931,,
