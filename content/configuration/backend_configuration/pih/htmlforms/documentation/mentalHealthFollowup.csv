@@ -1,7 +1,7 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
-Pih task mental Health FU label,Coded,CIEL:163468,checkbox,No,no,CIEL:163577,CIEL:163468,,
-Presenting Features,Coded,PIH:OTHER,checkbox,No,no,PIH:11505,PIH:OTHER,,
+Pih task mental Health FU label,Coded,Currently homeless,checkbox,No,no,CIEL:163577,CIEL:163468,,
+Presenting Features,Coded,Other,checkbox,No,no,PIH:11505,PIH:OTHER,,
 Pih task mental Health FU label,Text,N/A,textarea,No,no,PIH:CLINICAL IMPRESSION COMMENTS,,,
 Alertness,Coded,Alert | Somnolent | Unconscious,radio,No,no,CIEL:122943,CIEL:160282|CIEL:141762|CIEL:123818,,
 Orientation status,Coded,Oriented to person,checkbox,No,no,CIEL:167084,CIEL:167081,,
@@ -30,7 +30,7 @@ Mentalhealth epilepsy Seizure Frequency,Coded,N/A,radio,No,no,PIH:6797,,,CIEL:16
 CGI-S (Severity),Coded,N/A,radio,No,no,CIEL:163222,,,
 CGI-I (Improvement),Coded,N/A,radio,No,no,CIEL:163223,,,
 CGI-E (Efficacy),Coded,N/A,radio,No,no,CIEL:163224,,,
-Pih task mental Health FU label,Coded,PIH:OTHER,radio,No,no,PIH:Mental health intervention,PIH:OTHER,,
+Pih task mental Health FU label,Coded,Other,radio,No,no,PIH:Mental health intervention,PIH:OTHER,,
 Subform: drug-order-widget-mental-health.xml,Other,Subform — configuration/pih/subforms/drug-order-widget-mental-health.xml,subform,No,no,,,,
 Remarks,Coded,N/A,radio,No,no,PIH:10637,,,
 Remarks,Coded,pihcore.pregnancy.status,checkbox,No,no,CIEL:5272,CIEL:1065,,
