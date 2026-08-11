@@ -40,8 +40,6 @@ Seizures,Coded,Yes | No,radio,No,no,PIH:206,CIEL:1065|CIEL:1066,,
 Comments about neurological exam,Text,N/A,text,No,no,PIH:11570,,,
 Cardiac exam,Coded,CIEL:1115 | CIEL:562,radio,No,no,CIEL:1124,CIEL:1115|CIEL:562,,
 Comments about cardiac exam,Text,N/A,text,No,no,CIEL:163046,,,
-PIH:DIAGNOSIS,Coded,CIEL:121629 | CIEL:121519 | CIEL:157996 | CIEL:143849 | CIEL:111523 | CIEL:156720 | CIEL:116222 | CIEL:140951 | CIEL:116128,checkbox,No,no,PIH:DIAGNOSIS,CIEL:121629|CIEL:121519|CIEL:157996|CIEL:143849|CIEL:111523|CIEL:156720|CIEL:116222|CIEL:140951|CIEL:116128,PIH:DIAGNOSIS,PIH:Visit Diagnoses
-PIH:DIAGNOSIS,Coded,CIEL:115381 | CIEL:133385 | CIEL:115368 | CIEL:170788 | CIEL:143388 | CIEL:226 | CIEL:113841 | CIEL:127638 | CIEL:112264,checkbox,No,no,PIH:DIAGNOSIS,CIEL:115381|CIEL:133385|CIEL:115368|CIEL:170788|CIEL:143388|CIEL:226|CIEL:113841|CIEL:127638|CIEL:112264,PIH:DIAGNOSIS,PIH:Visit Diagnoses
 Diagnoses (encounterDiagnosesByObs),Other,Pick diagnoses,diagnoses widget,No,no,,,,
 Pih app notes summary,Text,N/A,textarea,No,no,CIEL:161011,,,
 Feeding method,Coded,Breastfed | Formula,radio,No,no,CIEL:1151,CIEL:5632|CIEL:5254,,
@@ -50,5 +48,7 @@ Air supply,Coded,CIEL:162735 | CIEL:162738 | CIEL:165944,radio,No,CIEL:165944 â†
 O2,Coded,N/A,radio,No,no,CIEL:165986,,,
 CPAP machine pressure,Coded,N/A,radio,No,no,PIH:20357,,,
 Treatment plan,Text,N/A,textarea,No,no,CIEL:163104,,,
+Subform: drug-order-widget-newborn.xml,Other,Subform â€” configuration/pih/subforms/drug-order-widget-newborn.xml,subform,No,no,,,,
+Remarks,Coded,N/A,radio,No,no,PIH:10637,,,
 Disposition,Other,Disposition widget,disposition widget,Yes,no,,,,
 Pih app notes summary,Text,N/A,textarea,No,no,CIEL:161011,,,
