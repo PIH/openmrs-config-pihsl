@@ -208,10 +208,41 @@ sexually in any way that you did not want in the past year?" />
         </div>
     </section>
 
-    <section id="history" sectionTag="fieldset" headerTag="legend" headerStyle="title"
-             headerCode="Clinical history">
+    <section id="sti-screen" sectionTag="fieldset" headerTag="legend" headerStyle="title"
+             headerCode="STI Screening">
         <div class="section-container">
-            <obs conceptId="CIEL:160221" style="textarea" />
+
+            <div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Sexual partner?" />
+                    </label>
+                    <obs conceptId="CIEL:160109" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no" />
+                </p>
+            </div>
+            <div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Unprotected sexual contact within the past month?" />
+                    </label>
+                    <obs conceptId="CIEL:159218" style="radio"
+                         answerConceptIds="CIEL:1065,CIEL:1066"
+                         answerCodes="yes,no" />
+                </p>
+            </div>
+
+            <div>
+                <p class="side-by-side">
+                    <label>
+                        <uimessage code="Symptoms/problems around the genitalia?" />
+                    </label>
+                    <obs conceptId="CIEL:1126" style="radio"
+                         answerConceptIds="CIEL:1115,CIEL:1116"
+                         answerCodes="yes,no" />
+                </p>
+            </div>
         </div>
     </section>
 
@@ -225,6 +256,37 @@ sexually in any way that you did not want in the past year?" />
 
             <div id="encounter-diagnoses-target">
             </div>
+
+            <p id="sti-dx" class="side-by-side">
+                <label>
+                    <uimessage code="STI Diagnosis" />
+                </label>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="PIH:Visit Diagnoses" showIfEmpty="false">
+                            <obs conceptId="PIH:DIAGNOSIS" style="checkbox"
+                                 answerConceptId="{diagId}" answerCode="{name}"/>
+                        </obsgroup>
+                        <br/>
+                    </template>
+                    <render diagId="CIEL:121812" name="Syphilis" />
+                    <render diagId="CIEL:139505" name="Genital warts" />
+                    <render diagId="CIEL:118771" name="Dysuria" />
+                    <render diagId="CIEL:137155" name="Inguinal bubo" />
+                    <render diagId="CIEL:125203" name="Scrotal swelling" />
+                    <render diagId="CIEL:157544" name="Lower abdominal pain" />
+                    <render diagId="CIEL:123529" name="Urethral discharge syndrome" />
+                    <render diagId="PIH:GENITAL SORES" name="Genital ulcer" />
+                    <render diagId="CIEL:123395" name="Vaginal discharge syndrome" />
+                    <render diagId="CIEL:148654" name="Anorectal infections" />
+                </repeat>
+
+                <label>
+                    <uimessage code="Other STI" />
+                </label>
+                <obs conceptId="PIH:1374" style="textarea" />
+
+            </p>
         </div>
     </section>
 
@@ -235,12 +297,13 @@ sexually in any way that you did not want in the past year?" />
                 <uimessage code="Rapid Tests" />
             </h3>
             <subform path="configuration/pih/subforms/rapid-tests-widget.xml"/>
-            <br/><br/>
+
 
             <h3>
                 <uimessage code="Lab Orders" />
             </h3>
             <pihLabOrder />
+
         </div>
     </section>
 
@@ -271,15 +334,27 @@ sexually in any way that you did not want in the past year?" />
                              required="false"/>
                     </p>
 
-                    <p class="side-by-side">
+                    <p>
                         <label>
-                            <uimessage code="Followup clinic:"/>
+                            <uimessage code="Referred to:"/>
                         </label>
                         <br/>
-                        <!-- ToDo:  radio or checkboxes?  Update answers -->
-                        <obs conceptId="CIEL:1272" style="radio"
-                             answerConceptIds="PIH:7831,PIH:FAMILY PLANNING SERVICES,PIH:MENTAL HEALTH SERVICES,CIEL:5622"
-                             answerSeparator="&lt;br /&gt;" />
+                        <repeat>
+                            <template>
+                                <obs conceptId="CIEL:1272" style="checkbox"
+                                     answerConceptId="{aCId}"
+                                     answerCodesXX="{nameLabel}"/>
+                            </template>
+                            <render aCId="CIEL:168363" nameLabel="NCD" />
+                            <render aCId="CIEL:168362" nameLabel="TB/HIV" />
+                            <render aCId="PIH:OUTPATIENT CONSULTATION" nameLabel="OPD" />
+                            <render aCId="PIH:7831" nameLabel="Gynea clinic" />
+                            <render aCId="PIH:MENTAL HEALTH SERVICES" nameLabel="Mental health" />
+                            <render aCId="PIH:20638" nameLabel="Rainbow clinic" />
+                            <render aCId="CIEL:5622" nameLabel="other" />
+                        </repeat>
+
+
                     </p>
                 </div>
 
