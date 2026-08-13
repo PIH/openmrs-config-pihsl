@@ -33,6 +33,6 @@ Counselled on family planning before discharge,Coded,Yes | No,radio,No,no,CIEL:1
 Accepted and received a family planning before discharge,Coded,Yes | No,radio,No,no,CIEL:166421,CIEL:1065|CIEL:1066,,
 Encounter Date,Date,N/A,date/time,Yes,no,encounterDate,,,
 Disposition,Other,Disposition widget,disposition widget,Yes,no,,,,
-HCW Name,Coded,N/A,radio,No,no,PIH:6592,,,CIEL:163391
-HCW Cadre:,Coded,N/A,radio,No,Other → show #other-role,CIEL:1573,,,CIEL:163391
-Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14415,,,CIEL:163391
+HCW Name,Coded,N/A,radio,No,no,PIH:6592,,PAC (PostAbortion Care) type,CIEL:163391
+HCW Cadre:,Coded,N/A,radio,No,Other → show #other-role,CIEL:1573,,PAC (PostAbortion Care) type,CIEL:163391
+Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14415,,PAC (PostAbortion Care) type,CIEL:163391

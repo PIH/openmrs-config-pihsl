@@ -1,6 +1,6 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Visit Note plan,Text,N/A,textarea,No,no,CIEL:163104,,,
-PIH:12847,Coded,N/A,radio,No,no,PIH:12847,,,PIH:Radiology report construct
+Date of test,Coded,N/A,radio,No,no,PIH:12847,,,PIH:Radiology report construct
 "if other, specify:",Text,N/A,text,No,no,PIH:8596,,,PIH:Radiology report construct
 "if other, specify:",Coded,N/A,radio,No,no,PIH:12847,,"if other, specify:",PIH:Radiology report construct
 "if other, specify:",Text,N/A,text,No,no,PIH:8596,,"if other, specify:",PIH:Radiology report construct

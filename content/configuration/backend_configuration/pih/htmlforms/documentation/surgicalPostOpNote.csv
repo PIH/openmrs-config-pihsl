@@ -22,19 +22,19 @@ Anesthesia,Coded,General anesthesia | Local anesthesia | Local with monitored an
 Complications from anaesthesia,Coded,N/A,radio,No,no,$complicationsFromAnesthesia,,,
 Wound class,Coded,N/A,radio,No,no,PIH:Classifications of surgical wounds,,,
 Ivf,Coded,Dextran | Dextrose 10% in water | Dextrose 5% in Sodium Chloride 0.45% | Dextran | Mannitol 20% | Ringer's lactate | Sodium Chloride 0.9%,checkbox,No,no,PIH:IVF administered,CIEL:74653|CIEL:161922|CIEL:161923|CIEL:74653|CIEL:161924|CIEL:78617|CIEL:80804,Ivf,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
-PIH:21113,Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
+IVF volume (mL),Coded,N/A,radio,No,no,PIH:21113,,,PIH:IVF construct
 Transfusion,Coded,Yes | No,radio,No,Yes → show #type-transfusion,PIH:Transfusion status,PIH:YES|PIH:NO,,
 "if blood transfusion, specify type and volume:",Coded,Whole blood | Packed red blood cells | Plasma | Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood|PIH:Packed red blood cells|PIH:Plasma|PIH:Platelets,"if blood transfusion, specify type and volume:",PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-PIH:Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Volume of transfusion,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
 Pre op antibiotic,Coded,Yes | No,radio,No,Yes → show #pre-antibiotic-name,PIH:Pre-operative antibiotic administered,PIH:YES|PIH:NO,,
 Antibiotic name,Coded,Amoxicillin + clavulanic acid | Amphotericin B | Ampicillin | Cefazolin | Cefotaxime | Ceftriaxone | Chloramphenicol | Ciprofloxacin | Clindamycin | Fluconazole | Gentamicin | Phenobarbital,checkbox,No,no,PIH:Surgery antibiotics,CIEL:450|CIEL:71184|CIEL:71188|CIEL:72998|CIEL:73018|CIEL:73041|CIEL:73239|CIEL:73449|CIEL:73546|CIEL:76488|CIEL:100|CIEL:81951,Antibiotic name,
 Vtp,Coded,N/A,radio,No,no,PIH:Venous thromboembolism prophylaxis,,,

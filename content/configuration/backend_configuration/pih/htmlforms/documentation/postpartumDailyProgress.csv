@@ -24,7 +24,7 @@ Mentalhealth mood short,Coded,Depressed | Neutral | Elevated | Anxious | Irritab
 Bowels,Coded,Normal | Abnormal,radio,No,no,CIEL:163188,CIEL:1115|CIEL:1116,,
 Urination,Coded,Normal (Passed Urine) | Anuria (No Urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
 Comments about urination,Text,N/A,text,No,no,CIEL:166363,,,
-Leg pain,Coded,Leg pain,radio,No,no,,CIEL:114395,,PIH:14875
+Leg pain,Coded,Leg pain,radio,No,no,,CIEL:114395,Comments about urination,PIH:14875
 Pain level (0-10),Coded,N/A,radio,No,no,PIH:Pain Score,,,
 Family planning counselling,Coded,Yes | No,radio,No,no,CIEL:1382,CIEL:1065|CIEL:1066,,
 Accepts and receives family planning,Coded,Yes | No,radio,No,Yes → show #family-method,CIEL:166421,CIEL:1065|CIEL:1066,,

@@ -8,15 +8,15 @@ Social support,Coded,Yes | No,radio,Yes,Yes → show #specify-support,CIEL:16376
 Missed school,Coded,Yes | No,radio,Yes,Yes → show #days-missed,PIH:5629,CIEL:1065|CIEL:1066,,
 Days of lost schooling (related diseases),Coded,N/A,radio,No,no,PIH:14446,,,
 Category instructions,Coded,Diabetes | Hypertension | Heart failure | Chronic respiratory disease program | Chronic kidney disease | Cirrhosis of liver | Palliative treatment | Sickle cell disease | Other,checkbox,No,no,PIH:NCD category,PIH:DIABETES|PIH:HYPERTENSION|PIH:HEART FAILURE|PIH:Chronic respiratory disease program|CIEL:145438|PIH:3714|CIEL:160849|PIH:Sickle-Cell Anemia|CIEL:5622,Category instructions,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5085,,,
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5086,,,
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5085,,,

@@ -24,14 +24,14 @@ Wound class,Coded,N/A,radio,No,no,PIH:Classifications of surgical wounds,,,
 Ivf,Coded,Dextran | Dextrose 10% in water | Dextrose 5% in Sodium Chloride 0.45% | Dextrose 5% in water | Mannitol 20% | Ringer's lactate | Sodium Chloride 0.9%,radio,No,no,PIH:IVF administered,PIH:7870|PIH:7897|PIH:7898|PIH:11657|PIH:7900|PIH:7873|PIH:11658,Ivf,PIH:IVF construct
 Ivf,Coded,N/A,radio,No,no,PIH:21113,,Ivf,PIH:IVF construct
 Transfusion,Coded,Yes | No,radio,No,Yes → show #type-transfusion,PIH:Transfusion status,PIH:YES|PIH:NO,,
-Type and volume,Coded,Whole blood,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood,,PIH:Transfusion construct
-Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-Type and volume,Coded,Packed red blood cells,radio,No,no,PIH:Transfusion of fluid,PIH:Packed red blood cells,,PIH:Transfusion construct
-Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-Type and volume,Coded,Plasma,radio,No,no,PIH:Transfusion of fluid,PIH:Plasma,,PIH:Transfusion construct
-Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
-Type and volume,Coded,Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Platelets,,PIH:Transfusion construct
-Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,,PIH:Transfusion construct
+Type and volume,Coded,Whole blood,radio,No,no,PIH:Transfusion of fluid,PIH:Whole blood,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,Packed red blood cells,radio,No,no,PIH:Transfusion of fluid,PIH:Packed red blood cells,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,Plasma,radio,No,no,PIH:Transfusion of fluid,PIH:Plasma,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,Platelets,radio,No,no,PIH:Transfusion of fluid,PIH:Platelets,Type and volume,PIH:Transfusion construct
+Type and volume,Coded,N/A,radio,No,no,PIH:Volume of transfusion,,Type and volume,PIH:Transfusion construct
 Pre op antibiotic,Coded,Yes | No,radio,No,Yes → show #pre-antibiotic-name,PIH:Pre-operative antibiotic administered,PIH:YES|PIH:NO,,
 Antibiotic name,Coded,Amoxicillin + clavulanic acid | Amphotericin B | Ampicillin | Cefazolin | Cefotaxime | Ceftriaxone | Chloramphenicol | Ciprofloxacin | Clindamycin | Fluconazole | Gentamicin | Phenobarbital,checkbox,No,no,PIH:Surgery antibiotics,CIEL:450|CIEL:71184|CIEL:71188|CIEL:72998|CIEL:73018|CIEL:73041|CIEL:73239|CIEL:73449|CIEL:73546|CIEL:76488|CIEL:100|CIEL:81951,Antibiotic name,
 Vtp,Coded,N/A,radio,No,no,PIH:Venous thromboembolism prophylaxis,,,
