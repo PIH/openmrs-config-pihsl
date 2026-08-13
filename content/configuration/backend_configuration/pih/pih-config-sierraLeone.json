@@ -2,7 +2,6 @@
   "browserWarning": "Please use the <b>Google Chrome</b> browser",
 
   "country": "SIERRA_LEONE",
-  "site": "WELLBODY",
 
   "scheduleBackupReports": "true",
   "dashboardUrl": "/pihcore/router/programDashboard.page?patientId={{patientId}}",
