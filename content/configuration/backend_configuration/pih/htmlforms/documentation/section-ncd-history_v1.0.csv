@@ -7,28 +7,28 @@ Literacy level,Coded,Able To Read And Write | Cannot Read And Write,radio,No,no,
 Missed school,Coded,Yes | No,radio,No,Yes → show #days-missed-a,PIH:5629,CIEL:1065|CIEL:1066,,
 Days of lost schooling (related diseases),Coded,N/A,radio,No,no,PIH:14446,,,
 Employment status,Coded,Employed | Self employed | Unemployed | Leave of absence,radio,No,no,PIH:3395,PIH:14833|CIEL:161382|PIH:UNEMPLOYED|CIEL:166624,,
-Distance to clinic,Coded,N/A,radio,No,no,PIH:20862,,,PIH:12736
-Average travel time,Coded,N/A,radio,No,no,CIEL:159471,,,PIH:12736
-CIEL:1732,Coded,N/A,radio,No,no,CIEL:1732,,,PIH:12736
-Average cost of transport,Coded,N/A,radio,No,no,CIEL:159470,,,PIH:TRANSPORTATION CONSTRUCT
+Distance to clinic,Coded,N/A,radio,No,no,PIH:20862,,Employment status,PIH:12736
+Average travel time,Coded,N/A,radio,No,no,CIEL:159471,,Employment status,PIH:12736
+Time units,Coded,N/A,radio,No,no,CIEL:1732,,Employment status,PIH:12736
+Average cost of transport,Coded,N/A,radio,No,no,CIEL:159470,,Employment status,PIH:TRANSPORTATION CONSTRUCT
 Food insecurity,Coded,Yes | No,radio,No,no,CIEL:119533,CIEL:1065|CIEL:1066,,
 Social support,Coded,Yes | No,radio,No,Yes → show #specify-support,CIEL:163766,CIEL:1065|CIEL:1066,,
 "if yes, specify support:",Coded,Transport,radio,No,no,PIH:2156,PIH:990,,
 "if yes, specify support:",Coded,Food,radio,No,no,PIH:2156,PIH:1400,,
 "if yes, specify support:",Coded,School,radio,No,no,PIH:2156,PIH:2863,,
 "if yes, specify support:",Coded,Other,radio,No,no,PIH:2156,CIEL:5622,,
-PIH:Type of referring service,Coded,Primary care clinic | Peripheral Health Unit | Community-based organization | Self-refer | Screening program | Hospitalized,checkbox,No,no,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485,PIH:Type of referring service,
+Referred from,Coded,Primary care clinic | Peripheral Health Unit | Community-based organization | Self-refer | Screening program | Hospitalized,checkbox,No,no,PIH:Type of referring service,PIH:2233|PIH:12368|CIEL:160543|CIEL:978|PIH:14445|CIEL:5485,Referred from,
 Referred from,Coded,Other,checkbox,No,no,PIH:Type of referring service,PIH:OTHER,,
 Category instructions,Coded,Diabetes | Hypertension | Heart failure | Chronic respiratory disease program | Chronic kidney disease | Cirrhosis of liver | Palliative treatment | Sickle cell disease | Other,checkbox,No,no,PIH:NCD category,PIH:DIABETES|PIH:HYPERTENSION|PIH:HEART FAILURE|PIH:Chronic respiratory disease program|CIEL:145438|PIH:3714|CIEL:160849|PIH:Sickle-Cell Anemia|CIEL:5622,Category instructions,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
-CIEL:159948,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
+Diagnosis date,Coded,N/A,radio,No,no,CIEL:159948,,,PIH:15001
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5085,,,
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5086,,,
 Vitals blood Pressure short title,Coded,N/A,radio,No,no,CIEL:5085,,,

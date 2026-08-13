@@ -1,8 +1,8 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 General exam title,Coded,Normal,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,PIH:NORMAL,,
-General exam title,Coded,Weight loss,radio,No,no,CIEL:1728,CIEL:832,,CIEL:1727
-Duration,Coded,N/A,radio,No,no,CIEL:1731,,,CIEL:1727
-Units,Coded,Days | Weeks | Months | Years,radio,No,no,CIEL:1732,CIEL:1072|CIEL:1073|CIEL:1074|CIEL:1734,,CIEL:1727
+General exam title,Coded,Weight loss,radio,No,no,CIEL:1728,CIEL:832,General exam title,CIEL:1727
+Duration,Coded,N/A,radio,No,no,CIEL:1731,,General exam title,CIEL:1727
+Units,Coded,Days | Weeks | Months | Years,radio,No,no,CIEL:1732,CIEL:1072|CIEL:1073|CIEL:1074|CIEL:1734,General exam title,CIEL:1727
 General exam title,Coded,Obesity,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,CIEL:115115,,
 General exam title,Coded,Jaundice,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,PIH:JAUNDICE,,
 General exam title,Coded,Other,checkbox,No,no,PIH:GENERAL EXAM FINDINGS,PIH:OTHER NON-CODED,,

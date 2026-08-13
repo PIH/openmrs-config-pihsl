@@ -6,7 +6,7 @@ Issues affecting quality,Coded,Inaccurate notes | Timing | Staff absence | Adher
 History (including prior facility admissions),Text,N/A,textarea,No,no,PIH:10142,,,
 Possible contributing factors to death (3 Delays):,Coded,Deciding to seek care | Reaching care | Receiving adequate care,checkbox,No,no,PIH:21667,PIH:21668|PIH:21669|PIH:21670,Possible contributing factors to death (3 Delays):,
 What could have been done to prevent this death?,Text,N/A,textarea,No,no,PIH:21666,,,
-Primary,Coded,N/A,autocomplete,No,no,PIH:Underlying cause of death,,,PIH:21678
-Primary,Coded,N/A,radio,No,no,CIEL:159946,,,PIH:21678
-Secondary,Coded,N/A,autocomplete,No,no,PIH:Underlying cause of death,,,PIH:21678
-Secondary,Coded,N/A,radio,No,no,CIEL:159946,,,PIH:21678
+Primary,Coded,N/A,autocomplete,No,no,PIH:Underlying cause of death,,Primary,PIH:21678
+Primary,Coded,N/A,radio,No,no,CIEL:159946,,Primary,PIH:21678
+Secondary,Coded,N/A,autocomplete,No,no,PIH:Underlying cause of death,,Secondary,PIH:21678
+Secondary,Coded,N/A,radio,No,no,CIEL:159946,,Secondary,PIH:21678

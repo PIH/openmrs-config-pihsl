@@ -1,7 +1,7 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
-CIEL:162558,Coded,Physical disability | Visual impairment | Speech and language impairment | Hearing impairment | Learning impairment | Multiple,checkbox,No,no,CIEL:162558,PIH:21469|CIEL:159298|CIEL:112846|CIEL:139075|CIEL:153343|PIH:21470,CIEL:162558,
-PIH:13236,Coded,Method switch | Post abortion,checkbox,No,no,PIH:13236,CIEL:163494|PIH:14376,PIH:13236,
+Family Planning Followup,Coded,Physical disability | Visual impairment | Speech and language impairment | Hearing impairment | Learning impairment | Multiple,checkbox,No,no,CIEL:162558,PIH:21469|CIEL:159298|CIEL:112846|CIEL:139075|CIEL:153343|PIH:21470,Family Planning Followup,
+Family Planning Followup,Coded,Method switch | Post abortion,checkbox,No,no,PIH:13236,CIEL:163494|PIH:14376,Family Planning Followup,
 Subform: prior-vital-signs-widget.xml,Other,Subform — configuration/pih/subforms/prior-vital-signs-widget.xml,subform,No,no,,,,
 Subform: vital-signs-wt-ht-bp-widget.xml,Other,Subform — configuration/pih/subforms/vital-signs-wt-ht-bp-widget.xml,subform,No,no,,,,
 Family planning counselling,Coded,Yes | No,radio,No,no,CIEL:1382,CIEL:1065|CIEL:1066,,
@@ -17,9 +17,9 @@ Implants,Coded,Other implant,checkbox,No,no,CIEL:374,CIEL:162422,Implants,PIH:Fa
 Date Implant,Coded,N/A,radio,No,no,PIH:3203,,,
 Condom,Coded,Male condom | Female condom,checkbox,No,no,CIEL:374,CIEL:164813|CIEL:164814,Condom,PIH:Family planning construct
 Other contraceptive methods,Coded,Emergency contraceptive pills,checkbox,No,no,CIEL:160693,CIEL:160570,,
-Permanent method,Coded,Tubal ligation,checkbox,No,no,CIEL:374,CIEL:1472,,PIH:Family planning construct
-Permanent method,Coded,Vasectomy,checkbox,No,no,CIEL:374,CIEL:1489,,PIH:Family planning construct
-Other family planning method,Coded,Lactation amenorrhea method (LAM),checkbox,No,no,CIEL:374,CIEL:136163,,PIH:Family planning construct
+Permanent method,Coded,Tubal ligation,checkbox,No,no,CIEL:374,CIEL:1472,Permanent method,PIH:Family planning construct
+Permanent method,Coded,Vasectomy,checkbox,No,no,CIEL:374,CIEL:1489,Permanent method,PIH:Family planning construct
+Other family planning method,Coded,Lactation amenorrhea method (LAM),checkbox,No,no,CIEL:374,CIEL:136163,Other family planning method,PIH:Family planning construct
 specify other method,Text,N/A,text,No,no,PIH:2996,,,
 Date of next appointment,Date,N/A,date,No,no,PIH:RETURN VISIT DATE,,,
 Referred out to other facility,Coded,Yes | No,radio,No,no,PIH:6547,CIEL:1065|CIEL:1066,,

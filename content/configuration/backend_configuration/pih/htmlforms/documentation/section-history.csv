@@ -24,36 +24,36 @@ Zl if Other Specify,Coded,N/A,radio,No,no,PIH:2996,,,
 pihcore.pregnancy.status,Coded,pihcore.pregnancy.status,checkbox,No,no,CIEL:5272,CIEL:1065,,
 Last Period,Coded,N/A,radio,No,no,CIEL:1427,,,
 Due Date,Date,N/A,date,No,no,CIEL:5596,,,
-CIEL:374,Coded,Oral contraception | Medroxyprogesterone acetate (Depo-provera) | Condoms | Levonorgestrel | Intra uterine device (IUD) | Tubal ligation | Vasectomy | Other,checkbox,No,no,CIEL:374,CIEL:780|CIEL:907|CIEL:190|CIEL:78796|CIEL:5275|CIEL:1472|CIEL:1489|CIEL:5622,CIEL:374,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163757,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
-CIEL:163758,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family Planning method,Coded,Oral contraception | Medroxyprogesterone acetate (Depo-provera) | Condoms | Levonorgestrel | Intra uterine device (IUD) | Tubal ligation | Vasectomy | Other,checkbox,No,no,CIEL:374,CIEL:780|CIEL:907|CIEL:190|CIEL:78796|CIEL:5275|CIEL:1472|CIEL:1489|CIEL:5622,Family Planning method,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning start date,Coded,N/A,radio,No,no,CIEL:163757,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
+Family planning end date,Date,N/A,date,No,no,CIEL:163758,,,PIH:Family planning history construct
 Zl if Other Specify,Coded,N/A,radio,No,no,PIH:2996,,,
-Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,,PIH:HOSPITALIZATION CONSTRUCT
-Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1640,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:1641,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162724,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
+Admit Date,Coded,N/A,radio,No,no,CIEL:162879,,Admit Date,PIH:HOSPITALIZATION CONSTRUCT
 Comment,Text,N/A,textarea,No,no,PIH:Hospitalization comment,,,
 Comment,Text,N/A,textarea,No,no,PIH:CURRENT MEDICATIONS,,,
 Zl consult Note diagnostic Tests History comment,Text,N/A,textarea,No,no,PIH:DIAGNOSTIC TESTS HISTORY,,,

@@ -8,7 +8,7 @@ Labour start date/time,Coded,pihcore.companionPresent,checkbox,No,no,PIH:6547,PI
 Duration of first stage,Coded,N/A,radio,No,no,PIH:20114,,,
 Duration of first stage,Coded,N/A,radio,No,no,PIH:20115,,,
 Second stage start date/time,Coded,N/A,radio,No,no,PIH:20113,,,
-Second stage start date/time,Coded,twins or triplets,checkbox,No,no,PIH:DIAGNOSIS,CIEL:115491,,PIH:Visit Diagnoses
+Second stage start date/time,Coded,twins or triplets,checkbox,No,no,PIH:DIAGNOSIS,CIEL:115491,Second stage start date/time,PIH:Visit Diagnoses
 Duration of second stage,Coded,N/A,radio,No,no,PIH:20116,,,
 Duration of second stage,Coded,N/A,radio,No,no,PIH:20117,,,
 Blood loss before delivery,Coded,N/A,radio,No,no,PIH:20130,,,
@@ -36,5 +36,5 @@ Procedure,Coded,episiotomy | suture of perineum,checkbox,No,no,CIEL:1651,CIEL:55
 Number of sutures,Coded,N/A,radio,No,no,PIH:20121,,,
 Number of sutures,Coded,N/A,radio,No,no,PIH:20126,,,
 Subform: lab-results-section.xml,Other,Subform — configuration/pih/subforms/lab-results-section.xml,subform,No,no,,,,
-PIH:20128,Coded,N/A,radio,No,no,PIH:20128,,,
+Perineum comments,Coded,N/A,radio,No,no,PIH:20128,,,
 Upload partogram,Coded,N/A,radio,No,no,PIH:13756,,,

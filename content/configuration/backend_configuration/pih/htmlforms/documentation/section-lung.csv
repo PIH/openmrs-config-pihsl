@@ -1,7 +1,7 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Restrictive lung diseases,Coded,Interstitial lung disease | Restrictive lung disease post-infection | Occupational lung disease | Restrictive lung disease,checkbox,No,no,PIH:DIAGNOSIS,CIEL:116711|PIH:14601|CIEL:132486|CIEL:127611,Restrictive lung diseases,PIH:Visit Diagnoses
-PIH:DIAGNOSIS,Coded,COPD | Asthma | Bronchiectasis,checkbox,No,no,PIH:DIAGNOSIS,CIEL:1295|CIEL:121375|CIEL:121011,PIH:DIAGNOSIS,PIH:Visit Diagnoses
-Obstructive lung diseases,Coded,Cor pulmonale,checkbox,No,no,PIH:DIAGNOSIS,CIEL:143381,,PIH:Visit Diagnoses
+Obstructive lung diseases,Coded,COPD | Asthma | Bronchiectasis,checkbox,No,no,PIH:DIAGNOSIS,CIEL:1295|CIEL:121375|CIEL:121011,Obstructive lung diseases,PIH:Visit Diagnoses
+Obstructive lung diseases,Coded,Cor pulmonale,checkbox,No,no,PIH:DIAGNOSIS,CIEL:143381,Obstructive lung diseases,PIH:Visit Diagnoses
 On medication with,Coded,Saba (Short-Acting Beta-Agonist) | Sama (Short-Acting Muscarinic Antagonist) | Laba (Long-Acting Beta-Agonist) | Lama (Long Acting Muscarinic Antagonist) | Oral Steroid | Steroid Inhaler | Oral Salbutamol,radio,No,no,PIH:14603,PIH:14604|PIH:14605|PIH:14606|PIH:14607|PIH:14608|PIH:14609|PIH:15163,,
 Copd Class,Coded,Pihcore.Gradea | Pihcore.Gradeb | Pihcore.Gradec | Pihcore.Graded,radio,No,no,PIH:COPD group classification,CIEL:165441|CIEL:165442|CIEL:165443|CIEL:165444,,
 Smoking cessation,Coded,Yes | No | Unknown,radio,No,no,CIEL:158939,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620
@@ -22,13 +22,13 @@ Triggers cause exacerbation of asthma,Coded,Yes | No,radio,No,no,PIH:14619,PIH:Y
 Asthma severity,Coded,Mild | Moderate | Severe,radio,No,no,PIH:7405,CIEL:1498|CIEL:1499|CIEL:1500,,
 Inhaler Ed,Coded,Yes | No | Unknown,radio,No,no,PIH:7399,PIH:YES|PIH:NO|CIEL:1067,,
 Good inhaler technique,Coded,Yes | No | Unknown,radio,No,no,PIH:7397,PIH:YES|PIH:NO|CIEL:1067,,
-Understands treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Missed doses in past week,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-{tog}-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Patient condition improved,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-{tog}-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
-Lung decompensation,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-{tog}-details,PIH:20008,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Understands treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-understands-details,CIEL:167914,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Ability to titrate treatment,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-titrate-details,PIH:14741,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Overall treatment adherence,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-adher-details,CIEL:164075,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Missed doses in past week,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-missed-details,CIEL:167819,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Aware and understands the disease,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-fui-aware-details,CIEL:167021,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Patient condition improved,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-improved-details,CIEL:1898,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
+Lung decompensation,Coded,Yes | No | Unknown,radio,No,Yes → show #lung-dc-fui-lungDecomp-details,PIH:20008,PIH:YES|PIH:NO|PIH:UNKNOWN,,PIH:14812
 Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO|PIH:UNKNOWN,Chronic lung disease followup indicators,PIH:14812
 # of missed doses in past week,Coded,N/A,radio,No,no,CIEL:167918,,Chronic lung disease followup indicators,PIH:14812
 Date,Coded,N/A,radio,No,no,CIEL:163724,,Spirometry,PIH:14610

@@ -35,8 +35,8 @@ Covers more than 75% of cervix,Coded,Yes | No,radio,No,no,PIH:21494,CIEL:1065|CI
 Extends into endocervical canal/vagina,Coded,Yes | No,radio,No,no,PIH:21498,CIEL:1065|CIEL:1066,,
 Eligible for cryotherapy,Coded,Yes | No,radio,No,no,PIH:21499,CIEL:1065|CIEL:1066,,
 Rapid Tests,Coded,"I hereby agree and consent to the procedure cryotherapy to be performed on me, the nature of which has been explained to me. I understand that an assurance                 has been given that the procedure will be performed by a particular person. I have also been informed what I need to care for myself after the procedure.",radio,No,no,CIEL:1710,CIEL:1065,,
-CIEL:1651,Coded,Cryotherapy of lesion of cervix | Thermocauterization of cervix | LEEP (loop electrosurgical excision procedure),checkbox,No,no,CIEL:1651,CIEL:162812|CIEL:166706|CIEL:162810,CIEL:1651,
-PIH:21615,Coded,Postponed cryotherapy | Postponed thermal ablation,checkbox,No,no,PIH:21615,PIH:21600|PIH:21614,PIH:21615,
+Treatment,Coded,Cryotherapy of lesion of cervix | Thermocauterization of cervix | LEEP (loop electrosurgical excision procedure),checkbox,No,no,CIEL:1651,CIEL:162812|CIEL:166706|CIEL:162810,Treatment,
+Treatment,Coded,Postponed cryotherapy | Postponed thermal ablation,checkbox,No,no,PIH:21615,PIH:21600|PIH:21614,Treatment,
 Reason for delay,Text,N/A,text,No,no,PIH:REASON TO POSTPONE TEXT,,,
 Subform: drug-order-widget.xml,Other,Subform — configuration/pih/subforms/drug-order-widget.xml,subform,No,no,,,,
 Referred to,Coded,Obstetrics/Gynecology | Family planning services | Mental health | Other,radio,No,Other → show #other-referral,CIEL:1272,PIH:7831|PIH:FAMILY PLANNING SERVICES|PIH:MENTAL HEALTH SERVICES|CIEL:5622,,PIH:12837
