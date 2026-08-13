@@ -191,35 +191,46 @@ def preceding_label(elem, pm, depth=4):
 
     return ''
 
-def get_preceding_label_for_elem(elem, pm):
-    """Find a label that precedes elem (used for repeat/obs blocks)."""
-    parent = pm.get(elem)
-    if parent is None:
-        return ''
-    children = list(parent)
-    try:
-        idx = children.index(elem)
-    except ValueError:
-        return ''
-    for i in range(idx - 1, -1, -1):
-        sib = children[i]
-        lbl = extract_label(sib)
-        if lbl:
-            return lbl
-        for sc in sib:
-            lbl = extract_label(sc)
+def get_preceding_label_for_elem(elem, pm, depth=4):
+    """Find a label that precedes elem (used for repeat/obs blocks).
+    Walks up the DOM up to `depth` levels to find a preceding sibling label."""
+    node = elem
+    for _ in range(depth):
+        parent = pm.get(node)
+        if parent is None:
+            break
+        children = list(parent)
+        try:
+            idx = children.index(node)
+        except ValueError:
+            break
+        for i in range(idx - 1, -1, -1):
+            sib = children[i]
+            lbl = extract_label(sib)
             if lbl:
                 return lbl
+            for sc in sib:
+                lbl = extract_label(sc)
+                if lbl:
+                    return lbl
+                for ssc in sc:
+                    lbl = extract_label(ssc)
+                    if lbl:
+                        return lbl
+        node = parent
     return ''
 
-def skip_logic_str(obs):
+def skip_logic_str(obs, ra=None):
+    """Build a human-readable skip logic string from <controls><when> elements.
+    ra: render-attribute dict used to substitute {var} placeholders in thenDisplay."""
+    ra = ra or {}
     controls = obs.find('controls')
     if controls is None:
         return 'no'
     parts = []
     for w in controls.findall('when'):
-        v = w.get('value', '')
-        d = w.get('thenDisplay', '')
+        v = sub(w.get('value', ''), ra)
+        d = sub(w.get('thenDisplay', ''), ra)
         if v and d:
             label = concept_label(v) if re.match(r'^(CIEL|PIH):', v) else v
             parts.append(f'{label} → show {d}')
@@ -264,8 +275,8 @@ def obs_row(obs, pm, ra=None, obsgroup=None, group_name='', label_override=''):
     possible = (' | '.join(labels)) if labels else ('N/A' if not concepts else ' | '.join(concepts))
     dt, inp = STYLE_MAP.get(style, ('Coded', style))
     req = 'Yes' if obs.get('required') == 'true' else 'No'
-    skip = skip_logic_str(obs)
-    q = label_override or preceding_label(obs, pm) or cid
+    skip = skip_logic_str(obs, ra)
+    q = label_override or preceding_label(obs, pm) or concept_label(cid)
 
     return make_row(q, dt, possible, inp, req, skip,
                     cid, '|'.join(concepts), group_name, obsgroup or '')
@@ -337,7 +348,7 @@ def process_repeat(repeat_elem, pm, obsgroup=None, group_name=''):
                 all_ans_concepts.append(ac)
 
             dt, inp = STYLE_MAP.get(style, ('Coded', style))
-            q = section_label or cid_tpl
+            q = section_label or concept_label(cid_tpl)
             rows.append(make_row(q, dt,
                                  ' | '.join(all_ans_labels), inp, 'No', 'no',
                                  cid_tpl, '|'.join(all_ans_concepts),
