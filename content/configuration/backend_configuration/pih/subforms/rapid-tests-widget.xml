@@ -66,8 +66,8 @@
                         </label>
                         <obs style="radio"
                              conceptId="CIEL:165182"
-                             answerConceptIds="CIEL:165183,CIEL:167156,CIEL:5622"
-                             answerCodes="No test kit,Patient refused,other"/>
+                             answerConceptIds="CIEL:165183,CIEL:167156,CIEL:159524,CIEL:5622"
+                             answerCodes="No test kit,Patient refused,Not sexually active,other"/>
                     </p>
                 </div>
             </excludeIf>
@@ -96,8 +96,8 @@
                     </label>
                     <obs style="radio"
                          conceptId="CIEL:165182"
-                         answerConceptIds="CIEL:165183,CIEL:167156,CIEL:5622"
-                         answerCodes="No test kit,Patient refused,other"/>
+                         answerConceptIds="CIEL:165183,CIEL:167156,CIEL:159524,CIEL:5622"
+                         answerCodes="No test kit,Patient refused,Not sexually active,other"/>
                 </p>
             </div>
         </obsgroup>
