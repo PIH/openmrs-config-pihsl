@@ -605,7 +605,7 @@ sexually in any way that you did not want in the past year?" />
                         <label>
                             <uimessage code="Referred to:"/>
                         </label>
-                        <br/>
+
                         <repeat>
                             <template>
                                 <obs conceptId="CIEL:1272" style="checkbox"
@@ -618,7 +618,7 @@ sexually in any way that you did not want in the past year?" />
                             <render aCId="PIH:7831" nameLabel="Gynea clinic" />
                             <render aCId="PIH:MENTAL HEALTH SERVICES" nameLabel="Mental health" />
                             <render aCId="PIH:20638" nameLabel="Rainbow clinic" />
-                            <render aCId="PIH:21705" nameLabel="Sickle-cell clinic" />
+                            <render aCId="PIH:21714" nameLabel="Dabunde Sickle Clinic" />
                             <render aCId="CIEL:5622" nameLabel="other" />
                         </repeat>
 

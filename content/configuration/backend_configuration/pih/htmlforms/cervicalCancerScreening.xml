@@ -393,16 +393,16 @@
                         </label>
                         <repeat>
                             <template>
-                                <obs conceptId="PIH:21500" style="checkbox"
+                                <obs conceptId="CIEL:170844" style="checkbox"
                                      answerConceptId="{cId}" answerCode="Q{quad}" />
                             </template>
-                            <render quad="1" cId="CIEL:160380" />
-                            <render quad="2" cId="CIEL:5107" />
-                            <render quad="3" cId="CIEL:160381" />
-                            <render quad="4" cId="CIEL:5104" />
+                            <render quad="1" cId="CIEL:170841" />
+                            <render quad="2" cId="CIEL:170842" />
+                            <render quad="3" cId="CIEL:170843" />
+                            <render quad="4" cId="CIEL:170840" />
                         </repeat>
-                        <obs conceptId="PIH:21500" style="checkbox"
-                             answerConceptId="PIH:21623" />
+                        <obs conceptId="CIEL:170844" style="checkbox"
+                             answerConceptId="CIEL:170839" />
                     </td>
                     <td width="70%">
                         <ifMode mode="VIEW" include="false">
