@@ -109,6 +109,7 @@ sexually in any way that you did not want in the past year?" />
                         </label>
                         <br/>
                         <obs id="referral-list" conceptId="PIH:21696" style="radio"
+                             answerConceptIds="PIH:21695,PIH:21692,PIH:21690,PIH:21689,PIH:21688,PIH:21687,PIH:21694,PIH:21686,PIH:21685,PIH:21691,PIH:21693,PIH:21683,PIH:1791,PIH:5622"
                              answerSeparator="&lt;br /&gt;" >
                             <controls>
                                 <when value="CIEL:5622" thenDisplay="#other-ref-text"/>
