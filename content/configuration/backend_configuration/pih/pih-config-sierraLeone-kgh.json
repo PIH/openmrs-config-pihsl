@@ -28,6 +28,7 @@
     "managePrinters",
     "markPatientDead",
     "mchForms",
+    "mchGynecologyForms",
     "mcoeForms",
     "mchTriage",
     "medicationDispensing",
