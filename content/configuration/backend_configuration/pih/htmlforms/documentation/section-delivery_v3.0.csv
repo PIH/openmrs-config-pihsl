@@ -9,7 +9,7 @@ Presentation and position:,Coded,N/A,radio,No,Other → show #other-presentation
 Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14414,,,
 Delivery date/time,Date,N/A,date,Yes,no,CIEL:5599,,,
 Type,Coded,Spontaneous vaginal delivery | Breech | Delivery by cesarean section,radio,No,no,PIH:11663,CIEL:1170|PIH:1172|CIEL:155884,,
-Outcome,Coded,Alive | Fsb | Msb,radio,No,no,CIEL:159917,CIEL:151849|CIEL:159916|CIEL:135436,,
+Outcome,Coded,Alive | FSB | MSB,radio,No,no,CIEL:159917,CIEL:151849|CIEL:159916|CIEL:135436,,
 Was the partograph used?,Coded,Yes | No,radio,No,no,PIH:13964,CIEL:1065|CIEL:1066,,
 Uterotonic given immediately after birth? (Oxytocin/ HSC),Coded,Yes | No,radio,No,no,PIH:14373,CIEL:1065|CIEL:1066,,
 Perineal Tear,Coded,"Perineal laceration, first degree | Perineal laceration, second degree | Perineal laceration, third degree | Perineal laceration, fourth degree",radio,No,no,CIEL:165247,CIEL:165521|CIEL:165522|CIEL:165523|CIEL:165524,,
@@ -19,8 +19,8 @@ Apgar Score1,Coded,N/A,radio,No,no,PIH:14419,,,
 Apgar Score,Coded,N/A,radio,No,no,CIEL:159604,,,
 Apgar Score10,Coded,N/A,radio,No,no,PIH:14785,,,
 Breastfeeding initiated within 1 hour after birth,Coded,Yes | No,radio,No,no,CIEL:161543,CIEL:1065|CIEL:1066,,
-Mother,Coded,gbv | Chorioamnionitis | severe pre-eclampsia | eclampsia | Prolonged labour | Acute pulmonary oedema | Puerperal sepsis | herpes | syphilis,checkbox,No,no,PIH:DIAGNOSIS,CIEL:165088|CIEL:145548|CIEL:113006|PIH:Eclampsia|CIEL:113602|CIEL:121856|CIEL:130|CIEL:138706|CIEL:112493,Mother,PIH:Visit Diagnoses
-Mother,Coded,pihcore.mch.otherSTI,checkbox,No,no,PIH:6644,PIH:174,,
+Mother,Coded,Gbv | Chorioamnionitis | severe pre-eclampsia | Eclampsia | Prolonged labour | Acute pulmonary oedema | Puerperal sepsis | Herpes | Syphilis,checkbox,No,no,PIH:DIAGNOSIS,CIEL:165088|CIEL:145548|CIEL:113006|PIH:Eclampsia|CIEL:113602|CIEL:121856|CIEL:130|CIEL:138706|CIEL:112493,Mother,PIH:Visit Diagnoses
+Mother,Coded,Other STI,checkbox,No,no,PIH:6644,PIH:174,,
 Mother,Coded,Other,checkbox,No,no,PIH:6644,PIH:OTHER,,
 Mother,Coded,Postpartum hemorrhage,checkbox,No,no,PIH:DIAGNOSIS,PIH:POSTPARTUM HEMORRHAGE,Mother,PIH:Visit Diagnoses
 Mother,Coded,N/A,radio,No,no,PIH:Estimated blood loss,,,

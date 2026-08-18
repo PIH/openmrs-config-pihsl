@@ -1,7 +1,7 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Trimester At Enrollment,Coded,First trimester | Second trimester | Third trimester,radio,No,no,PIH:11661,CIEL:1721|CIEL:1722|CIEL:1723,,
 Sl anc number of visits,Coded,N/A,radio,No,no,CIEL:1590,,,
-Referred By,Coded,Peripheral Health Unit (Phu) | Chw | Traditional Birth Attendant (Tba) | Self-Refer | Other,radio,No,no,PIH:Type of referring service,PIH:12368|CIEL:1555|CIEL:1575|CIEL:978|CIEL:5622,,
+Referred By,Coded,Peripheral Health Unit (PHU) | CHW | Traditional birth attendant (TBA) | Self-refer | Other,radio,No,no,PIH:Type of referring service,PIH:12368|CIEL:1555|CIEL:1575|CIEL:978|CIEL:5622,,
 Reason for referral,Coded,N/A,radio,No,no,CIEL:164359,,,
 Weight of other babies,Coded,Low | Normal | High,checkbox,No,no,PIH:20072,CIEL:1407|CIEL:1115|CIEL:1408,Weight of other babies,
 Nextofkin,Coded,N/A,radio,No,no,CIEL:162729,,,

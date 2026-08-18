@@ -21,7 +21,7 @@ Eyes,Coded,Clear | Red eyes | Yellow color | Neonatal conjunctivitis of both eye
 Comments about eyes,Text,N/A,text,No,no,CIEL:168722,,,
 Skin color,Coded,Normal | Cyanosis | Neonatal jaundice,checkbox,No,no,CIEL:1120,CIEL:1115|CIEL:143050|CIEL:115368,Skin color,
 Comments about skin,Text,N/A,text,No,no,CIEL:160981,,,
-Urination,Coded,Normal (Passed Urine) | Anuria (No Urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
+Urination,Coded,Normal (passed urine) | Anuria (No urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
 Date & time of 1st urination,Date,N/A,date,No,no,PIH:20266,,,
 Comments about urination,Text,N/A,text,No,no,CIEL:166363,,,
 Stool,Coded,Meconium colored feces | Green-brown color | Yellow color | None,radio,No,no,CIEL:163640,CIEL:168748|CIEL:168749|CIEL:160910|CIEL:1107,,

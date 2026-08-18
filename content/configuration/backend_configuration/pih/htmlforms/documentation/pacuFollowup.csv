@@ -24,6 +24,6 @@ Feeding started,Coded,Yes | No,radio,No,no,CIEL:170355,CIEL:1065|CIEL:1066,,
 Urinary catheter removed,Coded,Yes | No,radio,No,no,CIEL:170483,CIEL:1065|CIEL:1066,,
 Vitals gcs,Coded,N/A,radio,No,no,CIEL:160347,,,
 Blood transfusion,Coded,N/A,radio,No,no,CIEL:166650,,Blood transfusion,PIH:Transfusion construct
-Urgency,Coded,Routine | Urgent | Emergency Release,radio,No,no,CIEL:161238,CIEL:161236|CIEL:1882|PIH:21137,Blood transfusion,PIH:Transfusion construct
+Urgency,Coded,Routine | Urgent | emergency release,radio,No,no,CIEL:161238,CIEL:161236|CIEL:1882|PIH:21137,Blood transfusion,PIH:Transfusion construct
 Urine output,Coded,N/A,radio,No,no,PIH:21114,,,
 Disposition,Other,Disposition widget,disposition widget,Yes,no,,,,
