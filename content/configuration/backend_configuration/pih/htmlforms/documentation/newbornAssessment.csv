@@ -1,11 +1,11 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
-Pih task newborn Assessment,Coded,Type 1 Diabetes | Type 2 Diabetes | Gestational diabetes | Eclampsia | Postpartum haemorrhage | Preeclampsia | Victim of GBV (gender-based violence) | Multiple gestation | Signs of foetal distress | Abnormal foetal presentation | Sickle-cell disease | other,checkbox,No,no,PIH:3334,CIEL:142474|CIEL:142473|CIEL:1449|CIEL:118744|CIEL:230|CIEL:129251|CIEL:165088|CIEL:115491|CIEL:118256|CIEL:150862|CIEL:117703|CIEL:5622,Pih task newborn Assessment,
+Pih task newborn Assessment,Coded,Type 1 Diabetes | Type 2 Diabetes | Gestational diabetes | Eclampsia | Postpartum haemorrhage | Preeclampsia | Victim of GBV (gender-based violence) | Multiple gestation | Signs of foetal distress | Abnormal foetal presentation | Sickle-cell disease | Other,checkbox,No,no,PIH:3334,CIEL:142474|CIEL:142473|CIEL:1449|CIEL:118744|CIEL:230|CIEL:129251|CIEL:165088|CIEL:115491|CIEL:118256|CIEL:150862|CIEL:117703|CIEL:5622,Pih task newborn Assessment,
 Zl if Other Specify,Coded,N/A,radio,No,no,PIH:14679,,,
 Date & time of delivery,Date,N/A,date,No,no,CIEL:5599,,,
 Gestation age,Coded,N/A,radio,No,no,CIEL:165425,,,
 Type of delivery,Coded,Spontaneous vaginal delivery | Breech | Delivery by cesarean section,radio,No,no,PIH:11663,CIEL:1170|PIH:1172|CIEL:155884,,
-Outcome,Coded,Alive | Fsb | Msb,radio,No,Livebirth → show #alive-details,CIEL:159917,CIEL:151849|CIEL:159916|CIEL:135436,,
+Outcome,Coded,Alive | FSB | MSB,radio,No,Livebirth → show #alive-details,CIEL:159917,CIEL:151849|CIEL:159916|CIEL:135436,,
 Sex,Coded,M | F,radio,No,no,CIEL:1587,CIEL:1534|CIEL:1535,,
 Birth weight,Coded,N/A,radio,No,no,CIEL:5916,,,
 Birth length,Coded,N/A,radio,No,no,CIEL:163554,,,

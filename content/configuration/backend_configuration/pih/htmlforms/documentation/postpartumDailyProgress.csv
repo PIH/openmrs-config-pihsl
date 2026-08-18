@@ -2,11 +2,11 @@ Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for 
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
 Subform: vital-signs-widget.xml,Other,Subform — configuration/pih/subforms/vital-signs-widget.xml,subform,No,no,,,,
 Number of days since delivery,Coded,N/A,radio,No,no,CIEL:1879,,,
-Lochia Type,Coded,Pihcore.Lochia.Rubra | Pihcore.Lochia.Serosa | Pihcore.Lochia.Alba,radio,No,no,CIEL:159721,CIEL:159722|CIEL:159724|CIEL:159723,,
+Lochia Type,Coded,Lochia rubra | Lochia serosa | Lochia alba,radio,No,no,CIEL:159721,CIEL:159722|CIEL:159724|CIEL:159723,,
 Lochia Odor,Coded,Normal | Lochia foul smelling,radio,No,no,PIH:14062,CIEL:1115|CIEL:159846,,
 Lochia Quant,Coded,+ | ++ | +++,radio,No,no,CIEL:167042,PIH:12270|CIEL:1363|CIEL:1364,,
 Number Pads,Coded,N/A,radio,No,no,CIEL:166895,,Number Pads,CIEL:166896
-Number Pads,Coded,Pihcore.Perhour | Pihcore.Perday,radio,No,no,PIH:TIME UNITS,CIEL:1822|CIEL:1072,Number Pads,CIEL:166896
+Number Pads,Coded,Per Hour | Per Day,radio,No,no,PIH:TIME UNITS,CIEL:1822|CIEL:1072,Number Pads,CIEL:166896
 Uterus Involution,Coded,Normal | Abnormal,radio,No,Abnormal → show #abnormal-involution,CIEL:167038,CIEL:1115|CIEL:1116,,
 If Abnormal,Coded,N/A,radio,No,no,PIH:14063,,,
 Uterus Palpation,Coded,Tender uterus | Non-tender uterus,radio,No,no,CIEL:167035,CIEL:167036|CIEL:167037,,
@@ -17,12 +17,12 @@ Postpartum complications,Coded,Other,checkbox,No,Other → show #otherPostpartCo
 "if other complication, specify:",Text,N/A,text,No,no,PIH:13094,,,
 Postpartum haemorrhage treatment,Coded,Oxytocin | Misoprostol | Bimanual uterine massage | Aortic compression for postpartum haemorrhage | Intrauterine tamponade with Bakri balloon | Tranexamic acid,checkbox,No,no,PIH:20865,CIEL:81369|CIEL:79984|CIEL:169674|CIEL:169675|CIEL:164162|CIEL:85286,Postpartum haemorrhage treatment,
 Cs Wound Status,Coded,Surgical wound healed | Wound dressing | Change of dressing | Wound intact and healing | Abscess | Wound dehiscence | Not applicable | Other,checkbox,No,no,CIEL:162128,CIEL:162130|CIEL:441|CIEL:151596|CIEL:162129|CIEL:150632|CIEL:163799|CIEL:1175|CIEL:5622,Cs Wound Status,
-Perineum Intact,Coded,Yes | No | Pihcore.Na,radio,No,no,CIEL:160089,CIEL:1065|CIEL:1066|CIEL:1175,,
-Perineum Wound Infection,Coded,Yes | No | Pihcore.Na,radio,No,no,PIH:14065,CIEL:1065|CIEL:1066|CIEL:1175,,
-Breast,Coded,goodMilk | crackNip | engorgedBreast | mastitis | breastAbscess,checkbox,No,no,CIEL:159780,PIH:14061|CIEL:140103|CIEL:118620|CIEL:115914|CIEL:115099,Breast,
+Perineum Intact,Coded,Yes | No | Na,radio,No,no,CIEL:160089,CIEL:1065|CIEL:1066|CIEL:1175,,
+Perineum Wound Infection,Coded,Yes | No | Na,radio,No,no,PIH:14065,CIEL:1065|CIEL:1066|CIEL:1175,,
+Breast,Coded,Good Milk | Crack Nip | Engorged Breast | Mastitis | Breast Abscess,checkbox,No,no,CIEL:159780,PIH:14061|CIEL:140103|CIEL:118620|CIEL:115914|CIEL:115099,Breast,
 Mentalhealth mood short,Coded,Depressed | Neutral | Elevated | Anxious | Irritable,checkbox,No,no,CIEL:167099 ,CIEL:119537|CIEL:167100|CIEL:166050|CIEL:121543|CIEL:6023,Mentalhealth mood short,
 Bowels,Coded,Normal | Abnormal,radio,No,no,CIEL:163188,CIEL:1115|CIEL:1116,,
-Urination,Coded,Normal (Passed Urine) | Anuria (No Urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
+Urination,Coded,Normal (passed urine) | Anuria (No urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
 Comments about urination,Text,N/A,text,No,no,CIEL:166363,,,
 Leg pain,Coded,Leg pain,radio,No,no,,CIEL:114395,Comments about urination,PIH:14875
 Pain level (0-10),Coded,N/A,radio,No,no,PIH:Pain Score,,,

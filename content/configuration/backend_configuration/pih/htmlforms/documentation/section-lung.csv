@@ -2,8 +2,8 @@ Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for 
 Restrictive lung diseases,Coded,Interstitial lung disease | Restrictive lung disease post-infection | Occupational lung disease | Restrictive lung disease,checkbox,No,no,PIH:DIAGNOSIS,CIEL:116711|PIH:14601|CIEL:132486|CIEL:127611,Restrictive lung diseases,PIH:Visit Diagnoses
 Obstructive lung diseases,Coded,COPD | Asthma | Bronchiectasis,checkbox,No,no,PIH:DIAGNOSIS,CIEL:1295|CIEL:121375|CIEL:121011,Obstructive lung diseases,PIH:Visit Diagnoses
 Obstructive lung diseases,Coded,Cor pulmonale,checkbox,No,no,PIH:DIAGNOSIS,CIEL:143381,Obstructive lung diseases,PIH:Visit Diagnoses
-On medication with,Coded,Saba (Short-Acting Beta-Agonist) | Sama (Short-Acting Muscarinic Antagonist) | Laba (Long-Acting Beta-Agonist) | Lama (Long Acting Muscarinic Antagonist) | Oral Steroid | Steroid Inhaler | Oral Salbutamol,radio,No,no,PIH:14603,PIH:14604|PIH:14605|PIH:14606|PIH:14607|PIH:14608|PIH:14609|PIH:15163,,
-Copd Class,Coded,Pihcore.Gradea | Pihcore.Gradeb | Pihcore.Gradec | Pihcore.Graded,radio,No,no,PIH:COPD group classification,CIEL:165441|CIEL:165442|CIEL:165443|CIEL:165444,,
+On medication with,Coded,SABA (Short-acting beta-agonist) | SAMA (Short-acting muscarinic antagonist) | LABA (Long-acting beta-agonist) | LAMA (Long acting muscarinic antagonist) | Oral steroid | Steroid inhaler | Oral salbutamol,radio,No,no,PIH:14603,PIH:14604|PIH:14605|PIH:14606|PIH:14607|PIH:14608|PIH:14609|PIH:15163,,
+Copd Class,Coded,Grade A | Grade B | Grade C | Grade D,radio,No,no,PIH:COPD group classification,CIEL:165441|CIEL:165442|CIEL:165443|CIEL:165444,,
 Smoking cessation,Coded,Yes | No | Unknown,radio,No,no,CIEL:158939,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620
 COPD evaluation,Coded,Dyspnea | Chest tightness | Wheeze | Cough | Productive cough,radio,No,no,,CIEL:122496|CIEL:124665|CIEL:5209|CIEL:143264|CIEL:5957,COPD evaluation,PIH:14620
 Increased inhaler use,Coded,Yes | No | Unknown,radio,No,no,PIH:14622,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:14620

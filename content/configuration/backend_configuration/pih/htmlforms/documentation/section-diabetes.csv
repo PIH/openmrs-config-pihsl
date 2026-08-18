@@ -1,6 +1,6 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
-Diagnosis,Coded,Type 1 Dm | Type 2 Dm | Gestational Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|PIH:Gestational diabetes,Diabetes Type,PIH:Visit Diagnoses
-Diagnosis,Coded,Type 1 Dm | Type 2 Dm,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473,,PIH:Visit Diagnoses
+Diagnosis,Coded,Type 1 DM | Type 2 DM | Gestational DM,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473|PIH:Gestational diabetes,Diabetes Type,PIH:Visit Diagnoses
+Diagnosis,Coded,Type 1 DM | Type 2 DM,radio,Yes,no,PIH:DIAGNOSIS,CIEL:142474|CIEL:142473,,PIH:Visit Diagnoses
 Complications related to diabetes,Coded,Diabetic foot | Neuropathy | Diabetic retinopathy | Cardiovascular disease | Cerebrovascular accident | Chronic kidney disease | Cataract | Sexual dysfunction | Complications at injection site | None,checkbox,No,no,PIH:14485,CIEL:142452|CIEL:118983|CIEL:142429|CIEL:119270|CIEL:111103|CIEL:145438|CIEL:120860|CIEL:150807|PIH:14706|CIEL:1107,Complications related to diabetes,
 "if other complications, specify",Coded,N/A,radio,No,no,PIH:14711,,,
 Complications at injection site,Coded,"Lipohypertrophy | Infection following infusion, injection, transfusion and/or vaccination | Hematoma | Other",checkbox,No,no,PIH:14706,PIH:14705|CIEL:137300|CIEL:156567|CIEL:5622,Complications at injection site,

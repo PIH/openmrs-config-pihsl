@@ -1,7 +1,7 @@
 Question,Datatype,Possible Answers,input type,required?,skip logic?,concept for question,concepts for answers,group name (if part of concept group),concept group mapping
 Subform: encounter-provider-location-date.xml,Other,Subform — configuration/pih/subforms/encounter-provider-location-date.xml,subform,No,no,,,,
 Presenting history,Text,N/A,textarea,No,no,CIEL:1390,,,
-Condition at admission,Coded,Good | Fair | Poor | Very Poor,radio,No,no,CIEL:160116,PIH:GOOD|CIEL:159406|CIEL:159407|CIEL:167806,,
+Condition at admission,Coded,Good | Fair | Poor | very poor,radio,No,no,CIEL:160116,PIH:GOOD|CIEL:159406|CIEL:159407|CIEL:167806,,
 Clinical adverse effect (in past 24 hours),Coded,Yes | No,radio,No,no,CIEL:162871,CIEL:1065|CIEL:1066,,
 Name of family member,Coded,N/A,radio,No,no,CIEL:160750,,,PIH:13182
 Age (years),Coded,N/A,radio,No,no,PIH:3467,,,PIH:13182
@@ -9,7 +9,7 @@ Telephone number of contact,Coded,N/A,radio,No,no,PIH:6194,,,PIH:13182
 Mother alive,Coded,Yes | No | Unknown,radio,No,no,PIH:20363,CIEL:1065|CIEL:1066|CIEL:1067,,PIH:13182
 Quantitative outcome of delivery,Coded,Singleton | Twins | Triplets | Other | Unknown,radio,No,no,CIEL:159949,CIEL:159913|CIEL:159914|CIEL:159915|CIEL:5622|CIEL:1067,,PIH:13182
 Type of delivery,Coded,Spontaneous vaginal delivery | Delivery by cesarean section,radio,No,no,PIH:11663,CIEL:1170|CIEL:155884,,
-Delivery location,Coded,Home | In-Transit | Private Clinic | Phu | Other,radio,No,Other → show #delivery-location-other,PIH:20260,PIH:7889|CIEL:1601|CIEL:160479|PIH:12368|CIEL:5622,,
+Delivery location,Coded,Home | In-transit | private clinic | PHU | Other,radio,No,Other → show #delivery-location-other,PIH:20260,PIH:7889|CIEL:1601|CIEL:160479|PIH:12368|CIEL:5622,,
 "if other, specify delivery location:",Coded,N/A,radio,No,no,PIH:1389,,,
 Method of transport,Coded,Ambulance | Motorbike | Walking | Car | Other,radio,No,Other → show #other-transport,PIH:975,PIH:15074|PIH:MOTORBIKE|PIH:WALKING|PIH:CAR|PIH:OTHER,,
 "If other, specify transport method:",Text,N/A,text,No,no,PIH:1301,,,
@@ -31,7 +31,7 @@ Eyes,Coded,Clear | Red eyes | Yellow color | Neonatal conjunctivitis of both eye
 Comments about eyes,Text,N/A,text,No,no,CIEL:168722,,,
 Skin color,Coded,Normal | Cyanosis | Neonatal jaundice,checkbox,No,no,CIEL:1120,CIEL:1115|CIEL:143050|CIEL:115368,Skin color,
 Comments about skin,Text,N/A,text,No,no,CIEL:160981,,,
-Urination,Coded,Normal (Passed Urine) | Anuria (No Urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
+Urination,Coded,Normal (passed urine) | Anuria (No urination),radio,No,no,CIEL:166358,CIEL:1115|CIEL:148566,,
 Comments about urination,Text,N/A,text,No,no,CIEL:166363,,,
 Stool,Coded,Meconium colored feces | Green-brown color | Yellow color | None,radio,No,no,CIEL:163640,CIEL:168748|CIEL:168749|CIEL:160910|CIEL:1107,,
 Comments about stool,Text,N/A,text,No,no,CIEL:160965,,,

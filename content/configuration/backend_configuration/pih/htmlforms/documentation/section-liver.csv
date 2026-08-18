@@ -18,8 +18,8 @@ Send for admission,Coded,Yes | No | Unknown,radio,No,no,CIEL:1788,PIH:YES|PIH:NO
 Indication for Hepatitis B treatment,Coded,Yes | No,radio,Yes,Yes → show #new-hepb-reason,PIH:14889,PIH:YES|PIH:NO,Clinical indicators,PIH:14827
 Clinical indicators,Coded,APRI score over 1.5 or ultrasound indicates cirrhosis | Chronic hepatitis C with HIV infection | Hepatitis B DNA (Viral Load) above 2000 and ALT 1.5x above upper limit,checkbox,No,no,PIH:14914,PIH:20018|CIEL:168583|PIH:20019,Clinical indicators,PIH:14827
 Clinical indicators,Coded,Hepatitis B DNA (Viral Load) above 2000 or HbeAg positive during pregnancy | Viral load not available during pregnancy,checkbox,No,no,PIH:14914,PIH:20020|PIH:20016,Clinical indicators,PIH:14827
-Awareness and treatment,Coded,Yes | No | Not Applicable,radio,Yes,Yes → show #hepB-details,PIH:14889,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
+Awareness and treatment,Coded,Yes | No | not applicable,radio,Yes,Yes → show #hepB-details,PIH:14889,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
 Awareness and treatment,Coded,Tenofovir | Entecavir,checkbox,No,no,PIH:14888,CIEL:84795|CIEL:75694,Awareness and treatment,PIH:14890
-Secondary effects,Coded,Yes | No | Not Applicable,radio,No,no,CIEL:162871,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
-Missed doses in the last week,Coded,Yes | No | Not Applicable,radio,No,no,CIEL:167819,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
-Response to treatment (after 1 year),Coded,Complete (Undetectable Vl) | Partial (Decrease But Persistent) | No Response | Lab Not Done,radio,No,no,PIH:14892,CIEL:1775|CIEL:162677|PIH:2416|CIEL:1118,Awareness and treatment,PIH:14890
+Secondary effects,Coded,Yes | No | not applicable,radio,No,no,CIEL:162871,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
+Missed doses in the last week,Coded,Yes | No | not applicable,radio,No,no,CIEL:167819,CIEL:1065|CIEL:1066|CIEL:1175,Awareness and treatment,PIH:14890
+Response to treatment (after 1 year),Coded,complete (undetectable VL) | partial (decrease but persistent) | no response | lab not done,radio,No,no,PIH:14892,CIEL:1775|CIEL:162677|PIH:2416|CIEL:1118,Awareness and treatment,PIH:14890
