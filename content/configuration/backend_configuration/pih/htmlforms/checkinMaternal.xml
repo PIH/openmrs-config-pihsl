@@ -30,10 +30,6 @@
             display: inline-block;
         }
 
-        #who-when-where {
-            border-bottom: none !important;
-        }
-
         #check-in-form fieldset p {
             vertical-align: top;
             float: none;
